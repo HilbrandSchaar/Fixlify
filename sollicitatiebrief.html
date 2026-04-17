@@ -192,10 +192,20 @@ De brief moet:
       })
     });
     let data=await response.json();
-    let text=data.content.map(function(item){return item.type==='text'?item.text:''}).filter(Boolean).join('\n');
-    briefBody=text.trim();
+    console.log('API response:',JSON.stringify(data));
+    if(data.error){
+      briefBody='API fout: '+data.error.message;
+    }else if(data.content&&Array.isArray(data.content)){
+      let text='';
+      for(let i=0;i<data.content.length;i++){
+        if(data.content[i].type==='text')text+=data.content[i].text;
+      }
+      briefBody=text.trim();
+    }else{
+      briefBody='Onverwacht antwoord van API. Probeer opnieuw.';
+    }
   }catch(e){
-    briefBody='Er is een fout opgetreden bij het genereren van de brief. Probeer het opnieuw.\n\nFout: '+e.message;
+    briefBody='Er is een fout opgetreden. Controleer je internetverbinding en probeer opnieuw.\n\nFout: '+e.message;
   }
 
   document.getElementById('loadingState').style.display='none';
@@ -279,3 +289,4 @@ uP();
 </script>
 </body>
 </html>
+
