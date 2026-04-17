@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sollicitatiebrief Generator — Fixlify</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Outfit',sans-serif;color:#111827;background:#FAFAFA}a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,250,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);padding:12px 0}
+.ni{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.lo{display:flex;align-items:center;gap:8px}.loi{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}.lot{font-weight:700;font-size:20px}.nb{color:#2563EB;font-weight:600;font-size:13px}
+.container{max-width:700px;margin:0 auto;padding:0 24px}
+.hero{padding:90px 0 30px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(37,99,235,.08);border-radius:100px;margin-bottom:14px;font-size:13px;font-weight:600;color:#2563EB}
+.hero h1{font-size:36px;font-weight:800;letter-spacing:-.03em;margin-bottom:10px}
+.hero h1 span{background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:16px;color:#6B7280;max-width:480px;margin:0 auto;line-height:1.6}
+.prog{display:flex;gap:4px;margin-bottom:24px;max-width:700px;margin-left:auto;margin-right:auto;padding:0 24px}
+.prg{flex:1;height:4px;border-radius:2px;background:#E5E7EB}.prg.a{background:#2563EB}.prg.d{background:#10B981}
+.card{background:#fff;border-radius:16px;border:1px solid #E5E7EB;padding:28px;margin-bottom:20px;box-shadow:0 4px 20px rgba(0,0,0,.03)}
+.card h2{font-size:17px;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.card h2 .ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px}
+.stp{display:none}.stp.a{display:block}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:12px;font-weight:600;margin-bottom:3px}
+.fg .ht{font-size:10px;color:#9CA3AF;margin-top:2px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+input,select,textarea{width:100%;padding:10px 12px;border:1.5px solid #E5E7EB;border-radius:8px;font-size:14px;font-family:'Outfit';color:#111827;background:#fff}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#2563EB}
+textarea{resize:vertical;min-height:70px}
+select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239CA3AF' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.brw{display:flex;gap:8px;margin-top:20px}
+.bnx{flex:1;padding:12px;background:#2563EB;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;font-family:'Outfit';cursor:pointer}
+.bnx:hover{opacity:.9}
+.bnx:disabled{opacity:.5;cursor:not-allowed}
+.bpx{padding:12px 18px;background:#fff;color:#111827;border:1.5px solid #E5E7EB;border-radius:8px;font-size:14px;font-weight:600;font-family:'Outfit';cursor:pointer}
+.bdl{width:100%;padding:14px;background:#F97316;color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:700;font-family:'Outfit';cursor:pointer;margin-top:14px}
+.bdl:hover{opacity:.9}
+.brief-box{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:32px;margin-bottom:16px;font-family:Georgia,serif;font-size:14px;line-height:1.8;color:#333;white-space:pre-wrap}
+.brief-header{font-family:'Outfit',sans-serif;font-size:13px;line-height:1.6;color:#555;margin-bottom:16px}
+.brief-subject{font-weight:700;margin:12px 0 10px;font-family:'Outfit',sans-serif;font-size:14px;color:#111}
+.edit-area{width:100%;min-height:300px;padding:20px;border:1.5px solid #E5E7EB;border-radius:10px;font-family:Georgia,serif;font-size:14px;line-height:1.8;color:#333;resize:vertical}
+.edit-area:focus{outline:none;border-color:#2563EB}
+.toggle-edit{background:none;border:none;color:#2563EB;font-weight:600;font-size:13px;cursor:pointer;font-family:'Outfit';margin-bottom:12px}
+.loading{text-align:center;padding:40px;color:#6B7280}
+.loading .spinner{width:40px;height:40px;border:3px solid #E5E7EB;border-top:3px solid #2563EB;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading p{font-size:14px;margin-bottom:4px}
+.loading .sub{font-size:12px;color:#9CA3AF}
+footer{padding:30px 0;text-align:center;border-top:1px solid #E5E7EB;margin-top:30px}
+footer span{color:#9CA3AF;font-size:12px}
+@media(max-width:640px){.fr{grid-template-columns:1fr}.hero h1{font-size:28px}}
+</style>
+</head>
+<body>
+<nav><div class="ni"><a href="/" class="lo"><div class="loi">F</div><span class="lot">fixlify</span></a><a href="/" class="nb">&larr; Alle tools</a></div></nav>
+
+<section class="hero"><div class="container">
+<div class="badge">&#10024; AI-geschreven op maat</div>
+<h1>Sollicitatiebrief <span>Generator</span></h1>
+<p>Vul je gegevens in en ontvang een professionele sollicitatiebrief op maat, geschreven door AI. Direct downloaden als PDF.</p>
+</div></section>
+
+<div class="prog" id="prg"></div>
+
+<div class="container">
+<!-- STAP 1 -->
+<div class="stp a" id="s0">
+<div class="card">
+<h2><span class="ic" style="background:rgba(37,99,235,.08)">&#128100;</span> Jouw gegevens</h2>
+<div class="fr"><div class="fg"><label>Volledige naam *</label><input id="naam" placeholder="Jan van der Berg"></div><div class="fg"><label>Telefoonnummer</label><input id="tel" placeholder="06-12345678"></div></div>
+<div class="fr"><div class="fg"><label>E-mailadres *</label><input id="email" placeholder="jan@voorbeeld.nl"></div><div class="fg"><label>LinkedIn (optioneel)</label><input id="linkedin" placeholder="linkedin.com/in/janvdberg"></div></div>
+<div class="fr"><div class="fg"><label>Adres</label><input id="adres" placeholder="Keizersgracht 123"></div><div class="fg"><label>Postcode + Plaats</label><input id="plaats" placeholder="1015 CJ Amsterdam"></div></div>
+<div class="brw"><div></div><button class="bnx" onclick="go(1)">Volgende &rarr;</button></div>
+</div></div>
+
+<!-- STAP 2 -->
+<div class="stp" id="s1">
+<div class="card">
+<h2><span class="ic" style="background:rgba(124,58,237,.08)">&#127970;</span> De vacature</h2>
+<div class="fr"><div class="fg"><label>Bedrijfsnaam *</label><input id="bedrijf" placeholder="Bedrijf B.V."></div><div class="fg"><label>Contactpersoon</label><input id="contact" placeholder="Mevr. A. Jansen (of leeg laten)"></div></div>
+<div class="fr"><div class="fg"><label>Functietitel *</label><input id="functie" placeholder="Marketing Manager"></div><div class="fg"><label>Waar gevonden?</label><select id="bron"><option value="Indeed">Indeed</option><option value="LinkedIn">LinkedIn</option><option value="de bedrijfswebsite">Bedrijfswebsite</option><option value="een bekende">Via via</option><option value="een vacaturesite">Vacaturesite</option></select></div></div>
+<div class="fg"><label>Vacaturetekst / kernpunten (optioneel)</label><textarea id="vacature" rows="3" placeholder="Plak hier de vacaturetekst of noem de belangrijkste eisen..."></textarea><div class="ht">Hoe meer info je geeft, hoe beter de brief wordt afgestemd</div></div>
+<div class="brw"><button class="bpx" onclick="go(0)">&larr;</button><button class="bnx" onclick="go(2)">Volgende &rarr;</button></div>
+</div></div>
+
+<!-- STAP 3 -->
+<div class="stp" id="s2">
+<div class="card">
+<h2><span class="ic" style="background:rgba(249,115,22,.08)">&#128221;</span> Je verhaal</h2>
+<div class="fr"><div class="fg"><label>Ervaringsniveau</label><select id="niveau"><option value="starter (0-2 jaar werkervaring)">Starter (0-2 jaar)</option><option value="medior (3-5 jaar werkervaring)">Medior (3-5 jaar)</option><option value="senior (5+ jaar werkervaring)">Senior (5+ jaar)</option><option value="career switcher die van vakgebied wisselt">Career switcher</option></select></div><div class="fg"><label>Toon van de brief</label><select id="toon"><option value="formeel en professioneel">Formeel</option><option value="zakelijk maar warm en persoonlijk">Zakelijk maar warm</option><option value="modern, vlot en informeel">Modern / informeel</option></select></div></div>
+<div class="fg"><label>Je relevante ervaring en vaardigheden *</label><textarea id="ervaring" rows="4" placeholder="Bijv. 3 jaar ervaring in marketing, sterke communicatieve vaardigheden, ervaring met social media campagnes, leidinggeven aan team van 5 personen..."></textarea><div class="ht">Noem concrete ervaring, vaardigheden en resultaten — hoe meer detail, hoe beter de brief</div></div>
+<div class="fg"><label>Waarom dit bedrijf? *</label><textarea id="motivatie" rows="3" placeholder="Bijv. Het innovatieve karakter spreekt me aan, ik volg jullie werk al jaren, de missie van het bedrijf past bij mijn waarden..."></textarea></div>
+<div class="fg"><label>Extra punten (optioneel)</label><textarea id="extra" rows="2" placeholder="Bijv. beschikbaar per direct, bereid om te reizen, parttime bespreekbaar..."></textarea></div>
+<div class="brw"><button class="bpx" onclick="go(1)">&larr;</button><button class="bnx" id="genBtn" onclick="genereer()">&#10024; Genereer brief met AI &rarr;</button></div>
+</div></div>
+
+<!-- STAP 4 -->
+<div class="stp" id="s3">
+<div class="card">
+<h2><span class="ic" style="background:rgba(16,185,129,.08)">&#128196;</span> Je sollicitatiebrief</h2>
+<div id="loadingState" class="loading" style="display:none">
+<div class="spinner"></div>
+<p>AI schrijft je brief...</p>
+<div class="sub">Dit duurt 5-10 seconden</div>
+</div>
+<div id="resultState" style="display:none">
+<button class="toggle-edit" id="toggleBtn" onclick="toggleEdit()">&#9998; Brief aanpassen</button>
+<div id="previewMode">
+<div class="brief-box" id="preview"></div>
+</div>
+<div id="editMode" style="display:none">
+<textarea class="edit-area" id="editArea"></textarea>
+<button class="bpx" onclick="updateFromEdit()" style="margin-top:8px;width:100%">Preview bijwerken</button>
+</div>
+<div class="brw"><button class="bpx" onclick="go(2)">&larr; Terug</button><button class="bnx" onclick="genereer()">&#128260; Opnieuw genereren</button></div>
+<button class="bdl" onclick="downloadPDF()">&#128196; Download als PDF</button>
+</div>
+</div></div>
+</div>
+
+<footer><span>&copy; 2026 Fixlify.nl — Gemaakt in Nederland &#127475;&#127473;</span></footer>
+
+<script>
+let step=0,briefBody='';
+function uP(){let p=document.getElementById('prg');p.innerHTML='';for(let i=0;i<4;i++){let d=document.createElement('div');d.className='prg'+(i<step?' d':'')+(i===step?' a':'');p.appendChild(d)}}
+function go(n){for(let i=0;i<4;i++)document.getElementById('s'+i).classList.toggle('a',i===n);step=n;uP();window.scrollTo({top:0,behavior:'smooth'})}
+
+function toggleEdit(){
+  let pm=document.getElementById('previewMode'),em=document.getElementById('editMode'),btn=document.getElementById('toggleBtn');
+  if(em.style.display==='none'){em.style.display='block';pm.style.display='none';document.getElementById('editArea').value=briefBody;btn.innerHTML='&#128064; Preview bekijken'}
+  else{em.style.display='none';pm.style.display='block';btn.innerHTML='&#9998; Brief aanpassen'}
+}
+function updateFromEdit(){briefBody=document.getElementById('editArea').value;renderPreview();toggleEdit()}
+
+function datum(){let d=new Date();let ms=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];return d.getDate()+' '+ms[d.getMonth()]+' '+d.getFullYear()}
+
+async function genereer(){
+  let naam=document.getElementById('naam').value||'[Je naam]';
+  let bedrijf=document.getElementById('bedrijf').value||'[Bedrijfsnaam]';
+  let contact=document.getElementById('contact').value||'';
+  let functie=document.getElementById('functie').value||'[Functietitel]';
+  let bron=document.getElementById('bron').value;
+  let niveau=document.getElementById('niveau').value;
+  let toon=document.getElementById('toon').value;
+  let ervaring=document.getElementById('ervaring').value||'';
+  let motivatie=document.getElementById('motivatie').value||'';
+  let extra=document.getElementById('extra').value||'';
+  let vacature=document.getElementById('vacature').value||'';
+
+  go(3);
+  document.getElementById('loadingState').style.display='block';
+  document.getElementById('resultState').style.display='none';
+
+  let aanhef=contact?'Geachte '+contact:'Geachte heer/mevrouw';
+
+  let prompt=`Schrijf een professionele sollicitatiebrief in het Nederlands. De brief moet ${toon} zijn.
+
+Gegevens:
+- Naam sollicitant: ${naam}
+- Functie: ${functie}
+- Bedrijf: ${bedrijf}
+- Contactpersoon: ${contact||'onbekend'}
+- Gevonden via: ${bron}
+- Ervaringsniveau: ${niveau}
+- Relevante ervaring: ${ervaring}
+- Motivatie voor dit bedrijf: ${motivatie}
+${extra?'- Extra punten: '+extra:''}
+${vacature?'- Vacaturetekst/eisen: '+vacature:''}
+
+Schrijf ALLEEN de brieftekst, beginnend na de aanhef "${aanhef},". Schrijf NIET de aanhef, niet de afzender, niet de datum, niet "Met vriendelijke groet" — alleen de inhoud van de brief (3-4 alineas).
+
+De brief moet:
+- 200-350 woorden zijn
+- Professioneel maar persoonlijk klinken
+- De ervaring concreet koppelen aan de functie-eisen
+- Een sterke opening hebben die meteen pakt
+- Een duidelijke motivatie bevatten waarom dit bedrijf
+- Eindigen met een uitnodiging voor een gesprek
+- Natuurlijk Nederlands zijn, geen vertaald Engels`;
+
+  try{
+    let response=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{"Content-Type":"application/json","x-api-key":"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","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+      body:JSON.stringify({
+        model:"claude-sonnet-4-20250514",
+        max_tokens:1000,
+        messages:[{role:"user",content:prompt}]
+      })
+    });
+    let data=await response.json();
+    let text=data.content.map(function(item){return item.type==='text'?item.text:''}).filter(Boolean).join('\n');
+    briefBody=text.trim();
+  }catch(e){
+    briefBody='Er is een fout opgetreden bij het genereren van de brief. Probeer het opnieuw.\n\nFout: '+e.message;
+  }
+
+  document.getElementById('loadingState').style.display='none';
+  document.getElementById('resultState').style.display='block';
+  renderPreview();
+}
+
+function renderPreview(){
+  let naam=document.getElementById('naam').value||'[Je naam]';
+  let adres=document.getElementById('adres').value||'';
+  let plaats=document.getElementById('plaats').value||'';
+  let tel=document.getElementById('tel').value||'';
+  let email=document.getElementById('email').value||'';
+  let bedrijf=document.getElementById('bedrijf').value||'[Bedrijfsnaam]';
+  let contact=document.getElementById('contact').value||'';
+  let functie=document.getElementById('functie').value||'[Functietitel]';
+  let aanhef=contact?'Geachte '+contact+',':'Geachte heer/mevrouw,';
+
+  let header=[naam,adres,plaats,tel,email].filter(Boolean).join('\n');
+  let ontvanger=[bedrijf,contact?'T.a.v. '+contact:''].filter(Boolean).join('\n');
+
+  let html='<div class="brief-header">'+header.replace(/\n/g,'<br>')+'</div>';
+  html+='<div class="brief-header">'+ontvanger.replace(/\n/g,'<br>')+'</div>';
+  html+='<div class="brief-header" style="text-align:right">'+datum()+'</div>';
+  html+='<div class="brief-subject">Betreft: Sollicitatie '+functie+'</div>';
+  html+='<div style="margin-top:12px">'+aanhef+'<br><br>'+briefBody.replace(/\n/g,'<br>')+'<br><br>Met vriendelijke groet,<br>'+naam+'</div>';
+
+  document.getElementById('preview').innerHTML=html;
+}
+
+function downloadPDF(){
+  let J=window.jspdf.jsPDF;
+  let doc=new J();
+  let naam=document.getElementById('naam').value||'[Je naam]';
+  let adres=document.getElementById('adres').value||'';
+  let plaats=document.getElementById('plaats').value||'';
+  let tel=document.getElementById('tel').value||'';
+  let email=document.getElementById('email').value||'';
+  let bedrijf=document.getElementById('bedrijf').value||'[Bedrijfsnaam]';
+  let contact=document.getElementById('contact').value||'';
+  let functie=document.getElementById('functie').value||'[Functietitel]';
+  let aanhef=contact?'Geachte '+contact+',':'Geachte heer/mevrouw,';
+
+  let y=25;
+  doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(0,0,0);
+
+  doc.setFont('helvetica','bold');
+  doc.text(naam,25,y);y+=5;
+  doc.setFont('helvetica','normal');
+  if(adres){doc.text(adres,25,y);y+=5}
+  if(plaats){doc.text(plaats,25,y);y+=5}
+  if(tel){doc.text(tel,25,y);y+=5}
+  if(email){doc.text(email,25,y);y+=5}
+  y+=8;
+
+  doc.text(bedrijf,25,y);y+=5;
+  if(contact){doc.text('T.a.v. '+contact,25,y);y+=5}
+  doc.text(datum(),185,y-5,{align:'right'});
+  y+=10;
+
+  doc.setFont('helvetica','bold');
+  doc.text('Betreft: Sollicitatie '+functie,25,y);
+  y+=10;
+
+  doc.setFont('helvetica','normal');
+  doc.text(aanhef,25,y);
+  y+=8;
+
+  let fullText=briefBody+'\n\nMet vriendelijke groet,\n'+naam;
+  let lines=doc.splitTextToSize(fullText,160);
+  for(let i=0;i<lines.length;i++){
+    if(y>272){doc.addPage();y=25}
+    doc.text(lines[i],25,y);
+    y+=5;
+  }
+
+  doc.save('sollicitatiebrief-'+naam.toLowerCase().replace(/\s+/g,'-')+'.pdf');
+}
+
+uP();
+</script>
+</body>
+</html>
