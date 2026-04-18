@@ -30,7 +30,7 @@ input,select,textarea{width:100%;padding:9px 12px;border:1.5px solid #E5E7EB;bor
 .bdl{width:100%;padding:13px;background:#F97316;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;font-family:Outfit;cursor:pointer;margin-top:12px}.bdl:hover{opacity:.9}
 .brw{display:flex;gap:8px;margin-top:16px}
 .cvp{width:595px;min-height:842px;background:#fff;box-shadow:0 4px 30px rgba(0,0,0,.15);border-radius:3px;font-family:Outfit,sans-serif;font-size:11px;line-height:1.5}
-@media(max-width:1024px){.app{flex-direction:column}.ed{flex:none;width:100%;height:auto;position:relative;top:0}.pv{height:auto;position:relative;top:0;padding:16px}.cvp{width:100%;min-height:auto}.tpg{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1024px){.app{flex-direction:column}.ed{flex:none;width:100%;height:auto;position:relative;top:0}.pv{height:auto;position:relative;top:0;padding:16px;overflow-x:auto}.cvp{width:595px;min-height:842px;transform-origin:top left;margin:0 auto}.tpg{grid-template-columns:repeat(3,1fr)}}@media(max-width:640px){.pv{padding:8px}.cvp{transform:scale(0.55);margin-bottom:-350px}}
 @media(max-width:640px){.fr{grid-template-columns:1fr}.tpg{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
@@ -135,18 +135,29 @@ function dlPDF(){
   var el=document.getElementById('cvp');
   var origW=el.style.width;
   var origH=el.style.minHeight;
+  var origT=el.style.transform;
+  var origMb=el.style.marginBottom;
   el.style.width='595px';
   el.style.minHeight='842px';
-  html2canvas(el,{scale:2,useCORS:true,backgroundColor:'#ffffff',width:595,height:842}).then(function(canvas){
-    var imgData=canvas.toDataURL('image/jpeg',0.98);
-    var J=window.jspdf.jsPDF;
-    var pdf=new J('p','mm','a4');
-    pdf.addImage(imgData,'JPEG',0,0,210,297);
-    var d=gCV();
-    pdf.save('cv-'+d.nm.toLowerCase().replace(/\s+/g,'-')+'.pdf');
-    el.style.width=origW;
-    el.style.minHeight=origH;
-  });
+  el.style.transform='none';
+  el.style.marginBottom='0';
+  setTimeout(function(){
+    html2canvas(el,{scale:2,useCORS:true,backgroundColor:'#ffffff',windowWidth:595}).then(function(canvas){
+      var imgData=canvas.toDataURL('image/jpeg',0.98);
+      var J=window.jspdf.jsPDF;
+      var pdf=new J('p','mm','a4');
+      var imgW=210;
+      var imgH=canvas.height*imgW/canvas.width;
+      if(imgH>297){imgH=297}
+      pdf.addImage(imgData,'JPEG',0,0,imgW,imgH);
+      var d=gCV();
+      pdf.save('cv-'+d.nm.toLowerCase().replace(/\s+/g,'-')+'.pdf');
+      el.style.width=origW;
+      el.style.minHeight=origH;
+      el.style.transform=origT;
+      el.style.marginBottom=origMb;
+    });
+  },100);
 }
 uP();skills=[{n:'Microsoft Office',l:4},{n:'Communicatie',l:5},{n:'Projectmanagement',l:3}];langs=[{n:'Nederlands',l:'Moedertaal'},{n:'Engels',l:'Vloeiend'}];rSkL();rLgL();R();
 </script>
