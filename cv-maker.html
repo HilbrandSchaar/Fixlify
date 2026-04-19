@@ -4,76 +4,114 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CV Maker 2026 — Fixlify</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Outfit,sans-serif;color:#111827;background:#FAFAFA}a{text-decoration:none;color:inherit}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;color:#111;background:#FAFAFA}
+a{text-decoration:none;color:inherit}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,250,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);padding:12px 0}
 .ni{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
-.lo{display:flex;align-items:center;gap:8px}.loi{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}.lot{font-weight:700;font-size:20px}.nb{color:#2563EB;font-weight:600;font-size:13px}
+.lo{display:flex;align-items:center;gap:8px}
+.loi{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
+.lot{font-weight:700;font-size:20px}
+.nb{color:#2563EB;font-weight:600;font-size:13px}
 .app{display:flex;min-height:100vh;padding-top:58px}
 .ed{flex:0 0 520px;padding:24px;overflow-y:auto;height:calc(100vh - 58px);position:sticky;top:58px}
 .pv{flex:1;background:#d1d5db;padding:24px;display:flex;justify-content:center;overflow-y:auto;height:calc(100vh - 58px);position:sticky;top:58px}
-.prog{display:flex;gap:3px;margin-bottom:20px}.prg{flex:1;height:4px;border-radius:2px;background:#E5E7EB}.prg.a{background:#2563EB}.prg.d{background:#10B981}
-.stp{display:none}.stp.a{display:block}.sc{font-size:11px;font-weight:600;color:#2563EB;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}.stl{font-size:20px;font-weight:800;margin-bottom:16px}
-.fg{margin-bottom:12px}.fg label{display:block;font-size:12px;font-weight:600;margin-bottom:3px}.fr{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-input,select,textarea{width:100%;padding:9px 12px;border:1.5px solid #E5E7EB;border-radius:8px;font-size:13px;font-family:Outfit;color:#111827;background:#fff}input:focus,select:focus,textarea:focus{outline:none;border-color:#2563EB}textarea{resize:vertical;min-height:50px}select{appearance:none;cursor:pointer}
-.pho{display:flex;align-items:center;gap:12px;margin-bottom:12px}.phc{width:60px;height:60px;border-radius:50%;border:2px dashed #E5E7EB;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;flex-shrink:0;background:#f3f4f6;font-size:20px;color:#9CA3AF}.phc:hover{border-color:#2563EB}.phc img{width:100%;height:100%;object-fit:cover}
-.ec{background:#f9fafb;border:1px solid #E5E7EB;border-radius:8px;padding:10px 12px;margin-bottom:8px;position:relative}.ec h4{font-size:14px;font-weight:700}.ec p{font-size:13px;color:#6B7280}.ec .ea{position:absolute;top:8px;right:8px;display:flex;gap:3px}.ec .ea button{width:24px;height:24px;border:none;border-radius:5px;cursor:pointer;font-size:11px;display:flex;align-items:center;justify-content:center}.eeb{background:rgba(37,99,235,.08);color:#2563EB}.deb{background:#fee2e2;color:#ef4444}
-.aeb{width:100%;padding:8px;border:2px dashed #E5E7EB;border-radius:8px;background:none;color:#2563EB;font-weight:600;font-size:11px;cursor:pointer;font-family:Outfit;margin-top:4px}.aeb:hover{border-color:#2563EB}
-.skr{display:flex;align-items:center;gap:6px;margin-bottom:5px;background:#f9fafb;padding:5px 8px;border-radius:5px}.skr input{flex:1;border:none;background:none;padding:2px 0;font-size:12px}.skr input:focus{outline:none}.skds{display:flex;gap:2px}.skdt{width:10px;height:10px;border-radius:50%;border:2px solid #E5E7EB;cursor:pointer}.skdt.f{border-color:#2563EB;background:#2563EB}.skrm{background:none;border:none;color:#ef4444;cursor:pointer;font-size:12px}
-.tpg{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:14px}.tpc{border:2px solid #E5E7EB;border-radius:8px;padding:6px;cursor:pointer;text-align:center}.tpc:hover{border-color:#2563EB}.tpc.a{border-color:#2563EB;background:rgba(37,99,235,.04)}.tpv{height:60px;border-radius:3px;margin-bottom:4px;overflow:hidden;display:flex}.tpn{font-size:10px;font-weight:600}
-.clrs{display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap}.clr{width:26px;height:26px;border-radius:6px;cursor:pointer;border:3px solid transparent}.clr:hover{transform:scale(1.1)}.clr.a{border-color:#111827}
-.bnx{flex:1;padding:10px;background:#2563EB;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;font-family:Outfit;cursor:pointer}
-.bpx{padding:10px 16px;background:#fff;color:#111827;border:1.5px solid #E5E7EB;border-radius:8px;font-size:13px;font-weight:600;font-family:Outfit;cursor:pointer}
-.bdl{width:100%;padding:13px;background:#F97316;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;font-family:Outfit;cursor:pointer;margin-top:12px}.bdl:hover{opacity:.9}
+.prog{display:flex;gap:3px;margin-bottom:20px}
+.prg{flex:1;height:4px;border-radius:2px;background:#E5E7EB}
+.prg.a{background:#2563EB}.prg.d{background:#10B981}
+.stp{display:none}.stp.a{display:block}
+.sc{font-size:11px;font-weight:600;color:#2563EB;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+.stl{font-size:20px;font-weight:800;margin-bottom:16px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:12px;font-weight:600;margin-bottom:3px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+input,select,textarea{width:100%;padding:9px 12px;border:1.5px solid #E5E7EB;border-radius:8px;font-size:13px;font-family:'Outfit';color:#111;background:#fff}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#2563EB}
+textarea{resize:vertical;min-height:50px}
+select{appearance:none;cursor:pointer}
+.pho{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.phc{width:70px;height:70px;border-radius:50%;border:2px dashed #E5E7EB;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;flex-shrink:0;background:#f3f4f6;font-size:22px;color:#9CA3AF}
+.phc:hover{border-color:#2563EB}
+.phc img{width:100%;height:100%;object-fit:cover}
+.ec{background:#f9fafb;border:1px solid #E5E7EB;border-radius:8px;padding:10px 12px;margin-bottom:8px;position:relative}
+.ec h4{font-size:12px;font-weight:700}.ec p{font-size:10px;color:#6B7280}
+.ec .ea{position:absolute;top:8px;right:8px;display:flex;gap:3px}
+.ec .ea button{width:24px;height:24px;border:none;border-radius:5px;cursor:pointer;font-size:11px;display:flex;align-items:center;justify-content:center}
+.eeb{background:rgba(37,99,235,.08);color:#2563EB}
+.deb{background:#fee2e2;color:#ef4444}
+.aeb{width:100%;padding:8px;border:2px dashed #E5E7EB;border-radius:8px;background:none;color:#2563EB;font-weight:600;font-size:11px;cursor:pointer;font-family:'Outfit';margin-top:4px}
+.aeb:hover{border-color:#2563EB}
+.skr{display:flex;align-items:center;gap:6px;margin-bottom:5px;background:#f9fafb;padding:5px 8px;border-radius:5px}
+.skr input{flex:1;border:none;background:none;padding:2px 0;font-size:12px}
+.skr input:focus{outline:none}
+.skds{display:flex;gap:2px}
+.skdt{width:10px;height:10px;border-radius:50%;border:2px solid #E5E7EB;cursor:pointer}
+.skdt.f{border-color:#2563EB;background:#2563EB}
+.skrm{background:none;border:none;color:#ef4444;cursor:pointer;font-size:12px}
+.tpg{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:14px}
+.tpc{border:2px solid #E5E7EB;border-radius:8px;padding:6px;cursor:pointer;text-align:center}
+.tpc:hover{border-color:#2563EB}
+.tpc.a{border-color:#2563EB;background:rgba(37,99,235,.04)}
+.tpv{height:70px;border-radius:3px;margin-bottom:4px;overflow:hidden;display:flex}
+.tpn{font-size:10px;font-weight:600}
+.clrs{display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap}
+.clr{width:26px;height:26px;border-radius:6px;cursor:pointer;border:3px solid transparent}
+.clr:hover{transform:scale(1.1)}.clr.a{border-color:#111}
+.bnx{flex:1;padding:10px;background:#2563EB;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;font-family:'Outfit';cursor:pointer}
+.bpx{padding:10px 16px;background:#fff;color:#111;border:1.5px solid #E5E7EB;border-radius:8px;font-size:13px;font-weight:600;font-family:'Outfit';cursor:pointer}
+.bdl{width:100%;padding:13px;background:#F97316;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;font-family:'Outfit';cursor:pointer;margin-top:12px}
+.bdl:hover{opacity:.9}
 .brw{display:flex;gap:8px;margin-top:16px}
-.cvp{width:595px;min-height:842px;background:#fff;box-shadow:0 4px 30px rgba(0,0,0,.15);border-radius:3px;font-family:Outfit,sans-serif;font-size:11px;line-height:1.5;overflow:hidden;word-wrap:break-word;overflow-wrap:break-word}
-.cvp div{word-wrap:break-word;overflow-wrap:break-word;max-width:100%}
-@media(max-width:1024px){.app{flex-direction:column}.ed{flex:none;width:100%;height:auto;position:relative;top:0}.pv{height:auto;position:relative;top:0;padding:16px;overflow-x:auto}.cvp{width:595px;min-height:842px;transform-origin:top left;margin:0 auto}.tpg{grid-template-columns:repeat(3,1fr)}}@media(max-width:640px){.pv{padding:8px}.cvp{transform:scale(0.55);margin-bottom:-350px}}
-@media(max-width:640px){.fr{grid-template-columns:1fr}.tpg{grid-template-columns:repeat(2,1fr)}}
+.cvp{width:595px;height:842px;background:#fff;box-shadow:0 4px 30px rgba(0,0,0,.15);border-radius:3px;font-family:'Outfit',sans-serif;overflow:hidden;position:relative}
+.cvp,.cvp *{word-wrap:break-word;overflow-wrap:break-word;word-break:break-word;box-sizing:border-box}
+@media(max-width:1024px){.app{flex-direction:column}.ed{flex:none;width:100%;height:auto;position:relative;top:0}.pv{height:auto;position:relative;top:0;padding:12px;overflow:hidden;display:flex;justify-content:center}.tpg{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.cvp{transform:scale(0.48);transform-origin:top center;margin-bottom:-440px}.fr{grid-template-columns:1fr}.tpg{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.cvp{transform:scale(0.38);margin-bottom:-520px}.tpg{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
-<nav><div class="ni"><a href="/" class="lo"><div class="loi">F</div><span class="lot">fixlify</span></a><a href="/" class="nb">&larr; Alle tools</a></div></nav>
+<nav><div class="ni"><a href="/" class="lo"><div class="loi">F</div><span class="lot">fixlify</span></a><a href="/" class="nb">← Alle tools</a></div></nav>
 <div class="app">
 <div class="ed">
 <div class="prog" id="prg"></div>
 <div class="stp a" id="s0"><div class="sc">Stap 1 van 6</div><div class="stl">Persoonlijke gegevens</div>
-<div class="pho"><div class="phc" id="pc" onclick="document.getElementById('pi').click()">&#128100;</div><input type="file" id="pi" accept="image/*" style="display:none" onchange="hPh(this)"><div><div style="font-size:11px;color:#9CA3AF">Foto uploaden</div><label style="font-size:11px;display:flex;align-items:center;gap:4px;margin-top:2px"><input type="checkbox" id="sp" checked onchange="R()" style="width:auto"> Tonen</label></div></div>
+<div class="pho"><div class="phc" id="pc" onclick="document.getElementById('pi').click()">&#128100;</div><input type="file" id="pi" accept="image/*" style="display:none" onchange="hPh(this)"><div><div style="font-size:11px;color:#9CA3AF">Foto uploaden</div><label style="font-size:11px;display:flex;align-items:center;gap:4px;margin-top:2px"><input type="checkbox" id="sp" checked onchange="R()" style="width:auto"> Tonen op CV</label></div></div>
 <div class="fr"><div class="fg"><label>Naam *</label><input id="fn" placeholder="Jan van der Berg" oninput="R()"></div><div class="fg"><label>Functietitel</label><input id="jt" placeholder="Grafisch Ontwerper" oninput="R()"></div></div>
 <div class="fr"><div class="fg"><label>E-mail</label><input id="em" placeholder="jan@voorbeeld.nl" oninput="R()"></div><div class="fg"><label>Telefoon</label><input id="ph" placeholder="06-12345678" oninput="R()"></div></div>
 <div class="fr"><div class="fg"><label>Woonplaats</label><input id="ct" placeholder="Amsterdam" oninput="R()"></div><div class="fg"><label>LinkedIn</label><input id="li" placeholder="linkedin.com/in/jvdberg" oninput="R()"></div></div>
-<div class="brw"><div></div><button class="bnx" onclick="nxt()">Volgende &rarr;</button></div></div>
+<div class="brw"><div></div><button class="bnx" onclick="nxt()">Volgende →</button></div></div>
 
 <div class="stp" id="s1"><div class="sc">Stap 2 van 6</div><div class="stl">Profiel</div>
 <div class="fg"><label>Over mij</label><textarea id="pf" rows="3" placeholder="Gemotiveerde professional met 5+ jaar ervaring..." oninput="R()"></textarea></div>
-<div class="brw"><button class="bpx" onclick="prv()">&larr;</button><button class="bnx" onclick="nxt()">Volgende &rarr;</button></div></div>
+<div class="brw"><button class="bpx" onclick="prv()">←</button><button class="bnx" onclick="nxt()">Volgende →</button></div></div>
 
 <div class="stp" id="s2"><div class="sc">Stap 3 van 6</div><div class="stl">Werkervaring</div>
 <div id="exl"></div><button class="aeb" onclick="aEx()">+ Werkervaring</button>
 <div id="exf" style="display:none;margin-top:10px"><div class="fr"><div class="fg"><label>Functie</label><input id="xt"></div><div class="fg"><label>Bedrijf</label><input id="xc"></div></div><div class="fr"><div class="fg"><label>Start</label><input type="month" id="xs"></div><div class="fg"><label>Eind</label><input type="month" id="xe"></div></div><div class="fg"><label>Locatie</label><input id="xl"></div><div class="fg"><label>Beschrijving</label><textarea id="xd" rows="2"></textarea></div><div class="brw"><button class="bpx" onclick="cEx()">Annuleren</button><button class="bnx" onclick="sEx()">Opslaan</button></div></div>
-<div class="brw"><button class="bpx" onclick="prv()">&larr;</button><button class="bnx" onclick="nxt()">Volgende &rarr;</button></div></div>
+<div class="brw"><button class="bpx" onclick="prv()">←</button><button class="bnx" onclick="nxt()">Volgende →</button></div></div>
 
 <div class="stp" id="s3"><div class="sc">Stap 4 van 6</div><div class="stl">Opleiding</div>
 <div id="edl"></div><button class="aeb" onclick="aEd()">+ Opleiding</button>
 <div id="edf" style="display:none;margin-top:10px"><div class="fr"><div class="fg"><label>Opleiding</label><input id="dt"></div><div class="fg"><label>School</label><input id="ds"></div></div><div class="fr"><div class="fg"><label>Start</label><input type="month" id="dss"></div><div class="fg"><label>Eind</label><input type="month" id="de"></div></div><div class="fg"><label>Beschrijving</label><textarea id="dd" rows="2"></textarea></div><div class="brw"><button class="bpx" onclick="cEd()">Annuleren</button><button class="bnx" onclick="sEd()">Opslaan</button></div></div>
-<div class="brw"><button class="bpx" onclick="prv()">&larr;</button><button class="bnx" onclick="nxt()">Volgende &rarr;</button></div></div>
+<div class="brw"><button class="bpx" onclick="prv()">←</button><button class="bnx" onclick="nxt()">Volgende →</button></div></div>
 
 <div class="stp" id="s4"><div class="sc">Stap 5 van 6</div><div class="stl">Vaardigheden & Talen</div>
 <div style="font-size:12px;font-weight:600;margin-bottom:4px">Vaardigheden</div><div id="skl"></div><button class="aeb" onclick="aSk()" style="margin-bottom:12px">+ Vaardigheid</button>
 <div style="font-size:12px;font-weight:600;margin-bottom:4px">Talen</div><div id="lgl"></div><button class="aeb" onclick="aLg()">+ Taal</button>
-<div class="brw"><button class="bpx" onclick="prv()">&larr;</button><button class="bnx" onclick="nxt()">Volgende &rarr;</button></div></div>
+<div class="brw"><button class="bpx" onclick="prv()">←</button><button class="bnx" onclick="nxt()">Volgende →</button></div></div>
 
 <div class="stp" id="s5"><div class="sc">Stap 6 van 6</div><div class="stl">Template & Design</div>
 <div style="font-size:12px;font-weight:600;margin-bottom:4px">Template</div>
 <div class="tpg">
-<div class="tpc a" onclick="sTP('modern',this)"><div class="tpv" style="background:#1e3a5f"><div style="width:32%;background:rgba(255,255,255,.08)"></div><div style="flex:1;background:#fff"></div></div><div class="tpn">Modern</div></div>
-<div class="tpc" onclick="sTP('exec',this)"><div class="tpv" style="flex-direction:column;border:1px solid #e5e7eb"><div style="height:30%;background:#1e3a5f"></div><div style="flex:1;background:#fff"></div></div><div class="tpn">Executive</div></div>
-<div class="tpc" onclick="sTP('creative',this)"><div class="tpv" style="flex-direction:column;border:1px solid #e5e7eb"><div style="height:7px;background:#e24b4a"></div><div style="flex:1;background:#fff"></div></div><div class="tpn">Creatief</div></div>
-<div class="tpc" onclick="sTP('minimal',this)"><div class="tpv" style="flex-direction:column;border:1px solid #e5e7eb;padding:6px"><div style="height:6px;width:50%;background:#ddd;margin-bottom:3px"></div><div style="height:1px;background:#eee"></div></div><div class="tpn">Minimalist</div></div>
-<div class="tpc" onclick="sTP('classic',this)"><div class="tpv" style="flex-direction:column;border:1px solid #e5e7eb;padding:4px;align-items:center"><div style="height:5px;width:40%;background:#333;margin-bottom:2px"></div><div style="height:1px;width:60%;background:#e5e7eb"></div></div><div class="tpn">Klassiek</div></div>
+<div class="tpc a" onclick="sTP('elegant',this)"><div class="tpv" style="background:#f5f0eb;border:1px solid #e5e0db"><div style="width:35%;background:#f0ebe4"></div><div style="flex:1"></div></div><div class="tpn">Elegant</div></div>
+<div class="tpc" onclick="sTP('clean',this)"><div class="tpv" style="background:#fff;border:1px solid #e5e7eb;flex-direction:column;padding:6px"><div style="height:10px;width:60%;background:#333;margin-bottom:3px"></div><div style="height:1px;background:#2563EB;margin-bottom:3px"></div><div style="height:3px;width:80%;background:#f3f4f6"></div></div><div class="tpn">Clean</div></div>
+<div class="tpc" onclick="sTP('corporate',this)"><div class="tpv" style="background:#1a1a2e"><div style="width:32%;background:rgba(255,255,255,.05)"></div><div style="flex:1;background:#fff"></div></div><div class="tpn">Corporate</div></div>
+<div class="tpc" onclick="sTP('nordic',this)"><div class="tpv" style="background:#fff;border:1px solid #e5e7eb;padding:8px;flex-direction:column"><div style="height:8px;width:45%;background:#ddd;margin-bottom:4px;font-weight:300"></div><div style="height:1px;background:#eee"></div></div><div class="tpn">Nordic</div></div>
+<div class="tpc" onclick="sTP('bold',this)"><div class="tpv" style="flex-direction:column;border:1px solid #e5e7eb"><div style="height:35%;background:#2563EB"></div><div style="flex:1;background:#fff"></div></div><div class="tpn">Bold</div></div>
 </div>
 <div style="font-size:12px;font-weight:600;margin-bottom:4px">Kleur</div>
 <div class="clrs">
@@ -86,97 +124,193 @@ input,select,textarea{width:100%;padding:9px 12px;border:1.5px solid #E5E7EB;bor
 <div class="clr" style="background:#0891B2" data-c="#0891B2" onclick="sCol(this)"></div>
 <div class="clr" style="background:#BE185D" data-c="#BE185D" onclick="sCol(this)"></div>
 <div class="clr" style="background:#111827" data-c="#111827" onclick="sCol(this)"></div>
+<div class="clr" style="background:#4338CA" data-c="#4338CA" onclick="sCol(this)"></div>
+<div class="clr" style="background:#d4a853" data-c="#d4a853" onclick="sCol(this)"></div>
+<div class="clr" style="background:#64748b" data-c="#64748b" onclick="sCol(this)"></div>
 </div>
-<div class="brw"><button class="bpx" onclick="prv()">&larr;</button></div>
+<div class="brw"><button class="bpx" onclick="prv()">←</button></div>
 <button class="bdl" onclick="dlPDF()">&#128196; Download CV als PDF</button>
 </div>
 </div>
 <div class="pv"><div class="cvp" id="cvp"></div></div>
 </div>
 <script>
-let step=0,tpl='modern',col='#2563EB',photo=null,exps=[],edus=[],skills=[],langs=[],exi=-1,edi=-1;
-function uP(){let p=document.getElementById('prg');p.innerHTML='';for(let i=0;i<6;i++){let d=document.createElement('div');d.className='prg'+(i<step?' d':'')+(i===step?' a':'');p.appendChild(d)}}
-function goS(n){for(let i=0;i<6;i++)document.getElementById('s'+i).classList.toggle('a',i===n);step=n;uP()}
+var step=0,tpl='elegant',col='#2563EB',photo=null,exps=[],edus=[],skills=[],langs=[],exi=-1,edi=-1;
+function uP(){var p=document.getElementById('prg');p.innerHTML='';for(var i=0;i<6;i++){var d=document.createElement('div');d.className='prg'+(i<step?' d':'')+(i===step?' a':'');p.appendChild(d)}}
+function goS(n){for(var i=0;i<6;i++)document.getElementById('s'+i).classList.toggle('a',i===n);step=n;uP()}
 function nxt(){if(step<5){goS(step+1);document.querySelector('.ed').scrollTop=0}}
 function prv(){if(step>0){goS(step-1);document.querySelector('.ed').scrollTop=0}}
-function hPh(i){let f=i.files[0];if(!f)return;let r=new FileReader;r.onload=function(e){photo=e.target.result;document.getElementById('pc').innerHTML='<img src="'+photo+'">';R()};r.readAsDataURL(f)}
+function hPh(i){var f=i.files[0];if(!f)return;var r=new FileReader;r.onload=function(e){photo=e.target.result;document.getElementById('pc').innerHTML='<img src="'+photo+'">';R()};r.readAsDataURL(f)}
 function sTP(t,el){tpl=t;document.querySelectorAll('.tpc').forEach(function(e){e.classList.remove('a')});el.classList.add('a');R()}
 function sCol(el){document.querySelectorAll('.clr').forEach(function(e){e.classList.remove('a')});el.classList.add('a');col=el.dataset.c;R()}
-function rExL(){let c=document.getElementById('exl');c.innerHTML='';exps.forEach(function(e,i){c.innerHTML+='<div class="ec"><h4>'+e.t+' — '+e.c+'</h4><p>'+fD(e.s)+' - '+(e.e?fD(e.e):'heden')+'</p><div class="ea"><button class="eeb" onclick="eEx('+i+')">&#9998;</button><button class="deb" onclick="dEx('+i+')">&times;</button></div></div>'})}
+function rExL(){var c=document.getElementById('exl');c.innerHTML='';exps.forEach(function(e,i){c.innerHTML+='<div class="ec"><h4>'+e.t+' \u2014 '+e.c+'</h4><p>'+fD(e.s)+' - '+(e.e?fD(e.e):'heden')+'</p><div class="ea"><button class="eeb" onclick="eEx('+i+')">&#9998;</button><button class="deb" onclick="dEx('+i+')">&times;</button></div></div>'})}
 function aEx(){document.getElementById('exf').style.display='block';exi=-1;['xt','xc','xs','xe','xl','xd'].forEach(function(x){document.getElementById(x).value=''})}
-function eEx(i){exi=i;let e=exps[i];document.getElementById('exf').style.display='block';document.getElementById('xt').value=e.t;document.getElementById('xc').value=e.c;document.getElementById('xs').value=e.s;document.getElementById('xe').value=e.e;document.getElementById('xl').value=e.l;document.getElementById('xd').value=e.d}
+function eEx(i){exi=i;var e=exps[i];document.getElementById('exf').style.display='block';document.getElementById('xt').value=e.t;document.getElementById('xc').value=e.c;document.getElementById('xs').value=e.s;document.getElementById('xe').value=e.e;document.getElementById('xl').value=e.l;document.getElementById('xd').value=e.d}
 function cEx(){document.getElementById('exf').style.display='none'}
-function sEx(){let e={t:document.getElementById('xt').value,c:document.getElementById('xc').value,s:document.getElementById('xs').value,e:document.getElementById('xe').value,l:document.getElementById('xl').value,d:document.getElementById('xd').value};if(exi>=0)exps[exi]=e;else exps.push(e);cEx();rExL();R()}
+function sEx(){var e={t:document.getElementById('xt').value,c:document.getElementById('xc').value,s:document.getElementById('xs').value,e:document.getElementById('xe').value,l:document.getElementById('xl').value,d:document.getElementById('xd').value};if(exi>=0)exps[exi]=e;else exps.push(e);cEx();rExL();R()}
 function dEx(i){exps.splice(i,1);rExL();R()}
-function rEdL(){let c=document.getElementById('edl');c.innerHTML='';edus.forEach(function(e,i){c.innerHTML+='<div class="ec"><h4>'+e.t+' — '+e.s+'</h4><p>'+fD(e.ss)+' - '+(e.e?fD(e.e):'')+'</p><div class="ea"><button class="eeb" onclick="eEd('+i+')">&#9998;</button><button class="deb" onclick="dEd('+i+')">&times;</button></div></div>'})}
+function rEdL(){var c=document.getElementById('edl');c.innerHTML='';edus.forEach(function(e,i){c.innerHTML+='<div class="ec"><h4>'+e.t+' \u2014 '+e.s+'</h4><p>'+fD(e.ss)+' - '+(e.e?fD(e.e):'')+'</p><div class="ea"><button class="eeb" onclick="eEd('+i+')">&#9998;</button><button class="deb" onclick="dEd('+i+')">&times;</button></div></div>'})}
 function aEd(){document.getElementById('edf').style.display='block';edi=-1;['dt','ds','dss','de','dd'].forEach(function(x){document.getElementById(x).value=''})}
-function eEd(i){edi=i;let e=edus[i];document.getElementById('edf').style.display='block';document.getElementById('dt').value=e.t;document.getElementById('ds').value=e.s;document.getElementById('dss').value=e.ss;document.getElementById('de').value=e.e;document.getElementById('dd').value=e.d}
+function eEd(i){edi=i;var e=edus[i];document.getElementById('edf').style.display='block';document.getElementById('dt').value=e.t;document.getElementById('ds').value=e.s;document.getElementById('dss').value=e.ss;document.getElementById('de').value=e.e;document.getElementById('dd').value=e.d}
 function cEd(){document.getElementById('edf').style.display='none'}
-function sEd(){let e={t:document.getElementById('dt').value,s:document.getElementById('ds').value,ss:document.getElementById('dss').value,e:document.getElementById('de').value,d:document.getElementById('dd').value};if(edi>=0)edus[edi]=e;else edus.push(e);cEd();rEdL();R()}
+function sEd(){var e={t:document.getElementById('dt').value,s:document.getElementById('ds').value,ss:document.getElementById('dss').value,e:document.getElementById('de').value,d:document.getElementById('dd').value};if(edi>=0)edus[edi]=e;else edus.push(e);cEd();rEdL();R()}
 function dEd(i){edus.splice(i,1);rEdL();R()}
-function rSkL(){let c=document.getElementById('skl');c.innerHTML='';skills.forEach(function(s,i){let ds='';for(let d=1;d<=5;d++)ds+='<div class="skdt'+(d<=s.l?' f':'')+'" onclick="sSkL('+i+','+d+')" style="'+(d<=s.l?'border-color:'+col+';background:'+col:'')+'"></div>';c.innerHTML+='<div class="skr"><input value="'+s.n+'" oninput="skills['+i+'].n=this.value;R()"><div class="skds">'+ds+'</div><button class="skrm" onclick="skills.splice('+i+',1);rSkL();R()">&times;</button></div>'})}
+function rSkL(){var c=document.getElementById('skl');c.innerHTML='';skills.forEach(function(s,i){var ds='';for(var d=1;d<=5;d++)ds+='<div class="skdt'+(d<=s.l?' f':'')+'" onclick="sSkL('+i+','+d+')" style="'+(d<=s.l?'border-color:'+col+';background:'+col:'')+'"></div>';c.innerHTML+='<div class="skr"><input value="'+s.n+'" oninput="skills['+i+'].n=this.value;R()"><div class="skds">'+ds+'</div><button class="skrm" onclick="skills.splice('+i+',1);rSkL();R()">&times;</button></div>'})}
 function aSk(){skills.push({n:'',l:3});rSkL();R()}
 function sSkL(i,l){skills[i].l=l;rSkL();R()}
-function rLgL(){let c=document.getElementById('lgl');c.innerHTML='';langs.forEach(function(l,i){c.innerHTML+='<div class="skr"><input value="'+l.n+'" oninput="langs['+i+'].n=this.value;R()"><select onchange="langs['+i+'].l=this.value;R()" style="width:110px"><option'+(l.l==='Moedertaal'?' selected':'')+'>Moedertaal</option><option'+(l.l==='Vloeiend'?' selected':'')+'>Vloeiend</option><option'+(l.l==='Goed'?' selected':'')+'>Goed</option><option'+(l.l==='Basis'?' selected':'')+'>Basis</option></select><button class="skrm" onclick="langs.splice('+i+',1);rLgL();R()">&times;</button></div>'})}
+function rLgL(){var c=document.getElementById('lgl');c.innerHTML='';langs.forEach(function(l,i){c.innerHTML+='<div class="skr"><input value="'+l.n+'" oninput="langs['+i+'].n=this.value;R()"><select onchange="langs['+i+'].l=this.value;R()" style="width:110px"><option'+(l.l==='Moedertaal'?' selected':'')+'>Moedertaal</option><option'+(l.l==='Vloeiend'?' selected':'')+'>Vloeiend</option><option'+(l.l==='Goed'?' selected':'')+'>Goed</option><option'+(l.l==='Basis'?' selected':'')+'>Basis</option></select><button class="skrm" onclick="langs.splice('+i+',1);rLgL();R()">&times;</button></div>'})}
 function aLg(){langs.push({n:'',l:'Goed'});rLgL();R()}
-function fD(d){if(!d)return'';let p=d.split('-');let ms=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];return ms[parseInt(p[1])-1]+' '+p[0]}
+function fD(d){if(!d)return'';var p=d.split('-');var ms=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];return ms[parseInt(p[1])-1]+' '+p[0]}
 function gCV(){return{nm:document.getElementById('fn').value||'Je Naam',jt:document.getElementById('jt').value,em:document.getElementById('em').value,ph:document.getElementById('ph').value,ct:document.getElementById('ct').value,ln:document.getElementById('li').value,pf:document.getElementById('pf').value,sp:document.getElementById('sp').checked}}
-function dots(lv,fc,ec){let h='';for(let i=1;i<=5;i++)h+='<div style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:'+(i<=lv?fc:ec)+'"></div>';return h}
-function secH(d,c){let h='';if(d.pf)h+='<div style="margin-bottom:14px"><div style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid '+c+'">Profiel</div><div style="font-size:13px;color:#444;line-height:1.6">'+d.pf+'</div></div>';if(exps.length)h+='<div style="margin-bottom:14px"><div style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid '+c+'">Werkervaring</div>'+exps.map(function(e){return'<div style="margin-bottom:8px"><div style="font-size:14px;font-weight:700">'+e.t+'</div><div style="font-size:13px;color:#6B7280">'+e.c+(e.l?' | '+e.l:'')+' | '+fD(e.s)+' - '+(e.e?fD(e.e):'heden')+'</div>'+(e.d?'<div style="font-size:13px;color:#444;margin-top:1px;line-height:1.5">'+e.d+'</div>':'')+'</div>'}).join('')+'</div>';if(edus.length)h+='<div style="margin-bottom:14px"><div style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid '+c+'">Opleiding</div>'+edus.map(function(e){return'<div style="margin-bottom:8px"><div style="font-size:14px;font-weight:700">'+e.t+'</div><div style="font-size:13px;color:#6B7280">'+e.s+' | '+fD(e.ss)+' - '+(e.e?fD(e.e):'')+'</div>'+(e.d?'<div style="font-size:13px;color:#444;margin-top:1px">'+e.d+'</div>':'')+'</div>'}).join('')+'</div>';return h}
-function sideH(d,c,tc,ec){let h='';if(skills.length)h+='<div style="margin-bottom:12px"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-bottom:6px">Vaardigheden</div>'+skills.map(function(s){return'<div style="display:flex;align-items:center;gap:3px;margin-bottom:3px"><span style="font-size:11px;flex:1;color:'+tc+'">'+s.n+'</span>'+dots(s.l,tc,ec)+'</div>'}).join('')+'</div>';if(langs.length)h+='<div><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-bottom:6px">Talen</div>'+langs.map(function(l){return'<div style="font-size:12px;margin-bottom:3px;color:'+tc+'">'+l.n+' — '+l.l+'</div>'}).join('')+'</div>';return h}
+function dots(lv,fc,ec){var h='';for(var i=1;i<=5;i++)h+='<div style="width:8px;height:8px;border-radius:50%;display:inline-block;margin:0 1px;background:'+(i<=lv?fc:ec)+'"></div>';return h}
+function bar(lv,fc,bg){return '<div style="width:100%;height:6px;background:'+bg+';border-radius:3px;margin-top:3px"><div style="width:'+(lv*20)+'%;height:100%;background:'+fc+';border-radius:3px"></div></div>'}
 
-function R(){setTimeout(autoScale,50);let d=gCV(),p=document.getElementById('cvp'),c=col,ci=[d.em,d.ph,d.ct,d.ln].filter(Boolean);p.style.fontSize='11px';
-if(tpl==='modern'){let sb='<div style="text-align:center;padding:16px 0">'+(d.sp&&photo?'<div style="width:80px;height:80px;border-radius:50%;margin:0 auto 10px;border:3px solid rgba(255,255,255,.2);overflow:hidden"><img src="'+photo+'" style="width:100%;height:100%;object-fit:cover"></div>':'')+'</div><div style="margin-bottom:12px"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-bottom:6px">Contact</div>'+ci.map(function(x){return'<div style="font-size:11px;margin-bottom:3px;word-break:break-all">'+x+'</div>'}).join('')+'</div>'+sideH(d,c,'rgba(255,255,255,.9)','rgba(255,255,255,.2)');p.innerHTML='<div style="display:flex;min-height:842px"><div style="width:185px;padding:20px 16px;background:'+c+';color:#fff;flex-shrink:0">'+sb+'</div><div style="flex:1;padding:28px 24px"><div style="font-size:28px;font-weight:800;letter-spacing:-.02em">'+d.nm+'</div>'+(d.jt?'<div style="font-size:14px;color:#6B7280;margin-bottom:14px">'+d.jt+'</div>':'<div style="margin-bottom:12px"></div>')+secH(d,c)+'</div></div>'}
-else if(tpl==='exec'){p.innerHTML='<div style="min-height:842px"><div style="padding:28px 26px;background:'+c+';color:#fff;display:flex;align-items:center;gap:16px">'+(d.sp&&photo?'<div style="width:70px;height:70px;border-radius:50%;border:3px solid rgba(255,255,255,.3);overflow:hidden;flex-shrink:0"><img src="'+photo+'" style="width:100%;height:100%;object-fit:cover"></div>':'')+'<div><div style="font-size:30px;font-weight:800">'+d.nm+'</div>'+(d.jt?'<div style="font-size:13px;opacity:.7;margin-top:3px">'+d.jt+'</div>':'')+'<div style="font-size:8px;opacity:.5;margin-top:4px">'+ci.join(' · ')+'</div></div></div><div style="display:flex;padding:18px 22px;gap:20px"><div style="flex:1">'+secH(d,c)+'</div><div style="width:160px;flex-shrink:0">'+sideH(d,c,c,'#e5e7eb')+'</div></div></div>'}
-else if(tpl==='creative'){p.innerHTML='<div style="min-height:842px"><div style="height:7px;background:'+c+'"></div><div style="padding:28px 26px"><div style="display:flex;gap:16px;margin-bottom:16px;align-items:flex-end">'+(d.sp&&photo?'<div style="width:90px;height:90px;border-radius:14px;overflow:hidden;flex-shrink:0"><img src="'+photo+'" style="width:100%;height:100%;object-fit:cover"></div>':'')+'<div><div style="font-size:34px;font-weight:900;letter-spacing:-.03em;color:'+c+'">'+d.nm+'</div>'+(d.jt?'<div style="font-size:13px;color:'+c+';opacity:.7">'+d.jt+'</div>':'')+'<div style="font-size:8px;color:#6B7280;margin-top:4px">'+ci.join(' · ')+'</div></div></div><div style="display:flex;gap:20px"><div style="flex:1">'+secH(d,c)+'</div><div style="width:150px;flex-shrink:0">'+sideH(d,c,c,'#e5e7eb')+'</div></div></div></div>'}
-else if(tpl==='minimal'){p.innerHTML='<div style="min-height:842px;padding:38px 32px"><div style="font-size:32px;font-weight:300">'+d.nm+'</div>'+(d.jt?'<div style="font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:'+c+'">'+d.jt+'</div>':'')+'<div style="font-size:8px;color:#9CA3AF;margin-bottom:16px">'+ci.join(' · ')+'</div><div style="height:1px;background:#E5E7EB;margin-bottom:14px"></div>'+secH(d,c)+(skills.length?'<div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#9CA3AF;margin-bottom:6px">Vaardigheden</div><div style="font-size:10px;color:#555;margin-bottom:10px">'+skills.map(function(s){return s.n}).join(' · ')+'</div>':'')+(langs.length?'<div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#9CA3AF;margin-bottom:6px">Talen</div><div style="font-size:9px;color:#aaa">'+langs.map(function(l){return l.n+' ('+l.l+')'}).join(' · ')+'</div>':'')+'</div>'}
-else{p.innerHTML='<div style="min-height:842px;padding:30px 26px"><div style="text-align:center;margin-bottom:16px;padding-bottom:12px;border-bottom:3px double '+c+'"><div style="font-family:Playfair Display,serif;font-size:32px;font-weight:700;color:'+c+'">'+d.nm+'</div>'+(d.jt?'<div style="font-size:13px;color:#6B7280;margin-top:3px">'+d.jt+'</div>':'')+'<div style="font-size:8px;color:#9CA3AF;margin-top:4px">'+ci.join(' | ')+'</div></div><div style="display:flex;gap:18px"><div style="flex:1">'+secH(d,c)+'</div><div style="width:160px;flex-shrink:0">'+sideH(d,c,c,'#e5e7eb')+'</div></div></div>'}}
+function R(){
+var d=gCV(),p=document.getElementById('cvp'),c=col;
+var ci=[d.em,d.ph,d.ct,d.ln].filter(Boolean);
+var inner=p.querySelector('.cv-inner');
+if(inner){inner.style.transform='none';inner.style.width='100%';}
+p.style.fontSize='12px';
+
+if(tpl==='elegant') rElegant(p,d,c,ci);
+else if(tpl==='clean') rClean(p,d,c,ci);
+else if(tpl==='corporate') rCorporate(p,d,c,ci);
+else if(tpl==='nordic') rNordic(p,d,c,ci);
+else rBold(p,d,c,ci);
+
+setTimeout(autoScale,60);
+}
+
+function rElegant(p,d,c,ci){
+var sb='';
+if(d.sp&&photo)sb+='<div style="width:120px;height:120px;border-radius:14px;overflow:hidden;margin:0 auto 18px;box-shadow:0 4px 12px rgba(0,0,0,.1)"><img src="'+photo+'" style="width:100%;height:100%;object-fit:cover"></div>';
+sb+='<div style="font-size:0.7em;font-weight:700;text-transform:uppercase;letter-spacing:0.25em;color:'+c+';margin-bottom:12px">Persoonlijk</div>';
+ci.forEach(function(x){sb+='<div style="font-size:0.75em;margin-bottom:4px;color:#666">'+x+'</div>'});
+if(langs.length){sb+='<div style="font-size:0.7em;font-weight:700;text-transform:uppercase;letter-spacing:0.25em;color:'+c+';margin:16px 0 8px">Talen</div>';langs.forEach(function(l){sb+='<div style="font-size:0.75em;margin-bottom:3px;color:#666">'+l.n+': '+l.l+'</div>'})}
+if(skills.length){sb+='<div style="font-size:0.7em;font-weight:700;text-transform:uppercase;letter-spacing:0.25em;color:'+c+';margin:16px 0 8px">Vaardigheden</div>';skills.forEach(function(s){sb+='<div style="font-size:0.72em;margin-bottom:6px;color:#666">'+s.n+bar(s.l,c,'#e5e0d8')+'</div>'})}
+var mn='<div style="font-size:2.6em;font-weight:800;color:#2c2c2c;line-height:1.05;letter-spacing:-0.02em">'+d.nm+'</div>';
+if(d.jt)mn+='<div style="font-size:1em;color:'+c+';margin:4px 0 16px;font-weight:500">'+d.jt+'</div>';else mn+='<div style="margin-bottom:16px"></div>';
+if(d.pf){mn+='<div style="font-size:0.7em;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:'+c+';margin-bottom:6px;padding-bottom:4px;border-bottom:1.5px solid '+c+'">Profiel</div>';mn+='<div style="font-size:0.85em;color:#555;line-height:1.6;margin-bottom:14px">'+d.pf+'</div>'}
+if(exps.length){mn+='<div style="font-size:0.7em;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:'+c+';margin-bottom:6px;padding-bottom:4px;border-bottom:1.5px solid '+c+'">Werkervaring</div>';exps.forEach(function(e){mn+='<div style="margin-bottom:10px"><div style="font-size:0.95em;font-weight:700;color:#333">'+e.t+'</div><div style="font-size:0.75em;color:#999">'+e.c+(e.l?' | '+e.l:'')+' | '+fD(e.s)+' - '+(e.e?fD(e.e):'heden')+'</div>'+(e.d?'<div style="font-size:0.8em;color:#555;margin-top:2px;line-height:1.5">'+e.d+'</div>':'')+'</div>'})}
+if(edus.length){mn+='<div style="font-size:0.7em;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:'+c+';margin-bottom:6px;padding-bottom:4px;border-bottom:1.5px solid '+c+'">Opleiding</div>';edus.forEach(function(e){mn+='<div style="margin-bottom:10px"><div style="font-size:0.95em;font-weight:700;color:#333">'+e.t+'</div><div style="font-size:0.75em;color:#999">'+e.s+' | '+fD(e.ss)+' - '+(e.e?fD(e.e):'')+'</div>'+(e.d?'<div style="font-size:0.8em;color:#555;margin-top:2px">'+e.d+'</div>':'')+'</div>'})}
+p.innerHTML='<div class="cv-inner" style="display:flex;width:100%;height:100%"><div style="width:35%;padding:28px 20px;background:linear-gradient(180deg,#f5f0eb 0%,#ebe4db 100%);overflow:hidden;border-right:1px solid #e0d6cb">'+sb+'</div><div style="width:65%;padding:30px 26px;overflow:hidden;min-width:0;background:#fff">'+mn+'</div></div>';
+}
+
+function rClean(p,d,c,ci){
+var h='<div style="padding:0"><div style="height:6px;background:linear-gradient(90deg,'+c+','+c+'88)"></div><div style="padding:30px 28px">';
+h+='<div style="font-size:3em;font-weight:800;color:#222;line-height:1;letter-spacing:-0.03em">'+d.nm+'</div>';
+if(d.jt)h+='<div style="font-size:1.1em;color:'+c+';margin:4px 0 10px;font-weight:500">'+d.jt+'</div>';
+h+='<div style="font-size:0.75em;color:#999;margin-bottom:14px">'+ci.join(' | ')+'</div>';
+h+='<div style="height:2px;background:'+c+';margin-bottom:18px"></div>';
+if(d.pf){h+='<div style="font-size:0.8em;font-weight:700;color:'+c+';text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Profiel</div>';h+='<div style="font-size:0.85em;color:#555;line-height:1.6;margin-bottom:16px">'+d.pf+'</div>'}
+if(exps.length){h+='<div style="font-size:0.8em;font-weight:700;color:'+c+';text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Werkervaring</div>';exps.forEach(function(e){h+='<div style="margin-bottom:10px;padding-left:12px;border-left:3px solid '+c+'"><div style="font-size:0.95em;font-weight:700">'+e.t+'</div><div style="font-size:0.75em;color:#999">'+e.c+(e.l?' | '+e.l:'')+' | '+fD(e.s)+' - '+(e.e?fD(e.e):'heden')+'</div>'+(e.d?'<div style="font-size:0.8em;color:#555;margin-top:2px;line-height:1.5">'+e.d+'</div>':'')+'</div>'})}
+if(edus.length){h+='<div style="font-size:0.8em;font-weight:700;color:'+c+';text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Opleiding</div>';edus.forEach(function(e){h+='<div style="margin-bottom:10px;padding-left:12px;border-left:3px solid '+c+'"><div style="font-size:0.95em;font-weight:700">'+e.t+'</div><div style="font-size:0.75em;color:#999">'+e.s+' | '+fD(e.ss)+' - '+(e.e?fD(e.e):'')+'</div>'+(e.d?'<div style="font-size:0.8em;color:#555;margin-top:2px">'+e.d+'</div>':'')+'</div>'})}
+if(skills.length){h+='<div style="font-size:0.8em;font-weight:700;color:'+c+';text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Vaardigheden</div><div style="margin-bottom:12px">';skills.forEach(function(s){h+='<span style="display:inline-block;padding:3px 10px;margin:2px;border-radius:4px;font-size:0.75em;background:'+c+'15;color:'+c+';font-weight:600">'+s.n+'</span>'});h+='</div>'}
+if(langs.length){h+='<div style="font-size:0.8em;font-weight:700;color:'+c+';text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Talen</div><div style="font-size:0.8em;color:#666">'+langs.map(function(l){return l.n+' ('+l.l+')'}).join(' \u00B7 ')+'</div>'}
+h+='</div></div>';
+p.innerHTML='<div class="cv-inner" style="width:100%;height:100%;overflow:hidden">'+h+'</div>';
+}
+
+function rCorporate(p,d,c,ci){
+var gold=c==='#111827'?'#d4a853':c;
+var sb='';
+if(d.sp&&photo)sb+='<div style="width:100px;height:100px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:3px solid rgba(255,255,255,.25);box-shadow:0 4px 12px rgba(0,0,0,.2)"><img src="'+photo+'" style="width:100%;height:100%;object-fit:cover"></div>';
+sb+='<div style="font-size:0.7em;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:'+gold+';margin-bottom:8px">Contact</div>';
+ci.forEach(function(x){sb+='<div style="font-size:0.72em;margin-bottom:3px;color:rgba(255,255,255,.8)">'+x+'</div>'});
+if(skills.length){sb+='<div style="font-size:0.7em;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:'+gold+';margin:16px 0 8px">Vaardigheden</div>';skills.forEach(function(s){sb+='<div style="font-size:0.72em;margin-bottom:6px;color:rgba(255,255,255,.8)">'+s.n+bar(s.l,gold,'rgba(255,255,255,.15)')+'</div>'})}
+if(langs.length){sb+='<div style="font-size:0.7em;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:'+gold+';margin:16px 0 8px">Talen</div>';langs.forEach(function(l){sb+='<div style="font-size:0.72em;margin-bottom:3px;color:rgba(255,255,255,.8)">'+l.n+' \u2014 '+l.l+'</div>'})}
+var mn='<div style="background:linear-gradient(135deg,'+gold+','+gold+'cc);padding:14px 20px;margin:-24px -22px 20px -22px"><div style="font-size:2.3em;font-weight:800;color:#fff;letter-spacing:-0.01em">'+d.nm+'</div>'+(d.jt?'<div style="font-size:0.9em;color:rgba(255,255,255,.7)">'+d.jt+'</div>':'')+'</div>';
+if(d.pf){mn+='<div style="font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:'+gold+';margin-bottom:6px;padding-bottom:3px;border-bottom:2px solid '+gold+'">Profiel</div><div style="font-size:0.82em;color:#555;line-height:1.6;margin-bottom:14px">'+d.pf+'</div>'}
+if(exps.length){mn+='<div style="font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:'+gold+';margin-bottom:6px;padding-bottom:3px;border-bottom:2px solid '+gold+'">Werkervaring</div>';exps.forEach(function(e){mn+='<div style="margin-bottom:10px"><div style="font-size:0.92em;font-weight:700">'+e.t+'</div><div style="font-size:0.72em;color:#999">'+e.c+(e.l?' | '+e.l:'')+' | '+fD(e.s)+' - '+(e.e?fD(e.e):'heden')+'</div>'+(e.d?'<div style="font-size:0.8em;color:#555;margin-top:2px;line-height:1.5">'+e.d+'</div>':'')+'</div>'})}
+if(edus.length){mn+='<div style="font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:'+gold+';margin-bottom:6px;padding-bottom:3px;border-bottom:2px solid '+gold+'">Opleiding</div>';edus.forEach(function(e){mn+='<div style="margin-bottom:10px"><div style="font-size:0.92em;font-weight:700">'+e.t+'</div><div style="font-size:0.72em;color:#999">'+e.s+' | '+fD(e.ss)+' - '+(e.e?fD(e.e):'')+'</div>'+(e.d?'<div style="font-size:0.8em;color:#555;margin-top:2px">'+e.d+'</div>':'')+'</div>'})}
+p.innerHTML='<div class="cv-inner" style="display:flex;width:100%;height:100%"><div style="width:33%;padding:26px 18px;background:linear-gradient(180deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;overflow:hidden">'+sb+'</div><div style="width:68%;padding:24px 22px;overflow:hidden;min-width:0">'+mn+'</div></div>';
+}
+
+function rNordic(p,d,c,ci){
+var h='<div style="padding:38px 32px">';
+h+='<div style="font-size:2.8em;font-weight:300;color:#2a2a2a;line-height:1.05;letter-spacing:0.02em">'+d.nm+'</div>';
+if(d.jt)h+='<div style="font-size:0.72em;text-transform:uppercase;letter-spacing:0.15em;color:'+c+';margin:4px 0">'+d.jt+'</div>';
+h+='<div style="font-size:0.7em;color:#bbb;margin-bottom:18px">'+ci.join(' \u00B7 ')+'</div>';
+h+='<div style="height:1px;background:#e5e7eb;margin-bottom:16px"></div>';
+if(d.pf){h+='<div style="font-size:0.65em;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:#bbb;margin-bottom:8px">Profiel</div>';h+='<div style="font-size:0.82em;color:#666;line-height:1.7;margin-bottom:16px">'+d.pf+'</div>'}
+if(exps.length){h+='<div style="font-size:0.65em;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:#bbb;margin-bottom:8px">Werkervaring</div>';exps.forEach(function(e){h+='<div style="margin-bottom:10px"><div style="font-size:0.92em;font-weight:500">'+e.t+' <span style="font-weight:400;color:'+c+'">@ '+e.c+'</span></div><div style="font-size:0.7em;color:#bbb">'+fD(e.s)+' - '+(e.e?fD(e.e):'heden')+(e.l?' | '+e.l:'')+'</div>'+(e.d?'<div style="font-size:0.8em;color:#666;margin-top:2px;line-height:1.6">'+e.d+'</div>':'')+'</div>'})}
+if(edus.length){h+='<div style="font-size:0.65em;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:#bbb;margin-bottom:8px">Opleiding</div>';edus.forEach(function(e){h+='<div style="margin-bottom:10px"><div style="font-size:0.92em;font-weight:500">'+e.t+' <span style="font-weight:400;color:'+c+'">@ '+e.s+'</span></div><div style="font-size:0.7em;color:#bbb">'+fD(e.ss)+' - '+(e.e?fD(e.e):'')+'</div>'+(e.d?'<div style="font-size:0.8em;color:#666;margin-top:2px">'+e.d+'</div>':'')+'</div>'})}
+if(skills.length){h+='<div style="font-size:0.65em;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:#bbb;margin-bottom:6px">Vaardigheden</div><div style="font-size:0.8em;color:#666;margin-bottom:12px">'+skills.map(function(s){return s.n}).join(' \u00B7 ')+'</div>'}
+if(langs.length){h+='<div style="font-size:0.65em;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:#bbb;margin-bottom:6px">Talen</div><div style="font-size:0.78em;color:#999">'+langs.map(function(l){return l.n+' ('+l.l+')'}).join(' \u00B7 ')+'</div>'}
+h+='</div>';
+p.innerHTML='<div class="cv-inner" style="width:100%;height:100%;overflow:hidden">'+h+'</div>';
+}
+
+function rBold(p,d,c,ci){
+var header='<div style="background:linear-gradient(135deg,'+c+','+c+'dd);padding:30px 26px;display:flex;align-items:center;gap:20px">';
+if(d.sp&&photo)header+='<div style="width:100px;height:100px;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,.3);flex-shrink:0"><img src="'+photo+'" style="width:100%;height:100%;object-fit:cover"></div>';
+header+='<div><div style="font-size:2.5em;font-weight:800;color:#fff;line-height:1.05;letter-spacing:-0.02em">'+d.nm+'</div>'+(d.jt?'<div style="font-size:0.95em;color:rgba(255,255,255,.7);margin-top:2px">'+d.jt+'</div>':'')+'</div></div>';
+header+='<div style="background:'+c+'20;padding:8px 24px;font-size:0.72em;color:#555">'+ci.join(' | ')+'</div>';
+var cols='<div style="display:flex;padding:18px 24px;gap:20px">';
+var left='<div style="flex:1;min-width:0;overflow:hidden">';
+if(d.pf){left+='<div style="font-size:0.75em;font-weight:700;color:'+c+';text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;padding-bottom:3px;border-bottom:2px solid '+c+'">Profiel</div><div style="font-size:0.82em;color:#555;line-height:1.6;margin-bottom:14px">'+d.pf+'</div>'}
+if(exps.length){left+='<div style="font-size:0.75em;font-weight:700;color:'+c+';text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;padding-bottom:3px;border-bottom:2px solid '+c+'">Werkervaring</div>';exps.forEach(function(e){left+='<div style="margin-bottom:10px;padding-left:10px;border-left:3px solid '+c+'"><div style="font-size:0.92em;font-weight:700">'+e.t+'</div><div style="font-size:0.72em;color:#999">'+e.c+(e.l?' | '+e.l:'')+' | '+fD(e.s)+' - '+(e.e?fD(e.e):'heden')+'</div>'+(e.d?'<div style="font-size:0.78em;color:#555;margin-top:2px;line-height:1.5">'+e.d+'</div>':'')+'</div>'})}
+if(edus.length){left+='<div style="font-size:0.75em;font-weight:700;color:'+c+';text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;padding-bottom:3px;border-bottom:2px solid '+c+'">Opleiding</div>';edus.forEach(function(e){left+='<div style="margin-bottom:10px;padding-left:10px;border-left:3px solid '+c+'"><div style="font-size:0.92em;font-weight:700">'+e.t+'</div><div style="font-size:0.72em;color:#999">'+e.s+' | '+fD(e.ss)+' - '+(e.e?fD(e.e):'')+'</div>'+(e.d?'<div style="font-size:0.78em;color:#555;margin-top:2px">'+e.d+'</div>':'')+'</div>'})}
+left+='</div>';
+var right='<div style="width:38%;flex-shrink:0;overflow:hidden">';
+if(skills.length){right+='<div style="font-size:0.75em;font-weight:700;color:'+c+';text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">Vaardigheden</div>';skills.forEach(function(s){right+='<div style="margin-bottom:6px"><span style="display:inline-block;padding:3px 10px;border-radius:4px;font-size:0.72em;background:'+c+'15;color:'+c+';font-weight:600;margin-bottom:2px">'+s.n+'</span>'+bar(s.l,c,'#eee')+'</div>'});right+='<br>'}
+if(langs.length){right+='<div style="font-size:0.75em;font-weight:700;color:'+c+';text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">Talen</div>';langs.forEach(function(l){right+='<div style="font-size:0.78em;margin-bottom:3px;color:#666">'+l.n+' \u2014 '+l.l+'</div>'})}
+right+='</div>';
+cols+=left+right+'</div>';
+p.innerHTML='<div class="cv-inner" style="width:100%;height:100%;overflow:hidden">'+header+cols+'</div>';
+}
+
+function autoScale(){
+var el=document.getElementById('cvp');
+if(!el)return;
+var inner=el.querySelector('.cv-inner');
+if(!inner)return;
+inner.style.transform='none';
+inner.style.width='100%';
+var size=12;
+el.style.fontSize=size+'px';
+var h=inner.scrollHeight;
+var target=842;
+if(h<target*0.5){size=16;el.style.fontSize=size+'px';}
+else if(h<target*0.65){size=14.5;el.style.fontSize=size+'px';}
+else if(h<target*0.8){size=13;el.style.fontSize=size+'px';}
+else if(h>target){
+while(h>target&&size>7){size-=0.4;el.style.fontSize=size+'px';h=inner.scrollHeight;}
+}
+h=inner.scrollHeight;
+if(h>target){var s=target/h;if(s<0.65)s=0.65;inner.style.transform='scale(1,'+s+')';inner.style.transformOrigin='top left';}
+}
 
 function dlPDF(){
-  var el=document.getElementById('cvp');
-  var origW=el.style.width;
-  var origH=el.style.minHeight;
-  var origT=el.style.transform;
-  var origMb=el.style.marginBottom;
-  el.style.width='595px';
-  el.style.minHeight='842px';
-  el.style.transform='none';
-  el.style.marginBottom='0';
-  setTimeout(function(){
-    html2canvas(el,{scale:2,useCORS:true,backgroundColor:'#ffffff',windowWidth:595}).then(function(canvas){
-      var imgData=canvas.toDataURL('image/jpeg',0.98);
-      var J=window.jspdf.jsPDF;
-      var pdf=new J('p','mm','a4');
-      var imgW=210;
-      var imgH=canvas.height*imgW/canvas.width;
-      if(imgH>297){imgH=297}
-      pdf.addImage(imgData,'JPEG',0,0,imgW,imgH);
-      var d=gCV();
-      pdf.save('cv-'+d.nm.toLowerCase().replace(/\s+/g,'-')+'.pdf');
-      el.style.width=origW;
-      el.style.minHeight=origH;
-      el.style.transform=origT;
-      el.style.marginBottom=origMb;
-    });
-  },100);
+var el=document.getElementById('cvp');
+var inner=el.querySelector('.cv-inner');
+var origT=inner?inner.style.transform:'';
+var origW=inner?inner.style.width:'';
+if(inner){inner.style.transform='none';inner.style.width='100%';}
+var mq=window.matchMedia('(max-width:768px)');
+var origElT=el.style.transform;
+var origElMb=el.style.marginBottom;
+if(mq.matches){el.style.transform='none';el.style.marginBottom='0';}
+setTimeout(function(){
+autoScale();
+setTimeout(function(){
+html2canvas(el,{scale:2,useCORS:true,backgroundColor:'#ffffff',width:595,height:842}).then(function(canvas){
+var imgData=canvas.toDataURL('image/jpeg',0.95);
+var pdf=new window.jspdf.jsPDF('p','mm','a4');
+pdf.addImage(imgData,'JPEG',0,0,210,297);
+var d=gCV();
+pdf.save('cv-'+d.nm.toLowerCase().replace(/\s+/g,'-')+'.pdf');
+if(inner){inner.style.transform=origT;inner.style.width=origW;}
+if(mq.matches){el.style.transform=origElT;el.style.marginBottom=origElMb;}
+});
+},100);
+},50);
 }
-function autoScale(){
-  var el=document.getElementById('cvp');
-  if(!el)return;
-  var content=el.firstElementChild;
-  if(!content)return;
-  el.style.fontSize='11px';
-  var h=content.scrollHeight;
-  var target=842;
-  var ratio=target/h;
-  if(ratio>1.35)ratio=1.35;
-  if(ratio<0.65)ratio=0.65;
-  var base=11*ratio;
-  if(base>14.5)base=14.5;
-  if(base<7.5)base=7.5;
-  el.style.fontSize=base+'px';
-}
-uP();skills=[{n:'Microsoft Office',l:4},{n:'Communicatie',l:5},{n:'Projectmanagement',l:3}];langs=[{n:'Nederlands',l:'Moedertaal'},{n:'Engels',l:'Vloeiend'}];rSkL();rLgL();R();
+
+uP();
+skills=[{n:'Microsoft Office',l:4},{n:'Communicatie',l:5},{n:'Projectmanagement',l:3}];
+langs=[{n:'Nederlands',l:'Moedertaal'},{n:'Engels',l:'Vloeiend'}];
+rSkL();rLgL();R();
 </script>
 </body>
 </html>
