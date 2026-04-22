@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Huurcommissie Bezwaar Generator · Fixlify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  :root {
+    --blue: #2563EB;
+    --blue-dark: #1D4ED8;
+    --blue-soft: #EFF4FF;
+    --orange: #F97316;
+    --orange-dark: #EA580C;
+    --bg: #FAFAFA;
+    --ink: #0F172A;
+    --ink-soft: #475569;
+    --muted: #94A3B8;
+    --line: #E2E8F0;
+    --line-soft: #F1F5F9;
+    --white: #FFFFFF;
+    --green: #16A34A;
+    --green-soft: #DCFCE7;
+    --red: #DC2626;
+    --red-soft: #FEE2E2;
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+    --shadow-lg: 0 20px 50px -12px rgba(15, 23, 42, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.9);
+  }
+  .nav-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--orange);
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .back-link {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--blue); }
+
+  /* HERO */
+  .hero {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 48px 24px 32px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--blue);
+    background: var(--blue-soft);
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--blue);
+    position: relative;
+  }
+  .hero h1 em::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 2px;
+    height: 8px;
+    background: var(--orange);
+    opacity: 0.25;
+    z-index: -1;
+    border-radius: 2px;
+  }
+  .hero p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  /* STEPPER */
+  .stepper {
+    max-width: 820px;
+    margin: 0 auto 32px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .step-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .step-bubble {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+  .step-item.active .step-bubble {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+  }
+  .step-item.done .step-bubble {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+  }
+  .step-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .step-item.active .step-label,
+  .step-item.done .step-label { color: var(--ink); }
+  .step-line {
+    flex: 1;
+    height: 2px;
+    background: var(--line);
+    border-radius: 2px;
+  }
+  .step-item.done + .step-line { background: var(--green); }
+  @media (max-width: 720px) {
+    .step-label { display: none; }
+    .step-line { min-width: 16px; }
+  }
+
+  /* CARD */
+  .card {
+    max-width: 820px;
+    margin: 0 auto 32px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+  }
+  @media (max-width: 640px) {
+    .card { padding: 24px; border-radius: 14px; margin: 0 16px 24px; }
+  }
+
+  .card h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .card-sub {
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+    font-size: 15px;
+  }
+
+  /* SECTIONS */
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--blue);
+    margin: 32px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title::before {
+    content: '';
+    width: 16px;
+    height: 2px;
+    background: var(--orange);
+  }
+
+  /* FORM */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 560px) {
+    .grid, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .field.full { grid-column: 1 / -1; }
+  .field label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .field-help {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .field input,
+  .field select {
+    font-family: inherit;
+    font-size: 15px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--ink);
+    transition: all 0.2s;
+    width: 100%;
+  }
+  .field input:focus,
+  .field select:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px var(--blue-soft);
+  }
+
+  /* CHECK GROUP */
+  .check-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 480px) {
+    .check-group { grid-template-columns: 1fr; }
+  }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .check-item:hover { border-color: var(--blue); background: var(--blue-soft); }
+  .check-item input { accent-color: var(--blue); width: 16px; height: 16px; }
+  .check-item span { font-size: 14px; font-weight: 500; }
+  .check-item.checked { border-color: var(--blue); background: var(--blue-soft); }
+
+  /* BUTTON ROW */
+  .btn-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .btn {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: var(--white);
+  }
+  .btn-primary:hover {
+    background: var(--orange-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(249, 115, 22, 0.3);
+  }
+  .btn-secondary {
+    background: var(--white);
+    color: var(--ink);
+    border: 1.5px solid var(--line);
+  }
+  .btn-secondary:hover { border-color: var(--ink); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink-soft);
+  }
+  .btn-ghost:hover { color: var(--ink); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* RESULT */
+  .result-hero {
+    text-align: center;
+    padding: 40px 24px;
+    border-radius: 16px;
+    margin-bottom: 32px;
+  }
+  .result-hero.good {
+    background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+    border: 2px solid #86EFAC;
+  }
+  .result-hero.bad {
+    background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+    border: 2px solid #FCA5A5;
+  }
+  .result-hero.free {
+    background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+    border: 2px solid #FDE68A;
+  }
+  .result-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+  .good .result-icon { background: var(--green); color: var(--white); }
+  .bad .result-icon { background: var(--red); color: var(--white); }
+  .free .result-icon { background: #D97706; color: var(--white); }
+
+  .result-headline {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .good .result-headline { color: #15803D; }
+  .bad .result-headline { color: #B91C1C; }
+  .free .result-headline { color: #B45309; }
+
+  .result-big {
+    font-size: clamp(36px, 7vw, 56px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .good .result-big { color: #15803D; }
+  .bad .result-big { color: #B91C1C; }
+  .free .result-big { color: #B45309; }
+
+  .result-sub {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 560px) { .stats-grid { grid-template-columns: 1fr; } }
+  .stat {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .breakdown {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 32px;
+  }
+  .breakdown h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .breakdown h3 span { font-size: 13px; color: var(--muted); font-weight: 500; }
+  .breakdown ul { list-style: none; }
+  .breakdown li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .breakdown li:last-child { border-bottom: none; }
+  .breakdown li span:first-child { color: var(--ink-soft); }
+  .breakdown li span:last-child { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .breakdown li.total {
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 2px solid var(--line);
+    border-bottom: none;
+    font-size: 15px;
+  }
+  .breakdown li.total span { font-weight: 700; color: var(--ink); }
+
+  /* PREVIEW */
+  .letter-preview {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 36px;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #1E293B;
+    max-height: 500px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    margin-bottom: 16px;
+  }
+  .letter-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+    background: var(--bg);
+    padding: 4px;
+    border-radius: 10px;
+  }
+  .letter-tab {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    transition: all 0.2s;
+  }
+  .letter-tab.active {
+    background: var(--white);
+    color: var(--ink);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .download-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 560px) { .download-grid { grid-template-columns: 1fr; } }
+
+  .download-card {
+    background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s;
+  }
+  .download-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  .download-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .download-card p {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+    min-height: 36px;
+  }
+  .download-btn {
+    width: 100%;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .download-btn:hover { background: var(--blue-dark); }
+
+  /* INFO BOX */
+  .info-box {
+    background: var(--blue-soft);
+    border-left: 3px solid var(--blue);
+    padding: 16px 18px;
+    border-radius: 8px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .info-box strong { font-weight: 600; }
+
+  .warning-box {
+    background: #FFFBEB;
+    border-left: 3px solid #D97706;
+    padding: 16px 18px;
+    border-radius: 8px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: #713F12;
+    line-height: 1.6;
+  }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .disclaimer strong { color: var(--ink-soft); }
+  .disclaimer a { color: var(--blue); font-weight: 500; }
+
+  /* STEPS VISIBILITY */
+  .step-panel { display: none; }
+  .step-panel.active { display: block; animation: fadeIn 0.4s ease; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--white);
+    border-top: 1px solid var(--line);
+    padding: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* PAYWALL MODAL */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+    animation: fadeIn 0.2s ease;
+  }
+  .modal-overlay.active { display: flex; }
+
+  .modal {
+    background: var(--white);
+    border-radius: 20px;
+    max-width: 480px;
+    width: 100%;
+    padding: 40px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(16px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @media (max-width: 480px) {
+    .modal { padding: 28px 24px; border-radius: 14px; }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .modal-close:hover { background: var(--line-soft); color: var(--ink); }
+
+  .modal-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: white;
+  }
+
+  .modal h3 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .modal-savings {
+    background: var(--green-soft);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 16px 0 20px;
+    font-size: 14px;
+    color: #15803D;
+    font-weight: 500;
+  }
+  .modal-savings strong {
+    color: #14532D;
+    font-weight: 700;
+  }
+  .modal p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  .modal ul {
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0;
+  }
+  .modal ul li {
+    font-size: 14px;
+    color: var(--ink);
+    padding: 7px 0;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .modal ul li::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .modal-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: var(--bg);
+    border-radius: 12px;
+  }
+  .modal-price {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .modal-price-label {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .modal-pay-btn {
+    display: block;
+    width: 100%;
+    background: var(--orange);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .modal-pay-btn:hover {
+    background: var(--orange-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(249, 115, 22, 0.35);
+  }
+  .modal-trust {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  /* PAID BADGE */
+  .paid-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green-soft);
+    color: #15803D;
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo"><span class="logo-dot"></span>Fixlify</a>
+    <a href="#" class="back-link">← Alle tools</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <span class="hero-eyebrow">Gratis tool · Huurcommissie</span>
+  <h1>Betaal je <em>te veel huur</em>?<br>Check het en maak bezwaar.</h1>
+  <p>Bereken je puntentelling volgens het Woningwaarderingsstelsel en genereer direct een juridisch correcte bezwaarbrief als PDF. In 5 minuten klaar.</p>
+</section>
+
+<!-- STEPPER -->
+<div class="stepper" id="stepper">
+  <div class="step-item active" data-step="1">
+    <div class="step-bubble">1</div>
+    <div class="step-label">Woning</div>
+  </div>
+  <div class="step-line"></div>
+  <div class="step-item" data-step="2">
+    <div class="step-bubble">2</div>
+    <div class="step-label">Resultaat</div>
+  </div>
+  <div class="step-line"></div>
+  <div class="step-item" data-step="3">
+    <div class="step-bubble">3</div>
+    <div class="step-label">Gegevens</div>
+  </div>
+  <div class="step-line"></div>
+  <div class="step-item" data-step="4">
+    <div class="step-bubble">4</div>
+    <div class="step-label">Download</div>
+  </div>
+</div>
+
+<!-- STEP 1: WONING -->
+<div class="card step-panel active" id="step-1">
+  <h2>Vertel ons over je woning</h2>
+  <p class="card-sub">We berekenen je puntenwaardering volgens het officiële Woningwaarderingsstelsel (WWS) 2026.</p>
+
+  <div class="section-title">Basisgegevens</div>
+  <div class="grid">
+    <div class="field">
+      <label for="woningtype">Type woning</label>
+      <select id="woningtype">
+        <option value="zelfstandig">Zelfstandig (eigen voordeur, keuken, toilet)</option>
+        <option value="onzelfstandig">Onzelfstandig (kamer in gedeeld huis)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="bouwjaar">Bouwjaar</label>
+      <input type="number" id="bouwjaar" placeholder="bv. 1985" min="1800" max="2026" />
+    </div>
+    <div class="field">
+      <label for="oppWonen">Oppervlakte woonkamer + slaapkamers (m²)</label>
+      <input type="number" id="oppWonen" placeholder="bv. 45" min="0" step="0.1" />
+      <span class="field-help">1 punt per m²</span>
+    </div>
+    <div class="field">
+      <label for="oppOverig">Oppervlakte overige ruimtes (m²)</label>
+      <input type="number" id="oppOverig" placeholder="bv. 8" min="0" step="0.1" />
+      <span class="field-help">Gang, hal, bijkeuken — 0,75 punt per m²</span>
+    </div>
+    <div class="field">
+      <label for="verwarmdeVertrekken">Aantal verwarmde vertrekken</label>
+      <input type="number" id="verwarmdeVertrekken" placeholder="bv. 3" min="0" />
+      <span class="field-help">2 punten per vertrek</span>
+    </div>
+    <div class="field">
+      <label for="energielabel">Energielabel</label>
+      <select id="energielabel">
+        <option value="">Kies label...</option>
+        <option value="A++++">A++++ (52 punten)</option>
+        <option value="A+++">A+++ (48 punten)</option>
+        <option value="A++">A++ (44 punten)</option>
+        <option value="A+">A+ (40 punten)</option>
+        <option value="A">A (36 punten)</option>
+        <option value="B">B (32 punten)</option>
+        <option value="C">C (22 punten)</option>
+        <option value="D">D (14 punten)</option>
+        <option value="E">E (8 punten)</option>
+        <option value="F">F (4 punten)</option>
+        <option value="G">G (0 punten)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="wozWaarde">WOZ-waarde (€)</label>
+      <input type="number" id="wozWaarde" placeholder="bv. 245000" min="0" />
+      <span class="field-help">Te vinden op WOZ-waardeloket.nl</span>
+    </div>
+    <div class="field">
+      <label for="huidigeHuur">Huidige kale huurprijs per maand (€)</label>
+      <input type="number" id="huidigeHuur" placeholder="bv. 950" min="0" step="0.01" />
+      <span class="field-help">Exclusief servicekosten</span>
+    </div>
+  </div>
+
+  <div class="section-title">Keuken</div>
+  <div class="grid">
+    <div class="field">
+      <label for="aanrechtLengte">Lengte aanrecht (cm)</label>
+      <input type="number" id="aanrechtLengte" placeholder="bv. 180" min="0" />
+      <span class="field-help">&lt;100cm = 0, 100-200cm = 4, &gt;200cm = 7 punten</span>
+    </div>
+    <div class="field">
+      <label>Voorzieningen</label>
+      <div class="check-group">
+        <label class="check-item"><input type="checkbox" id="kookplaat" /><span>Kookplaat</span></label>
+        <label class="check-item"><input type="checkbox" id="afzuigkap" /><span>Afzuigkap</span></label>
+        <label class="check-item"><input type="checkbox" id="koelkast" /><span>Koelkast</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Sanitair</div>
+  <div class="field">
+    <label>Aanwezige voorzieningen</label>
+    <div class="check-group">
+      <label class="check-item"><input type="checkbox" id="toilet" /><span>Toilet (3 punten)</span></label>
+      <label class="check-item"><input type="checkbox" id="apartToilet" /><span>Apart toilet (+2 punten)</span></label>
+      <label class="check-item"><input type="checkbox" id="wastafel" /><span>Wastafel (1 punt)</span></label>
+      <label class="check-item"><input type="checkbox" id="douche" /><span>Douche (4 punten)</span></label>
+      <label class="check-item"><input type="checkbox" id="bad" /><span>Bad (6 punten)</span></label>
+    </div>
+  </div>
+
+  <div class="section-title">Buitenruimte</div>
+  <div class="grid">
+    <div class="field">
+      <label for="buitenruimte">Heb je een buitenruimte?</label>
+      <select id="buitenruimte">
+        <option value="nee">Nee</option>
+        <option value="balkon">Ja, balkon</option>
+        <option value="tuin">Ja, tuin</option>
+        <option value="dakterras">Ja, dakterras</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="buitenOpp">Oppervlakte buitenruimte (m²)</label>
+      <input type="number" id="buitenOpp" placeholder="bv. 6" min="0" step="0.1" />
+      <span class="field-help">2 basispunten + 0,35 per m²</span>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-ghost" disabled>← Vorige</button>
+    <button class="btn btn-primary" onclick="calculatePoints()">Bereken punten →</button>
+  </div>
+</div>
+
+<!-- STEP 2: RESULTAAT -->
+<div class="card step-panel" id="step-2">
+  <h2>Jouw puntenwaardering</h2>
+  <p class="card-sub">Op basis van je invoer is dit het resultaat. Let op: de definitieve telling gebeurt bij de Huurcommissie.</p>
+
+  <div id="resultContent"></div>
+
+  <div class="btn-row">
+    <button class="btn btn-secondary" onclick="goToStep(1)">← Aanpassen</button>
+    <button class="btn btn-primary" id="btnToStep3" onclick="handleUnlockClick()">Brief opstellen →</button>
+  </div>
+</div>
+
+<!-- STEP 3: GEGEVENS -->
+<div class="card step-panel" id="step-3">
+  <h2>Jouw gegevens voor de brief</h2>
+  <p class="card-sub">Deze gegevens komen in de brief aan je verhuurder en het verzoekschrift aan de Huurcommissie.</p>
+
+  <div class="section-title">Jouw gegevens</div>
+  <div class="grid">
+    <div class="field full">
+      <label for="huurderNaam">Volledige naam</label>
+      <input type="text" id="huurderNaam" placeholder="bv. Jan de Vries" />
+    </div>
+    <div class="field full">
+      <label for="huurderAdres">Adres (straat + huisnummer)</label>
+      <input type="text" id="huurderAdres" placeholder="bv. Hoofdstraat 12" />
+    </div>
+    <div class="field">
+      <label for="huurderPostcode">Postcode</label>
+      <input type="text" id="huurderPostcode" placeholder="bv. 1012 AB" />
+    </div>
+    <div class="field">
+      <label for="huurderPlaats">Plaats</label>
+      <input type="text" id="huurderPlaats" placeholder="bv. Amsterdam" />
+    </div>
+  </div>
+
+  <div class="section-title">Gegevens verhuurder</div>
+  <div class="grid">
+    <div class="field full">
+      <label for="verhuurderNaam">Naam verhuurder (bedrijf of persoon)</label>
+      <input type="text" id="verhuurderNaam" placeholder="bv. Vastgoed BV" />
+    </div>
+    <div class="field full">
+      <label for="verhuurderAdres">Adres verhuurder</label>
+      <input type="text" id="verhuurderAdres" placeholder="bv. Kantoorweg 5" />
+    </div>
+    <div class="field">
+      <label for="verhuurderPostcode">Postcode</label>
+      <input type="text" id="verhuurderPostcode" placeholder="bv. 1015 CD" />
+    </div>
+    <div class="field">
+      <label for="verhuurderPlaats">Plaats</label>
+      <input type="text" id="verhuurderPlaats" placeholder="bv. Amsterdam" />
+    </div>
+  </div>
+
+  <div class="section-title">Contract</div>
+  <div class="grid">
+    <div class="field">
+      <label for="ingangsdatumContract">Ingangsdatum huurcontract</label>
+      <input type="date" id="ingangsdatumContract" />
+    </div>
+    <div class="field">
+      <label for="gewensteIngangsdatum">Gewenste ingangsdatum huurverlaging</label>
+      <input type="date" id="gewensteIngangsdatum" />
+      <span class="field-help">Minimaal 2 maanden in de toekomst</span>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>Hoe het werkt:</strong> We maken eerst een <em>voorstel tot huurverlaging</em> aan je verhuurder (wettelijk verplichte eerste stap). Pas als je verhuurder niet meewerkt of niet reageert binnen 6 weken, stuur je het tweede document — het <em>verzoekschrift aan de Huurcommissie</em> — op.
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-secondary" onclick="goToStep(2)">← Terug</button>
+    <button class="btn btn-primary" onclick="generatePreview()">Brieven voorbereiden →</button>
+  </div>
+</div>
+
+<!-- STEP 4: PREVIEW & DOWNLOAD -->
+<div class="card step-panel" id="step-4">
+  <h2>Je brieven zijn klaar</h2>
+  <p class="card-sub">Controleer de inhoud hieronder en download beide PDF's. Verstuur eerst Brief 1; gebruik Brief 2 alleen als verhuurder niet akkoord gaat.</p>
+
+  <div class="letter-tabs">
+    <button class="letter-tab active" onclick="switchLetter(1)" id="tab1">Brief 1: Voorstel aan verhuurder</button>
+    <button class="letter-tab" onclick="switchLetter(2)" id="tab2">Brief 2: Verzoekschrift Huurcommissie</button>
+  </div>
+
+  <div class="letter-preview" id="letterPreview"></div>
+
+  <div class="warning-box">
+    <strong>Volgorde is belangrijk:</strong> Stuur eerst Brief 1 aangetekend naar je verhuurder. Wacht 6 weken op antwoord. Pas als de verhuurder weigert of niet reageert, stuur je Brief 2 op naar de Huurcommissie (Postbus 16495, 2500 BL Den Haag) of dien je het online in via huurcommissie.nl.
+  </div>
+
+  <div class="download-grid">
+    <div class="download-card">
+      <h4>📄 Brief 1 · Voorstel huurverlaging</h4>
+      <p>Stuur deze eerst aangetekend naar je verhuurder.</p>
+      <button class="download-btn" onclick="downloadPDF(1)">Download PDF</button>
+    </div>
+    <div class="download-card">
+      <h4>📄 Brief 2 · Verzoekschrift Huurcommissie</h4>
+      <p>Voor als verhuurder niet akkoord gaat.</p>
+      <button class="download-btn" onclick="downloadPDF(2)">Download PDF</button>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-secondary" onclick="goToStep(3)">← Aanpassen</button>
+    <button class="btn btn-ghost" onclick="startOver()">↻ Opnieuw beginnen</button>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>Let op:</strong> deze berekening is een indicatie. De Huurcommissie maakt de definitieve puntentelling tijdens een fysiek onderzoek. Deze tool vervangt geen juridisch advies. Bij twijfel, neem contact op met het <a href="https://www.juridischloket.nl" target="_blank" rel="noopener">Juridisch Loket</a> (gratis).
+</div>
+
+<!-- PAYWALL MODAL -->
+<div class="modal-overlay" id="paywallModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closePaywall()" aria-label="Sluiten">×</button>
+    <div class="modal-icon">🔓</div>
+    <h3>Ontgrendel je bezwaarbrieven</h3>
+    <div class="modal-savings" id="modalSavings"></div>
+    <p>Je puntentelling is gratis. Voor de juridisch correcte bezwaarbrieven als downloadbare PDF vragen we een kleine bijdrage.</p>
+    <ul>
+      <li>Brief 1: Voorstel tot huurverlaging aan verhuurder</li>
+      <li>Brief 2: Verzoekschrift voor de Huurcommissie</li>
+      <li>Beide brieven als PDF, direct downloadbaar</li>
+      <li>Juridisch correct opgemaakt (art. 7:254 BW)</li>
+      <li>Eenmalige betaling — geen abonnement</li>
+    </ul>
+    <div class="modal-price-row">
+      <span class="modal-price">€9,99</span>
+      <span class="modal-price-label">eenmalig, incl. btw</span>
+    </div>
+    <button class="modal-pay-btn" onclick="startCheckout()">Betaal met iDEAL / kaart →</button>
+    <div class="modal-trust">🔒 Veilige betaling via Stripe</div>
+  </div>
+</div>
+
+<footer>
+  © Fixlify · Huurcommissie Bezwaar Generator · Gebaseerd op het Woningwaarderingsstelsel (WWS) 2026
+</footer>
+
+<script>
+// ============== CONFIG ==============
+const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/4gM00j7hA03I7mMetD8ww00';
+const PRICE = '€9,99';
+
+// ============== PAYWALL STATE ==============
+function hasPaid() {
+  // Check URL param (net teruggekomen van Stripe)
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('paid') === 'true') {
+    localStorage.setItem('fixlify_huur_paid', 'true');
+    // Opschonen URL zodat paid=true niet zichtbaar blijft
+    window.history.replaceState({}, document.title, window.location.pathname);
+    return true;
+  }
+  return localStorage.getItem('fixlify_huur_paid') === 'true';
+}
+
+// ============== STATE ==============
+let state = {
+  points: 0,
+  breakdown: {},
+  maxRent: 0,
+  currentRent: 0,
+  difference: 0,
+  isFreeMarket: false,
+  huurder: {},
+  verhuurder: {},
+  contract: {},
+  currentLetter: 1
+};
+
+// ============== HUURPRIJSTABEL 2026 ==============
+const rentTable = [
+  { points: 40, rent: 225 },
+  { points: 50, rent: 262 },
+  { points: 60, rent: 308 },
+  { points: 70, rent: 365 },
+  { points: 80, rent: 432 },
+  { points: 90, rent: 488 },
+  { points: 100, rent: 536 },
+  { points: 110, rent: 592 },
+  { points: 120, rent: 652 },
+  { points: 130, rent: 714 },
+  { points: 140, rent: 822 },
+  { points: 143, rent: 879.66 },
+  { points: 150, rent: 920 },
+  { points: 160, rent: 975 },
+  { points: 170, rent: 1030 },
+  { points: 180, rent: 1085 },
+  { points: 186, rent: 1157 }
+];
+
+function getMaxRent(points) {
+  if (points < 40) {
+    return Math.max(0, Math.round((points / 40) * 225 * 100) / 100);
+  }
+  if (points >= 187) return null; // Vrije sector
+  for (let i = 0; i < rentTable.length - 1; i++) {
+    const a = rentTable[i], b = rentTable[i + 1];
+    if (points >= a.points && points <= b.points) {
+      const ratio = (points - a.points) / (b.points - a.points);
+      return Math.round((a.rent + ratio * (b.rent - a.rent)) * 100) / 100;
+    }
+  }
+  return rentTable[rentTable.length - 1].rent;
+}
+
+// ============== ENERGIELABEL PUNTEN ==============
+const energieLabels = {
+  'A++++': 52, 'A+++': 48, 'A++': 44, 'A+': 40,
+  'A': 36, 'B': 32, 'C': 22, 'D': 14, 'E': 8, 'F': 4, 'G': 0
+};
+
+// ============== CHECKBOX STYLING ==============
+document.querySelectorAll('.check-item input').forEach(input => {
+  input.addEventListener('change', e => {
+    e.target.closest('.check-item').classList.toggle('checked', e.target.checked);
+  });
+});
+
+// ============== BEREKEN PUNTEN ==============
+function calculatePoints() {
+  const val = id => parseFloat(document.getElementById(id).value) || 0;
+  const chk = id => document.getElementById(id).checked;
+  const sel = id => document.getElementById(id).value;
+
+  const oppWonen = val('oppWonen');
+  const oppOverig = val('oppOverig');
+  const verwarmd = val('verwarmdeVertrekken');
+  const label = sel('energielabel');
+  const woz = val('wozWaarde');
+  const huur = val('huidigeHuur');
+  const aanrechtLengte = val('aanrechtLengte');
+  const buitenType = sel('buitenruimte');
+  const buitenOpp = val('buitenOpp');
+
+  // Validatie
+  if (!oppWonen || !huur || !label || !woz) {
+    alert('Vul in ieder geval oppervlakte, huurprijs, energielabel en WOZ-waarde in.');
+    return;
+  }
+
+  let breakdown = {};
+  let total = 0;
+
+  // Oppervlakte
+  breakdown['Oppervlakte woonvertrekken'] = Math.round(oppWonen * 10) / 10;
+  total += oppWonen;
+
+  breakdown['Oppervlakte overige ruimtes'] = Math.round(oppOverig * 0.75 * 10) / 10;
+  total += oppOverig * 0.75;
+
+  // Verwarming
+  breakdown['Verwarming (' + verwarmd + ' vertrekken)'] = verwarmd * 2;
+  total += verwarmd * 2;
+
+  // Energielabel
+  const labelPunten = energieLabels[label] || 0;
+  breakdown['Energielabel ' + label] = labelPunten;
+  total += labelPunten;
+
+  // Keuken
+  let keukenPunten = 0;
+  if (aanrechtLengte >= 200) keukenPunten += 7;
+  else if (aanrechtLengte >= 100) keukenPunten += 4;
+  if (chk('kookplaat')) keukenPunten += 1;
+  if (chk('afzuigkap')) keukenPunten += 1;
+  if (chk('koelkast')) keukenPunten += 1;
+  breakdown['Keuken'] = keukenPunten;
+  total += keukenPunten;
+
+  // Sanitair
+  let sanitairPunten = 0;
+  if (chk('toilet')) sanitairPunten += 3;
+  if (chk('apartToilet')) sanitairPunten += 2;
+  if (chk('wastafel')) sanitairPunten += 1;
+  if (chk('douche')) sanitairPunten += 4;
+  if (chk('bad')) sanitairPunten += 6;
+  breakdown['Sanitair'] = sanitairPunten;
+  total += sanitairPunten;
+
+  // Buitenruimte
+  let buitenPunten = 0;
+  if (buitenType !== 'nee' && buitenOpp > 0) {
+    buitenPunten = 2 + (buitenOpp * 0.35);
+  }
+  breakdown['Buitenruimte'] = Math.round(buitenPunten * 10) / 10;
+  total += buitenPunten;
+
+  // WOZ
+  const wozPunten = Math.round(woz / 13822);
+  breakdown['WOZ-waarde (€' + woz.toLocaleString('nl-NL') + ')'] = wozPunten;
+  total += wozPunten;
+
+  total = Math.round(total);
+  const maxRent = getMaxRent(total);
+  const isFreeMarket = total >= 187;
+
+  state.points = total;
+  state.breakdown = breakdown;
+  state.maxRent = maxRent;
+  state.currentRent = huur;
+  state.difference = maxRent !== null ? Math.max(0, huur - maxRent) : 0;
+  state.isFreeMarket = isFreeMarket;
+
+  renderResult();
+  goToStep(2);
+}
+
+// ============== RENDER RESULTAAT ==============
+function renderResult() {
+  const c = document.getElementById('resultContent');
+  const btn = document.getElementById('btnToStep3');
+
+  let html = '';
+
+  if (state.isFreeMarket) {
+    html += `
+      <div class="result-hero free">
+        <div class="result-icon">!</div>
+        <div class="result-headline">Vrije sector</div>
+        <div class="result-big">${state.points} punten</div>
+        <p class="result-sub">Met 187+ punten valt je woning in de vrije sector. Er geldt geen wettelijke maximale huurprijs. Bezwaar via de Huurcommissie is helaas niet mogelijk voor de hoogte van de huur.</p>
+      </div>
+    `;
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+    btn.textContent = 'Bezwaar niet mogelijk';
+  } else if (state.difference > 0) {
+    html += `
+      <div class="result-hero bad">
+        <div class="result-icon">✕</div>
+        <div class="result-headline">Je betaalt te veel</div>
+        <div class="result-big">€${state.difference.toFixed(2)} te veel p/m</div>
+        <p class="result-sub">Dat is <strong>€${(state.difference * 12).toFixed(2)} per jaar</strong>. Je hebt recht op huurverlaging via de Huurcommissie.</p>
+      </div>
+    `;
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.textContent = 'Brief opstellen →';
+  } else {
+    html += `
+      <div class="result-hero good">
+        <div class="result-icon">✓</div>
+        <div class="result-headline">Je huur is redelijk</div>
+        <div class="result-big">€${state.currentRent.toFixed(2)}</div>
+        <p class="result-sub">Je huur valt binnen de maximale huurprijs van €${state.maxRent.toFixed(2)}. Bezwaar maken heeft waarschijnlijk geen zin.</p>
+      </div>
+    `;
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+    btn.textContent = 'Geen bezwaar nodig';
+  }
+
+  // Stats
+  html += `
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-label">Totaal punten</div>
+        <div class="stat-value">${state.points}</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Maximale huurprijs</div>
+        <div class="stat-value">${state.maxRent !== null ? '€' + state.maxRent.toFixed(2) : 'Vrije sector'}</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Huidige huurprijs</div>
+        <div class="stat-value">€${state.currentRent.toFixed(2)}</div>
+      </div>
+    </div>
+  `;
+
+  // Breakdown
+  html += `
+    <div class="breakdown">
+      <h3>Puntenopbouw <span>Woningwaarderingsstelsel</span></h3>
+      <ul>
+  `;
+  for (const [key, value] of Object.entries(state.breakdown)) {
+    html += `<li><span>${key}</span><span>${value} pt</span></li>`;
+  }
+  html += `
+        <li class="total"><span>Totaal</span><span>${state.points} punten</span></li>
+      </ul>
+    </div>
+  `;
+
+  c.innerHTML = html;
+}
+
+// ============== NAVIGATIE ==============
+function goToStep(n) {
+  document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('step-' + n).classList.add('active');
+
+  const items = document.querySelectorAll('.step-item');
+  items.forEach((item, i) => {
+    item.classList.remove('active', 'done');
+    const step = i + 1;
+    if (step < n) item.classList.add('done');
+    else if (step === n) item.classList.add('active');
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============== PREVIEW GENEREREN ==============
+function generatePreview() {
+  const get = id => document.getElementById(id).value.trim();
+
+  const h = {
+    naam: get('huurderNaam'),
+    adres: get('huurderAdres'),
+    postcode: get('huurderPostcode'),
+    plaats: get('huurderPlaats')
+  };
+  const v = {
+    naam: get('verhuurderNaam'),
+    adres: get('verhuurderAdres'),
+    postcode: get('verhuurderPostcode'),
+    plaats: get('verhuurderPlaats')
+  };
+  const c = {
+    ingangsdatum: get('ingangsdatumContract'),
+    gewenst: get('gewensteIngangsdatum')
+  };
+
+  if (!h.naam || !h.adres || !h.postcode || !h.plaats || !v.naam || !v.adres || !c.gewenst) {
+    alert('Vul alle verplichte velden in.');
+    return;
+  }
+
+  state.huurder = h;
+  state.verhuurder = v;
+  state.contract = c;
+
+  renderLetter(1);
+  goToStep(4);
+}
+
+// ============== DATUM HELPERS ==============
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  const maanden = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+  return `${d.getDate()} ${maanden[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+function todayNL() {
+  const d = new Date();
+  const maanden = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+  return `${d.getDate()} ${maanden[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+// ============== BRIEF TEKSTEN ==============
+function getLetter1() {
+  const h = state.huurder, v = state.verhuurder, c = state.contract;
+  return `${h.naam}
+${h.adres}
+${h.postcode} ${h.plaats}
+
+
+${v.naam}
+${v.adres}
+${v.postcode} ${v.plaats}
+
+
+${h.plaats}, ${todayNL()}
+
+
+Betreft: Voorstel tot verlaging huurprijs op grond van puntenwaardering
+
+
+Geachte heer/mevrouw,
+
+Op grond van artikel 7:254 van het Burgerlijk Wetboek doe ik u hierbij een voorstel tot verlaging van de huurprijs van de woning gelegen aan ${h.adres}, ${h.postcode} ${h.plaats}.
+
+Op basis van het Woningwaarderingsstelsel (WWS) heb ik de puntenwaardering van de woning laten berekenen. Deze komt uit op ${state.points} punten. Op grond van de huurprijstabel 2026 bedraagt de wettelijk maximaal toegestane kale huurprijs voor een woning met ${state.points} punten € ${state.maxRent.toFixed(2)} per maand.
+
+De huidige kale huurprijs die ik betaal bedraagt € ${state.currentRent.toFixed(2)} per maand. Dit is € ${state.difference.toFixed(2)} per maand hoger dan de wettelijke maximumprijs, hetgeen neerkomt op € ${(state.difference * 12).toFixed(2)} per jaar.
+
+Ik stel u daarom voor om de kale huurprijs met ingang van ${formatDate(c.gewenst)} te verlagen naar € ${state.maxRent.toFixed(2)} per maand.
+
+Ik verzoek u vriendelijk om binnen zes weken na dagtekening van deze brief schriftelijk te reageren op dit voorstel. Indien u niet akkoord gaat of niet binnen deze termijn reageert, zal ik de Huurcommissie verzoeken een uitspraak te doen over de redelijkheid van de huidige huurprijs, op grond van artikel 7:254 lid 2 BW en het Besluit huurprijzen woonruimte.
+
+Ik zie uw reactie met belangstelling tegemoet.
+
+
+Met vriendelijke groet,
+
+
+
+
+${h.naam}`;
+}
+
+function getLetter2() {
+  const h = state.huurder, v = state.verhuurder, c = state.contract;
+  return `VERZOEKSCHRIFT AAN DE HUURCOMMISSIE
+
+Inzake: toetsing van de huurprijs op grond van artikel 7:254 lid 2 BW en het Besluit huurprijzen woonruimte
+
+
+Aan: De Huurcommissie
+Postbus 16495
+2500 BL Den Haag
+
+
+${h.plaats}, ${todayNL()}
+
+
+Geachte commissie,
+
+Ondergetekende, ${h.naam}, wonende te ${h.postcode} ${h.plaats} aan de ${h.adres}, verzoekt de Huurcommissie een uitspraak te doen over de redelijkheid van de huidige huurprijs van de door hem/haar gehuurde woonruimte.
+
+
+1. GEGEVENS HUURDER
+Naam:        ${h.naam}
+Adres:       ${h.adres}
+Postcode:    ${h.postcode} ${h.plaats}
+
+
+2. GEGEVENS VERHUURDER
+Naam:        ${v.naam}
+Adres:       ${v.adres}
+Postcode:    ${v.postcode} ${v.plaats}
+
+
+3. ADRES GEHUURDE WOONRUIMTE
+${h.adres}
+${h.postcode} ${h.plaats}
+
+
+4. HUIDIGE HUURPRIJS
+Huidige kale huurprijs: € ${state.currentRent.toFixed(2)} per maand
+Ingangsdatum huurovereenkomst: ${c.ingangsdatum ? formatDate(c.ingangsdatum) : 'onbekend'}
+
+
+5. PUNTENWAARDERING EN MAXIMALE HUURPRIJS
+Op basis van het Woningwaarderingsstelsel komt de puntenwaardering van de woonruimte uit op ${state.points} punten. Op grond van de huurprijstabel 2026 bedraagt de wettelijk maximaal toegestane kale huurprijs € ${state.maxRent.toFixed(2)} per maand. De huidige huurprijs ligt derhalve € ${state.difference.toFixed(2)} per maand boven de wettelijke maximumprijs.
+
+
+6. VOORSTEL AAN VERHUURDER
+Op ${todayNL()} is aan de verhuurder een schriftelijk voorstel gedaan tot verlaging van de huurprijs naar € ${state.maxRent.toFixed(2)} per maand, met ingang van ${formatDate(c.gewenst)}. De verhuurder heeft niet of niet akkoord gereageerd binnen de wettelijke termijn van zes weken.
+
+
+7. VERZOEK
+Ondergetekende verzoekt de Huurcommissie om:
+
+a. een uitspraak te doen over de redelijkheid van de huidige huurprijs op grond van artikel 7:254 lid 2 BW;
+
+b. de huurprijs met ingang van ${formatDate(c.gewenst)} vast te stellen op € ${state.maxRent.toFixed(2)} per maand, conform de puntenwaardering van de woning;
+
+c. de verhuurder te veroordelen tot terugbetaling van het te veel betaalde vanaf de door de Huurcommissie vast te stellen datum.
+
+
+Ik verklaar dit verzoekschrift naar waarheid te hebben ingevuld.
+
+
+
+
+${h.naam}
+${h.adres}
+${h.postcode} ${h.plaats}
+
+
+Bijlagen:
+- Kopie voorstel tot huurverlaging d.d. ${todayNL()}
+- Kopie huurovereenkomst
+- Berekening puntenwaardering (WWS)`;
+}
+
+// ============== LETTER SWITCHING ==============
+function renderLetter(n) {
+  state.currentLetter = n;
+  document.getElementById('tab1').classList.toggle('active', n === 1);
+  document.getElementById('tab2').classList.toggle('active', n === 2);
+  document.getElementById('letterPreview').textContent = n === 1 ? getLetter1() : getLetter2();
+}
+function switchLetter(n) { renderLetter(n); }
+
+// ============== PDF DOWNLOAD ==============
+function downloadPDF(n) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+
+  const text = n === 1 ? getLetter1() : getLetter2();
+  const filename = n === 1
+    ? 'Brief-1-Voorstel-huurverlaging.pdf'
+    : 'Brief-2-Verzoekschrift-Huurcommissie.pdf';
+
+  const marginLeft = 25;
+  const marginRight = 25;
+  const marginTop = 25;
+  const marginBottom = 25;
+  const pageWidth = 210;
+  const pageHeight = 297;
+  const maxWidth = pageWidth - marginLeft - marginRight;
+  const lineHeight = 5.5;
+
+  doc.setFont('times', 'normal');
+  doc.setFontSize(11);
+
+  let y = marginTop;
+  const paragraphs = text.split('\n');
+
+  paragraphs.forEach(para => {
+    // Bepaal opmaak
+    const isTitle = para.trim() === 'VERZOEKSCHRIFT AAN DE HUURCOMMISSIE';
+    const isHeader = /^\d+\. [A-Z]/.test(para.trim());
+    const isSubject = para.trim().startsWith('Betreft:') || para.trim().startsWith('Inzake:');
+
+    if (para.trim() === '') {
+      y += lineHeight * 0.6;
+      return;
+    }
+
+    if (isTitle) {
+      doc.setFont('times', 'bold');
+      doc.setFontSize(14);
+    } else if (isHeader) {
+      doc.setFont('times', 'bold');
+      doc.setFontSize(11);
+    } else if (isSubject) {
+      doc.setFont('times', 'bold');
+      doc.setFontSize(11);
+    } else {
+      doc.setFont('times', 'normal');
+      doc.setFontSize(11);
+    }
+
+    const lines = doc.splitTextToSize(para, maxWidth);
+    lines.forEach(line => {
+      if (y > pageHeight - marginBottom) {
+        doc.addPage();
+        y = marginTop;
+      }
+      doc.text(line, marginLeft, y);
+      y += lineHeight;
+    });
+  });
+
+  doc.save(filename);
+}
+
+// ============== PAYWALL ==============
+function handleUnlockClick() {
+  if (hasPaid()) {
+    goToStep(3);
+  } else {
+    openPaywall();
+  }
+}
+
+function openPaywall() {
+  const modal = document.getElementById('paywallModal');
+  const savings = document.getElementById('modalSavings');
+  if (state.difference > 0) {
+    const yearly = (state.difference * 12).toFixed(2);
+    savings.innerHTML = `💰 Je bespaart volgens de berekening <strong>€${yearly} per jaar</strong> — de tool verdient zichzelf in de eerste maand terug.`;
+    savings.style.display = 'block';
+  } else {
+    savings.style.display = 'none';
+  }
+  modal.classList.add('active');
+}
+
+function closePaywall() {
+  document.getElementById('paywallModal').classList.remove('active');
+}
+
+function startCheckout() {
+  // Stuur gebruiker naar Stripe. Na betaling keert men terug met ?paid=true
+  window.location.href = STRIPE_PAYMENT_LINK;
+}
+
+// Sluit modal bij klik op overlay
+document.getElementById('paywallModal').addEventListener('click', (e) => {
+  if (e.target.id === 'paywallModal') closePaywall();
+});
+
+// Init: check of gebruiker al heeft betaald
+if (hasPaid()) {
+  // Toon paid badge in hero
+  document.addEventListener('DOMContentLoaded', () => {
+    const eyebrow = document.querySelector('.hero-eyebrow');
+    if (eyebrow && !document.querySelector('.paid-badge')) {
+      eyebrow.insertAdjacentHTML('afterend', '<span class="paid-badge">✓ Ontgrendeld</span>');
+    }
+  });
+}
+
+// ============== OPNIEUW ==============
+function startOver() {
+  if (confirm('Weet je zeker dat je opnieuw wilt beginnen? Alle ingevoerde gegevens gaan verloren.')) {
+    document.querySelectorAll('input').forEach(i => { i.value = ''; i.checked = false; });
+    document.querySelectorAll('.check-item').forEach(i => i.classList.remove('checked'));
+    document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+    state = { points: 0, breakdown: {}, maxRent: 0, currentRent: 0, difference: 0, isFreeMarket: false, huurder: {}, verhuurder: {}, contract: {}, currentLetter: 1 };
+    goToStep(1);
+  }
+}
+</script>
+
+</body>
+</html>
