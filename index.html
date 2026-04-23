@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fixlify — Alles geregeld. In een klik.</title>
-<meta name="description" content="100+ online tools op één platform. CV-maker, factuur-generator, calculators en meer. Gratis starten, geen gedoe.">
+<meta name="description" content="Online tools voor Nederlanders. CV-maker, factuur-generator, huurcommissie-bezwaar en meer. Snel en simpel.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -83,15 +83,20 @@ nav.scrolled{background:rgba(250,250,250,.85);backdrop-filter:blur(20px);border-
 .filter-btn{padding:8px 20px;border-radius:100px;font-size:14px;font-weight:500;border:1px solid var(--border);background:#fff;color:var(--gray);cursor:pointer;font-family:'Outfit';transition:all .2s}
 .filter-btn:hover,.filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
 .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.tool-card{background:#fff;border-radius:16px;padding:24px;border:1px solid #F3F4F6;cursor:pointer;transition:transform .25s,box-shadow .25s;position:relative}
+.tool-card{background:#fff;border-radius:16px;padding:24px;border:1px solid #F3F4F6;cursor:pointer;transition:transform .25s,box-shadow .25s;position:relative;display:block}
 .tool-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
+.tool-card.soon{cursor:not-allowed;opacity:.65;filter:grayscale(40%)}
+.tool-card.soon:hover{transform:none;box-shadow:none}
 .tool-icon{font-size:32px;margin-bottom:12px}
 .tool-card h3{font-size:18px;font-weight:700;margin-bottom:6px}
 .tool-card p{color:var(--gray);font-size:14px;margin-bottom:16px}
 .tool-footer{display:flex;justify-content:space-between;align-items:center}
 .tool-cat{font-size:12px;color:var(--light-gray)}
 .tool-link{font-size:14px;color:var(--blue);font-weight:600}
+.tool-link.disabled{color:var(--light-gray)}
 .tool-badge{position:absolute;top:12px;right:12px;background:#FEF3C7;color:#D97706;font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px}
+.tool-badge.new{background:#DCFCE7;color:#15803D}
+.tool-badge.soon{background:#F3F4F6;color:#6B7280}
 
 /* CATEGORIES */
 .categories{padding:80px 0;background:#fff}
@@ -102,27 +107,6 @@ nav.scrolled{background:rgba(250,250,250,.85);backdrop-filter:blur(20px);border-
 .cat-card h3{font-size:16px;font-weight:700}
 .cat-card span{font-size:13px;color:var(--light-gray)}
 
-/* PRICING */
-.pricing{padding:80px 0}
-.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;max-width:1000px;margin:0 auto}
-.plan-card{background:#fff;border-radius:20px;padding:32px;border:1px solid var(--border);position:relative;transition:transform .25s,box-shadow .25s}
-.plan-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.1)}
-.plan-card.featured{border:2px solid var(--blue);transform:scale(1.04)}
-.plan-card.featured:hover{transform:scale(1.04) translateY(-4px)}
-.plan-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:12px;font-weight:700;padding:6px 18px;border-radius:100px;white-space:nowrap}
-.plan-name{font-size:18px;font-weight:600;color:var(--gray);margin-bottom:4px}
-.plan-price{font-size:44px;font-weight:800;margin-bottom:4px}
-.plan-price span{font-size:15px;color:var(--light-gray);font-weight:400}
-.plan-desc{color:var(--light-gray);font-size:14px;margin-bottom:24px}
-.plan-features{border-top:1px solid #F3F4F6;padding-top:20px;margin-bottom:24px}
-.plan-feature{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:14px;color:#374151}
-.plan-feature .check{color:var(--green);font-size:16px}
-.plan-btn{width:100%;padding:14px;border-radius:12px;font-size:15px;font-weight:700;font-family:'Outfit';cursor:pointer;transition:all .2s}
-.plan-btn-primary{background:var(--orange);color:#fff;border:none}
-.plan-btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.35)}
-.plan-btn-outline{background:#fff;color:var(--dark);border:2px solid var(--border)}
-.plan-btn-outline:hover{background:var(--dark);color:#fff}
-
 /* FAQ */
 .faq{padding:80px 0;background:#fff}
 .faq-list{max-width:700px;margin:0 auto}
@@ -132,7 +116,7 @@ nav.scrolled{background:rgba(250,250,250,.85);backdrop-filter:blur(20px);border-
 .faq-toggle{font-size:22px;color:var(--light-gray);transition:transform .3s}
 .faq-item.open .faq-toggle{transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.faq-item.open .faq-a{max-height:200px}
+.faq-item.open .faq-a{max-height:220px}
 .faq-a p{color:var(--gray);font-size:15px;line-height:1.7;margin-top:12px}
 
 /* CTA BANNER */
@@ -163,11 +147,10 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border)}
   .hero-buttons{justify-content:center}
   .hero-stats{justify-content:center}
   .hero-right{margin-top:40px}
-  .steps-grid,.tools-grid,.plans-grid{grid-template-columns:1fr}
+  .steps-grid,.tools-grid{grid-template-columns:1fr}
   .cat-grid{grid-template-columns:repeat(2,1fr)}
   .nav-links{display:none}
   .mobile-menu{display:block}
-  .plan-card.featured{transform:none}
   .section-title{font-size:28px}
 }
 </style>
@@ -180,9 +163,8 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border)}
   <a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a>
   <div class="nav-links">
     <a href="#tools">Tools</a>
-    <a href="#pricing">Prijzen</a>
     <a href="#faq">FAQ</a>
-    <button class="nav-cta" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Probeer gratis</button>
+    <button class="nav-cta" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Ontdek tools</button>
   </div>
   <button class="mobile-menu" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'">&#9776;</button>
 </div>
@@ -194,16 +176,16 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border)}
 <div class="hero-blob2"></div>
 <div class="container hero-grid">
   <div class="hero-left">
-    <div class="hero-badge"><div class="hero-badge-dot"></div> 127+ tools beschikbaar</div>
+    <div class="hero-badge"><div class="hero-badge-dot"></div> Nieuw: Huurcommissie Bezwaar tool</div>
     <h1>Alles geregeld. <span>In een klik.</span></h1>
-    <p>Van CV-maker tot factuur-generator. 100+ professionele tools op één platform. Geen gedoe, geen abonnement nodig.</p>
+    <p>Van CV tot bezwaarbrief. Slimme online tools voor Nederlanders &mdash; snel, simpel, en zonder gedoe.</p>
     <div class="hero-buttons">
       <button class="btn-primary" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Ontdek alle tools &rarr;</button>
-      <button class="btn-outline" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Bekijk prijzen</button>
+      <button class="btn-outline" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">Lees FAQ</button>
     </div>
     <div class="hero-stats">
+      <div><div class="hero-stat-value">5</div><div class="hero-stat-label">Tools online</div></div>
       <div><div class="hero-stat-value">100%</div><div class="hero-stat-label">Gratis starten</div></div>
-      <div><div class="hero-stat-value">127+</div><div class="hero-stat-label">Online tools</div></div>
       <div><div class="hero-stat-value">&#127475;&#127473;</div><div class="hero-stat-label">Made in NL</div></div>
     </div>
   </div>
@@ -236,7 +218,7 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border)}
       <div class="step-icon" style="background:rgba(37,99,235,.08)">&#128269;</div>
       <div class="step-num">STAP 01</div>
       <h3>Kies je tool</h3>
-      <p>Blader door 100+ tools of zoek direct wat je nodig hebt.</p>
+      <p>Blader door onze tools of zoek direct wat je nodig hebt.</p>
     </div>
     <div class="step-card fade-in">
       <div class="step-icon" style="background:rgba(249,115,22,.08)">&#9997;&#65039;</div>
@@ -248,7 +230,7 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border)}
       <div class="step-icon" style="background:rgba(16,185,129,.08)">&#11015;&#65039;</div>
       <div class="step-num">STAP 03</div>
       <h3>Download je resultaat</h3>
-      <p>Ontvang je document als PDF, Word of Excel. Direct klaar voor gebruik.</p>
+      <p>Ontvang je document als PDF. Direct klaar voor gebruik.</p>
     </div>
   </div>
 </div>
@@ -258,7 +240,7 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border)}
 <section class="tools" id="tools">
 <div class="container">
   <div class="fade-in" style="text-align:center;margin-bottom:40px">
-    <p class="section-label">Populaire tools</p>
+    <p class="section-label">Onze tools</p>
     <h2 class="section-title">Ontdek wat je nodig hebt</h2>
   </div>
   <div class="tools-filter fade-in">
@@ -267,24 +249,110 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border)}
     <button class="filter-btn" onclick="filterTools('ZZP',this)">ZZP</button>
     <button class="filter-btn" onclick="filterTools('Financieel',this)">Financieel</button>
     <button class="filter-btn" onclick="filterTools('Juridisch',this)">Juridisch</button>
-    <button class="filter-btn" onclick="filterTools('Templates',this)">Templates</button>
   </div>
   <div class="tools-grid" id="toolsGrid">
-    <a href="/cv-maker.html" class="tool-card fade-in" data-cat="Solliciteren" style="text-decoration:none;color:inherit"><div class="tool-badge">POPULAIR</div><div class="tool-icon">&#128196;</div><h3>CV Maker</h3><p>Professioneel CV in 2 minuten</p><div class="tool-footer"><span class="tool-cat">Solliciteren</span><span class="tool-link">Gebruik &rarr;</span></div></a>
-    <a href="/sollicitatiebrief.html" class="tool-card fade-in" data-cat="Solliciteren" style="text-decoration:none;color:inherit"><div class="tool-badge">POPULAIR</div><div class="tool-icon">&#9993;&#65039;</div><h3>Sollicitatiebrief</h3><p>AI-geschreven brief op maat</p><div class="tool-footer"><span class="tool-cat">Solliciteren</span><span class="tool-link">Gebruik &rarr;</span></div></a>
-    <a href="/factuur.html" class="tool-card fade-in" data-cat="ZZP" style="text-decoration:none;color:inherit"><div class="tool-icon">&#129534;</div><h3>Factuur Generator</h3><p>Professionele facturen voor ZZP</p><div class="tool-footer"><span class="tool-cat">ZZP</span><span class="tool-link">Gebruik &rarr;</span></div></a>
-    <a href="/nettoloon.html" class="tool-card fade-in" data-cat="Financieel" style="text-decoration:none;color:inherit"><div class="tool-badge">POPULAIR</div><div class="tool-icon">&#128176;</div><h3>Nettoloon Calculator</h3><p>Van bruto naar netto in seconden</p><div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link">Gebruik &rarr;</span></div></a>
-    <div class="tool-card fade-in" data-cat="Financieel"><div class="tool-icon">&#128200;</div><h3>BTW Calculator</h3><p>BTW berekenen en terugrekenen</p><div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link">Gebruik &rarr;</span></div></div>
-    <div class="tool-card fade-in" data-cat="Financieel"><div class="tool-icon">&#127958;&#65039;</div><h3>Vakantiegeld Check</h3><p>Bereken je vakantiegeld 2026</p><div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link">Gebruik &rarr;</span></div></div>
-    <div class="tool-card fade-in" data-cat="Juridisch"><div class="tool-icon">&#128221;</div><h3>Opzegbrief Generator</h3><p>Elk contract correct opzeggen</p><div class="tool-footer"><span class="tool-cat">Juridisch</span><span class="tool-link">Gebruik &rarr;</span></div></div>
-    <div class="tool-card fade-in" data-cat="Financieel"><div class="tool-badge">POPULAIR</div><div class="tool-icon">&#127968;</div><h3>Hypotheek Calculator</h3><p>Wat kun je lenen in 2026?</p><div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link">Gebruik &rarr;</span></div></div>
-    <div class="tool-card fade-in" data-cat="ZZP"><div class="tool-icon">&#9201;&#65039;</div><h3>Uurtarief Calculator</h3><p>Het juiste tarief als ZZP'er</p><div class="tool-footer"><span class="tool-cat">ZZP</span><span class="tool-link">Gebruik &rarr;</span></div></div>
-    <div class="tool-card fade-in" data-cat="Juridisch"><div class="tool-icon">&#128203;</div><h3>Klachtenbrief Maker</h3><p>Effectief klagen, resultaat boeken</p><div class="tool-footer"><span class="tool-cat">Juridisch</span><span class="tool-link">Gebruik &rarr;</span></div></div>
-    <div class="tool-card fade-in" data-cat="ZZP"><div class="tool-icon">&#128209;</div><h3>Algemene Voorwaarden</h3><p>Generator voor je bedrijf</p><div class="tool-footer"><span class="tool-cat">ZZP</span><span class="tool-link">Gebruik &rarr;</span></div></div>
-    <div class="tool-card fade-in" data-cat="Templates"><div class="tool-icon">&#128200;</div><h3>Excel Huishoudboekje</h3><p>Download kant-en-klare template</p><div class="tool-footer"><span class="tool-cat">Templates</span><span class="tool-link">Download &rarr;</span></div></div>
-  </div>
-  <div class="fade-in" style="text-align:center;margin-top:40px">
-    <button class="btn-outline">Bekijk alle 127+ tools &rarr;</button>
+
+    <!-- LIVE TOOL: HUURCOMMISSIE (NIEUW) -->
+    <a href="/huurcommissie-bezwaar-generator.html" class="tool-card fade-in" data-cat="Juridisch">
+      <div class="tool-badge new">NIEUW</div>
+      <div class="tool-icon">&#127968;</div>
+      <h3>Huurcommissie Bezwaar</h3>
+      <p>Check of je te veel huur betaalt en maak direct bezwaar</p>
+      <div class="tool-footer"><span class="tool-cat">Juridisch</span><span class="tool-link">Gebruik &rarr;</span></div>
+    </a>
+
+    <!-- LIVE TOOL: CV MAKER -->
+    <a href="/cv-maker.html" class="tool-card fade-in" data-cat="Solliciteren">
+      <div class="tool-badge">POPULAIR</div>
+      <div class="tool-icon">&#128196;</div>
+      <h3>CV Maker</h3>
+      <p>Professioneel CV in 2 minuten</p>
+      <div class="tool-footer"><span class="tool-cat">Solliciteren</span><span class="tool-link">Gebruik &rarr;</span></div>
+    </a>
+
+    <!-- LIVE TOOL: SOLLICITATIEBRIEF -->
+    <a href="/sollicitatiebrief.html" class="tool-card fade-in" data-cat="Solliciteren">
+      <div class="tool-badge">POPULAIR</div>
+      <div class="tool-icon">&#9993;&#65039;</div>
+      <h3>Sollicitatiebrief</h3>
+      <p>Professionele brief op maat</p>
+      <div class="tool-footer"><span class="tool-cat">Solliciteren</span><span class="tool-link">Gebruik &rarr;</span></div>
+    </a>
+
+    <!-- LIVE TOOL: FACTUUR -->
+    <a href="/factuur.html" class="tool-card fade-in" data-cat="ZZP">
+      <div class="tool-icon">&#129534;</div>
+      <h3>Factuur Generator</h3>
+      <p>Professionele facturen voor ZZP</p>
+      <div class="tool-footer"><span class="tool-cat">ZZP</span><span class="tool-link">Gebruik &rarr;</span></div>
+    </a>
+
+    <!-- LIVE TOOL: NETTOLOON -->
+    <a href="/nettoloon.html" class="tool-card fade-in" data-cat="Financieel">
+      <div class="tool-badge">POPULAIR</div>
+      <div class="tool-icon">&#128176;</div>
+      <h3>Nettoloon Calculator</h3>
+      <p>Van bruto naar netto in seconden</p>
+      <div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link">Gebruik &rarr;</span></div>
+    </a>
+
+    <!-- BINNENKORT -->
+    <div class="tool-card soon fade-in" data-cat="Financieel">
+      <div class="tool-badge soon">BINNENKORT</div>
+      <div class="tool-icon">&#128200;</div>
+      <h3>BTW Calculator</h3>
+      <p>BTW berekenen en terugrekenen</p>
+      <div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link disabled">Binnenkort</span></div>
+    </div>
+
+    <div class="tool-card soon fade-in" data-cat="Financieel">
+      <div class="tool-badge soon">BINNENKORT</div>
+      <div class="tool-icon">&#127958;&#65039;</div>
+      <h3>Vakantiegeld Check</h3>
+      <p>Bereken je vakantiegeld 2026</p>
+      <div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link disabled">Binnenkort</span></div>
+    </div>
+
+    <div class="tool-card soon fade-in" data-cat="Juridisch">
+      <div class="tool-badge soon">BINNENKORT</div>
+      <div class="tool-icon">&#128221;</div>
+      <h3>Opzegbrief Generator</h3>
+      <p>Elk contract correct opzeggen</p>
+      <div class="tool-footer"><span class="tool-cat">Juridisch</span><span class="tool-link disabled">Binnenkort</span></div>
+    </div>
+
+    <div class="tool-card soon fade-in" data-cat="Financieel">
+      <div class="tool-badge soon">BINNENKORT</div>
+      <div class="tool-icon">&#128179;</div>
+      <h3>Hypotheek Calculator</h3>
+      <p>Wat kun je lenen in 2026?</p>
+      <div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link disabled">Binnenkort</span></div>
+    </div>
+
+    <div class="tool-card soon fade-in" data-cat="ZZP">
+      <div class="tool-badge soon">BINNENKORT</div>
+      <div class="tool-icon">&#9201;&#65039;</div>
+      <h3>Uurtarief Calculator</h3>
+      <p>Het juiste tarief als ZZP'er</p>
+      <div class="tool-footer"><span class="tool-cat">ZZP</span><span class="tool-link disabled">Binnenkort</span></div>
+    </div>
+
+    <div class="tool-card soon fade-in" data-cat="Juridisch">
+      <div class="tool-badge soon">BINNENKORT</div>
+      <div class="tool-icon">&#128203;</div>
+      <h3>Klachtenbrief Maker</h3>
+      <p>Effectief klagen, resultaat boeken</p>
+      <div class="tool-footer"><span class="tool-cat">Juridisch</span><span class="tool-link disabled">Binnenkort</span></div>
+    </div>
+
+    <div class="tool-card soon fade-in" data-cat="ZZP">
+      <div class="tool-badge soon">BINNENKORT</div>
+      <div class="tool-icon">&#128209;</div>
+      <h3>Algemene Voorwaarden</h3>
+      <p>Generator voor je bedrijf</p>
+      <div class="tool-footer"><span class="tool-cat">ZZP</span><span class="tool-link disabled">Binnenkort</span></div>
+    </div>
+
   </div>
 </div>
 </section>
@@ -293,65 +361,16 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border)}
 <section class="categories">
 <div class="container">
   <div class="fade-in" style="text-align:center;margin-bottom:48px">
-    <p class="section-label">Categorieën</p>
-    <h2 class="section-title">Alles op één plek</h2>
+    <p class="section-label">Categorie&euml;n</p>
+    <h2 class="section-title">Alles op &eacute;&eacute;n plek</h2>
   </div>
   <div class="cat-grid">
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(37,99,235,.08)">&#128188;</div><div><h3>Solliciteren</h3><span>12 tools</span></div></div>
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(124,58,237,.08)">&#128640;</div><div><h3>ZZP & Ondernemen</h3><span>15 tools</span></div></div>
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(5,150,105,.08)">&#128176;</div><div><h3>Financieel</h3><span>18 tools</span></div></div>
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(220,38,38,.08)">&#9878;&#65039;</div><div><h3>Juridisch</h3><span>10 tools</span></div></div>
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(217,119,6,.08)">&#128193;</div><div><h3>Templates</h3><span>25 tools</span></div></div>
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(8,145,178,.08)">&#127968;</div><div><h3>Dagelijks Leven</h3><span>14 tools</span></div></div>
-  </div>
-</div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-<div class="container">
-  <div class="fade-in" style="text-align:center;margin-bottom:48px">
-    <p class="section-label">Prijzen</p>
-    <h2 class="section-title">Simpel. Eerlijk. Geen verrassingen.</h2>
-  </div>
-  <div class="plans-grid">
-    <div class="plan-card fade-in">
-      <div class="plan-name">Gratis</div>
-      <div class="plan-price">&euro;0</div>
-      <div class="plan-desc">Even uitproberen</div>
-      <div class="plan-features">
-        <div class="plan-feature"><span class="check">&#10003;</span> 3 tools per maand</div>
-        <div class="plan-feature"><span class="check">&#10003;</span> Basis resultaten</div>
-        <div class="plan-feature"><span class="check">&#10003;</span> Watermark op downloads</div>
-      </div>
-      <button class="plan-btn plan-btn-outline">Start gratis</button>
-    </div>
-    <div class="plan-card featured fade-in">
-      <div class="plan-badge">Populairste keuze</div>
-      <div class="plan-name">Basis</div>
-      <div class="plan-price">&euro;4,99 <span>/maand</span></div>
-      <div class="plan-desc">Voor regelmatig gebruik</div>
-      <div class="plan-features">
-        <div class="plan-feature"><span class="check">&#10003;</span> Onbeperkt alle tools</div>
-        <div class="plan-feature"><span class="check">&#10003;</span> Geen watermarks</div>
-        <div class="plan-feature"><span class="check">&#10003;</span> PDF & Word downloads</div>
-        <div class="plan-feature"><span class="check">&#10003;</span> Prioriteit support</div>
-      </div>
-      <button class="plan-btn plan-btn-primary">Kies Basis</button>
-    </div>
-    <div class="plan-card fade-in">
-      <div class="plan-name">Pro</div>
-      <div class="plan-price">&euro;9,99 <span>/maand</span></div>
-      <div class="plan-desc">Alles onbeperkt</div>
-      <div class="plan-features">
-        <div class="plan-feature"><span class="check">&#10003;</span> Alles van Basis +</div>
-        <div class="plan-feature"><span class="check">&#10003;</span> Alle Excel templates</div>
-        <div class="plan-feature"><span class="check">&#10003;</span> AI-aangedreven tools</div>
-        <div class="plan-feature"><span class="check">&#10003;</span> Nieuwe tools als eerste</div>
-        <div class="plan-feature"><span class="check">&#10003;</span> Geen advertenties</div>
-      </div>
-      <button class="plan-btn plan-btn-outline">Kies Pro</button>
-    </div>
+    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(37,99,235,.08)">&#128188;</div><div><h3>Solliciteren</h3><span>2 tools online</span></div></div>
+    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(124,58,237,.08)">&#128640;</div><div><h3>ZZP &amp; Ondernemen</h3><span>1 tool online</span></div></div>
+    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(5,150,105,.08)">&#128176;</div><div><h3>Financieel</h3><span>1 tool online</span></div></div>
+    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(220,38,38,.08)">&#9878;&#65039;</div><div><h3>Juridisch</h3><span>1 tool online</span></div></div>
+    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(217,119,6,.08)">&#128193;</div><div><h3>Templates</h3><span>Binnenkort</span></div></div>
+    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(8,145,178,.08)">&#127968;</div><div><h3>Dagelijks Leven</h3><span>Binnenkort</span></div></div>
   </div>
 </div>
 </section>
@@ -364,11 +383,12 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border)}
     <h2 class="section-title">Veelgestelde vragen</h2>
   </div>
   <div class="faq-list">
-    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Is Fixlify echt gratis te gebruiken?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Ja! Je kunt elke maand 3 tools helemaal gratis gebruiken. Geen creditcard nodig, geen verplichtingen. Wil je meer? Dan kun je upgraden naar Basis of Pro.</p></div></div>
-    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Hoe werkt het betalen?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>We werken met iDEAL en creditcard via Mollie. Je betaalt maandelijks en kunt op elk moment opzeggen. Geen kleine lettertjes.</p></div></div>
-    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Kan ik mijn bestanden downloaden?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Absoluut. Alle resultaten kun je downloaden als PDF, Word of Excel. Bij het gratis plan staat er een klein watermerk op, bij Basis en Pro niet.</p></div></div>
-    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Werken de tools ook op mijn telefoon?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Ja, Fixlify is volledig responsive. Alle tools werken perfect op je telefoon, tablet en desktop.</p></div></div>
+    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Zijn de tools van Fixlify gratis?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>De meeste tools zijn gratis te gebruiken. Bij sommige tools vragen we een kleine eenmalige bijdrage voor de download (bijvoorbeeld de Huurcommissie Bezwaar brieven). Geen abonnement, geen verrassingen.</p></div></div>
+    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Hoe betaal ik voor een tool?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Betalen gaat veilig via iDEAL of creditcard via Stripe. Je betaalt alleen voor wat je gebruikt &mdash; geen abonnement, geen kleine lettertjes.</p></div></div>
+    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Kan ik mijn bestanden downloaden?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Ja. Alle resultaten kun je downloaden als PDF. Direct klaar om te printen, e-mailen of aangetekend te versturen.</p></div></div>
+    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Werken de tools ook op mijn telefoon?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Ja, Fixlify werkt perfect op telefoon, tablet en desktop. Alle tools zijn volledig responsive.</p></div></div>
     <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Zijn mijn gegevens veilig?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>We slaan geen persoonlijke gegevens op. Alles wat je invult wordt lokaal in je browser verwerkt. We verkopen nooit data aan derden.</p></div></div>
+    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Komen er nog meer tools bij?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Zeker. We werken continu aan nieuwe tools. De tools met &quot;Binnenkort&quot; staan op de planning. Volg ons op social media om op de hoogte te blijven.</p></div></div>
   </div>
 </div>
 </section>
@@ -380,8 +400,8 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border)}
     <div class="cta-circle1"></div>
     <div class="cta-circle2"></div>
     <h2>Klaar om te starten?</h2>
-    <p>Begin gratis. Geen creditcard nodig.</p>
-    <button class="btn-primary" style="position:relative;font-size:18px;padding:16px 44px" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Start nu gratis &rarr;</button>
+    <p>Gratis proberen. Geen account nodig.</p>
+    <button class="btn-primary" style="position:relative;font-size:18px;padding:16px 44px" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Bekijk alle tools &rarr;</button>
   </div>
 </div>
 </section>
@@ -394,12 +414,12 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border)}
       <div class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></div>
       <p>Alles geregeld. In een klik. Jouw digitale gereedschapskist.</p>
     </div>
-    <div class="footer-col"><h4>Product</h4><a href="#tools">Alle tools</a><a href="#pricing">Prijzen</a><a href="#">Blog</a></div>
+    <div class="footer-col"><h4>Product</h4><a href="#tools">Alle tools</a><a href="#faq">FAQ</a></div>
     <div class="footer-col"><h4>Bedrijf</h4><a href="#">Over ons</a><a href="#">Contact</a></div>
     <div class="footer-col"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Voorwaarden</a><a href="#">Cookies</a></div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 Fixlify.nl — Gemaakt in Nederland &#127475;&#127473;</span>
+    <span>&copy; 2026 Fixlify.nl &mdash; Gemaakt in Nederland &#127475;&#127473;</span>
     <div class="footer-socials"><a href="#">TikTok</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
   </div>
 </div>
@@ -429,6 +449,11 @@ function toggleFaq(item){
   document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
   if(!wasOpen)item.classList.add('open');
 }
+
+// Prevent click on "binnenkort" tool cards
+document.querySelectorAll('.tool-card.soon').forEach(card=>{
+  card.addEventListener('click',e=>e.preventDefault());
+});
 </script>
 </body>
 </html>
