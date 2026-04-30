@@ -124,6 +124,8 @@ footer span{color:#9CA3AF;font-size:12px}
 <footer><span>&copy; 2026 Fixlify.nl — Gemaakt in Nederland &#127475;&#127473;</span></footer>
 
 <script>
+const STRIPE_LINK='https://buy.stripe.com/dRm3cv45o7wa9uUadn8ww02';
+function isPaid(){return new URLSearchParams(window.location.search).has('betaald')}
 let step=0,briefBody='';
 function uP(){let p=document.getElementById('prg');p.innerHTML='';for(let i=0;i<4;i++){let d=document.createElement('div');d.className='prg'+(i<step?' d':'')+(i===step?' a':'');p.appendChild(d)}}
 function go(n){for(let i=0;i<4;i++)document.getElementById('s'+i).classList.toggle('a',i===n);step=n;uP();window.scrollTo({top:0,behavior:'smooth'})}
@@ -241,6 +243,13 @@ function renderPreview(){
 }
 
 function downloadPDF(){
+  if(!isPaid()){
+    if(confirm('Download je sollicitatiebrief voor €2,99.\n\nBetaal via iDEAL, creditcard of Apple Pay.\nNa betaling kun je direct downloaden.\n\nDoorgaan?')){
+      localStorage.setItem('fixlify_brief_text',briefBody);
+      window.location.href=STRIPE_LINK;
+    }
+    return;
+  }
   let J=window.jspdf.jsPDF;
   let doc=new J();
   let naam=document.getElementById('naam').value||'[Je naam]';
@@ -293,3 +302,4 @@ uP();
 </script>
 </body>
 </html>
+
