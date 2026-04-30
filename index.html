@@ -1,459 +1,327 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fixlify — Alles geregeld. In een klik.</title>
-<meta name="description" content="Online tools voor Nederlanders. CV-maker, factuur-generator, huurcommissie-bezwaar en meer. Snel en simpel.">
+<title>Fixlify — Slimme tools voor werk, wonen en geld</title>
+<meta name="description" content="Gratis calculators en professionele documenten. Check of je teveel huur betaalt, bereken je nettoloon, maak een CV of genereer een sollicitatiebrief met AI.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--blue:#2563EB;--purple:#7C3AED;--orange:#F97316;--dark:#111827;--gray:#6B7280;--light-gray:#9CA3AF;--border:#E5E7EB;--bg:#FAFAFA;--green:#10B981}
-body{font-family:'Outfit',system-ui,sans-serif;color:var(--dark);background:var(--bg);overflow-x:hidden}
+:root{--blue:#2563EB;--blue-dark:#1D4ED8;--blue-soft:#EFF6FF;--purple:#7C3AED;--orange:#F97316;--dark:#0F172A;--ink:#1E293B;--gray:#64748B;--light:#94A3B8;--border:#E2E8F0;--bg:#FAFBFC;--white:#fff;--green:#059669;--green-soft:#ECFDF5;--red:#DC2626;--red-soft:#FEF2F2}
+body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
-.btn-primary{background:var(--orange);color:#fff;border:none;padding:16px 36px;border-radius:12px;font-size:17px;font-weight:700;font-family:'Outfit';cursor:pointer;transition:transform .2s,box-shadow .2s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.35)}
-.btn-outline{background:transparent;color:var(--dark);border:2px solid var(--border);padding:16px 32px;border-radius:12px;font-size:17px;font-weight:600;font-family:'Outfit';cursor:pointer;transition:all .2s}
-.btn-outline:hover{background:var(--dark);color:#fff}
-.section-label{color:var(--blue);font-weight:600;font-size:14px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
-.section-title{font-size:40px;font-weight:800;letter-spacing:-.02em}
-.fade-in{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all .3s}
-nav.scrolled{background:rgba(250,250,250,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);padding:12px 0}
-.nav-inner{display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:8px}
-.logo-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px}
-.logo-text{font-weight:700;font-size:22px;letter-spacing:-.02em}
-.nav-links{display:flex;align-items:center;gap:32px}
-.nav-links a{color:var(--gray);font-size:15px;font-weight:500}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.04);padding:14px 0}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:9px}
+.logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
+.logo-text{font-weight:800;font-size:21px;letter-spacing:-.02em;color:var(--dark)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:var(--gray);font-size:14px;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--dark)}
-.nav-cta{background:var(--orange);color:#fff;padding:10px 22px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:transform .2s}
-.nav-cta:hover{transform:translateY(-2px)}
-.mobile-menu{display:none;background:none;border:none;font-size:24px;cursor:pointer}
-
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative;overflow:hidden}
-.hero-grid{display:flex;align-items:center;gap:60px}
-.hero-left{flex:1}
-.hero-right{flex:1;display:flex;justify-content:center}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(37,99,235,.08);border-radius:100px;margin-bottom:24px;font-size:13px;font-weight:600;color:var(--blue)}
-.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
-.hero h1{font-size:56px;font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:20px}
+.nav-cta{background:var(--dark);color:#fff;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;transition:transform .2s}
+.nav-cta:hover{transform:translateY(-1px)}
+@media(max-width:768px){.nav-links{display:none}}
+.hero{max-width:1140px;margin:0 auto;padding:120px 24px 60px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:var(--blue-soft);border:1px solid #BFDBFE;border-radius:100px;margin-bottom:24px;font-size:13px;font-weight:600;color:var(--blue)}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(36px,6vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:20px;color:var(--dark)}
 .hero h1 span{background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{font-size:19px;color:var(--gray);line-height:1.7;max-width:480px;margin-bottom:36px}
-.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
-.hero-stats{display:flex;gap:32px;margin-top:40px}
-.hero-stat-value{font-size:22px;font-weight:700}
-.hero-stat-label{font-size:13px;color:var(--light-gray)}
-.hero-blob1{position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.08) 0%,transparent 70%);animation:float 8s ease-in-out infinite}
-.hero-blob2{position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.06) 0%,transparent 70%);animation:float 6s ease-in-out infinite 1s}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.hero-left{animation:slideUp .8s ease forwards}
-.hero-right{animation:slideUp .8s ease .2s forwards;opacity:0;animation-fill-mode:forwards}
-
-/* MOCKUP */
-.mockup{width:100%;max-width:440px;background:#fff;border-radius:20px;border:1px solid var(--border);padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.06)}
-.mockup-dots{display:flex;gap:6px;margin-bottom:20px}
-.mockup-dots div{width:10px;height:10px;border-radius:50%}
-.mockup-input{background:#F3F4F6;border-radius:10px;padding:16px;margin-bottom:16px}
-.mockup-label{font-size:11px;color:var(--light-gray);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
-.mockup-row{display:flex;justify-content:space-between;align-items:baseline}
-.mockup-result{background:#ECFDF5;border-radius:10px;padding:16px;margin-bottom:16px}
-.mockup-result .value{font-size:24px;font-weight:800;color:#059669}
-.mockup-btn{width:100%;margin-top:16px;background:var(--blue);color:#fff;padding:12px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:'Outfit'}
-
-/* STEPS */
-.steps{padding:80px 0;background:#fff}
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.step-card{padding:32px;border-radius:16px;border:1px solid #F3F4F6;background:var(--bg)}
-.step-icon{width:52px;height:52px;border-radius:14px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;font-size:24px}
-.step-num{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:8px}
-.step-card h3{font-size:22px;font-weight:700;margin-bottom:8px}
-.step-card p{color:var(--gray);font-size:15px;line-height:1.6}
-
-/* TOOLS */
-.tools{padding:80px 0}
-.tools-filter{display:flex;gap:8px;justify-content:center;margin-bottom:36px;flex-wrap:wrap}
-.filter-btn{padding:8px 20px;border-radius:100px;font-size:14px;font-weight:500;border:1px solid var(--border);background:#fff;color:var(--gray);cursor:pointer;font-family:'Outfit';transition:all .2s}
-.filter-btn:hover,.filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.tool-card{background:#fff;border-radius:16px;padding:24px;border:1px solid #F3F4F6;cursor:pointer;transition:transform .25s,box-shadow .25s;position:relative;display:block}
-.tool-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
-.tool-card.soon{cursor:not-allowed;opacity:.65;filter:grayscale(40%)}
-.tool-card.soon:hover{transform:none;box-shadow:none}
-.tool-icon{font-size:32px;margin-bottom:12px}
-.tool-card h3{font-size:18px;font-weight:700;margin-bottom:6px}
-.tool-card p{color:var(--gray);font-size:14px;margin-bottom:16px}
+.hero-sub{font-size:clamp(16px,2vw,19px);color:var(--gray);max-width:560px;margin:0 auto 36px;line-height:1.65}
+.hero-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.btn-h{padding:15px 32px;border-radius:12px;font-size:16px;font-weight:700;font-family:'Outfit';border:none;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:8px}
+.btn-hp{background:var(--orange);color:#fff;box-shadow:0 4px 16px rgba(249,115,22,.25)}
+.btn-hp:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.35)}
+.btn-ho{background:var(--white);color:var(--dark);border:2px solid var(--border)}
+.btn-ho:hover{border-color:var(--dark);background:var(--dark);color:#fff}
+.trust{max-width:800px;margin:0 auto 60px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--gray);font-weight:500}
+.featured{max-width:1140px;margin:0 auto 80px;padding:0 24px}
+.featured-card{background:linear-gradient(135deg,#FEF2F2 0%,#FFF1F2 50%,#FEE2E2 100%);border:2px solid #FECACA;border-radius:24px;padding:48px;display:flex;align-items:center;gap:48px;position:relative;overflow:hidden}
+.featured-card::after{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(220,38,38,.06)}
+.featured-left{flex:1;position:relative;z-index:1}
+.featured-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--red);margin-bottom:12px}
+.featured-left h2{font-size:32px;font-weight:800;letter-spacing:-.03em;margin-bottom:12px;color:var(--dark)}
+.featured-left p{font-size:16px;color:var(--gray);line-height:1.65;margin-bottom:24px}
+.featured-stats{display:flex;gap:24px;margin-bottom:28px}
+.featured-stat{background:rgba(255,255,255,.7);border-radius:10px;padding:12px 16px}
+.featured-stat-value{font-size:20px;font-weight:800;color:var(--red)}
+.featured-stat-label{font-size:11px;color:var(--gray);font-weight:500}
+.featured-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--red);color:#fff;border-radius:12px;font-size:15px;font-weight:700;transition:all .25s}
+.featured-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(220,38,38,.3)}
+.featured-right{flex:0 0 320px;position:relative;z-index:1}
+.featured-mockup{background:#fff;border-radius:16px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.04)}
+.fm-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}.fm-row:last-child{border-bottom:none}
+.fm-label{font-size:13px;color:var(--gray)}.fm-value{font-size:14px;font-weight:700}
+.fm-result{background:var(--red-soft);border-radius:10px;padding:14px;margin-top:12px;text-align:center}
+.fm-result-big{font-size:28px;font-weight:800;color:var(--red)}
+.fm-result-sub{font-size:12px;color:var(--gray);margin-top:2px}
+@media(max-width:860px){.featured-card{flex-direction:column;padding:32px}.featured-right{flex:none;width:100%;max-width:360px}}
+.section{max-width:1140px;margin:0 auto;padding:0 24px}
+.section-header{text-align:center;margin-bottom:48px}
+.section-eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:8px}
+.section-title{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.03em;color:var(--dark)}
+.section-sub{font-size:16px;color:var(--gray);max-width:520px;margin:8px auto 0;line-height:1.6}
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:80px}
+@media(max-width:860px){.tools-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.tools-grid{grid-template-columns:1fr}}
+.tool-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .25s;position:relative;display:block}
+.tool-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.07);border-color:#CBD5E1}
+.tool-emoji{font-size:28px;margin-bottom:12px;display:block}
+.tool-card h3{font-size:17px;font-weight:700;margin-bottom:6px;color:var(--dark)}
+.tool-card p{font-size:13px;color:var(--gray);line-height:1.5;margin-bottom:16px}
 .tool-footer{display:flex;justify-content:space-between;align-items:center}
-.tool-cat{font-size:12px;color:var(--light-gray)}
-.tool-link{font-size:14px;color:var(--blue);font-weight:600}
-.tool-link.disabled{color:var(--light-gray)}
-.tool-badge{position:absolute;top:12px;right:12px;background:#FEF3C7;color:#D97706;font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px}
-.tool-badge.new{background:#DCFCE7;color:#15803D}
-.tool-badge.soon{background:#F3F4F6;color:#6B7280}
-
-/* CATEGORIES */
-.categories{padding:80px 0;background:#fff}
-.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.cat-card{background:var(--bg);border-radius:14px;padding:24px;border:1px solid #F3F4F6;display:flex;align-items:center;gap:16px;cursor:pointer;transition:transform .25s,box-shadow .25s}
-.cat-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
-.cat-icon{width:48px;height:48px;border-radius:12px;font-size:22px;display:flex;align-items:center;justify-content:center}
-.cat-card h3{font-size:16px;font-weight:700}
-.cat-card span{font-size:13px;color:var(--light-gray)}
-
-/* FAQ */
-.faq{padding:80px 0;background:#fff}
-.faq-list{max-width:700px;margin:0 auto}
-.faq-item{border-bottom:1px solid var(--border);padding:20px 0;cursor:pointer}
-.faq-q{display:flex;justify-content:space-between;align-items:center}
-.faq-q span{font-weight:500;font-size:17px}
-.faq-toggle{font-size:22px;color:var(--light-gray);transition:transform .3s}
-.faq-item.open .faq-toggle{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.faq-item.open .faq-a{max-height:220px}
-.faq-a p{color:var(--gray);font-size:15px;line-height:1.7;margin-top:12px}
-
-/* CTA BANNER */
-.cta-banner{padding:80px 0}
-.cta-box{border-radius:24px;padding:64px 40px;background:linear-gradient(135deg,#111827 0%,#1E3A5F 100%);text-align:center;position:relative;overflow:hidden}
-.cta-box h2{font-size:36px;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.02em;position:relative}
-.cta-box p{color:rgba(255,255,255,.6);font-size:18px;margin-bottom:32px;position:relative}
-.cta-circle1{position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(37,99,235,.15)}
-.cta-circle2{position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border-radius:50%;background:rgba(249,115,22,.1)}
-
-/* FOOTER */
-footer{padding:60px 0 40px;border-top:1px solid var(--border)}
-.footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;margin-bottom:40px}
-.footer-brand p{color:var(--light-gray);font-size:14px;max-width:260px;margin-top:12px}
-.footer-col h4{font-weight:700;font-size:14px;margin-bottom:16px}
-.footer-col a{display:block;color:var(--light-gray);font-size:14px;margin-bottom:10px}
+.tool-tag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px}
+.tag-gratis{background:var(--green-soft);color:var(--green)}.tag-betaald{background:var(--blue-soft);color:var(--blue)}.tag-premium{background:#FEF3C7;color:#D97706}
+.tool-arrow{font-size:13px;color:var(--blue);font-weight:600}
+.tool-badge{position:absolute;top:-1px;right:16px;background:var(--orange);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:0 0 8px 8px;text-transform:uppercase;letter-spacing:.04em}
+.how{padding:80px 0;background:var(--white);margin-bottom:80px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1140px;margin:0 auto;padding:0 24px}
+@media(max-width:700px){.how-grid{grid-template-columns:1fr}}
+.how-card{text-align:center;padding:8px}
+.how-num{width:48px;height:48px;border-radius:14px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:var(--blue);margin:0 auto 16px}
+.how-card h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.how-card p{font-size:14px;color:var(--gray);line-height:1.6}
+.compare{max-width:700px;margin:0 auto 80px;padding:0 24px}
+.compare-card{background:var(--white);border:2px solid var(--border);border-radius:20px;padding:36px;text-align:center}
+.compare-card h3{font-size:22px;font-weight:800;margin-bottom:24px;color:var(--dark)}
+.compare-table{width:100%;border-collapse:collapse;margin-bottom:24px}
+.compare-table th{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--light);padding:10px 0;border-bottom:2px solid var(--border);text-align:left}
+.compare-table th:last-child{text-align:right}
+.compare-table td{padding:14px 0;border-bottom:1px solid #F1F5F9;font-size:15px}
+.compare-table td:last-child{text-align:right;font-weight:700}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-highlight{background:var(--blue-soft);border-radius:8px;padding:4px 8px;color:var(--blue);font-weight:800}
+.compare-old{color:var(--light);text-decoration:line-through}
+.compare-footer{font-size:14px;color:var(--gray);line-height:1.6}
+.faq{max-width:700px;margin:0 auto 80px;padding:0 24px}
+.faq-item{border-bottom:1px solid var(--border);padding:20px 0}
+.faq-q{font-size:16px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--dark)}
+.faq-q span{font-size:20px;color:var(--light);transition:transform .3s}
+.faq-q.open span{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:14px;color:var(--gray);line-height:1.7}
+.faq-a.open{max-height:300px;padding-top:12px}
+.cta-bottom{max-width:1140px;margin:0 auto 80px;padding:0 24px}
+.cta-card{background:linear-gradient(135deg,var(--dark) 0%,#1E293B 100%);border-radius:24px;padding:64px 48px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;border-radius:50%;background:rgba(37,99,235,.15)}
+.cta-card h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.03em;margin-bottom:12px}
+.cta-card p{font-size:17px;color:#94A3B8;max-width:480px;margin:0 auto 32px;line-height:1.6}
+.cta-btn{display:inline-flex;padding:16px 36px;background:var(--orange);color:#fff;border-radius:12px;font-size:17px;font-weight:700;transition:all .25s}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.4)}
+footer{border-top:1px solid var(--border);padding:48px 0 32px;background:var(--white)}
+.footer-inner{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px}
+.footer-col h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--dark);margin-bottom:12px}
+.footer-col a{display:block;font-size:14px;color:var(--gray);margin-bottom:8px;transition:color .2s}
 .footer-col a:hover{color:var(--dark)}
-.footer-bottom{border-top:1px solid #F3F4F6;padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-bottom span{color:var(--light-gray);font-size:13px}
-.footer-socials{display:flex;gap:20px}
-.footer-socials a{color:var(--light-gray);font-size:13px}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .hero h1{font-size:36px}
-  .hero-grid{flex-direction:column;text-align:center}
-  .hero p{margin:0 auto 36px}
-  .hero-buttons{justify-content:center}
-  .hero-stats{justify-content:center}
-  .hero-right{margin-top:40px}
-  .steps-grid,.tools-grid{grid-template-columns:1fr}
-  .cat-grid{grid-template-columns:repeat(2,1fr)}
-  .nav-links{display:none}
-  .mobile-menu{display:block}
-  .section-title{font-size:28px}
-}
+.footer-bottom{max-width:1140px;margin:0 auto;padding:24px 24px 0;border-top:1px solid var(--border);margin-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:13px;color:var(--light)}
+.footer-legal{display:flex;gap:16px}
+.footer-legal a{font-size:13px;color:var(--light)}
+@media(max-width:640px){.footer-inner{flex-direction:column;gap:24px}.footer-bottom{flex-direction:column;text-align:center}}
 </style>
 </head>
 <body>
+<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a><div class="nav-links"><a href="#tools">Tools</a><a href="#hoe-het-werkt">Hoe het werkt</a><a href="#prijzen">Prijzen</a><a href="#faq">FAQ</a><a href="/huurcheck.html" class="nav-cta">Gratis huurcheck →</a></div></div></nav>
 
-<!-- NAV -->
-<nav id="nav">
-<div class="container nav-inner">
-  <a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a>
-  <div class="nav-links">
-    <a href="#tools">Tools</a>
-    <a href="#faq">FAQ</a>
-    <button class="nav-cta" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Ontdek tools</button>
-  </div>
-  <button class="mobile-menu" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'">&#9776;</button>
-</div>
-</nav>
-
-<!-- HERO -->
 <section class="hero">
-<div class="hero-blob1"></div>
-<div class="hero-blob2"></div>
-<div class="container hero-grid">
-  <div class="hero-left">
-    <div class="hero-badge"><div class="hero-badge-dot"></div> Nieuw: Huurcommissie Bezwaar tool</div>
-    <h1>Alles geregeld. <span>In een klik.</span></h1>
-    <p>Van CV tot bezwaarbrief. Slimme online tools voor Nederlanders &mdash; snel, simpel, en zonder gedoe.</p>
-    <div class="hero-buttons">
-      <button class="btn-primary" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Ontdek alle tools &rarr;</button>
-      <button class="btn-outline" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">Lees FAQ</button>
-    </div>
-    <div class="hero-stats">
-      <div><div class="hero-stat-value">5</div><div class="hero-stat-label">Tools online</div></div>
-      <div><div class="hero-stat-value">100%</div><div class="hero-stat-label">Gratis starten</div></div>
-      <div><div class="hero-stat-value">&#127475;&#127473;</div><div class="hero-stat-label">Made in NL</div></div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="mockup">
-      <div class="mockup-dots"><div style="background:#EF4444"></div><div style="background:#F59E0B"></div><div style="background:#10B981"></div></div>
-      <div class="mockup-input">
-        <div class="mockup-label">Nettoloon Calculator</div>
-        <div class="mockup-row"><span style="font-size:13px;color:var(--gray)">Bruto salaris</span><span style="font-size:20px;font-weight:700">&euro; 3.500</span></div>
-      </div>
-      <div class="mockup-result">
-        <div class="mockup-row"><span style="font-size:13px;color:#059669">Netto per maand</span><span class="value">&euro; 2.678</span></div>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--light-gray)"><span>Loonheffing: &euro;612</span><span>Premies: &euro;210</span></div>
-      <button class="mockup-btn">Download als PDF &darr;</button>
-    </div>
-  </div>
+<div class="hero-badge"><span class="hero-badge-dot"></span> Al 10+ tools live — 100% Nederlands</div>
+<h1>Bespaar geld en tijd met <span>slimme online tools</span></h1>
+<p class="hero-sub">Gratis calculators, professionele documenten en AI-gegenereerde brieven. Van nettoloon berekenen tot bezwaar maken bij de Huurcommissie.</p>
+<div class="hero-buttons"><a href="#tools" class="btn-h btn-hp">Bekijk alle tools</a><a href="/huurcheck.html" class="btn-h btn-ho">🏠 Betaal ik teveel huur?</a></div>
+</section>
+
+<div class="trust">
+<div class="trust-item">✓ Geen account nodig</div>
+<div class="trust-item">⚡ Direct resultaat</div>
+<div class="trust-item">🔒 Privacy-vriendelijk</div>
+<div class="trust-item">🇳🇱 100% Nederlands</div>
+</div>
+
+<div class="featured"><div class="featured-card">
+<div class="featured-left">
+<div class="featured-label">🔥 Meest populaire tool</div>
+<h2>Betaal jij teveel huur?</h2>
+<p>Honderdduizenden Nederlanders betalen meer huur dan wettelijk is toegestaan. Check gratis of jij erbij hoort en genereer direct een bezwaarbrief.</p>
+<div class="featured-stats"><div class="featured-stat"><div class="featured-stat-value">3,5M</div><div class="featured-stat-label">huurders in NL</div></div><div class="featured-stat"><div class="featured-stat-value">€200+</div><div class="featured-stat-label">gem. teveel p/m</div></div></div>
+<a href="/huurcheck.html" class="featured-btn">Gratis huurcheck starten →</a>
+</div>
+<div class="featured-right"><div class="featured-mockup">
+<div class="fm-row"><span class="fm-label">Oppervlakte</span><span class="fm-value">35 m²</span></div>
+<div class="fm-row"><span class="fm-label">Energielabel</span><span class="fm-value">C</span></div>
+<div class="fm-row"><span class="fm-label">Huidige huur</span><span class="fm-value">€ 950</span></div>
+<div class="fm-row"><span class="fm-label">Max. huur</span><span class="fm-value" style="color:var(--green)">€ 487</span></div>
+<div class="fm-result"><div class="fm-result-big">€463 teveel</div><div class="fm-result-sub">per maand · €5.556 per jaar</div></div>
+</div></div>
+</div></div>
+
+<section class="how" id="hoe-het-werkt">
+<div style="max-width:1140px;margin:0 auto 48px;padding:0 24px;text-align:center"><div class="section-eyebrow">Hoe het werkt</div><div class="section-title">Drie stappen, klaar.</div></div>
+<div class="how-grid">
+<div class="how-card"><div class="how-num">1</div><h3>Kies je tool</h3><p>Calculators, document-generators en AI-tools. Alles gratis te proberen.</p></div>
+<div class="how-card"><div class="how-num">2</div><h3>Vul je gegevens in</h3><p>Simpel formulier, geen account nodig. Direct resultaat op je scherm.</p></div>
+<div class="how-card"><div class="how-num">3</div><h3>Download of kopieer</h3><p>PDF downloaden, tekst kopiëren, of direct gebruiken. Klaar.</p></div>
 </div>
 </section>
 
-<!-- STEPS -->
-<section class="steps">
-<div class="container">
-  <div class="fade-in" style="text-align:center;margin-bottom:60px">
-    <p class="section-label">Hoe het werkt</p>
-    <h2 class="section-title">Drie stappen. Klaar.</h2>
-  </div>
-  <div class="steps-grid">
-    <div class="step-card fade-in">
-      <div class="step-icon" style="background:rgba(37,99,235,.08)">&#128269;</div>
-      <div class="step-num">STAP 01</div>
-      <h3>Kies je tool</h3>
-      <p>Blader door onze tools of zoek direct wat je nodig hebt.</p>
-    </div>
-    <div class="step-card fade-in">
-      <div class="step-icon" style="background:rgba(249,115,22,.08)">&#9997;&#65039;</div>
-      <div class="step-num">STAP 02</div>
-      <h3>Vul je gegevens in</h3>
-      <p>Elk formulier is simpel en duidelijk. Klaar in een paar minuten.</p>
-    </div>
-    <div class="step-card fade-in">
-      <div class="step-icon" style="background:rgba(16,185,129,.08)">&#11015;&#65039;</div>
-      <div class="step-num">STAP 03</div>
-      <h3>Download je resultaat</h3>
-      <p>Ontvang je document als PDF. Direct klaar voor gebruik.</p>
-    </div>
-  </div>
+<section class="section" id="tools" style="margin-bottom:80px">
+<div class="section-header"><div class="section-eyebrow">Tools</div><div class="section-title">Alles wat je nodig hebt</div><p class="section-sub">Gratis calculators en betaalde tools voor professionele documenten.</p></div>
+<div class="tools-grid">
+<a href="/huurcheck.html" class="tool-card"><div class="tool-badge">Populair</div><span class="tool-emoji">🏠</span><h3>Huurcommissie Bezwaar</h3><p>Check of je teveel huur betaalt en genereer direct een bezwaarbrief.</p><div class="tool-footer"><span class="tool-tag tag-premium">€ 9,99</span><span class="tool-arrow">Starten →</span></div></a>
+<a href="/nettoloon.html" class="tool-card"><div class="tool-badge">Populair</div><span class="tool-emoji">💰</span><h3>Nettoloon Calculator</h3><p>Bereken direct wat je overhoudt van je bruto salaris in 2026.</p><div class="tool-footer"><span class="tool-tag tag-gratis">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
+<a href="/cv-maker.html" class="tool-card"><span class="tool-emoji">📄</span><h3>CV Maker</h3><p>Professioneel CV in minuten. 5 templates, direct downloaden als PDF.</p><div class="tool-footer"><span class="tool-tag tag-betaald">€ 2,99</span><span class="tool-arrow">Maken →</span></div></a>
+<a href="/sollicitatiebrief.html" class="tool-card"><span class="tool-emoji">✉️</span><h3>Sollicitatiebrief Generator</h3><p>AI schrijft een sollicitatiebrief op maat. Kies toon en stijl.</p><div class="tool-footer"><span class="tool-tag tag-betaald">€ 2,99</span><span class="tool-arrow">Genereren →</span></div></a>
+<a href="/factuur.html" class="tool-card"><span class="tool-emoji">🧾</span><h3>Factuur Generator</h3><p>Professionele facturen voor ZZP'ers. Vul in, download als PDF.</p><div class="tool-footer"><span class="tool-tag tag-betaald">€ 2,99</span><span class="tool-arrow">Maken →</span></div></a>
+<a href="/btw-calculator.html" class="tool-card"><span class="tool-emoji">📊</span><h3>BTW Calculator</h3><p>BTW berekenen en terugrekenen. Actuele tarieven 2026.</p><div class="tool-footer"><span class="tool-tag tag-gratis">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
 </div>
 </section>
 
-<!-- TOOLS -->
-<section class="tools" id="tools">
-<div class="container">
-  <div class="fade-in" style="text-align:center;margin-bottom:40px">
-    <p class="section-label">Onze tools</p>
-    <h2 class="section-title">Ontdek wat je nodig hebt</h2>
-  </div>
-  <div class="tools-filter fade-in">
-    <button class="filter-btn active" onclick="filterTools('Alles',this)">Alles</button>
-    <button class="filter-btn" onclick="filterTools('Solliciteren',this)">Solliciteren</button>
-    <button class="filter-btn" onclick="filterTools('ZZP',this)">ZZP</button>
-    <button class="filter-btn" onclick="filterTools('Financieel',this)">Financieel</button>
-    <button class="filter-btn" onclick="filterTools('Juridisch',this)">Juridisch</button>
-  </div>
-  <div class="tools-grid" id="toolsGrid">
-
-    <!-- LIVE TOOL: HUURCOMMISSIE (NIEUW) -->
-    <a href="/huurcommissie-bezwaar-generator.html" class="tool-card fade-in" data-cat="Juridisch">
-      <div class="tool-badge new">NIEUW</div>
-      <div class="tool-icon">&#127968;</div>
-      <h3>Huurcommissie Bezwaar</h3>
-      <p>Check of je te veel huur betaalt en maak direct bezwaar</p>
-      <div class="tool-footer"><span class="tool-cat">Juridisch</span><span class="tool-link">Gebruik &rarr;</span></div>
-    </a>
-
-    <!-- LIVE TOOL: CV MAKER -->
-    <a href="/cv-maker.html" class="tool-card fade-in" data-cat="Solliciteren">
-      <div class="tool-badge">POPULAIR</div>
-      <div class="tool-icon">&#128196;</div>
-      <h3>CV Maker</h3>
-      <p>Professioneel CV in 2 minuten</p>
-      <div class="tool-footer"><span class="tool-cat">Solliciteren</span><span class="tool-link">Gebruik &rarr;</span></div>
-    </a>
-
-    <!-- LIVE TOOL: SOLLICITATIEBRIEF -->
-    <a href="/sollicitatiebrief.html" class="tool-card fade-in" data-cat="Solliciteren">
-      <div class="tool-badge">POPULAIR</div>
-      <div class="tool-icon">&#9993;&#65039;</div>
-      <h3>Sollicitatiebrief</h3>
-      <p>Professionele brief op maat</p>
-      <div class="tool-footer"><span class="tool-cat">Solliciteren</span><span class="tool-link">Gebruik &rarr;</span></div>
-    </a>
-
-    <!-- LIVE TOOL: FACTUUR -->
-    <a href="/factuur.html" class="tool-card fade-in" data-cat="ZZP">
-      <div class="tool-icon">&#129534;</div>
-      <h3>Factuur Generator</h3>
-      <p>Professionele facturen voor ZZP</p>
-      <div class="tool-footer"><span class="tool-cat">ZZP</span><span class="tool-link">Gebruik &rarr;</span></div>
-    </a>
-
-    <!-- LIVE TOOL: NETTOLOON -->
-    <a href="/nettoloon.html" class="tool-card fade-in" data-cat="Financieel">
-      <div class="tool-badge">POPULAIR</div>
-      <div class="tool-icon">&#128176;</div>
-      <h3>Nettoloon Calculator</h3>
-      <p>Van bruto naar netto in seconden</p>
-      <div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link">Gebruik &rarr;</span></div>
-    </a>
-
-    <!-- BINNENKORT -->
-    <div class="tool-card soon fade-in" data-cat="Financieel">
-      <div class="tool-badge soon">BINNENKORT</div>
-      <div class="tool-icon">&#128200;</div>
-      <h3>BTW Calculator</h3>
-      <p>BTW berekenen en terugrekenen</p>
-      <div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link disabled">Binnenkort</span></div>
-    </div>
-
-    <div class="tool-card soon fade-in" data-cat="Financieel">
-      <div class="tool-badge soon">BINNENKORT</div>
-      <div class="tool-icon">&#127958;&#65039;</div>
-      <h3>Vakantiegeld Check</h3>
-      <p>Bereken je vakantiegeld 2026</p>
-      <div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link disabled">Binnenkort</span></div>
-    </div>
-
-    <div class="tool-card soon fade-in" data-cat="Juridisch">
-      <div class="tool-badge soon">BINNENKORT</div>
-      <div class="tool-icon">&#128221;</div>
-      <h3>Opzegbrief Generator</h3>
-      <p>Elk contract correct opzeggen</p>
-      <div class="tool-footer"><span class="tool-cat">Juridisch</span><span class="tool-link disabled">Binnenkort</span></div>
-    </div>
-
-    <div class="tool-card soon fade-in" data-cat="Financieel">
-      <div class="tool-badge soon">BINNENKORT</div>
-      <div class="tool-icon">&#128179;</div>
-      <h3>Hypotheek Calculator</h3>
-      <p>Wat kun je lenen in 2026?</p>
-      <div class="tool-footer"><span class="tool-cat">Financieel</span><span class="tool-link disabled">Binnenkort</span></div>
-    </div>
-
-    <div class="tool-card soon fade-in" data-cat="ZZP">
-      <div class="tool-badge soon">BINNENKORT</div>
-      <div class="tool-icon">&#9201;&#65039;</div>
-      <h3>Uurtarief Calculator</h3>
-      <p>Het juiste tarief als ZZP'er</p>
-      <div class="tool-footer"><span class="tool-cat">ZZP</span><span class="tool-link disabled">Binnenkort</span></div>
-    </div>
-
-    <div class="tool-card soon fade-in" data-cat="Juridisch">
-      <div class="tool-badge soon">BINNENKORT</div>
-      <div class="tool-icon">&#128203;</div>
-      <h3>Klachtenbrief Maker</h3>
-      <p>Effectief klagen, resultaat boeken</p>
-      <div class="tool-footer"><span class="tool-cat">Juridisch</span><span class="tool-link disabled">Binnenkort</span></div>
-    </div>
-
-    <div class="tool-card soon fade-in" data-cat="ZZP">
-      <div class="tool-badge soon">BINNENKORT</div>
-      <div class="tool-icon">&#128209;</div>
-      <h3>Algemene Voorwaarden</h3>
-      <p>Generator voor je bedrijf</p>
-      <div class="tool-footer"><span class="tool-cat">ZZP</span><span class="tool-link disabled">Binnenkort</span></div>
-    </div>
-
-  </div>
+<section class="compare" id="prijzen">
+<div class="section-header" style="margin-bottom:32px"><div class="section-eyebrow">Prijzen</div><div class="section-title">10x goedkoper dan de rest</div></div>
+<div class="compare-card"><h3>Waarom meer betalen?</h3>
+<table class="compare-table"><thead><tr><th>Dienst</th><th>Prijs</th></tr></thead><tbody>
+<tr><td>CVster</td><td><span class="compare-old">€14,95/maand</span></td></tr>
+<tr><td>CVMaker</td><td><span class="compare-old">€24,95/maand</span></td></tr>
+<tr><td>Jurist inschakelen</td><td><span class="compare-old">€150+/uur</span></td></tr>
+<tr><td>Woonbond lidmaatschap</td><td><span class="compare-old">€30/jaar</span></td></tr>
+<tr><td><strong>Fixlify</strong></td><td><span class="compare-highlight">Vanaf €2,99 eenmalig</span></td></tr>
+</tbody></table>
+<p class="compare-footer">Alle calculators zijn gratis. Betaalde tools kosten €2,99-€9,99 eenmalig — geen abonnement, geen verborgen kosten.</p>
 </div>
 </section>
 
-<!-- CATEGORIES -->
-<section class="categories">
-<div class="container">
-  <div class="fade-in" style="text-align:center;margin-bottom:48px">
-    <p class="section-label">Categorie&euml;n</p>
-    <h2 class="section-title">Alles op &eacute;&eacute;n plek</h2>
-  </div>
-  <div class="cat-grid">
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(37,99,235,.08)">&#128188;</div><div><h3>Solliciteren</h3><span>2 tools online</span></div></div>
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(124,58,237,.08)">&#128640;</div><div><h3>ZZP &amp; Ondernemen</h3><span>1 tool online</span></div></div>
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(5,150,105,.08)">&#128176;</div><div><h3>Financieel</h3><span>1 tool online</span></div></div>
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(220,38,38,.08)">&#9878;&#65039;</div><div><h3>Juridisch</h3><span>1 tool online</span></div></div>
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(217,119,6,.08)">&#128193;</div><div><h3>Templates</h3><span>Binnenkort</span></div></div>
-    <div class="cat-card fade-in"><div class="cat-icon" style="background:rgba(8,145,178,.08)">&#127968;</div><div><h3>Dagelijks Leven</h3><span>Binnenkort</span></div></div>
-  </div>
-</div>
-</section>
-
-<!-- FAQ -->
 <section class="faq" id="faq">
-<div class="container">
-  <div class="fade-in" style="text-align:center;margin-bottom:48px">
-    <p class="section-label">FAQ</p>
-    <h2 class="section-title">Veelgestelde vragen</h2>
-  </div>
-  <div class="faq-list">
-    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Zijn de tools van Fixlify gratis?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>De meeste tools zijn gratis te gebruiken. Bij sommige tools vragen we een kleine eenmalige bijdrage voor de download (bijvoorbeeld de Huurcommissie Bezwaar brieven). Geen abonnement, geen verrassingen.</p></div></div>
-    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Hoe betaal ik voor een tool?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Betalen gaat veilig via iDEAL of creditcard via Stripe. Je betaalt alleen voor wat je gebruikt &mdash; geen abonnement, geen kleine lettertjes.</p></div></div>
-    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Kan ik mijn bestanden downloaden?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Ja. Alle resultaten kun je downloaden als PDF. Direct klaar om te printen, e-mailen of aangetekend te versturen.</p></div></div>
-    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Werken de tools ook op mijn telefoon?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Ja, Fixlify werkt perfect op telefoon, tablet en desktop. Alle tools zijn volledig responsive.</p></div></div>
-    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Zijn mijn gegevens veilig?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>We slaan geen persoonlijke gegevens op. Alles wat je invult wordt lokaal in je browser verwerkt. We verkopen nooit data aan derden.</p></div></div>
-    <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-q"><span>Komen er nog meer tools bij?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Zeker. We werken continu aan nieuwe tools. De tools met &quot;Binnenkort&quot; staan op de planning. Volg ons op social media om op de hoogte te blijven.</p></div></div>
-  </div>
+<div class="section-header" style="margin-bottom:32px"><div class="section-eyebrow">FAQ</div><div class="section-title">Veelgestelde vragen</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Heb ik een account nodig?<span>+</span></div><div class="faq-a">Nee. Je kunt alle tools direct gebruiken zonder registratie.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe werkt de betaling?<span>+</span></div><div class="faq-a">Bij betaalde tools betaal je via iDEAL, creditcard, Apple Pay of Klarna. Je betaalt eenmalig — geen abonnement. Na betaling kun je direct je document downloaden.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Zijn de brieven juridisch geldig?<span>+</span></div><div class="faq-a">Fixlify biedt voorbeeldbrieven op basis van de juiste wetsartikelen. Dit is geen juridisch advies. Bij twijfel kun je gratis terecht bij het Juridisch Loket.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Klopt de puntentelling van de huurcheck?<span>+</span></div><div class="faq-a">De puntentelling is gebaseerd op het officiële Woningwaarderingsstelsel 2026 en de huurprijstabel van de Huurcommissie. Het is een indicatie — de definitieve telling doet de Huurcommissie tijdens een fysiek onderzoek.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe zit het met mijn privacy?<span>+</span></div><div class="faq-a">Je gegevens worden niet opgeslagen op onze servers. Alles wordt lokaal in je browser verwerkt.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kan ik mijn geld terugkrijgen?<span>+</span></div><div class="faq-a">Ja. Neem contact met ons op via e-mail en we zoeken een oplossing.</div></div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section style="max-width:700px;margin:0 auto 80px;padding:0 24px">
+<div style="background:var(--blue-soft);border:2px solid #BFDBFE;border-radius:20px;padding:40px;text-align:center">
+<div style="font-size:28px;margin-bottom:8px">📬</div>
+<h3 style="font-size:22px;font-weight:800;margin-bottom:8px;color:var(--dark)">Elke week een nieuwe gratis tool</h3>
+<p style="font-size:15px;color:var(--gray);margin-bottom:20px;line-height:1.6">Ontvang als eerste nieuwe tools, tips en updates. Geen spam, altijd opzegbaar.</p>
+<div style="display:flex;gap:8px;max-width:420px;margin:0 auto">
+<input type="email" id="emailCapture" placeholder="Je e-mailadres" style="flex:1;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:Outfit;font-size:15px;background:#fff">
+<button onclick="alert('Bedankt! Je bent aangemeld. (E-mail opslag wordt binnenkort gekoppeld via MailerLite)')" style="padding:14px 24px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-family:Outfit;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap">Aanmelden</button>
+</div>
+<p style="font-size:12px;color:var(--light);margin-top:10px">We respecteren je privacy. Geen spam, nooit.</p>
 </div>
 </section>
 
-<!-- CTA BANNER -->
-<section class="cta-banner">
-<div class="container">
-  <div class="cta-box fade-in">
-    <div class="cta-circle1"></div>
-    <div class="cta-circle2"></div>
-    <h2>Klaar om te starten?</h2>
-    <p>Gratis proberen. Geen account nodig.</p>
-    <button class="btn-primary" style="position:relative;font-size:18px;padding:16px 44px" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Bekijk alle tools &rarr;</button>
-  </div>
-</div>
-</section>
+<section class="cta-bottom"><div class="cta-card">
+<h2>Begin vandaag nog.</h2>
+<p>Check of je teveel huur betaalt, bereken je nettoloon, of maak een professioneel CV. Alles in minuten geregeld.</p>
+<a href="#tools" class="cta-btn">Bekijk alle tools →</a>
+</div></section>
 
-<!-- FOOTER -->
 <footer>
-<div class="container">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></div>
-      <p>Alles geregeld. In een klik. Jouw digitale gereedschapskist.</p>
-    </div>
-    <div class="footer-col"><h4>Product</h4><a href="#tools">Alle tools</a><a href="#faq">FAQ</a></div>
-    <div class="footer-col"><h4>Bedrijf</h4><a href="#">Over ons</a><a href="#">Contact</a></div>
-    <div class="footer-col"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Voorwaarden</a><a href="#">Cookies</a></div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 Fixlify.nl &mdash; Gemaakt in Nederland &#127475;&#127473;</span>
-    <div class="footer-socials"><a href="#">TikTok</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
-  </div>
+<div class="footer-inner">
+<div class="footer-col"><div class="logo" style="margin-bottom:12px"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></div><p style="font-size:13px;color:var(--gray);max-width:240px;line-height:1.6">Slimme online tools voor werk, wonen en geld. Gemaakt in Nederland.</p></div>
+<div class="footer-col"><h4>Tools</h4><a href="/huurcheck.html">Huurcheck</a><a href="/nettoloon.html">Nettoloon Calculator</a><a href="/cv-maker.html">CV Maker</a><a href="/sollicitatiebrief.html">Sollicitatiebrief</a><a href="/factuur.html">Factuur Generator</a><a href="/btw-calculator.html">BTW Calculator</a></div>
+<div class="footer-col"><h4>Bedrijf</h4><a href="mailto:jongejongeg@hotmail.com">Contact</a></div>
+<div class="footer-col"><h4>Volg ons</h4><a href="#">TikTok</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
 </div>
+<div class="footer-bottom"><span class="footer-copy">© 2026 Fixlify.nl — Alle rechten voorbehouden</span><div class="footer-legal"><a href="#" onclick="showPage('privacy');return false">Privacy</a><a href="#" onclick="showPage('voorwaarden');return false">Voorwaarden</a></div></div>
 </footer>
 
+<!-- PRIVACY -->
+<div id="privacy-page" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;background:var(--bg);overflow-y:auto">
+<div style="max-width:800px;margin:0 auto;padding:24px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-top:12px"><h1 style="font-size:28px;font-weight:800;letter-spacing:-.03em">Privacyverklaring</h1><button onclick="closePage()" style="background:none;border:2px solid var(--border);border-radius:10px;padding:8px 20px;font-family:Outfit;font-size:14px;font-weight:600;cursor:pointer">✕ Sluiten</button></div>
+<p style="font-size:13px;color:var(--light);margin-bottom:32px">Laatst bijgewerkt: 30 april 2026</p>
+<div style="font-size:14px;line-height:1.8;color:#475569">
+<div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px"><p>Fixlify is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in deze privacyverklaring. Wij respecteren je privacy en zorgen ervoor dat je persoonlijke gegevens vertrouwelijk worden behandeld.</p></div>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">1. Contactgegevens</h3>
+<p>Fixlify — E-mail: jongejongeg@hotmail.com — Website: fixlify.nl</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">2. Welke gegevens verzamelen wij</h3>
+<p><strong>Gegevens die je zelf invult in onze tools:</strong> naam, adres, woonplaats (bij brief-generatoren), e-mailadres (bij nieuwsbrief), salaris- en financiële gegevens (bij calculators), woninggegevens (bij de huurcheck).</p>
+<p><strong>Belangrijk:</strong> de gegevens die je invult in onze gratis tools worden NIET opgeslagen op onze servers. Alle berekeningen vinden lokaal plaats in je browser. Zodra je de pagina verlaat, zijn de gegevens weg.</p>
+<p><strong>Bij betaalde tools:</strong> betalingen worden verwerkt door Stripe Inc. Fixlify heeft geen toegang tot je creditcardnummers of bankgegevens. Stripe deelt je e-mailadres met ons voor de transactiebevestiging.</p>
+<p><strong>Automatisch verzameld:</strong> IP-adres (geanonimiseerd), browser-type, bezochte pagina's en tijdstip van bezoek.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">3. Waarom wij gegevens verwerken</h3>
+<p>Om onze tools te laten functioneren, betalingen af te handelen, je te informeren over wijzigingen, en onze website te verbeteren op basis van anonieme statistieken.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">4. Bewaartermijn</h3>
+<p>Gegevens in tools worden niet opgeslagen. Betalingsgegevens: 7 jaar (fiscale verplichting). E-mailadressen nieuwsbrief: tot uitschrijving.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">5. Delen met derden</h3>
+<p><strong>Stripe Inc.</strong> — betalingsverwerking. <strong>Vercel Inc.</strong> — hosting. <strong>Anthropic</strong> — AI-gegenereerde content (geen persoonsgegevens opgeslagen). Wij verkopen je gegevens nooit aan derden.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">6. Cookies</h3>
+<p>Fixlify gebruikt alleen technisch noodzakelijke cookies en localStorage. Geen tracking cookies, geen advertentiecookies, geen cookies van derden.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">7. Jouw rechten (AVG)</h3>
+<p>Je hebt recht op inzage, correctie, verwijdering, bezwaar en overdraagbaarheid van je gegevens. Verzoek indienen via jongejongeg@hotmail.com. We reageren binnen 30 dagen. Je kunt ook een klacht indienen bij de Autoriteit Persoonsgegevens.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">8. Beveiliging</h3>
+<p>SSL-versleuteling (HTTPS). Betalingen via Stripe (PCI-DSS gecertificeerd). Geen gevoelige gegevens op eigen servers.</p>
+</div>
+</div>
+</div>
+
+<!-- VOORWAARDEN -->
+<div id="voorwaarden-page" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;background:var(--bg);overflow-y:auto">
+<div style="max-width:800px;margin:0 auto;padding:24px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-top:12px"><h1 style="font-size:28px;font-weight:800;letter-spacing:-.03em">Algemene Voorwaarden</h1><button onclick="closePage()" style="background:none;border:2px solid var(--border);border-radius:10px;padding:8px 20px;font-family:Outfit;font-size:14px;font-weight:600;cursor:pointer">✕ Sluiten</button></div>
+<p style="font-size:13px;color:var(--light);margin-bottom:32px">Laatst bijgewerkt: 30 april 2026</p>
+<div style="font-size:14px;line-height:1.8;color:#475569">
+<div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px"><p>Deze algemene voorwaarden zijn van toepassing op elk gebruik van fixlify.nl en alle diensten die door Fixlify worden aangeboden.</p></div>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Artikel 1 — Definities</h3>
+<p><strong>Fixlify:</strong> de eenmanszaak Fixlify, aanbieder van online tools via fixlify.nl. <strong>Gebruiker:</strong> iedere persoon die de website bezoekt of diensten gebruikt. <strong>Digitaal product:</strong> een door Fixlify gegenereerd document (PDF, brief, CV) dat na betaling gedownload kan worden.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Artikel 2 — Toepasselijkheid</h3>
+<p>Deze voorwaarden zijn van toepassing op ieder gebruik van de website en iedere overeenkomst. Fixlify mag deze voorwaarden wijzigen; gewijzigde voorwaarden gelden zodra gepubliceerd.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Artikel 3 — Aanbod en prijzen</h3>
+<p>Alle prijzen zijn in euro's en inclusief BTW. Fixlify mag prijzen wijzigen; wijzigingen gelden niet voor afgeronde bestellingen.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Artikel 4 — Overeenkomst</h3>
+<p>De overeenkomst komt tot stand bij voltooiing van betaling via Stripe. Na betaling krijgt de gebruiker direct toegang tot het digitale product.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Artikel 5 — Herroepingsrecht</h3>
+<p>Op grond van artikel 6:230p lid 1 sub c BW vervalt het herroepingsrecht bij digitale inhoud zodra de levering is begonnen. Door te downloaden na betaling stemt de gebruiker in met onmiddellijke levering. Desondanks streeft Fixlify naar klanttevredenheid — neem bij klachten contact op via jongejongeg@hotmail.com.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Artikel 6 — Betaling</h3>
+<p>Betalingen via Stripe Inc. Beschikbaar: iDEAL, creditcard, Apple Pay, Bancontact, Klarna. Fixlify heeft geen toegang tot bank- of creditcardgegevens.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Artikel 7 — Gebruik</h3>
+<p>De gebruiker is verantwoordelijk voor de juistheid van ingevulde gegevens. Gegenereerde documenten zijn voorbeelddocumenten, geen juridisch, financieel of fiscaal advies. Het is niet toegestaan de tools te kopiëren of als eigen dienst aan te bieden.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Artikel 8 — Intellectueel eigendom</h3>
+<p>Alle rechten op de website, tools, ontwerp en code berusten bij Fixlify. Gegenereerde documenten zijn eigendom van de gebruiker.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Artikel 9 — Aansprakelijkheid</h3>
+<p>Fixlify is niet aansprakelijk voor schade uit het gebruik van gegenereerde documenten. De puntentelling is een indicatie; de Huurcommissie stelt de definitieve telling vast. Brieven zijn voorbeeldbrieven. Aansprakelijkheid is beperkt tot het betaalde bedrag. Fixlify is niet aansprakelijk voor indirecte schade of gevolgschade.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Artikel 10 — Disclaimer juridische tools</h3>
+<p>Fixlify is geen advocatenkantoor of juridisch adviseur. De tools bieden informatieve voorbeelddocumenten en indicatieve berekeningen. Bij twijfel: raadpleeg het Juridisch Loket (gratis) of een gekwalificeerd adviseur.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Artikel 11 — Toepasselijk recht</h3>
+<p>Nederlands recht is van toepassing. Geschillen worden bij voorkeur in overleg opgelost. De gebruiker kan ook gebruik maken van het Europees ODR-platform: ec.europa.eu/consumers/odr.</p>
+
+<h3 style="font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px">Contact</h3>
+<p>Fixlify — E-mail: jongejongeg@hotmail.com — Website: fixlify.nl</p>
+</div>
+</div>
+</div>
+
 <script>
-// Scroll nav
-window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20)});
-
-// Fade in on scroll
-const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.15});
-document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
-
-// Filter tools
-function filterTools(cat,btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.tool-card').forEach(card=>{
-    if(cat==='Alles'||card.dataset.cat===cat){card.style.display=''}
-    else{card.style.display='none'}
-  });
-}
-
-// FAQ toggle
-function toggleFaq(item){
-  const wasOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!wasOpen)item.classList.add('open');
-}
-
-// Prevent click on "binnenkort" tool cards
-document.querySelectorAll('.tool-card.soon').forEach(card=>{
-  card.addEventListener('click',e=>e.preventDefault());
-});
+function toggleFaq(el){var a=el.nextElementSibling;var o=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(function(x){x.classList.remove('open')});document.querySelectorAll('.faq-q').forEach(function(x){x.classList.remove('open')});if(!o){a.classList.add('open');el.classList.add('open')}}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+function showPage(id){document.getElementById(id+'-page').style.display='block';document.body.style.overflow='hidden';window.scrollTo(0,0)}
+function closePage(){document.querySelectorAll('[id$="-page"]').forEach(function(p){p.style.display='none'});document.body.style.overflow=''}
 </script>
 </body>
 </html>
