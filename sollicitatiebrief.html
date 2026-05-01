@@ -17,6 +17,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,250,
 .hero h1{font-size:36px;font-weight:800;letter-spacing:-.03em;margin-bottom:10px}
 .hero h1 span{background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{font-size:16px;color:#6B7280;max-width:480px;margin:0 auto;line-height:1.6}
+.save-status{font-size:12px;color:#10B981;font-weight:600;margin-top:8px;opacity:0;transition:opacity .3s;min-height:18px}
+.save-status.show{opacity:1}
 .prog{display:flex;gap:4px;margin-bottom:24px;max-width:700px;margin-left:auto;margin-right:auto;padding:0 24px}
 .prg{flex:1;height:4px;border-radius:2px;background:#E5E7EB}.prg.a{background:#2563EB}.prg.d{background:#10B981}
 .card{background:#fff;border-radius:16px;border:1px solid #E5E7EB;padding:28px;margin-bottom:20px;box-shadow:0 4px 20px rgba(0,0,0,.03)}
@@ -36,9 +38,13 @@ select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%
 .bnx:hover{opacity:.9}
 .bnx:disabled{opacity:.5;cursor:not-allowed}
 .bpx{padding:12px 18px;background:#fff;color:#111827;border:1.5px solid #E5E7EB;border-radius:8px;font-size:14px;font-weight:600;font-family:'Outfit';cursor:pointer}
-.bdl{width:100%;padding:14px;background:#F97316;color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:700;font-family:'Outfit';cursor:pointer;margin-top:14px}
-.bdl:hover{opacity:.9}
-.brief-box{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:32px;margin-bottom:16px;font-family:Georgia,serif;font-size:14px;line-height:1.8;color:#333;white-space:pre-wrap}
+.bdl{width:100%;padding:14px;background:#F97316;color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:700;font-family:'Outfit';cursor:pointer;margin-top:14px;box-shadow:0 4px 14px rgba(249,115,22,.3)}
+.bdl:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(249,115,22,.4)}
+.brief-wrap{position:relative;margin-bottom:16px}
+.brief-box{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:32px;font-family:Georgia,serif;font-size:14px;line-height:1.8;color:#333;white-space:pre-wrap;position:relative;overflow:hidden}
+.brief-watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);font-size:54px;font-weight:900;color:rgba(220,38,38,.15);letter-spacing:.05em;pointer-events:none;z-index:1;text-align:center;font-family:'Outfit',sans-serif;line-height:1}
+.brief-watermark small{display:block;font-size:14px;font-weight:600;margin-top:6px;color:rgba(220,38,38,.2)}
+.brief-content{position:relative;z-index:2}
 .brief-header{font-family:'Outfit',sans-serif;font-size:13px;line-height:1.6;color:#555;margin-bottom:16px}
 .brief-subject{font-weight:700;margin:12px 0 10px;font-family:'Outfit',sans-serif;font-size:14px;color:#111}
 .edit-area{width:100%;min-height:300px;padding:20px;border:1.5px solid #E5E7EB;border-radius:10px;font-family:Georgia,serif;font-size:14px;line-height:1.8;color:#333;resize:vertical}
@@ -49,30 +55,38 @@ select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading p{font-size:14px;margin-bottom:4px}
 .loading .sub{font-size:12px;color:#9CA3AF}
+.success-banner{background:#10B981;color:#fff;padding:14px 24px;border-radius:12px;margin-bottom:20px;display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;animation:slideDown .4s ease}
+@keyframes slideDown{from{transform:translateY(-20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.btn-clear{background:none;border:none;color:#9ca3af;font-size:11px;cursor:pointer;text-decoration:underline;padding:8px;display:block;margin:8px auto 0;font-family:'Outfit'}
+.btn-clear:hover{color:#dc2626}
 footer{padding:30px 0;text-align:center;border-top:1px solid #E5E7EB;margin-top:30px}
 footer span{color:#9CA3AF;font-size:12px}
-@media(max-width:640px){.fr{grid-template-columns:1fr}.hero h1{font-size:28px}}
+@media(max-width:640px){.fr{grid-template-columns:1fr}.hero h1{font-size:28px}.brief-watermark{font-size:36px}}
 </style>
 </head>
 <body>
 <nav><div class="ni"><a href="/" class="lo"><div class="loi">F</div><span class="lot">fixlify</span></a><a href="/" class="nb">&larr; Alle tools</a></div></nav>
 
 <section class="hero"><div class="container">
-<div class="badge">&#10024; AI-geschreven op maat</div>
+<div class="badge">&#128221; Direct verstuurklaar</div>
 <h1>Sollicitatiebrief <span>Generator</span></h1>
-<p>Vul je gegevens in en ontvang een professionele sollicitatiebrief op maat, geschreven door AI. Direct downloaden als PDF.</p>
+<p>Vul je gegevens in en ontvang een professionele sollicitatiebrief op maat. Direct downloaden als PDF.</p>
+<div class="save-status" id="saveStatus">✓ Automatisch opgeslagen</div>
 </div></section>
 
 <div class="prog" id="prg"></div>
 
 <div class="container">
+
+<div id="successBanner" class="success-banner" style="display:none;margin:0 24px 20px">✅ Betaling gelukt! Je sollicitatiebrief wordt nu gedownload.</div>
+
 <!-- STAP 1 -->
 <div class="stp a" id="s0">
 <div class="card">
 <h2><span class="ic" style="background:rgba(37,99,235,.08)">&#128100;</span> Jouw gegevens</h2>
-<div class="fr"><div class="fg"><label>Volledige naam *</label><input id="naam" placeholder="Jan van der Berg"></div><div class="fg"><label>Telefoonnummer</label><input id="tel" placeholder="06-12345678"></div></div>
-<div class="fr"><div class="fg"><label>E-mailadres *</label><input id="email" placeholder="jan@voorbeeld.nl"></div><div class="fg"><label>LinkedIn (optioneel)</label><input id="linkedin" placeholder="linkedin.com/in/janvdberg"></div></div>
-<div class="fr"><div class="fg"><label>Adres</label><input id="adres" placeholder="Keizersgracht 123"></div><div class="fg"><label>Postcode + Plaats</label><input id="plaats" placeholder="1015 CJ Amsterdam"></div></div>
+<div class="fr"><div class="fg"><label>Volledige naam *</label><input id="naam" placeholder="Jan van der Berg" oninput="save()"></div><div class="fg"><label>Telefoonnummer</label><input id="tel" placeholder="06-12345678" oninput="save()"></div></div>
+<div class="fr"><div class="fg"><label>E-mailadres *</label><input id="email" placeholder="jan@voorbeeld.nl" oninput="save()"></div><div class="fg"><label>LinkedIn (optioneel)</label><input id="linkedin" placeholder="linkedin.com/in/janvdberg" oninput="save()"></div></div>
+<div class="fr"><div class="fg"><label>Adres</label><input id="adres" placeholder="Keizersgracht 123" oninput="save()"></div><div class="fg"><label>Postcode + Plaats</label><input id="plaats" placeholder="1015 CJ Amsterdam" oninput="save()"></div></div>
 <div class="brw"><div></div><button class="bnx" onclick="go(1)">Volgende &rarr;</button></div>
 </div></div>
 
@@ -80,9 +94,9 @@ footer span{color:#9CA3AF;font-size:12px}
 <div class="stp" id="s1">
 <div class="card">
 <h2><span class="ic" style="background:rgba(124,58,237,.08)">&#127970;</span> De vacature</h2>
-<div class="fr"><div class="fg"><label>Bedrijfsnaam *</label><input id="bedrijf" placeholder="Bedrijf B.V."></div><div class="fg"><label>Contactpersoon</label><input id="contact" placeholder="Mevr. A. Jansen (of leeg laten)"></div></div>
-<div class="fr"><div class="fg"><label>Functietitel *</label><input id="functie" placeholder="Marketing Manager"></div><div class="fg"><label>Waar gevonden?</label><select id="bron"><option value="Indeed">Indeed</option><option value="LinkedIn">LinkedIn</option><option value="de bedrijfswebsite">Bedrijfswebsite</option><option value="een bekende">Via via</option><option value="een vacaturesite">Vacaturesite</option></select></div></div>
-<div class="fg"><label>Vacaturetekst / kernpunten (optioneel)</label><textarea id="vacature" rows="3" placeholder="Plak hier de vacaturetekst of noem de belangrijkste eisen..."></textarea><div class="ht">Hoe meer info je geeft, hoe beter de brief wordt afgestemd</div></div>
+<div class="fr"><div class="fg"><label>Bedrijfsnaam *</label><input id="bedrijf" placeholder="Bedrijf B.V." oninput="save()"></div><div class="fg"><label>Contactpersoon</label><input id="contact" placeholder="Mevr. A. Jansen (of leeg laten)" oninput="save()"></div></div>
+<div class="fr"><div class="fg"><label>Functietitel *</label><input id="functie" placeholder="Marketing Manager" oninput="save()"></div><div class="fg"><label>Waar gevonden?</label><select id="bron" onchange="save()"><option value="Indeed">Indeed</option><option value="LinkedIn">LinkedIn</option><option value="de bedrijfswebsite">Bedrijfswebsite</option><option value="een bekende">Via via</option><option value="een vacaturesite">Vacaturesite</option></select></div></div>
+<div class="fg"><label>Vacaturetekst / kernpunten (optioneel)</label><textarea id="vacature" rows="3" placeholder="Plak hier de vacaturetekst of noem de belangrijkste eisen..." oninput="save()"></textarea><div class="ht">Hoe meer info je geeft, hoe beter de brief wordt afgestemd</div></div>
 <div class="brw"><button class="bpx" onclick="go(0)">&larr;</button><button class="bnx" onclick="go(2)">Volgende &rarr;</button></div>
 </div></div>
 
@@ -90,11 +104,11 @@ footer span{color:#9CA3AF;font-size:12px}
 <div class="stp" id="s2">
 <div class="card">
 <h2><span class="ic" style="background:rgba(249,115,22,.08)">&#128221;</span> Je verhaal</h2>
-<div class="fr"><div class="fg"><label>Ervaringsniveau</label><select id="niveau"><option value="starter (0-2 jaar werkervaring)">Starter (0-2 jaar)</option><option value="medior (3-5 jaar werkervaring)">Medior (3-5 jaar)</option><option value="senior (5+ jaar werkervaring)">Senior (5+ jaar)</option><option value="career switcher die van vakgebied wisselt">Career switcher</option></select></div><div class="fg"><label>Toon van de brief</label><select id="toon"><option value="formeel en professioneel">Formeel</option><option value="zakelijk maar warm en persoonlijk">Zakelijk maar warm</option><option value="modern, vlot en informeel">Modern / informeel</option></select></div></div>
-<div class="fg"><label>Je relevante ervaring en vaardigheden *</label><textarea id="ervaring" rows="4" placeholder="Bijv. 3 jaar ervaring in marketing, sterke communicatieve vaardigheden, ervaring met social media campagnes, leidinggeven aan team van 5 personen..."></textarea><div class="ht">Noem concrete ervaring, vaardigheden en resultaten — hoe meer detail, hoe beter de brief</div></div>
-<div class="fg"><label>Waarom dit bedrijf? *</label><textarea id="motivatie" rows="3" placeholder="Bijv. Het innovatieve karakter spreekt me aan, ik volg jullie werk al jaren, de missie van het bedrijf past bij mijn waarden..."></textarea></div>
-<div class="fg"><label>Extra punten (optioneel)</label><textarea id="extra" rows="2" placeholder="Bijv. beschikbaar per direct, bereid om te reizen, parttime bespreekbaar..."></textarea></div>
-<div class="brw"><button class="bpx" onclick="go(1)">&larr;</button><button class="bnx" id="genBtn" onclick="genereer()">&#10024; Genereer brief met AI &rarr;</button></div>
+<div class="fr"><div class="fg"><label>Ervaringsniveau</label><select id="niveau" onchange="save()"><option value="starter (0-2 jaar werkervaring)">Starter (0-2 jaar)</option><option value="medior (3-5 jaar werkervaring)">Medior (3-5 jaar)</option><option value="senior (5+ jaar werkervaring)">Senior (5+ jaar)</option><option value="career switcher die van vakgebied wisselt">Career switcher</option></select></div><div class="fg"><label>Toon van de brief</label><select id="toon" onchange="save()"><option value="formeel en professioneel">Formeel</option><option value="zakelijk maar warm en persoonlijk">Zakelijk maar warm</option><option value="modern, vlot en informeel">Modern / informeel</option></select></div></div>
+<div class="fg"><label>Je relevante ervaring en vaardigheden *</label><textarea id="ervaring" rows="4" placeholder="Bijv. 3 jaar ervaring in marketing, sterke communicatieve vaardigheden, ervaring met social media campagnes, leidinggeven aan team van 5 personen..." oninput="save()"></textarea><div class="ht">Noem concrete ervaring, vaardigheden en resultaten — hoe meer detail, hoe beter de brief</div></div>
+<div class="fg"><label>Waarom dit bedrijf? *</label><textarea id="motivatie" rows="3" placeholder="Bijv. Het innovatieve karakter spreekt me aan, ik volg jullie werk al jaren, de missie van het bedrijf past bij mijn waarden..." oninput="save()"></textarea></div>
+<div class="fg"><label>Extra punten (optioneel)</label><textarea id="extra" rows="2" placeholder="Bijv. beschikbaar per direct, bereid om te reizen, parttime bespreekbaar..." oninput="save()"></textarea></div>
+<div class="brw"><button class="bpx" onclick="go(1)">&larr;</button><button class="bnx" id="genBtn" onclick="genereer()">&#128221; Genereer brief &rarr;</button></div>
 </div></div>
 
 <!-- STAP 4 -->
@@ -103,30 +117,98 @@ footer span{color:#9CA3AF;font-size:12px}
 <h2><span class="ic" style="background:rgba(16,185,129,.08)">&#128196;</span> Je sollicitatiebrief</h2>
 <div id="loadingState" class="loading" style="display:none">
 <div class="spinner"></div>
-<p>AI schrijft je brief...</p>
+<p>Brief wordt opgesteld...</p>
 <div class="sub">Dit duurt 5-10 seconden</div>
 </div>
 <div id="resultState" style="display:none">
 <button class="toggle-edit" id="toggleBtn" onclick="toggleEdit()">&#9998; Brief aanpassen</button>
 <div id="previewMode">
-<div class="brief-box" id="preview"></div>
+<div class="brief-wrap">
+<div class="brief-box" id="preview">
+  <div class="brief-watermark" id="briefWatermark">VOORBEELD<small>fixlify.nl — €2,99 voor schone PDF</small></div>
+  <div class="brief-content" id="briefContent"></div>
+</div>
+</div>
 </div>
 <div id="editMode" style="display:none">
 <textarea class="edit-area" id="editArea"></textarea>
 <button class="bpx" onclick="updateFromEdit()" style="margin-top:8px;width:100%">Preview bijwerken</button>
 </div>
 <div class="brw"><button class="bpx" onclick="go(2)">&larr; Terug</button><button class="bnx" onclick="genereer()">&#128260; Opnieuw genereren</button></div>
-<button class="bdl" onclick="downloadPDF()">&#128196; Download als PDF</button>
+<button class="bdl" onclick="downloadPDF()">&#128196; Download als PDF — €2,99</button>
+<button class="btn-clear" onclick="clearAllData()">Alle gegevens wissen</button>
 </div>
 </div></div>
 </div>
 
-<footer><span>&copy; 2026 Fixlify.nl — Gemaakt in Nederland &#127475;&#127473;</span></footer>
+<footer><span>&copy; 2026 FixlifyNL &middot; KvK 77981197 &middot; <a href="/privacy.html" style="color:#9CA3AF">Privacy</a> &middot; <a href="/voorwaarden.html" style="color:#9CA3AF">Voorwaarden</a></span></footer>
 
 <script>
 const STRIPE_LINK='https://buy.stripe.com/dRm3cv45o7wa9uUadn8ww02';
-function isPaid(){return new URLSearchParams(window.location.search).has('betaald')}
+const API_ENDPOINT='/api/genereer-brief';
+const STORAGE_KEY='fixlify_brief_data';
+const STORAGE_DAYS=7;
+
+function isPaid(){return new URLSearchParams(window.location.search).has('betaald')||sessionStorage.getItem('fixlify_brief_just_paid')==='1'}
+
 let step=0,briefBody='';
+let saveTimer=null;
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(function(){
+    try{
+      const data={
+        naam:gv('naam'),tel:gv('tel'),email:gv('email'),linkedin:gv('linkedin'),
+        adres:gv('adres'),plaats:gv('plaats'),
+        bedrijf:gv('bedrijf'),contact:gv('contact'),functie:gv('functie'),
+        bron:gv('bron'),vacature:gv('vacature'),
+        niveau:gv('niveau'),toon:gv('toon'),
+        ervaring:gv('ervaring'),motivatie:gv('motivatie'),extra:gv('extra'),
+        briefBody:briefBody,
+        savedAt:Date.now()
+      };
+      localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+      showSaveStatus();
+    }catch(e){console.error('Save failed:',e)}
+  },500);
+}
+function gv(id){var el=document.getElementById(id);return el?el.value||'':'';}
+function setv(id,v){var el=document.getElementById(id);if(el)el.value=v||'';}
+
+function showSaveStatus(){
+  const s=document.getElementById('saveStatus');
+  s.classList.add('show');
+  setTimeout(function(){s.classList.remove('show')},2000);
+}
+
+function loadSaved(){
+  try{
+    const raw=localStorage.getItem(STORAGE_KEY);
+    if(!raw)return false;
+    const data=JSON.parse(raw);
+    if(data.savedAt&&Date.now()-data.savedAt>STORAGE_DAYS*24*60*60*1000){
+      localStorage.removeItem(STORAGE_KEY);
+      return false;
+    }
+    setv('naam',data.naam);setv('tel',data.tel);setv('email',data.email);setv('linkedin',data.linkedin);
+    setv('adres',data.adres);setv('plaats',data.plaats);
+    setv('bedrijf',data.bedrijf);setv('contact',data.contact);setv('functie',data.functie);
+    setv('bron',data.bron);setv('vacature',data.vacature);
+    setv('niveau',data.niveau);setv('toon',data.toon);
+    setv('ervaring',data.ervaring);setv('motivatie',data.motivatie);setv('extra',data.extra);
+    if(data.briefBody)briefBody=data.briefBody;
+    return true;
+  }catch(e){console.error('Load failed:',e);return false;}
+}
+
+function clearAllData(){
+  if(confirm('Weet je zeker dat je alle ingevulde gegevens wil wissen? Dit kan niet ongedaan worden gemaakt.')){
+    localStorage.removeItem(STORAGE_KEY);
+    sessionStorage.removeItem('fixlify_brief_just_paid');
+    location.reload();
+  }
+}
+
 function uP(){let p=document.getElementById('prg');p.innerHTML='';for(let i=0;i<4;i++){let d=document.createElement('div');d.className='prg'+(i<step?' d':'')+(i===step?' a':'');p.appendChild(d)}}
 function go(n){for(let i=0;i<4;i++)document.getElementById('s'+i).classList.toggle('a',i===n);step=n;uP();window.scrollTo({top:0,behavior:'smooth'})}
 
@@ -135,22 +217,22 @@ function toggleEdit(){
   if(em.style.display==='none'){em.style.display='block';pm.style.display='none';document.getElementById('editArea').value=briefBody;btn.innerHTML='&#128064; Preview bekijken'}
   else{em.style.display='none';pm.style.display='block';btn.innerHTML='&#9998; Brief aanpassen'}
 }
-function updateFromEdit(){briefBody=document.getElementById('editArea').value;renderPreview();toggleEdit()}
+function updateFromEdit(){briefBody=document.getElementById('editArea').value;save();renderPreview();toggleEdit()}
 
 function datum(){let d=new Date();let ms=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];return d.getDate()+' '+ms[d.getMonth()]+' '+d.getFullYear()}
 
 async function genereer(){
-  let naam=document.getElementById('naam').value||'[Je naam]';
-  let bedrijf=document.getElementById('bedrijf').value||'[Bedrijfsnaam]';
-  let contact=document.getElementById('contact').value||'';
-  let functie=document.getElementById('functie').value||'[Functietitel]';
-  let bron=document.getElementById('bron').value;
-  let niveau=document.getElementById('niveau').value;
-  let toon=document.getElementById('toon').value;
-  let ervaring=document.getElementById('ervaring').value||'';
-  let motivatie=document.getElementById('motivatie').value||'';
-  let extra=document.getElementById('extra').value||'';
-  let vacature=document.getElementById('vacature').value||'';
+  let naam=gv('naam')||'[Je naam]';
+  let bedrijf=gv('bedrijf')||'[Bedrijfsnaam]';
+  let contact=gv('contact')||'';
+  let functie=gv('functie')||'[Functietitel]';
+  let bron=gv('bron');
+  let niveau=gv('niveau');
+  let toon=gv('toon');
+  let ervaring=gv('ervaring')||'';
+  let motivatie=gv('motivatie')||'';
+  let extra=gv('extra')||'';
+  let vacature=gv('vacature')||'';
 
   go(3);
   document.getElementById('loadingState').style.display='block';
@@ -188,46 +270,38 @@ De brief moet:
 - Zorg dat bedrijfsnamen en namen met een hoofdletter beginnen`;
 
   try{
-    let response=await fetch("https://api.anthropic.com/v1/messages",{
+    let response=await fetch(API_ENDPOINT,{
       method:"POST",
-      headers:{"Content-Type":"application/json","x-api-key":["sk-ant-","api03-z_noEgUGpZhcRj0Y","A4_kbi7cP8OL2yrazStKTE","9cV7gp-qRVCO05zGpc1QWR","-oHddzxoxahrJ7uuzn9k2N","3Q-A--2GfFAAA"].join(""),"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
-      body:JSON.stringify({
-        model:"claude-sonnet-4-20250514",
-        max_tokens:1000,
-        messages:[{role:"user",content:prompt}]
-      })
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({prompt:prompt})
     });
     let data=await response.json();
-    console.log('API response:',JSON.stringify(data));
     if(data.error){
-      briefBody='API fout: '+data.error.message;
-    }else if(data.content&&Array.isArray(data.content)){
-      let text='';
-      for(let i=0;i<data.content.length;i++){
-        if(data.content[i].type==='text')text+=data.content[i].text;
-      }
-      briefBody=text.trim();
+      briefBody='Er ging iets mis: '+data.error+'\n\nProbeer het opnieuw.';
+    }else if(data.text){
+      briefBody=data.text;
     }else{
-      briefBody='Onverwacht antwoord van API. Probeer opnieuw.';
+      briefBody='Onverwacht antwoord. Probeer het opnieuw.';
     }
   }catch(e){
     briefBody='Er is een fout opgetreden. Controleer je internetverbinding en probeer opnieuw.\n\nFout: '+e.message;
   }
 
+  save();
   document.getElementById('loadingState').style.display='none';
   document.getElementById('resultState').style.display='block';
   renderPreview();
 }
 
 function renderPreview(){
-  let naam=document.getElementById('naam').value||'[Je naam]';
-  let adres=document.getElementById('adres').value||'';
-  let plaats=document.getElementById('plaats').value||'';
-  let tel=document.getElementById('tel').value||'';
-  let email=document.getElementById('email').value||'';
-  let bedrijf=document.getElementById('bedrijf').value||'[Bedrijfsnaam]';
-  let contact=document.getElementById('contact').value||'';
-  let functie=document.getElementById('functie').value||'[Functietitel]';
+  let naam=gv('naam')||'[Je naam]';
+  let adres=gv('adres')||'';
+  let plaats=gv('plaats')||'';
+  let tel=gv('tel')||'';
+  let email=gv('email')||'';
+  let bedrijf=gv('bedrijf')||'[Bedrijfsnaam]';
+  let contact=gv('contact')||'';
+  let functie=gv('functie')||'[Functietitel]';
   let aanhef=contact?'Geachte '+contact+',':'Geachte heer/mevrouw,';
 
   let header=[naam,adres,plaats,tel,email].filter(Boolean).join('\n');
@@ -239,27 +313,31 @@ function renderPreview(){
   html+='<div class="brief-subject">Betreft: Sollicitatie '+functie+'</div>';
   html+='<div style="margin-top:12px">'+aanhef+'<br><br>'+briefBody.replace(/\n/g,'<br>')+'<br><br>Met vriendelijke groet,<br>'+naam+'</div>';
 
-  document.getElementById('preview').innerHTML=html;
+  document.getElementById('briefContent').innerHTML=html;
 }
 
 function downloadPDF(){
   if(!isPaid()){
-    if(confirm('Download je sollicitatiebrief voor €2,99.\n\nBetaal via iDEAL, creditcard of Apple Pay.\nNa betaling kun je direct downloaden.\n\nDoorgaan?')){
-      localStorage.setItem('fixlify_brief_text',briefBody);
+    save();
+    if(confirm('Download je sollicitatiebrief zonder watermerk voor €2,99.\n\n✅ Je gegevens blijven bewaard\n✅ Direct PDF na betaling\n✅ Betaal via iDEAL, creditcard of Apple Pay\n\nDoorgaan?')){
       window.location.href=STRIPE_LINK;
     }
     return;
   }
+  generateCleanPDF();
+}
+
+function generateCleanPDF(){
   let J=window.jspdf.jsPDF;
   let doc=new J();
-  let naam=document.getElementById('naam').value||'[Je naam]';
-  let adres=document.getElementById('adres').value||'';
-  let plaats=document.getElementById('plaats').value||'';
-  let tel=document.getElementById('tel').value||'';
-  let email=document.getElementById('email').value||'';
-  let bedrijf=document.getElementById('bedrijf').value||'[Bedrijfsnaam]';
-  let contact=document.getElementById('contact').value||'';
-  let functie=document.getElementById('functie').value||'[Functietitel]';
+  let naam=gv('naam')||'[Je naam]';
+  let adres=gv('adres')||'';
+  let plaats=gv('plaats')||'';
+  let tel=gv('tel')||'';
+  let email=gv('email')||'';
+  let bedrijf=gv('bedrijf')||'[Bedrijfsnaam]';
+  let contact=gv('contact')||'';
+  let functie=gv('functie')||'[Functietitel]';
   let aanhef=contact?'Geachte '+contact+',':'Geachte heer/mevrouw,';
 
   let y=25;
@@ -298,8 +376,28 @@ function downloadPDF(){
   doc.save('sollicitatiebrief-'+naam.toLowerCase().replace(/\s+/g,'-')+'.pdf');
 }
 
-uP();
+window.addEventListener('load',function(){
+  loadSaved();
+  uP();
+  
+  if(isPaid()){
+    sessionStorage.setItem('fixlify_brief_just_paid','1');
+    if(briefBody){
+      document.getElementById('briefWatermark').style.display='none';
+      document.getElementById('successBanner').style.display='flex';
+      go(3);
+      document.getElementById('loadingState').style.display='none';
+      document.getElementById('resultState').style.display='block';
+      renderPreview();
+      setTimeout(function(){
+        generateCleanPDF();
+      },1500);
+      setTimeout(function(){
+        document.getElementById('successBanner').style.display='none';
+      },8000);
+    }
+  }
+});
 </script>
 </body>
 </html>
-
