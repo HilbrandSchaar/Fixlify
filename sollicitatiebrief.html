@@ -144,6 +144,7 @@ footer span{color:#9CA3AF;font-size:12px}
 <footer><span>&copy; 2026 FixlifyNL &middot; KvK 77981197 &middot; <a href="/privacy.html" style="color:#9CA3AF">Privacy</a> &middot; <a href="/voorwaarden.html" style="color:#9CA3AF">Voorwaarden</a></span></footer>
 
 <script>
+// ========== CONFIG ==========
 const STRIPE_LINK='https://buy.stripe.com/dRm3cv45o7wa9uUadn8ww02';
 const API_ENDPOINT='/api/genereer-brief';
 const STORAGE_KEY='fixlify_brief_data';
@@ -151,7 +152,10 @@ const STORAGE_DAYS=7;
 
 function isPaid(){return new URLSearchParams(window.location.search).has('betaald')||sessionStorage.getItem('fixlify_brief_just_paid')==='1'}
 
+// ========== STATE ==========
 let step=0,briefBody='';
+
+// ========== AUTO-SAVE ==========
 let saveTimer=null;
 function save(){
   clearTimeout(saveTimer);
@@ -209,6 +213,7 @@ function clearAllData(){
   }
 }
 
+// ========== UI ==========
 function uP(){let p=document.getElementById('prg');p.innerHTML='';for(let i=0;i<4;i++){let d=document.createElement('div');d.className='prg'+(i<step?' d':'')+(i===step?' a':'');p.appendChild(d)}}
 function go(n){for(let i=0;i<4;i++)document.getElementById('s'+i).classList.toggle('a',i===n);step=n;uP();window.scrollTo({top:0,behavior:'smooth'})}
 
@@ -221,6 +226,7 @@ function updateFromEdit(){briefBody=document.getElementById('editArea').value;sa
 
 function datum(){let d=new Date();let ms=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];return d.getDate()+' '+ms[d.getMonth()]+' '+d.getFullYear()}
 
+// ========== AI GENERATION (VEILIG VIA SERVER) ==========
 async function genereer(){
   let naam=gv('naam')||'[Je naam]';
   let bedrijf=gv('bedrijf')||'[Bedrijfsnaam]';
@@ -316,6 +322,7 @@ function renderPreview(){
   document.getElementById('briefContent').innerHTML=html;
 }
 
+// ========== PAYWALL & PDF ==========
 function downloadPDF(){
   if(!isPaid()){
     save();
@@ -324,6 +331,7 @@ function downloadPDF(){
     }
     return;
   }
+  // PAID: generate clean PDF
   generateCleanPDF();
 }
 
@@ -376,22 +384,32 @@ function generateCleanPDF(){
   doc.save('sollicitatiebrief-'+naam.toLowerCase().replace(/\s+/g,'-')+'.pdf');
 }
 
+// ========== INIT ==========
 window.addEventListener('load',function(){
+  // Try loading saved data
   loadSaved();
   uP();
   
+  // Check if just paid - go straight to result + auto-download
   if(isPaid()){
     sessionStorage.setItem('fixlify_brief_just_paid','1');
+    // Verberg watermerk altijd na betaling (ook als nog geen brief)
+    var wm=document.getElementById('briefWatermark');
+    if(wm)wm.style.display='none';
+    
     if(briefBody){
-      document.getElementById('briefWatermark').style.display='none';
+      // Show success banner
       document.getElementById('successBanner').style.display='flex';
+      // Go to result step
       go(3);
       document.getElementById('loadingState').style.display='none';
       document.getElementById('resultState').style.display='block';
       renderPreview();
+      // Auto-download after 1.5 seconds
       setTimeout(function(){
         generateCleanPDF();
       },1500);
+      // Hide success banner after 8 seconds
       setTimeout(function(){
         document.getElementById('successBanner').style.display='none';
       },8000);
