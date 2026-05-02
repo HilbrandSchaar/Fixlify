@@ -367,11 +367,42 @@ function dlPDF(){
     }
     return;
   }
-  // PAID: hide watermark, generate clean PDF
-  generateCleanPDF();
+  // PAID: ensure app is visible for html2canvas to work, then generate clean PDF
+  var appWrap=document.getElementById('appWrap');
+  var paidScreen=document.getElementById('paidScreen');
+  var wasOnPaidScreen=false;
+  
+  if(appWrap&&appWrap.style.display==='none'){
+    // We're on paidScreen — temporarily show app off-screen for html2canvas
+    wasOnPaidScreen=true;
+    appWrap.style.display='flex';
+    appWrap.style.position='fixed';
+    appWrap.style.top='-99999px';
+    appWrap.style.left='-99999px';
+    appWrap.style.opacity='0';
+    appWrap.style.pointerEvents='none';
+    // Make sure preview is rendered
+    if(typeof showStep==='function')showStep(5);
+    if(typeof R==='function')R();
+  }
+  
+  // Small delay to let DOM update before html2canvas runs
+  setTimeout(function(){
+    generateCleanPDF(function(){
+      // Callback: hide app again if we were on paidScreen
+      if(wasOnPaidScreen&&appWrap){
+        appWrap.style.display='none';
+        appWrap.style.position='';
+        appWrap.style.top='';
+        appWrap.style.left='';
+        appWrap.style.opacity='';
+        appWrap.style.pointerEvents='';
+      }
+    });
+  },100);
 }
 
-function generateCleanPDF(){
+function generateCleanPDF(callback){
   var cvp=document.getElementById('cvp');
   var inner=document.getElementById('cvInner');
   var watermark=document.getElementById('watermark');
@@ -406,6 +437,7 @@ function generateCleanPDF(){
         inner.style.width=origInnerWidth;
         cvp.style.fontSize=origFontSize;
         R();
+        if(callback)callback();
       }).catch(function(err){
         console.error(err);
         alert('Er ging iets mis bij het genereren. Probeer het opnieuw.');
@@ -416,6 +448,7 @@ function generateCleanPDF(){
         inner.style.width=origInnerWidth;
         cvp.style.fontSize=origFontSize;
         R();
+        if(callback)callback();
       });
     },200);
   },100);
