@@ -142,6 +142,28 @@ footer span{color:var(--light-gray);font-size:13px}
 
 <div id="successBannerWrap" style="display:none;padding:0 24px"><div class="success-banner">✅ Betaling gelukt! Je factuur wordt nu gedownload zonder watermerk.</div></div>
 
+<!-- PAID-ONLY SCREEN: shown after successful payment -->
+<div id="paidScreen" style="display:none;max-width:600px;margin:40px auto;padding:0 24px;font-family:'Outfit',sans-serif">
+  <div style="background:linear-gradient(135deg,#10B981,#059669);color:#fff;padding:24px;border-radius:14px;margin-bottom:24px;text-align:center;box-shadow:0 8px 24px rgba(16,185,129,.25)">
+    <div style="font-size:48px;margin-bottom:8px">✅</div>
+    <div style="font-size:22px;font-weight:800;margin-bottom:4px">Betaling gelukt!</div>
+    <div style="font-size:15px;opacity:.95">Je factuur is klaar om te downloaden</div>
+  </div>
+  
+  <div style="background:#fff;border:2px solid #E5E7EB;border-radius:16px;padding:32px;text-align:center;margin-bottom:20px">
+    <div style="font-size:56px;margin-bottom:12px">📄</div>
+    <div style="font-size:18px;font-weight:700;color:#111827;margin-bottom:6px" id="paidFilename">factuur.pdf</div>
+    <div style="font-size:14px;color:#6B7280;margin-bottom:24px">Klik op de knop om je factuur te downloaden zonder watermerk</div>
+    <button onclick="dP()" style="width:100%;padding:18px;background:#F97316;color:#fff;border:none;border-radius:12px;font-size:18px;font-weight:700;font-family:'Outfit';cursor:pointer;box-shadow:0 6px 18px rgba(249,115,22,.35);transition:all .2s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(249,115,22,.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 18px rgba(249,115,22,.35)'">⬇ Download PDF</button>
+    <div style="margin-top:14px;font-size:12px;color:#9CA3AF">Je gegevens blijven 7 dagen bewaard</div>
+  </div>
+  
+  <div style="text-align:center;margin-bottom:30px">
+    <button onclick="showFormAfterPaid()" style="background:#fff;border:1.5px solid #E5E7EB;border-radius:8px;padding:10px 18px;font-family:'Outfit';font-size:13px;font-weight:600;cursor:pointer;color:#374151;margin-right:8px">✎ Factuur aanpassen</button>
+    <button onclick="clearAllData()" style="background:none;border:none;color:#9CA3AF;font-size:12px;cursor:pointer;text-decoration:underline;font-family:'Outfit'">Alles wissen</button>
+  </div>
+</div>
+
 <div class="container" id="formSection">
 
 <div class="card"><h2><span class="icon" style="background:rgba(124,58,237,.08)">&#127912;</span> Logo & stijl</h2>
@@ -216,7 +238,8 @@ footer span{color:var(--light-gray);font-size:13px}
   <div class="pvf" id="pvf2"></div>
 </div>
 </div>
-<div class="br"><button class="db" onclick="dP()">&#128196; Download als PDF — €0,50</button><button class="eb" onclick="bE()">&#9998; Bewerken</button></div>
+<div class="br" id="brBtns"><button class="db" onclick="dP()">&#128196; Download als PDF — €0,50</button><button class="eb" onclick="bE()">&#9998; Bewerken</button></div>
+<div class="br" id="brBtnsPaid" style="display:none;flex-direction:column;gap:12px"><button class="db" style="font-size:18px;padding:20px" onclick="generateCleanPDF()">&#128229; Download je factuur als PDF</button><div style="text-align:center;font-size:13px;color:var(--gray);margin-top:8px">Klik op de knop om je factuur opnieuw te downloaden</div></div>
 <div class="disc">Gegenereerd via fixlify.nl · KvK 77981197 · BTW NL003270597B29</div>
 </div>
 
@@ -472,10 +495,19 @@ function gP(){
   // Hide watermark immediately if user has paid
   if(isPaid()){
     document.getElementById('pbWatermark').style.display='none';
+    // Verberg edit knoppen, toon paid versie
+    const brBtns=document.getElementById('brBtns');
+    if(brBtns)brBtns.style.display='none';
+    const brBtnsPaid=document.getElementById('brBtnsPaid');
+    if(brBtnsPaid)brBtnsPaid.style.display='flex';
   }
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function bE(){
+  if(isPaid()){
+    alert('Je factuur is al gegenereerd. Klik op "Download als PDF" om hem (opnieuw) te downloaden.');
+    return;
+  }
   document.getElementById('formSection').style.display='block';
   document.getElementById('ps').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
@@ -495,23 +527,62 @@ function dP(){
   generateCleanPDF();
 }
 
-function updatePaidUI(){
-  // Hide watermark
-  const wm=document.getElementById('pbWatermark');
+function showPaidScreen(){
+  // Verberg form en eventuele preview
+  var formSection=document.getElementById('formSection');
+  if(formSection)formSection.style.display='none';
+  var ps=document.getElementById('ps');
+  if(ps)ps.classList.remove('show');
+  var hero=document.querySelector('.hero');
+  if(hero)hero.style.display='none';
+  // Toon paid screen
+  document.getElementById('paidScreen').style.display='block';
+  // Vul filename in
+  var factuurNr=gv('fn')||'factuur';
+  var fname='factuur-'+factuurNr.replace(/[^a-zA-Z0-9-]/g,'-')+'.pdf';
+  document.getElementById('paidFilename').textContent=fname;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function gv2(id){var el=document.getElementById(id);return el?(el.value||''):''}
+// gv duplicate verwijderd, gebruikt de origineel uit de hoofdcode
+
+function showFormAfterPaid(){
+  // Toon formulier weer (gebruiker wil aanpassen)
+  document.getElementById('paidScreen').style.display='none';
+  var formSection=document.getElementById('formSection');
+  if(formSection)formSection.style.display='block';
+  var hero=document.querySelector('.hero');
+  if(hero)hero.style.display='block';
+  // Verberg watermerk in preview als 'ie zichtbaar wordt
+  var wm=document.getElementById('pbWatermark');
   if(wm)wm.style.display='none';
-  // Update download button text & disclaimer
-  const dlBtn=document.querySelector('.db');
-  if(dlBtn)dlBtn.innerHTML='&#128196; Download PDF (betaald ✓)';
-  const gbBtn=document.querySelector('.gb');
-  if(gbBtn)gbBtn.innerHTML='&#128196; Download factuur als PDF';
+  // Update knoppen
+  var dlBtn=document.querySelector('.db');
+  if(dlBtn)dlBtn.innerHTML='&#128196; Download factuur als PDF (betaald ✓)';
+  var gbBtn=document.querySelector('.gb');
+  if(gbBtn)gbBtn.innerHTML='&#128196; Bekijk en download factuur';
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function generateCleanPDF(){
   // Hide watermark for clean PDF
   const wm=document.getElementById('pbWatermark');
-  wm.style.display='none';
+  if(wm)wm.style.display='none';
+  
+  // Render preview eerst als 'ie nog niet getoond is
+  const ps=document.getElementById('ps');
+  if(!ps.classList.contains('show')){
+    gP();
+    // Verberg watermerk meteen weer (gP kan 'm aan zetten)
+    if(wm)wm.style.display='none';
+  }
   
   const pb=document.getElementById('pbox');
+  if(!pb){
+    alert('Vul eerst je factuur gegevens in.');
+    return;
+  }
   
   html2canvas(pb,{
     scale:2,
@@ -543,8 +614,6 @@ function generateCleanPDF(){
     
     const factuurNr=document.getElementById('fn').value||'factuur';
     pdf.save('factuur-'+factuurNr.replace(/[^a-zA-Z0-9-]/g,'-')+'.pdf');
-    
-    // Watermerk blijft VERBORGEN als gebruiker betaald heeft (niet meer terugzetten)
   }).catch(function(err){
     console.error(err);
     alert('Er ging iets mis bij het genereren. Probeer het opnieuw.');
@@ -559,22 +628,8 @@ window.addEventListener('load',function(){
   // Check if just paid
   if(isPaid()){
     sessionStorage.setItem('fixlify_factuur_just_paid','1');
-    // Update UI: hide watermark, change button text
-    updatePaidUI();
-    // Auto-show preview if data exists and download
-    if(document.getElementById('mc').value||document.getElementById('cc').value){
-      gP();
-      // Show success banner
-      document.getElementById('successBannerWrap').style.display='block';
-      // Auto-download after 1.5s
-      setTimeout(function(){
-        generateCleanPDF();
-      },1500);
-      // Hide success banner after 8s
-      setTimeout(function(){
-        document.getElementById('successBannerWrap').style.display='none';
-      },8000);
-    }
+    // Toon paid screen direct
+    showPaidScreen();
   }
 });
 </script>
