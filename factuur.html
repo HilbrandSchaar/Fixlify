@@ -524,7 +524,40 @@ function dP(){
     }
     return;
   }
-  generateCleanPDF();
+  // PAID: zorg dat preview gerenderd is voordat html2canvas runt
+  var ps=document.getElementById('ps');
+  var paidScreen=document.getElementById('paidScreen');
+  var wasOnPaidScreen=paidScreen&&paidScreen.style.display==='block';
+  
+  if(wasOnPaidScreen){
+    // Render preview off-screen voor html2canvas
+    gP();
+    if(ps){
+      ps.classList.add('show');
+      ps.style.position='fixed';
+      ps.style.top='-99999px';
+      ps.style.left='-99999px';
+      ps.style.opacity='0';
+      ps.style.pointerEvents='none';
+    }
+    // Verberg watermerk
+    var wm=document.getElementById('pbWatermark');
+    if(wm)wm.style.display='none';
+  }
+  
+  setTimeout(function(){
+    generateCleanPDF(function(){
+      // Cleanup: hide preview again if we were on paidScreen
+      if(wasOnPaidScreen&&ps){
+        ps.classList.remove('show');
+        ps.style.position='';
+        ps.style.top='';
+        ps.style.left='';
+        ps.style.opacity='';
+        ps.style.pointerEvents='';
+      }
+    });
+  },150);
 }
 
 function showPaidScreen(){
@@ -565,14 +598,14 @@ function showFormAfterPaid(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function generateCleanPDF(){
+function generateCleanPDF(callback){
   // Hide watermark for clean PDF
   const wm=document.getElementById('pbWatermark');
   if(wm)wm.style.display='none';
   
   // Render preview eerst als 'ie nog niet getoond is
   const ps=document.getElementById('ps');
-  if(!ps.classList.contains('show')){
+  if(ps&&!ps.classList.contains('show')){
     gP();
     // Verberg watermerk meteen weer (gP kan 'm aan zetten)
     if(wm)wm.style.display='none';
@@ -581,6 +614,7 @@ function generateCleanPDF(){
   const pb=document.getElementById('pbox');
   if(!pb){
     alert('Vul eerst je factuur gegevens in.');
+    if(callback)callback();
     return;
   }
   
@@ -614,9 +648,11 @@ function generateCleanPDF(){
     
     const factuurNr=document.getElementById('fn').value||'factuur';
     pdf.save('factuur-'+factuurNr.replace(/[^a-zA-Z0-9-]/g,'-')+'.pdf');
+    if(callback)callback();
   }).catch(function(err){
     console.error(err);
     alert('Er ging iets mis bij het genereren. Probeer het opnieuw.');
+    if(callback)callback();
   });
 }
 
