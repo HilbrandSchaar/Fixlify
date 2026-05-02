@@ -168,7 +168,7 @@ footer span{color:#9CA3AF;font-size:12px}
 <textarea class="edit-area" id="editArea"></textarea>
 <button class="bpx" onclick="updateFromEdit()" style="margin-top:8px;width:100%">Preview bijwerken</button>
 </div>
-<div class="brw" id="navBtns"><button class="bpx" onclick="go(2)">&larr; Terug</button><button class="bnx" onclick="genereer()">&#128260; Opnieuw genereren</button></div>
+<div class="brw" id="navBtns"><button class="bpx" onclick="go(2)">&larr; Terug naar invoer</button></div>
 <button class="bdl" id="downloadBtn" onclick="downloadPDF()">&#128196; Download als PDF — €2,99</button>
 <button class="btn-clear" id="clearBtn" onclick="clearAllData()">Alle gegevens wissen</button>
 </div>
@@ -263,15 +263,54 @@ function datum(){let d=new Date();let ms=['januari','februari','maart','april','
 
 // ========== AI GENERATION (VEILIG VIA SERVER) ==========
 async function genereer(){
-  let naam=gv('naam')||'[Je naam]';
-  let bedrijf=gv('bedrijf')||'[Bedrijfsnaam]';
+  // Check rate limit: max 3 gratis previews per dag per browser
+  // (Voorkomt dat mensen onbeperkt gratis AI calls maken zonder te betalen)
+  if(!isPaid()){
+    var todayKey='fixlify_brief_count_'+new Date().toISOString().slice(0,10);
+    var count=parseInt(localStorage.getItem(todayKey)||'0');
+    if(count>=3){
+      alert('Je hebt vandaag al 3 brieven gegenereerd zonder te betalen.\n\nVoor het downloaden van een brief is een betaling van €2,99 nodig. Probeer het morgen opnieuw of klik direct op "Download als PDF" om te betalen en je brief te ontvangen.');
+      return;
+    }
+    localStorage.setItem(todayKey,count+1);
+  }
+  
+  // Check verplichte velden VOORDAT we AI aanroepen
+  let naam=gv('naam').trim();
+  let email=gv('email').trim();
+  let bedrijf=gv('bedrijf').trim();
+  let functie=gv('functie').trim();
+  let ervaring=gv('ervaring').trim();
+  let motivatie=gv('motivatie').trim();
+  
+  let missing=[];
+  if(!naam)missing.push('je naam');
+  if(!email)missing.push('je e-mailadres');
+  if(!bedrijf)missing.push('de bedrijfsnaam');
+  if(!functie)missing.push('de functietitel');
+  if(!ervaring)missing.push('je relevante ervaring');
+  if(!motivatie)missing.push('waarom dit bedrijf');
+  
+  if(missing.length>0){
+    alert('Vul eerst deze verplichte velden in:\n\n• '+missing.join('\n• '));
+    // Ga naar eerste stap waar iets mist
+    if(!naam||!email)go(0);
+    else if(!bedrijf||!functie)go(1);
+    else go(2);
+    return;
+  }
+  
+  // Check: is gebruiker al betaald? Dan geen nieuwe AI call meer (kosten besparen)
+  if(isPaid()){
+    if(!confirm('Je hebt al betaald voor je brief.\n\nWeet je zeker dat je een NIEUWE brief wilt genereren? Je huidige brief gaat verloren.\n\n(Tip: gebruik liever "Brief aanpassen" om de tekst handmatig aan te passen — dat is gratis.)')){
+      return;
+    }
+  }
+  
   let contact=gv('contact')||'';
-  let functie=gv('functie')||'[Functietitel]';
   let bron=gv('bron');
   let niveau=gv('niveau');
   let toon=gv('toon');
-  let ervaring=gv('ervaring')||'';
-  let motivatie=gv('motivatie')||'';
   let extra=gv('extra')||'';
   let vacature=gv('vacature')||'';
 
@@ -478,23 +517,13 @@ window.addEventListener('load',function(){
       // Brief al gegenereerd vóór betaling — direct paid screen tonen
       showPaidScreen();
     }else{
-      // Geen brief opgeslagen — ga toch automatisch genereren
-      // (Dit is een edge case: gebruiker betaalde voor brief gegenereerd was?)
-      // Toon paid screen met loading message
-      document.getElementById('formScreens').style.display='none';
-      document.querySelector('.prog').style.display='none';
-      document.getElementById('paidScreen').style.display='block';
-      var naam=gv('naam')||'sollicitatiebrief';
-      document.getElementById('paidFilename').textContent='Brief wordt gegenereerd...';
-      document.getElementById('paidPreview').textContent='Even geduld, je brief wordt gemaakt door AI...';
-      // Auto-genereer
-      genereer().then(function(){
-        showPaidScreen();
-      }).catch(function(){
-        alert('Er ging iets mis. Klik op "Brief aanpassen" om het opnieuw te proberen.');
-        showFormAfterPaid();
-        go(2);
-      });
+      // Geen brief opgeslagen — gebruiker is via vreemde route hier gekomen
+      // (bv. sessie verloren, of betaald zonder eerst brief te genereren)
+      // Toon vriendelijke melding en stuur ze terug naar invulscherm
+      alert('Je betaling is ontvangen, maar er is geen brief gevonden in je sessie.\n\nGeen probleem: vul je gegevens opnieuw in, klik op "Genereer brief", en je kunt direct downloaden zonder opnieuw te betalen.');
+      // Niet auto-genereren — anders krijgen we lege brieven met placeholders
+      // Gebruiker moet zelf op "Genereer brief" klikken met juiste data
+      go(0);
     }
   }
 });
