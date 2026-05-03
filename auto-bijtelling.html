@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Auto Bijtelling Calculator 2026 · FixlifyNL</title>
+<meta name="description" content="Bereken gratis je bijtelling voor auto van de zaak in 2026. Officiële Belastingdienst tarieven. Bruto en netto bijtelling per maand.">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{--blue:#2563EB;--blue-dark:#1D4ED8;--blue-soft:#EFF4FF;--orange:#F97316;--orange-dark:#EA580C;--bg:#FAFAFA;--ink:#0F172A;--ink-soft:#475569;--muted:#94A3B8;--line:#E2E8F0;--white:#FFFFFF;--green:#16A34A;--green-soft:#DCFCE7;--red:#DC2626;--yellow:#D97706}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding:16px 24px;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
+.nav-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-weight:800;font-size:22px;letter-spacing:-0.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-dot{width:10px;height:10px;background:var(--orange);border-radius:3px}
+.back-link{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500}
+.back-link:hover{color:var(--blue)}
+.hero{max-width:820px;margin:0 auto;padding:48px 24px 32px;text-align:center}
+.hero-eyebrow{display:inline-block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue);background:var(--blue-soft);padding:6px 12px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(32px,5vw,48px);font-weight:700;letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--blue);position:relative}
+.hero h1 em::after{content:'';position:absolute;left:0;right:0;bottom:2px;height:8px;background:var(--orange);opacity:0.25;z-index:-1;border-radius:2px}
+.hero p{font-size:17px;color:var(--ink-soft);max-width:580px;margin:0 auto;line-height:1.6}
+.card{max-width:820px;margin:0 auto 24px;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px;box-shadow:0 4px 20px -2px rgba(15,23,42,0.06)}
+@media(max-width:640px){.card{padding:24px;border-radius:14px;margin:0 16px 20px}}
+.card h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px}
+.card-sub{color:var(--ink-soft);margin-bottom:24px;font-size:14px}
+.section-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--blue);margin:24px 0 14px;display:flex;align-items:center;gap:8px}
+.section-title:first-child{margin-top:0}
+.section-title::before{content:'';width:16px;height:2px;background:var(--orange)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:14px;font-weight:500;color:var(--ink)}
+.field-help{font-size:12px;color:var(--muted)}
+.field input,.field select{font-family:inherit;font-size:15px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);transition:all 0.2s;width:100%}
+.field input:focus,.field select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px var(--blue-soft)}
+.field-with-prefix{position:relative}
+.field-with-prefix .prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:15px;pointer-events:none}
+.field-with-prefix input{padding-left:32px}
+.btn{font-family:inherit;font-size:15px;font-weight:600;padding:14px 22px;border-radius:10px;border:none;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:var(--orange);color:var(--white)}
+.btn-primary:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 6px 14px rgba(249,115,22,0.3)}
+.btn-secondary{background:var(--white);color:var(--ink);border:1.5px solid var(--line)}
+.btn-secondary:hover{border-color:var(--ink)}
+.btn-row{display:flex;justify-content:center;gap:10px;margin-top:24px;flex-wrap:wrap}
+.result-hero{text-align:center;padding:32px 24px;border-radius:16px;margin-bottom:24px;background:linear-gradient(135deg,#EFF4FF,#F0F9FF);border:2px solid #BFDBFE}
+.result-icon{width:56px;height:56px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:28px;background:var(--blue);color:var(--white)}
+.result-headline{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;color:var(--blue-dark)}
+.result-big{font-size:clamp(32px,6vw,48px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:8px;color:var(--blue-dark)}
+.result-sub{font-size:15px;color:var(--ink-soft);max-width:540px;margin:0 auto}
+.savings-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:18px}
+.savings-box h3{font-size:14px;font-weight:600;margin-bottom:12px}
+.savings-row{display:flex;justify-content:space-between;padding:8px 0;font-size:14px;border-bottom:1px solid var(--line)}
+.savings-row:last-child{border-bottom:none}
+.savings-row.total{border-top:2px solid var(--ink);margin-top:8px;padding-top:12px;font-weight:700;font-size:16px;border-bottom:none}
+.info-box{background:var(--blue-soft);border-left:3px solid var(--blue);padding:14px 16px;border-radius:8px;margin:18px 0;font-size:13px;color:var(--ink);line-height:1.6}
+.info-box strong{font-weight:600}
+.assumptions{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:16px;font-size:12px;color:var(--ink-soft);line-height:1.6;margin-top:18px}
+.assumptions strong{color:var(--ink)}
+.assumptions ul{list-style:none;margin-top:8px}
+.assumptions li{padding:3px 0}
+.assumptions li::before{content:'•';color:var(--blue);margin-right:8px;font-weight:700}
+.disclaimer{max-width:820px;margin:0 auto;padding:24px;text-align:center;font-size:12px;color:var(--muted);line-height:1.6}
+footer{background:var(--white);border-top:1px solid var(--line);padding:24px;text-align:center;font-size:13px;color:var(--muted)}
+footer a{color:var(--muted)}
+.hidden{display:none}
+.option-card{background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:14px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:10px}
+.option-card:hover{border-color:var(--blue)}
+.option-card.selected{background:var(--blue-soft);border-color:var(--blue)}
+.option-card input{margin:0;cursor:pointer;accent-color:var(--blue)}
+.option-card .info-name{font-size:14px;font-weight:600}
+.option-card .info-desc{font-size:12px;color:var(--muted);margin-top:2px}
+.option-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
+@media(max-width:560px){.option-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="logo"><span class="logo-dot"></span>fixlify</a><a href="/" class="back-link">← Alle tools</a></div></nav>
+
+<section class="hero">
+<span class="hero-eyebrow">100% gratis · Officiële Belastingdienst tarieven 2026</span>
+<h1>Wat kost die <em>auto van de zaak</em> je echt?</h1>
+<p>Bereken in 30 seconden je bruto en netto bijtelling per maand. Op basis van officiële 2026 tarieven van de Belastingdienst.</p>
+</section>
+
+<div class="card">
+<h2>Bereken je bijtelling</h2>
+<p class="card-sub">Vul je gegevens in en zie direct wat de auto van de zaak je netto kost per maand.</p>
+
+<div class="section-title">Auto gegevens</div>
+
+<div class="field full">
+<label>Type auto</label>
+<div class="option-grid">
+<label class="option-card" onclick="selectType('benzine')">
+<input type="radio" name="autoType" value="benzine" checked>
+<div>
+<div class="info-name">Benzine / Diesel / Hybride</div>
+<div class="info-desc">22% bijtelling</div>
+</div>
+</label>
+<label class="option-card" onclick="selectType('elektrisch')">
+<input type="radio" name="autoType" value="elektrisch">
+<div>
+<div class="info-name">Volledig elektrisch (2026)</div>
+<div class="info-desc">18% tot €30k, 22% daarboven</div>
+</div>
+</label>
+<label class="option-card" onclick="selectType('youngtimer')">
+<input type="radio" name="autoType" value="youngtimer">
+<div>
+<div class="info-name">Youngtimer (16+ jaar)</div>
+<div class="info-desc">35% over dagwaarde</div>
+</div>
+</label>
+<label class="option-card" onclick="selectType('waterstof')">
+<input type="radio" name="autoType" value="waterstof">
+<div>
+<div class="info-name">Waterstof / zonnecel</div>
+<div class="info-desc">18% over volledige cataloguswaarde</div>
+</div>
+</label>
+</div>
+</div>
+
+<div class="grid">
+<div class="field" id="cataloguswaardeField">
+<label for="cataloguswaarde">Cataloguswaarde auto</label>
+<div class="field-with-prefix"><span class="prefix">€</span><input type="number" id="cataloguswaarde" placeholder="35000" min="0" step="1000" /></div>
+<span class="field-help">Nieuwprijs incl. BTW en BPM</span>
+</div>
+
+<div class="field hidden" id="dagwaardeField">
+<label for="dagwaarde">Dagwaarde auto</label>
+<div class="field-with-prefix"><span class="prefix">€</span><input type="number" id="dagwaarde" placeholder="15000" min="0" step="500" /></div>
+<span class="field-help">Voor youngtimers: huidige verkoopwaarde</span>
+</div>
+
+<div class="field">
+<label for="brutoLoon">Bruto jaarsalaris (excl. bijtelling)</label>
+<div class="field-with-prefix"><span class="prefix">€</span><input type="number" id="brutoLoon" placeholder="45000" min="0" step="1000" /></div>
+<span class="field-help">Voor netto berekening</span>
+</div>
+</div>
+
+<div class="btn-row">
+<button class="btn btn-primary" onclick="bereken()">Bereken bijtelling →</button>
+</div>
+</div>
+
+<div class="card hidden" id="resultCard">
+<div class="result-hero">
+<div class="result-icon">🚗</div>
+<div class="result-headline">Je netto bijtelling</div>
+<div class="result-big" id="nettoMaand">€0/maand</div>
+<p class="result-sub">Dit komt netto van je salaris af door de auto van de zaak.</p>
+</div>
+
+<div class="savings-box">
+<h3>📊 Volledige berekening</h3>
+<div class="savings-row"><span>Bijtellingspercentage</span><span id="percentage">22%</span></div>
+<div class="savings-row"><span>Bruto bijtelling per jaar</span><span id="brutoJaar">€0</span></div>
+<div class="savings-row"><span>Bruto bijtelling per maand</span><span id="brutoMaand">€0</span></div>
+<div class="savings-row"><span>Belastingschijf</span><span id="schijf">37%</span></div>
+<div class="savings-row total"><span>Netto bijtelling per maand</span><span id="nettoMaandTotaal">€0</span></div>
+</div>
+
+<div class="info-box">
+<strong>💡 Hoe wordt dit berekend?</strong><br>
+1. Cataloguswaarde × bijtellingspercentage = bruto bijtelling per jaar<br>
+2. Bruto bijtelling wordt opgeteld bij je salaris<br>
+3. Hierover betaal je belasting volgens jouw schijf<br>
+4. Dat bedrag is wat je netto extra betaalt per maand
+</div>
+
+<div class="info-box" style="background:#FEF3C7;border-left-color:var(--yellow)">
+<strong>⚠️ Geen bijtelling als:</strong> Je minder dan 500 km per jaar privé rijdt. Dit moet je wel kunnen aantonen met een sluitende rittenregistratie.
+</div>
+
+<div class="assumptions">
+<strong>📋 Op basis van:</strong>
+<ul>
+<li>Officiële Belastingdienst tarieven 2026</li>
+<li>Inkomstenbelasting schijven 2026</li>
+<li>Bijtelling regels per autotype</li>
+<li>Tarief is 60 maanden vast vanaf eerste toelating</li>
+</ul>
+</div>
+
+<div class="btn-row">
+<button class="btn btn-secondary" onclick="resetForm()">↻ Opnieuw berekenen</button>
+</div>
+</div>
+
+<div class="disclaimer">
+<strong>Let op:</strong> deze berekening is een indicatie. Voor exacte berekening raadpleeg de <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">Belastingdienst</a> of je salarisadministratie. Dit is geen fiscaal advies.
+</div>
+
+<footer>© 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></footer>
+
+<script>
+function selectType(type) {
+  document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  document.querySelector('input[value="' + type + '"]').checked = true;
+  
+  // Show/hide juiste veld
+  if (type === 'youngtimer') {
+    document.getElementById('cataloguswaardeField').classList.add('hidden');
+    document.getElementById('dagwaardeField').classList.remove('hidden');
+  } else {
+    document.getElementById('cataloguswaardeField').classList.remove('hidden');
+    document.getElementById('dagwaardeField').classList.add('hidden');
+  }
+}
+
+// Initial selection
+document.querySelector('.option-card').classList.add('selected');
+
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function fmt(n) { return '€' + Math.round(n).toLocaleString('nl-NL'); }
+
+function getBelastingTarief(brutoLoon) {
+  // 2026 Inkomstenbelasting schijven (vereenvoudigd)
+  // Schijf 1: tot €38.441 → 35,82%
+  // Schijf 2: €38.441 - €76.817 → 37,48%
+  // Schijf 3: vanaf €76.817 → 49,50%
+  if (brutoLoon < 38441) return 0.3582;
+  if (brutoLoon < 76817) return 0.3748;
+  return 0.4950;
+}
+
+function bereken() {
+  const autoType = document.querySelector('input[name="autoType"]:checked').value;
+  const brutoLoon = val('brutoLoon');
+  
+  if (brutoLoon <= 0) {
+    alert('Vul je bruto jaarsalaris in voor de netto berekening.');
+    return;
+  }
+  
+  let brutoBijtelling = 0;
+  let percentageText = '';
+  
+  if (autoType === 'benzine') {
+    const cw = val('cataloguswaarde');
+    if (cw <= 0) { alert('Vul de cataloguswaarde in.'); return; }
+    brutoBijtelling = cw * 0.22;
+    percentageText = '22% (benzine/diesel/hybride)';
+    
+  } else if (autoType === 'elektrisch') {
+    const cw = val('cataloguswaarde');
+    if (cw <= 0) { alert('Vul de cataloguswaarde in.'); return; }
+    if (cw <= 30000) {
+      brutoBijtelling = cw * 0.18;
+      percentageText = '18% (elektrisch, onder €30k)';
+    } else {
+      brutoBijtelling = (30000 * 0.18) + ((cw - 30000) * 0.22);
+      percentageText = '18% tot €30k + 22% daarboven (elektrisch)';
+    }
+    
+  } else if (autoType === 'youngtimer') {
+    const dw = val('dagwaarde');
+    if (dw <= 0) { alert('Vul de dagwaarde in.'); return; }
+    brutoBijtelling = dw * 0.35;
+    percentageText = '35% (youngtimer 16+ jaar)';
+    
+  } else if (autoType === 'waterstof') {
+    const cw = val('cataloguswaarde');
+    if (cw <= 0) { alert('Vul de cataloguswaarde in.'); return; }
+    brutoBijtelling = cw * 0.18;
+    percentageText = '18% (waterstof/zonnecel)';
+  }
+  
+  const brutoMaand = brutoBijtelling / 12;
+  const tarief = getBelastingTarief(brutoLoon);
+  const nettoJaar = brutoBijtelling * tarief;
+  const nettoMaand = nettoJaar / 12;
+  
+  // Update UI
+  document.getElementById('nettoMaand').textContent = fmt(nettoMaand) + '/maand';
+  document.getElementById('percentage').textContent = percentageText;
+  document.getElementById('brutoJaar').textContent = fmt(brutoBijtelling);
+  document.getElementById('brutoMaand').textContent = fmt(brutoMaand);
+  document.getElementById('schijf').textContent = (tarief * 100).toFixed(2) + '%';
+  document.getElementById('nettoMaandTotaal').textContent = fmt(nettoMaand);
+  
+  document.getElementById('resultCard').classList.remove('hidden');
+  
+  setTimeout(() => {
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+function resetForm() {
+  document.querySelectorAll('input[type="number"]').forEach(i => i.value = '');
+  document.getElementById('resultCard').classList.add('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
