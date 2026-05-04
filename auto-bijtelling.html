@@ -7,6 +7,7 @@
 <meta name="description" content="Bereken gratis je bijtelling voor auto van de zaak in 2026. Officiële Belastingdienst tarieven. Bruto en netto bijtelling per maand.">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="/fixlify-pro.js"></script>
 <style>
 :root{--blue:#2563EB;--blue-dark:#1D4ED8;--blue-soft:#EFF4FF;--orange:#F97316;--orange-dark:#EA580C;--bg:#FAFAFA;--ink:#0F172A;--ink-soft:#475569;--muted:#94A3B8;--line:#E2E8F0;--white:#FFFFFF;--green:#16A34A;--green-soft:#DCFCE7;--red:#DC2626;--yellow:#D97706}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -158,7 +159,7 @@ footer a{color:var(--muted)}
 <div class="result-icon">🚗</div>
 <div class="result-headline">Je netto bijtelling</div>
 <div class="result-big" id="nettoMaand">€0/maand</div>
-<p class="result-sub">Dit komt netto van je salaris af door de auto van de zaak.</p>
+<p class="result-sub">Schatting van wat netto van je salaris afgaat. Werkelijk bedrag kan ~5-10% lager zijn door heffingskortingen.</p>
 </div>
 
 <div class="savings-box">
@@ -174,8 +175,9 @@ footer a{color:var(--muted)}
 <strong>💡 Hoe wordt dit berekend?</strong><br>
 1. Cataloguswaarde × bijtellingspercentage = bruto bijtelling per jaar<br>
 2. Bruto bijtelling wordt opgeteld bij je salaris<br>
-3. Hierover betaal je belasting volgens jouw schijf<br>
-4. Dat bedrag is wat je netto extra betaalt per maand
+3. Hierover betaal je belasting volgens 2026 schijven (35,75% / 37,56% / 49,50%)<br>
+4. We berekenen progressief: bijtelling kan deels in een hogere schijf vallen<br>
+5. Het verschil is wat je daadwerkelijk netto extra betaalt
 </div>
 
 <div class="info-box" style="background:#FEF3C7;border-left-color:var(--yellow)">
@@ -183,13 +185,26 @@ footer a{color:var(--muted)}
 </div>
 
 <div class="assumptions">
-<strong>📋 Op basis van:</strong>
+<strong>📋 Wat we WEL meenemen:</strong>
 <ul>
-<li>Officiële Belastingdienst tarieven 2026</li>
-<li>Inkomstenbelasting schijven 2026</li>
-<li>Bijtelling regels per autotype</li>
+<li>Officiële Belastingdienst bijtelling regels 2026</li>
+<li>Inkomstenbelasting Box 1 schijven 2026: 35,75% / 37,56% / 49,50%</li>
+<li>Schijfgrenzen 2026: €38.883 en €78.426</li>
+<li>Bijtelling regels per autotype (benzine 22%, EV 18%/22%, youngtimer 35%)</li>
 <li>Tarief is 60 maanden vast vanaf eerste toelating</li>
+<li>Progressieve berekening (bijtelling kan deels in hogere schijf vallen)</li>
 </ul>
+<br>
+<strong>⚠️ Wat we NIET meenemen:</strong>
+<ul>
+<li>Algemene heffingskorting (€3.068 in 2026) — verlaagt belasting</li>
+<li>Arbeidskorting (max €5.500) — verlaagt belasting</li>
+<li>Eigen bijdrage werknemer (verlaagt bijtelling)</li>
+<li>Privégebruik &lt; 500 km/jaar (geen bijtelling, maar wel rittenregistratie)</li>
+<li>Eventuele leeftijdskortingen (boven AOW-leeftijd)</li>
+</ul>
+<br>
+<em>Verwacht resultaat: berekening overschat netto bijtelling met ~5-10%.</em>
 </div>
 
 <div class="btn-row">
@@ -198,7 +213,7 @@ footer a{color:var(--muted)}
 </div>
 
 <div class="disclaimer">
-<strong>Let op:</strong> deze berekening is een indicatie. Voor exacte berekening raadpleeg de <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">Belastingdienst</a> of je salarisadministratie. Dit is geen fiscaal advies.
+<strong>⚠️ Belangrijk:</strong> Deze berekening houdt <strong>geen rekening met heffingskortingen</strong> (algemene heffingskorting €3.068 en arbeidskorting). Hierdoor kan je werkelijke netto bijtelling 5-10% lager uitvallen dan getoond. Voor exacte berekening raadpleeg de <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">Belastingdienst</a> of je salarisadministratie. Dit is geen fiscaal advies.
 </div>
 
 <footer>© 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></footer>
@@ -226,13 +241,19 @@ function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
 function fmt(n) { return '€' + Math.round(n).toLocaleString('nl-NL'); }
 
 function getBelastingTarief(brutoLoon) {
-  // 2026 Inkomstenbelasting schijven (vereenvoudigd)
-  // Schijf 1: tot €38.441 → 35,82%
-  // Schijf 2: €38.441 - €76.817 → 37,48%
-  // Schijf 3: vanaf €76.817 → 49,50%
-  if (brutoLoon < 38441) return 0.3582;
-  if (brutoLoon < 76817) return 0.3748;
+  // Marginaal tarief op basis van bruto loon (voor display)
+  // 2026 Inkomstenbelasting Box 1 schijven (officieel Belastingdienst)
+  if (brutoLoon < 38883) return 0.3575;
+  if (brutoLoon < 78426) return 0.3756;
   return 0.4950;
+}
+
+function berekenBelasting(inkomen) {
+  // Progressieve belasting Box 1 2026 (zonder heffingskortingen)
+  if (inkomen <= 0) return 0;
+  if (inkomen <= 38883) return inkomen * 0.3575;
+  if (inkomen <= 78426) return 38883 * 0.3575 + (inkomen - 38883) * 0.3756;
+  return 38883 * 0.3575 + (78426 - 38883) * 0.3756 + (inkomen - 78426) * 0.4950;
 }
 
 function bereken() {
@@ -278,16 +299,26 @@ function bereken() {
   }
   
   const brutoMaand = brutoBijtelling / 12;
+  
+  // Marginaal tarief (voor display in tabel)
   const tarief = getBelastingTarief(brutoLoon);
-  const nettoJaar = brutoBijtelling * tarief;
+  
+  // CORRECTE berekening: bereken belasting met EN zonder bijtelling
+  // Het verschil is wat je daadwerkelijk extra betaalt
+  const belastingZonder = berekenBelasting(brutoLoon);
+  const belastingMet = berekenBelasting(brutoLoon + brutoBijtelling);
+  const nettoJaar = belastingMet - belastingZonder;
   const nettoMaand = nettoJaar / 12;
+  
+  // Bereken effectief tarief op de bijtelling zelf
+  const effectiefTarief = brutoBijtelling > 0 ? (nettoJaar / brutoBijtelling) : 0;
   
   // Update UI
   document.getElementById('nettoMaand').textContent = fmt(nettoMaand) + '/maand';
   document.getElementById('percentage').textContent = percentageText;
   document.getElementById('brutoJaar').textContent = fmt(brutoBijtelling);
   document.getElementById('brutoMaand').textContent = fmt(brutoMaand);
-  document.getElementById('schijf').textContent = (tarief * 100).toFixed(2) + '%';
+  document.getElementById('schijf').textContent = (effectiefTarief * 100).toFixed(2) + '% (effectief)';
   document.getElementById('nettoMaandTotaal').textContent = fmt(nettoMaand);
   
   document.getElementById('resultCard').classList.remove('hidden');
