@@ -427,39 +427,55 @@ function dP(){
     return;
   }
   
-  html2canvas(pb,{
-    scale:2,
-    useCORS:true,
-    backgroundColor:'#ffffff',
-    logging:false
-  }).then(function(canvas){
-    const imgData=canvas.toDataURL('image/jpeg',0.95);
-    const pdf=new window.jspdf.jsPDF('p','mm','a4');
-    const pdfWidth=210;
-    const pdfHeight=297;
-    const imgWidth=pdfWidth;
-    const imgHeight=(canvas.height*imgWidth)/canvas.width;
-    
-    if(imgHeight<=pdfHeight){
-      pdf.addImage(imgData,'JPEG',0,0,imgWidth,imgHeight);
-    }else{
-      let position=0;
-      let heightLeft=imgHeight;
-      pdf.addImage(imgData,'JPEG',0,position,imgWidth,imgHeight);
-      heightLeft-=pdfHeight;
-      while(heightLeft>0){
-        position=heightLeft-imgHeight;
-        pdf.addPage();
+  // Clone preview to hidden A4-width container so mobile/desktop produce same PDF
+  const A4_WIDTH_PX = 794; // 210mm at 96dpi
+  const clone = pb.cloneNode(true);
+  const wrapper = document.createElement('div');
+  wrapper.style.cssText = 'position:fixed;top:-99999px;left:0;width:'+A4_WIDTH_PX+'px;background:#ffffff;z-index:-1;pointer-events:none;';
+  clone.style.cssText = 'width:'+A4_WIDTH_PX+'px;max-width:none;padding:48px;background:#ffffff;border:none;border-radius:0;box-shadow:none;margin:0;';
+  wrapper.appendChild(clone);
+  document.body.appendChild(wrapper);
+  
+  requestAnimationFrame(function(){
+    html2canvas(clone,{
+      scale:2,
+      useCORS:true,
+      backgroundColor:'#ffffff',
+      logging:false,
+      width:A4_WIDTH_PX,
+      windowWidth:A4_WIDTH_PX
+    }).then(function(canvas){
+      document.body.removeChild(wrapper);
+      
+      const imgData=canvas.toDataURL('image/jpeg',0.95);
+      const pdf=new window.jspdf.jsPDF('p','mm','a4');
+      const pdfWidth=210;
+      const pdfHeight=297;
+      const imgWidth=pdfWidth;
+      const imgHeight=(canvas.height*imgWidth)/canvas.width;
+      
+      if(imgHeight<=pdfHeight){
+        pdf.addImage(imgData,'JPEG',0,0,imgWidth,imgHeight);
+      }else{
+        let position=0;
+        let heightLeft=imgHeight;
         pdf.addImage(imgData,'JPEG',0,position,imgWidth,imgHeight);
         heightLeft-=pdfHeight;
+        while(heightLeft>0){
+          position=heightLeft-imgHeight;
+          pdf.addPage();
+          pdf.addImage(imgData,'JPEG',0,position,imgWidth,imgHeight);
+          heightLeft-=pdfHeight;
+        }
       }
-    }
-    
-    const offNr=gv('on')||'offerte';
-    pdf.save('offerte-'+offNr.replace(/[^a-zA-Z0-9-]/g,'-')+'.pdf');
-  }).catch(function(err){
-    console.error(err);
-    alert('Er ging iets mis bij het genereren. Probeer het opnieuw.');
+      
+      const offNr=gv('on')||'offerte';
+      pdf.save('offerte-'+offNr.replace(/[^a-zA-Z0-9-]/g,'-')+'.pdf');
+    }).catch(function(err){
+      if(wrapper.parentNode)document.body.removeChild(wrapper);
+      console.error(err);
+      alert('Er ging iets mis bij het genereren. Probeer het opnieuw.');
+    });
   });
 }
 
