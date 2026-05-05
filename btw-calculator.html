@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTW Calculator 2026 — Bereken BTW (21% en 9%) Snel en Gratis</title>
+<meta name="description" content="Bereken BTW met 1 klik — bedrag inclusief of exclusief. Voor 21% standaard tarief en 9% verlaagd tarief. Inclusief uitleg per branche. Gratis BTW-tool voor ZZP en MKB.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--blue:#2563EB;--orange:#F97316;--orange-dark:#EA580C;--dark:#111827;--gray:#6B7280;--light-gray:#9CA3AF;--border:#E5E7EB;--bg:#FAFAFA;--green:#10B981;--teal:#0D9488;--teal-dark:#0F766E;--teal-soft:#CCFBF1;--teal-bg:#F0FDFA}
+body{font-family:'Outfit',system-ui,sans-serif;color:var(--dark);background:var(--bg);overflow-x:hidden;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.container{max-width:800px;margin:0 auto;padding:0 24px}
+.disclaimer-bar{background:#1E293B;color:#CBD5E1;font-size:11.5px;text-align:center;padding:7px 16px;line-height:1.4;font-weight:500}
+.disclaimer-bar strong{color:#fff}
+nav{position:sticky;top:0;left:0;right:0;z-index:100;background:rgba(250,250,250,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);padding:14px 0}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--teal-dark),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px}
+.logo-text{font-weight:700;font-size:22px;letter-spacing:-.02em}
+.nav-back{color:var(--blue);font-weight:600;font-size:14px}
+
+.hero{padding:60px 0 30px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--teal-soft);border-radius:100px;margin-bottom:16px;font-size:13px;font-weight:600;color:var(--teal-dark)}
+.hero h1{font-size:42px;font-weight:800;letter-spacing:-.03em;margin-bottom:12px;line-height:1.1}
+.hero h1 span{background:linear-gradient(135deg,var(--teal-dark),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:17px;color:var(--gray);max-width:520px;margin:0 auto;line-height:1.6}
+.hero-disclaimer{font-size:12px;color:var(--light-gray);margin-top:14px;font-style:italic;max-width:540px;margin-left:auto;margin-right:auto;padding:0 24px}
+
+.calc{background:#fff;border-radius:20px;border:1px solid var(--border);padding:32px;margin:40px auto;box-shadow:0 4px 24px rgba(0,0,0,.04)}
+.calc h2{font-size:20px;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.calc h2 .icon{width:36px;height:36px;border-radius:10px;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;font-size:18px}
+
+.mode-switch{display:flex;background:var(--bg);border-radius:12px;padding:5px;margin-bottom:24px;gap:4px}
+.mode-btn{flex:1;padding:12px 14px;background:transparent;border:none;border-radius:9px;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;color:var(--gray);transition:all .2s}
+.mode-btn.active{background:#fff;color:var(--teal-dark);box-shadow:0 2px 6px rgba(0,0,0,.06)}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:14px;font-weight:600;color:var(--dark);margin-bottom:6px}
+.form-group .hint{font-size:12px;color:var(--light-gray);margin-top:4px}
+.field-prefix{position:relative}
+.field-prefix .pfx{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--gray);font-size:16px;font-weight:600;pointer-events:none}
+.field-prefix input{padding-left:30px!important}
+input[type="number"],input[type="text"],select{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;font-family:'Outfit';color:var(--dark);background:#FAFAFA;transition:border-color .2s}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+input[type="number"]{-moz-appearance:textfield}
+input:focus,select:focus{outline:none;border-color:var(--teal);background:#fff}
+
+.tarief-pills{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
+@media(max-width:560px){.tarief-pills{grid-template-columns:1fr}}
+.tarief-pill{padding:14px 12px;background:#FAFAFA;border:2px solid var(--border);border-radius:10px;cursor:pointer;text-align:center;transition:all .2s;font-family:inherit}
+.tarief-pill:hover{border-color:var(--teal)}
+.tarief-pill.active{background:var(--teal-bg);border-color:var(--teal)}
+.tarief-pill .pct{font-size:22px;font-weight:800;color:var(--dark);display:block;line-height:1}
+.tarief-pill.active .pct{color:var(--teal-dark)}
+.tarief-pill .label{font-size:11px;color:var(--gray);margin-top:4px;display:block}
+
+.calc-btn{width:100%;padding:16px;background:var(--teal);color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:700;font-family:'Outfit';cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:8px}
+.calc-btn:hover{background:var(--teal-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,148,136,.3)}
+
+.results{display:none;margin:32px auto;max-width:800px}
+.results.show{display:block}
+.result-hero{background:linear-gradient(135deg,#0F766E 0%,#0D9488 100%);border-radius:20px;padding:36px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;color:#fff}
+.result-hero .deco{position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.15)}
+.result-hero .deco2{position:absolute;bottom:-40px;left:-40px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.08)}
+.result-hero p{font-size:13px;margin-bottom:6px;opacity:.85;position:relative;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.result-hero .big-num{font-size:54px;font-weight:800;letter-spacing:-.03em;line-height:1;position:relative}
+.result-hero .sub{font-size:15px;margin-top:8px;opacity:.85;position:relative}
+
+.result-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:560px){.result-grid{grid-template-columns:1fr}}
+.result-tile{background:#fff;border-radius:14px;padding:18px;border:1px solid var(--border);text-align:center}
+.result-tile .lbl{font-size:11px;color:var(--light-gray);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.result-tile .v{font-size:22px;font-weight:800;color:var(--dark)}
+.result-tile.exc .v{color:var(--blue)}
+.result-tile.btw .v{color:var(--teal-dark)}
+.result-tile.inc .v{color:var(--green)}
+
+.disclaimer{font-size:12px;color:var(--light-gray);text-align:center;line-height:1.6;margin-top:16px}
+.disclaimer strong{color:var(--gray)}
+
+.btwcalc-zone{background:#fff;padding:64px 24px 40px;border-top:1px solid var(--border);margin-top:40px}
+.btwcalc-inner{max-width:740px;margin:0 auto}
+.btwcalc-tag{display:inline-block;font-size:11px;font-weight:700;color:var(--teal-dark);text-transform:uppercase;letter-spacing:.1em;padding:6px 14px;background:var(--teal-soft);border-radius:6px;margin-bottom:18px}
+.btwcalc-inner h2{font-size:28px;font-weight:800;letter-spacing:-.02em;margin:36px 0 14px;color:var(--dark);line-height:1.25}
+.btwcalc-inner h2:first-of-type{margin-top:0}
+.btwcalc-inner h3{font-size:17px;font-weight:700;margin:24px 0 10px;color:var(--dark)}
+.btwcalc-inner p{font-size:15.5px;line-height:1.78;color:#374151;margin-bottom:14px}
+.btwcalc-inner ul,.btwcalc-inner ol{margin:8px 0 18px 22px;color:#374151;font-size:15.5px;line-height:1.85}
+.btwcalc-inner ul li,.btwcalc-inner ol li{margin-bottom:6px}
+.btwcalc-inner strong{font-weight:700;color:var(--dark)}
+.btwcalc-inner a{color:var(--teal-dark);text-decoration:underline;text-decoration-color:rgba(13,148,136,.3);text-underline-offset:3px}
+.btwcalc-inner a:hover{text-decoration-color:var(--teal-dark)}
+.btwcalc-tealbox{background:var(--teal-bg);border:1px solid var(--teal-soft);border-radius:10px;padding:20px 24px;margin:24px 0;font-size:14.5px;line-height:1.7;color:var(--teal-dark)}
+.btwcalc-tealbox strong{color:var(--teal-dark);display:block;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.btwcalc-warnbox{background:#FFF7ED;border:1px solid #FED7AA;border-left:4px solid var(--orange);border-radius:10px;padding:20px 24px;margin:24px 0;font-size:14.5px;line-height:1.7;color:#9A3412}
+.btwcalc-warnbox strong{color:#9A3412;display:block;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.btwcalc-rates-table{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.btwcalc-rates-table thead th{padding:12px 16px;background:var(--teal-dark);color:#fff;font-weight:700;font-size:13px;text-align:left}
+.btwcalc-rates-table thead th:last-child{text-align:right}
+.btwcalc-rates-table td{padding:11px 16px;border-bottom:1px solid var(--border);font-size:14px}
+.btwcalc-rates-table tr:last-child td{border-bottom:none}
+.btwcalc-rates-table td:last-child{font-weight:700;text-align:right;color:var(--teal-dark);font-variant-numeric:tabular-nums}
+.btwcalc-rates-table tbody tr:nth-child(odd){background:var(--teal-bg)}
+
+.btwcalc-zigzag{margin:18px 0}
+.btwcalc-zigzag-row{display:grid;grid-template-columns:1fr 1.5fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:start}
+.btwcalc-zigzag-row:last-child{border-bottom:none}
+.btwcalc-zigzag-row:nth-child(even){grid-template-columns:1.5fr 1fr}
+.btwcalc-zigzag-row:nth-child(even) .zz-q{order:2}
+.btwcalc-zigzag-row:nth-child(even) .zz-a{order:1}
+@media(max-width:640px){.btwcalc-zigzag-row,.btwcalc-zigzag-row:nth-child(even){grid-template-columns:1fr;gap:8px}.btwcalc-zigzag-row:nth-child(even) .zz-q{order:1}.btwcalc-zigzag-row:nth-child(even) .zz-a{order:2}}
+.zz-q{padding:14px 18px;background:linear-gradient(135deg,var(--teal-bg),var(--teal-soft));border-radius:12px;border:1px solid var(--teal-soft)}
+.zz-q strong{display:block;color:var(--teal-dark);font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.zz-q .q-text{font-size:15px;font-weight:700;color:var(--dark);line-height:1.4}
+.zz-a{padding:8px 4px;color:#475569;font-size:14.5px;line-height:1.75}
+
+.btwcalc-related{background:#FAFAFA;border:1px solid var(--border);border-radius:14px;padding:24px;margin:32px 0 0}
+.btwcalc-related h3{margin-top:0;font-size:18px;color:var(--dark)}
+.btwcalc-related p{font-size:14px;color:var(--gray);margin-bottom:14px}
+.btwcalc-related-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.btwcalc-related-list{grid-template-columns:1fr}}
+.btwcalc-related-link{padding:14px 16px;background:#fff;border-radius:10px;text-decoration:none;color:var(--dark);border:1.5px solid var(--border);transition:all .2s;display:flex;flex-direction:column;gap:2px}
+.btwcalc-related-link:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.btwcalc-related-link strong{color:var(--teal-dark);font-size:14px}
+.btwcalc-related-link span{font-size:12px;color:var(--gray)}
+
+.legal-zone{background:#F1F5F9;border-top:1px solid var(--border);padding:32px 0;margin-top:32px}
+.legal-zone-inner{max-width:740px;margin:0 auto;padding:0 24px;font-size:12px;color:#475569;line-height:1.75}
+.legal-zone-inner strong{color:var(--dark);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
+.cookie-strip{background:#F8FAFC;border-top:1px solid var(--border);padding:14px 24px;text-align:center;font-size:12px;color:#475569;line-height:1.5}
+.cookie-strip a{color:var(--blue);text-decoration:none}
+.update-stamp{text-align:center;font-size:11px;color:var(--light-gray);padding:18px 24px 0;font-style:italic}
+footer{padding:40px 0;text-align:center;border-top:1px solid var(--border);margin-top:0}
+footer span{color:var(--light-gray);font-size:13px}
+footer a{color:var(--light-gray);text-decoration:none}
+
+@media(max-width:768px){.hero h1{font-size:30px}.result-hero .big-num{font-size:40px}.btwcalc-zone{padding:40px 20px 32px}.btwcalc-inner h2{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="disclaimer-bar">ℹ️ BTW-rekentool — <strong>geen fiscaal advies</strong>. Voor exacte BTW-aangifte: raadpleeg een boekhouder of de Belastingdienst.</div>
+<nav>
+<div class="nav-inner">
+  <a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a>
+  <a href="/" class="nav-back">&larr; Alle tools</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container">
+  <div class="hero-badge">💼 Voor ZZP & MKB</div>
+  <h1>BTW <span>Calculator</span></h1>
+  <p>Bereken in één klik je BTW — bedrag inclusief of exclusief. Voor 21% standaard, 9% verlaagd of 0% tarief. Snel, accuraat, gratis.</p>
+</div>
+<p class="hero-disclaimer">Deze tool berekent het BTW-bedrag op basis van standaard tarieven 2026. Welk tarief voor jouw producten of diensten geldt, hangt af van de aard van je werk — check bij twijfel de Belastingdienst.</p>
+</section>
+
+<div class="container">
+<div class="calc">
+  <h2><span class="icon">💼</span> Bereken je BTW</h2>
+
+  <div class="mode-switch">
+    <button class="mode-btn active" id="mode-excl" onclick="setMode('excl')">Bedrag is excl. BTW</button>
+    <button class="mode-btn" id="mode-incl" onclick="setMode('incl')">Bedrag is incl. BTW</button>
+  </div>
+
+  <div class="form-group">
+    <label id="bedragLabel">Bedrag exclusief BTW (€)</label>
+    <div class="field-prefix">
+      <span class="pfx">€</span>
+      <input type="number" id="bedrag" placeholder="100,00" value="100" step="0.01">
+    </div>
+    <div class="hint" id="bedragHint">Het bedrag zonder BTW erbij</div>
+  </div>
+
+  <div class="form-group">
+    <label>BTW-tarief</label>
+    <div class="tarief-pills">
+      <button class="tarief-pill active" data-rate="21" onclick="setRate(this,21)">
+        <span class="pct">21%</span>
+        <span class="label">Standaard</span>
+      </button>
+      <button class="tarief-pill" data-rate="9" onclick="setRate(this,9)">
+        <span class="pct">9%</span>
+        <span class="label">Verlaagd</span>
+      </button>
+      <button class="tarief-pill" data-rate="0" onclick="setRate(this,0)">
+        <span class="pct">0%</span>
+        <span class="label">Vrijstelling</span>
+      </button>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="bereken()">Bereken BTW &rarr;</button>
+</div>
+
+<div class="results" id="results">
+  <div class="result-hero">
+    <div class="deco"></div>
+    <div class="deco2"></div>
+    <p>Totaalbedrag</p>
+    <div class="big-num" id="totaalBedrag">€ 121,00</div>
+    <div class="sub" id="totaalSub">incl. BTW</div>
+  </div>
+
+  <div class="result-grid">
+    <div class="result-tile exc">
+      <div class="lbl">Excl. BTW</div>
+      <div class="v" id="excBTW">€ 100</div>
+    </div>
+    <div class="result-tile btw">
+      <div class="lbl">BTW <span id="tariefShow">21%</span></div>
+      <div class="v" id="btwBedrag">€ 21</div>
+    </div>
+    <div class="result-tile inc">
+      <div class="lbl">Incl. BTW</div>
+      <div class="v" id="incBTW">€ 121</div>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Tip:</strong> bij verlaagd tarief (9%) gelden specifieke voorwaarden. Bij 0% / vrijstelling zit BTW-administratie anders in elkaar. Bron: <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst.nl</a>
+  </div>
+</div>
+</div>
+
+<section class="btwcalc-zone">
+<div class="btwcalc-inner">
+
+<span class="btwcalc-tag">BTW-gids voor ondernemers</span>
+
+<h2>Hoe werkt BTW in Nederland eigenlijk?</h2>
+<p>BTW (Belasting Toegevoegde Waarde) is de omzetbelasting die je over bijna elke verkoop of dienst in Nederland berekent. Volgens cijfers van het CBS bedraagt de jaarlijkse BTW-opbrengst voor de Nederlandse staat ongeveer <strong>€85 miljard</strong> — daarmee is het de grootste belastingbron na inkomstenbelasting. Voor jou als ondernemer betekent dit: je int BTW namens de overheid en draagt het periodiek af aan de Belastingdienst.</p>
+<p>De clou: BTW is geen kostenpost voor jou als ondernemer. Je betaalt het door aan je klant, en je trekt zelf de BTW op je inkopen weer af. Dat heet <strong>voorbelasting verrekenen</strong>. Per saldo betaal je alleen BTW over de toegevoegde waarde — vandaar de naam.</p>
+
+<h3>De drie BTW-tarieven in 2026</h3>
+<table class="btwcalc-rates-table">
+<thead><tr><th>Tarief</th><th>Voor wat?</th><th>Tarief</th></tr></thead>
+<tbody>
+<tr><td><strong>Hoog</strong></td><td>Standaard goederen en diensten</td><td>21%</td></tr>
+<tr><td><strong>Verlaagd</strong></td><td>Voedsel, boeken, medicijnen, openbaar vervoer</td><td>9%</td></tr>
+<tr><td><strong>Nul</strong></td><td>Export buiten EU, internationale handel</td><td>0%</td></tr>
+<tr><td><strong>Vrijgesteld</strong></td><td>Onderwijs, zorg, financiële diensten</td><td>—</td></tr>
+</tbody>
+</table>
+
+<div class="btwcalc-tealbox">
+<strong>💡 Concreet voorbeeld 2026</strong>
+Tariq is ZZP-fotograaf in Rotterdam. Hij brengt voor een trouwreportage €1.200 in rekening (excl. BTW). Hierop komt 21% BTW = €252. De totale factuur naar de klant: <strong>€1.452 incl. BTW</strong>. Tariq draagt €252 af bij zijn kwartaalaangifte, maar trekt eerst nog €145 BTW af op zijn cameralenzen die hij dat kwartaal kocht. Hij betaalt dus per saldo €107 BTW aan de Belastingdienst.
+</div>
+
+<h2>Wanneer geldt het verlaagde tarief van 9%?</h2>
+<p>Het 9%-tarief is bedoeld voor "noodzakelijke goederen en diensten van het dagelijks leven". De volledige lijst staat in Bijlage 6 van de Wet Omzetbelasting, maar dit zijn de meest voorkomende:</p>
+<ul>
+<li><strong>Voedsel en dranken</strong> (niet alcoholische dranken)</li>
+<li><strong>Boeken, kranten en tijdschriften</strong> (digitaal sinds 2020 ook)</li>
+<li><strong>Medicijnen en medische hulpmiddelen</strong></li>
+<li><strong>Openbaar vervoer</strong> (trein, bus, tram)</li>
+<li><strong>Hotelovernachtingen en kamperen</strong></li>
+<li><strong>Toegang tot musea, attracties en concerten</strong></li>
+<li><strong>Kappersdiensten</strong> (knippen, verven)</li>
+<li><strong>Schilderen en stukadoren in bestaande woningen</strong> (ouder dan 2 jaar)</li>
+<li><strong>Schoonmaakdiensten van particuliere huizen</strong></li>
+</ul>
+
+<div class="btwcalc-warnbox">
+<strong>⚠️ Let op bij ZZP en MKB</strong>
+Het verkeerde BTW-tarief op je factuur leidt tot problemen bij controle. Te laag tarief gerekend? Dan moet je het verschil zelf bijbetalen. Te hoog gerekend? Dan moet je je klant terugbetalen. Twijfel over jouw branche? Vraag het bij de BTW-helpdesk van de Belastingdienst (tel. 0800-0543, gratis) of bij een boekhouder.
+</div>
+
+<h2>Inclusief of exclusief: hoe reken je het uit?</h2>
+<p>De grote verwarring bij ondernemers: hoe reken je BTW correct? Hier de twee formules:</p>
+
+<h3>Van excl. naar incl. BTW (BTW erbij optellen)</h3>
+<p>Bedrag excl. × (1 + BTW%) = Bedrag incl.<br>
+Bij 21%: €100 × 1,21 = <strong>€121</strong><br>
+Bij 9%: €100 × 1,09 = <strong>€109</strong></p>
+
+<h3>Van incl. naar excl. BTW (BTW eruit halen)</h3>
+<p>Bedrag incl. ÷ (1 + BTW%) = Bedrag excl.<br>
+Bij 21%: €121 ÷ 1,21 = <strong>€100</strong><br>
+Bij 9%: €109 ÷ 1,09 = <strong>€100</strong></p>
+
+<h3>Snelle truc voor 21% BTW</h3>
+<p>Veel ondernemers leren deze: <strong>"deel door 1,21 voor exclusief"</strong>. En als je het BTW-bedrag wilt weten op een inclusief-prijs: <strong>vermenigvuldig met 0,1736</strong> (oftewel 21/121). Die laatste truc bespaart je rekenwerk: €121 × 0,1736 = €21 BTW.</p>
+
+<h2>BTW-aangifte: wanneer en hoe?</h2>
+<p>De meeste ZZP'ers en MKB'ers doen <strong>kwartaalaangifte</strong> — vier keer per jaar, telkens vóór de eerste van de tweede maand na het kwartaal. Voor Q1 (januari-maart) dus vóór 30 april. Te laat aangifte = boete van €68 per aangifte (verzuimboete) plus rente over te laat betaalde BTW.</p>
+
+<h3>De vier kwartaal-deadlines voor 2026</h3>
+<ul>
+<li><strong>Q1</strong> (jan/feb/mrt): aangifte vóór 30 april</li>
+<li><strong>Q2</strong> (apr/mei/jun): aangifte vóór 31 juli</li>
+<li><strong>Q3</strong> (jul/aug/sep): aangifte vóór 31 oktober</li>
+<li><strong>Q4</strong> (okt/nov/dec): aangifte vóór 31 januari volgend jaar</li>
+</ul>
+
+<h3>Wat staat er op de aangifte?</h3>
+<p>Bij elke aangifte vul je in: totale omzet excl. BTW, totale BTW die je hebt geïnd (per tarief gesplitst), totale BTW op inkopen (voorbelasting), en het saldo dat je moet betalen of terugkrijgen.</p>
+
+<h2>Kleine ondernemersregeling (KOR): voor wie geen BTW?</h2>
+<p>Als je jaaromzet onder de <strong>€20.000</strong> blijft, kun je gebruikmaken van de KOR (Kleine Ondernemersregeling). Voordeel: geen BTW op je facturen, geen BTW-aangifte. Nadeel: je kunt ook geen BTW op inkopen aftrekken. Voor wie veel investeert (apparatuur, software) is KOR vaak juist nadelig.</p>
+<p>De KOR moet je <strong>vooraf</strong> aanvragen bij de Belastingdienst, en geldt voor minimaal 3 jaar. Tussentijds eruit stappen kan alleen na het derde jaar of bij omzetstijging boven de €20.000.</p>
+
+<h2>Veelgestelde vragen — BTW</h2>
+
+<div class="btwcalc-zigzag">
+
+<div class="btwcalc-zigzag-row">
+<div class="zz-q"><strong>Vraag 1</strong><div class="q-text">Mag ik op mijn factuur "BTW verlegd" zetten?</div></div>
+<div class="zz-a">Alleen onder specifieke omstandigheden — bij internationale B2B-leveringen binnen de EU, of bij bouwactiviteiten waar de afnemer ondernemer is (verleggingsregeling bouw). Verleg je per ongeluk BTW terwijl het niet mag? Dan moet jij alsnog BTW afdragen, met boete. Twijfel je? Check bij je boekhouder of de Belastingdienst voordat je de factuur verstuurt.</div>
+</div>
+
+<div class="btwcalc-zigzag-row">
+<div class="zz-q"><strong>Vraag 2</strong><div class="q-text">Hoeveel BTW kan ik terugvragen op zakelijke etentjes?</div></div>
+<div class="zz-a">Meestal 0%. BTW op zakelijke etentjes (lunch, diner met klant) is in Nederland niet aftrekbaar — dat geldt sinds 2017. Wel mag je het bedrag inclusief BTW als zakelijke kosten opvoeren voor je inkomstenbelasting. Voor zakelijke catering naar je kantoor (bijv. broodjes voor team) geldt soms wel BTW-aftrek, maar met beperkingen.</div>
+</div>
+
+<div class="btwcalc-zigzag-row">
+<div class="zz-q"><strong>Vraag 3</strong><div class="q-text">Wat is het verschil tussen BTW vrijgesteld en 0%?</div></div>
+<div class="zz-a">Bij <strong>0%-tarief</strong> doe je gewoon BTW-aangifte (omzet wordt opgegeven, alleen tegen 0%) en kun je voorbelasting aftrekken. Bij <strong>vrijstelling</strong> (zorg, onderwijs, financiële sector) doe je geen BTW-aangifte en kun je geen BTW op inkopen aftrekken. Vrijgestelde branches betalen dus de BTW op hun inkopen zelf — wat soms duurder uitkomt dan met 0% werken.</div>
+</div>
+
+<div class="btwcalc-zigzag-row">
+<div class="zz-q"><strong>Vraag 4</strong><div class="q-text">Mag ik BTW op mijn auto aftrekken?</div></div>
+<div class="zz-a">Bij een zakelijke auto die ook privé wordt gebruikt: ja, maar deels. Je kunt 100% van de BTW op aanschaf en onderhoud aftrekken, maar moet jaarlijks een correctie maken voor privégebruik (vaak 27% van het BTW-bedrag, of vast forfait). Voor 100% zakelijk gebruikte auto (bestelbus etc.) geldt 100% aftrek zonder correctie — maar dan moet je dit kunnen aantonen.</div>
+</div>
+
+<div class="btwcalc-zigzag-row">
+<div class="zz-q"><strong>Vraag 5</strong><div class="q-text">Kunnen mijn BTW-tarieven veranderen tijdens een lopend project?</div></div>
+<div class="zz-a">Ja, en dat gebeurt soms. Het tarief op het moment van leveren of factureren bepaalt welk percentage geldt — niet het tarief op het moment van offerte of opdracht. Plant het kabinet een wijziging? Dan staat dat in het Belastingplan. Voor langlopende projecten kun je in je contract afspreken hoe je hiermee omgaat (overschrijdingsclausule).</div>
+</div>
+
+<div class="btwcalc-zigzag-row">
+<div class="zz-q"><strong>Vraag 6</strong><div class="q-text">Wat als mijn klant niet betaalt — krijg ik dan BTW terug?</div></div>
+<div class="zz-a">Ja, je kunt <strong>oninbare BTW</strong> terugvragen via je BTW-aangifte. Voorwaarden: de factuur moet minimaal 1 jaar oud zijn, je moet aantonen dat de vordering oninbaar is (faillissement, geen verhaal mogelijk), en de BTW moet eerder afgedragen zijn. In je aangifte vul je het bedrag in bij rubriek "5b — verminderingen". Tip: doe dit pas als de factuur écht oninbaar is, niet bij iedere late betaling.</div>
+</div>
+
+<div class="btwcalc-zigzag-row">
+<div class="zz-q"><strong>Vraag 7</strong><div class="q-text">Moet ik BTW rekenen aan particulieren in andere EU-landen?</div></div>
+<div class="zz-a">Voor <strong>digitale diensten</strong> (software, e-books, online cursussen): ja, met het BTW-tarief van het land van de klant. Hier helpt de OSS-regeling (One Stop Shop) — één aangifte voor alle EU-landen. Voor <strong>fysieke goederen</strong>: drempelbedrag van €10.000/jaar (totaal voor alle EU). Boven die grens BTW van het land van bestemming, eronder Nederlandse BTW.</div>
+</div>
+
+<div class="btwcalc-zigzag-row">
+<div class="zz-q"><strong>Vraag 8</strong><div class="q-text">Wat als ik een BTW-tarief verkeerd op een factuur heb gezet?</div></div>
+<div class="zz-a">Stuur een <strong>creditnota</strong> voor de oude factuur en daarna een nieuwe factuur met het juiste tarief. Verwerk beide in je administratie. Was de afnemer een ondernemer? Hij heeft mogelijk al BTW afgetrokken — dat moet hij dan corrigeren bij zijn eigen aangifte. Was de afnemer een particulier? Dan is een nieuwe factuur sturen vaak voldoende. Bij twijfel: vraag advies aan een boekhouder voordat je iets corrigeert.</div>
+</div>
+
+</div>
+
+<div class="btwcalc-related">
+<h3>🧰 Andere tools voor ZZP en ondernemers</h3>
+<p>Heb je je BTW berekend? Deze tools helpen verder met je administratie:</p>
+<div class="btwcalc-related-list">
+<a href="/factuur.html" class="btwcalc-related-link"><strong>🧾 Factuur Generator</strong><span>Maak gratis ZZP-facturen</span></a>
+<a href="/offerte.html" class="btwcalc-related-link"><strong>📋 Offerte Maker</strong><span>Stuur offertes inclusief BTW</span></a>
+<a href="/nettoloon.html" class="btwcalc-related-link"><strong>💰 Nettoloon Calculator</strong><span>Voor werknemers</span></a>
+<a href="/vakantiegeld.html" class="btwcalc-related-link"><strong>☀️ Vakantiegeld</strong><span>Bereken je 8% extra</span></a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="legal-zone">
+<div class="legal-zone-inner">
+<strong>Toelichting bij deze tool</strong>
+De BTW Calculator van FixlifyNL is een rekenhulp voor ondernemers, ZZP'ers en consumenten die snel willen weten wat het BTW-bedrag is op een prijs inclusief of exclusief BTW. <strong style="display:inline">Deze tool is geen vervanging voor fiscaal of boekhoudkundig advies</strong>. Welk BTW-tarief in jouw specifieke situatie van toepassing is, hangt af van je branche, type product of dienst, en eventuele bijzondere regelingen (KOR, verleggingsregeling, internationale handel). De tarieven die wij gebruiken zijn de standaard tarieven 2026 zoals gepubliceerd door de Belastingdienst, maar uitzonderingen en bijzondere situaties zijn talrijk. Voor een correcte BTW-aangifte adviseren we contact op te nemen met een gecertificeerd boekhouder of de <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/" target="_blank" rel="noopener">BTW-helpdesk</a> van de Belastingdienst (tel. 0800-0543). Bij bijzondere internationale situaties kun je terecht bij <a href="https://www.kvk.nl" target="_blank" rel="noopener">KVK</a>. Aan de uitkomsten van deze rekentool kunnen geen rechten worden ontleend en het gebruik is op eigen verantwoordelijkheid.
+</div>
+</section>
+
+<div class="update-stamp">Laatst bijgewerkt: mei 2026 · Bronnen: Belastingdienst.nl, Wet Omzetbelasting 1968, KVK</div>
+
+<div class="cookie-strip">
+🔒 Deze site gebruikt alleen functionele opslag — geen tracking, geen analytics. <a href="/privacy.html">Privacyverklaring</a>.
+</div>
+
+<footer>
+<span>&copy; 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></span>
+</footer>
+
+<script>
+let mode='excl';let rate=21;
+function setMode(m){mode=m;document.getElementById('mode-excl').classList.toggle('active',m==='excl');document.getElementById('mode-incl').classList.toggle('active',m==='incl');document.getElementById('bedragLabel').textContent=m==='excl'?'Bedrag exclusief BTW (€)':'Bedrag inclusief BTW (€)';document.getElementById('bedragHint').textContent=m==='excl'?'Het bedrag zonder BTW erbij':'Het totaalbedrag inclusief BTW';bereken()}
+function setRate(el,r){rate=r;document.querySelectorAll('.tarief-pill').forEach(p=>p.classList.remove('active'));el.classList.add('active');bereken()}
+function fmt(n){return'€ '+n.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function bereken(){const bedrag=parseFloat(document.getElementById('bedrag').value)||0;if(bedrag<=0){return}let exc,btw,inc;if(mode==='excl'){exc=bedrag;btw=exc*(rate/100);inc=exc+btw}else{inc=bedrag;exc=inc/(1+rate/100);btw=inc-exc}document.getElementById('results').classList.add('show');document.getElementById('totaalBedrag').textContent=fmt(inc);document.getElementById('totaalSub').textContent='incl. '+rate+'% BTW';document.getElementById('excBTW').textContent=fmt(exc);document.getElementById('btwBedrag').textContent=fmt(btw);document.getElementById('incBTW').textContent=fmt(inc);document.getElementById('tariefShow').textContent=rate+'%'}
+document.getElementById('bedrag').addEventListener('input',bereken);
+window.addEventListener('load',bereken);
+</script>
+</body>
+</html>
