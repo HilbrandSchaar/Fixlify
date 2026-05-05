@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vakantiegeld Berekenen 2026 — Hoeveel Krijg Jij in Mei?</title>
+<meta name="description" content="Bereken in 5 seconden je vakantiegeld voor 2026. Met 8% standaard, parttime correctie en netto-uitkomst na belasting. Gratis vakantiegeld calculator voor Nederland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--blue:#2563EB;--orange:#F97316;--orange-dark:#EA580C;--dark:#111827;--gray:#6B7280;--light-gray:#9CA3AF;--border:#E5E7EB;--bg:#FAFAFA;--green:#10B981;--green-dark:#059669;--green-soft:#D1FAE5;--sun:#FCD34D;--sun-dark:#F59E0B;--sun-soft:#FEF3C7;--coral:#FB7185;--coral-soft:#FFE4E6}
+body{font-family:'Outfit',system-ui,sans-serif;color:var(--dark);background:var(--bg);overflow-x:hidden;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.container{max-width:800px;margin:0 auto;padding:0 24px}
+.disclaimer-bar{background:#1E293B;color:#CBD5E1;font-size:11.5px;text-align:center;padding:7px 16px;line-height:1.4;font-weight:500}
+.disclaimer-bar strong{color:#fff}
+nav{position:sticky;top:0;left:0;right:0;z-index:100;background:rgba(250,250,250,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);padding:14px 0}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--sun-dark),var(--orange));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px}
+.logo-text{font-weight:700;font-size:22px;letter-spacing:-.02em}
+.nav-back{color:var(--blue);font-weight:600;font-size:14px}
+
+.hero{padding:60px 0 30px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--sun-soft);border-radius:100px;margin-bottom:16px;font-size:13px;font-weight:600;color:#92400E}
+.hero h1{font-size:42px;font-weight:800;letter-spacing:-.03em;margin-bottom:12px;line-height:1.1}
+.hero h1 span{background:linear-gradient(135deg,var(--sun-dark),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:17px;color:var(--gray);max-width:520px;margin:0 auto;line-height:1.6}
+.hero-disclaimer{font-size:12px;color:var(--light-gray);margin-top:14px;font-style:italic;max-width:540px;margin-left:auto;margin-right:auto;padding:0 24px}
+
+.calc{background:#fff;border-radius:20px;border:1px solid var(--border);padding:32px;margin:40px auto;box-shadow:0 4px 24px rgba(0,0,0,.04)}
+.calc h2{font-size:20px;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.calc h2 .icon{width:36px;height:36px;border-radius:10px;background:var(--sun-soft);display:flex;align-items:center;justify-content:center;font-size:18px}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:14px;font-weight:600;color:var(--dark);margin-bottom:6px}
+.form-group .hint{font-size:12px;color:var(--light-gray);margin-top:4px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.form-row{grid-template-columns:1fr}}
+input[type="number"],input[type="text"],select{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;font-family:'Outfit';color:var(--dark);background:#FAFAFA;transition:border-color .2s}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+input[type="number"]{-moz-appearance:textfield}
+input:focus,select:focus{outline:none;border-color:var(--orange);background:#fff}
+select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239CA3AF' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+
+.calc-btn{width:100%;padding:16px;background:var(--orange);color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:700;font-family:'Outfit';cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:8px}
+.calc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.3)}
+
+.results{display:none;margin:32px auto;max-width:800px}
+.results.show{display:block}
+.result-hero{background:linear-gradient(135deg,#F59E0B 0%,#EA580C 100%);border-radius:20px;padding:36px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;color:#fff}
+.result-hero .sun{position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.2)}
+.result-hero .sun2{position:absolute;bottom:-30px;left:-30px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.1)}
+.result-hero p{font-size:14px;margin-bottom:6px;opacity:.9;position:relative}
+.result-hero .big-amount{font-size:54px;font-weight:800;letter-spacing:-.03em;line-height:1;position:relative}
+.result-hero .sub-amount{font-size:15px;margin-top:8px;opacity:.85;position:relative}
+
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+@media(max-width:560px){.result-grid{grid-template-columns:1fr}}
+.result-tile{background:#fff;border-radius:14px;padding:20px;border:1px solid var(--border);text-align:center}
+.result-tile .lbl{font-size:12px;color:var(--light-gray);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.result-tile .v{font-size:24px;font-weight:800;color:var(--dark)}
+.result-tile.bruto .v{color:var(--orange)}
+.result-tile.belasting .v{color:#EF4444}
+.result-tile.netto .v{color:var(--green-dark)}
+.result-tile.maand .v{color:var(--blue)}
+
+.breakdown{background:#fff;border-radius:14px;padding:22px;border:1px solid var(--border);margin-bottom:18px}
+.breakdown h3{font-size:15px;font-weight:700;margin-bottom:14px}
+.breakdown-row{display:flex;justify-content:space-between;padding:9px 0;font-size:14px;border-bottom:1px solid #F3F4F6}
+.breakdown-row:last-child{border-bottom:none}
+.breakdown-row .lbl{color:var(--gray)}
+.breakdown-row .val{font-weight:600;font-variant-numeric:tabular-nums}
+.breakdown-row.tot{border-top:2px solid var(--dark);margin-top:8px;padding-top:12px;font-weight:800;font-size:15px}
+
+.disclaimer{font-size:12px;color:var(--light-gray);text-align:center;line-height:1.6;margin-top:16px}
+.disclaimer strong{color:var(--gray)}
+
+/* === HOLPAY SEO content (unieke namespace + uitklappende cards FAQ-stijl) === */
+.holpay-zone{background:#fff;padding:64px 24px 40px;border-top:1px solid var(--border);margin-top:40px}
+.holpay-inner{max-width:740px;margin:0 auto}
+.holpay-tag{display:inline-block;font-size:11px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:.1em;padding:6px 14px;background:var(--sun-soft);border-radius:6px;margin-bottom:18px}
+.holpay-inner h2{font-size:28px;font-weight:800;letter-spacing:-.02em;margin:36px 0 14px;color:var(--dark);line-height:1.25}
+.holpay-inner h2:first-of-type{margin-top:0}
+.holpay-inner h3{font-size:17px;font-weight:700;margin:24px 0 10px;color:var(--dark)}
+.holpay-inner p{font-size:15.5px;line-height:1.78;color:#374151;margin-bottom:14px}
+.holpay-inner ul,.holpay-inner ol{margin:8px 0 18px 22px;color:#374151;font-size:15.5px;line-height:1.85}
+.holpay-inner ul li,.holpay-inner ol li{margin-bottom:6px}
+.holpay-inner strong{font-weight:700;color:var(--dark)}
+.holpay-inner a{color:var(--orange-dark);text-decoration:underline;text-decoration-color:rgba(234,88,12,.3);text-underline-offset:3px}
+.holpay-inner a:hover{text-decoration-color:var(--orange-dark)}
+
+.holpay-sunbox{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-left:4px solid var(--sun-dark);border-radius:10px;padding:20px 24px;margin:24px 0;font-size:14.5px;line-height:1.7;color:#78350F}
+.holpay-sunbox strong{color:#78350F;display:block;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.holpay-coralbox{background:linear-gradient(135deg,#FFE4E6,#FECDD3);border-left:4px solid var(--coral);border-radius:10px;padding:20px 24px;margin:24px 0;font-size:14.5px;line-height:1.7;color:#9F1239}
+.holpay-coralbox strong{color:#9F1239;display:block;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+
+.holpay-percentages{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:22px 0 28px}
+.holpay-perc-card{background:#fff;border:2px solid var(--border);border-radius:14px;padding:20px;text-align:center;transition:all .2s}
+.holpay-perc-card:hover{border-color:var(--sun-dark);transform:translateY(-2px)}
+.holpay-perc-card .pct{font-size:32px;font-weight:800;color:var(--orange);letter-spacing:-.02em;line-height:1}
+.holpay-perc-card .ctx{font-size:12px;color:var(--gray);margin-top:6px;line-height:1.4}
+
+.holpay-monthtable{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:14px;background:#FFFBEB;border-radius:12px;overflow:hidden;border:1px solid #FCD34D}
+.holpay-monthtable th{padding:12px 16px;background:#92400E;color:#fff;font-weight:700;font-size:13px;text-align:left}
+.holpay-monthtable td{padding:11px 16px;border-bottom:1px solid #FCD34D;color:#78350F}
+.holpay-monthtable tr:last-child td{border-bottom:none}
+.holpay-monthtable td:last-child{font-weight:700;text-align:right}
+
+/* Uitklappende FAQ cards - 5e unieke variant */
+.holpay-faq-list{margin:14px 0}
+.holpay-faq-card{background:#fff;border:2px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:all .2s}
+.holpay-faq-card:hover{border-color:var(--sun-dark)}
+.holpay-faq-card[open]{border-color:var(--orange)}
+.holpay-faq-summary{padding:18px 22px;cursor:pointer;display:flex;align-items:center;gap:14px;list-style:none;user-select:none}
+.holpay-faq-summary::-webkit-details-marker{display:none}
+.holpay-faq-summary .ico{flex-shrink:0;width:32px;height:32px;background:var(--sun-soft);color:#92400E;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;transition:all .2s}
+.holpay-faq-card[open] .holpay-faq-summary .ico{background:var(--orange);color:#fff;transform:rotate(45deg)}
+.holpay-faq-summary .question{flex:1;font-size:15.5px;font-weight:700;color:var(--dark);line-height:1.4}
+.holpay-faq-answer{padding:0 22px 20px 68px;color:#475569;font-size:14.5px;line-height:1.75}
+
+.holpay-toolblock{background:linear-gradient(135deg,var(--green-soft),#A7F3D0);border-radius:14px;padding:24px;margin:32px 0 0;border:1px solid var(--green)}
+.holpay-toolblock h3{margin-top:0;color:#065F46;font-size:18px}
+.holpay-toolblock p{font-size:14px;color:#065F46;margin-bottom:14px}
+.holpay-tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.holpay-tools-grid{grid-template-columns:1fr}}
+.holpay-tool-item{padding:14px 16px;background:#fff;border-radius:10px;text-decoration:none;color:var(--dark);border:1px solid #6EE7B7;transition:all .2s;display:flex;flex-direction:column;gap:2px}
+.holpay-tool-item:hover{border-color:var(--green-dark);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.holpay-tool-item strong{color:#065F46;font-size:14px}
+.holpay-tool-item span{font-size:12px;color:#047857}
+
+.legal-zone{background:#F1F5F9;border-top:1px solid var(--border);padding:32px 0;margin-top:32px}
+.legal-zone-inner{max-width:740px;margin:0 auto;padding:0 24px;font-size:12px;color:#475569;line-height:1.75}
+.legal-zone-inner strong{color:var(--dark);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
+.cookie-strip{background:#F8FAFC;border-top:1px solid var(--border);padding:14px 24px;text-align:center;font-size:12px;color:#475569;line-height:1.5}
+.cookie-strip a{color:var(--blue);text-decoration:none}
+.update-stamp{text-align:center;font-size:11px;color:var(--light-gray);padding:18px 24px 0;font-style:italic}
+
+footer{padding:40px 0;text-align:center;border-top:1px solid var(--border);margin-top:0}
+footer span{color:var(--light-gray);font-size:13px}
+footer a{color:var(--light-gray);text-decoration:none}
+
+@media(max-width:768px){.hero h1{font-size:30px}.result-hero .big-amount{font-size:40px}.holpay-zone{padding:40px 20px 32px}.holpay-inner h2{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="disclaimer-bar">ℹ️ Indicatieve berekening — <strong>geen fiscaal advies</strong>. Werkelijk vakantiegeld kan afwijken door cao-afspraken.</div>
+<nav>
+<div class="nav-inner">
+  <a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a>
+  <a href="/" class="nav-back">&larr; Alle tools</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container">
+  <div class="hero-badge">☀️ Klaar voor mei 2026</div>
+  <h1>Vakantiegeld <span>Berekenen</span></h1>
+  <p>Hoeveel krijg jij in mei? Bereken in 5 seconden je vakantiegeld bruto én netto, met de 2026 belastingtarieven. Inclusief parttime correctie.</p>
+</div>
+<p class="hero-disclaimer">Deze tool berekent op basis van het standaardpercentage (8%) en de 2026 belastingschijven. Je werkelijke vakantiegeld kan afwijken door cao-afspraken of bijzonder tarief van je werkgever.</p>
+</section>
+
+<div class="container">
+<div class="calc">
+  <h2><span class="icon">☀️</span> Vul je gegevens in</h2>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Bruto maandsalaris</label>
+      <input type="number" id="bruto" placeholder="Bijv. 3000" value="3000">
+      <div class="hint">Je brutoloon per maand</div>
+    </div>
+    <div class="form-group">
+      <label>Vakantiegeld percentage</label>
+      <select id="percentage">
+        <option value="8">8% (wettelijk minimum)</option>
+        <option value="8.33">8,33% (1 maand extra)</option>
+        <option value="10">10% (zorg cao)</option>
+        <option value="12">12% (overheid)</option>
+        <option value="custom">Anders (zelf invullen)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row" id="customRow" style="display:none">
+    <div class="form-group">
+      <label>Eigen percentage</label>
+      <input type="number" id="customPerc" placeholder="bv. 9" step="0.1" min="0" max="20">
+      <div class="hint">In procent (1-20%)</div>
+    </div>
+    <div></div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Maanden gewerkt dit jaar</label>
+      <input type="number" id="maanden" placeholder="12" value="12" min="1" max="12">
+      <div class="hint">Vol jaar = 12, half jaar = 6</div>
+    </div>
+    <div class="form-group">
+      <label>Parttime percentage</label>
+      <select id="parttime">
+        <option value="100">Fulltime (100%)</option>
+        <option value="90">90%</option>
+        <option value="80">80%</option>
+        <option value="60">60%</option>
+        <option value="50">50%</option>
+        <option value="40">40%</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="bereken()">Bereken mijn vakantiegeld &rarr;</button>
+</div>
+
+<div class="results" id="results">
+  <div class="result-hero">
+    <div class="sun"></div>
+    <div class="sun2"></div>
+    <p>Jouw vakantiegeld in mei (netto)</p>
+    <div class="big-amount" id="nettoBedrag">€ 0</div>
+    <div class="sub-amount" id="brutoSub">van € 0 bruto</div>
+  </div>
+
+  <div class="result-grid">
+    <div class="result-tile bruto">
+      <div class="lbl">Bruto vakantiegeld</div>
+      <div class="v" id="brutoBedrag">€ 0</div>
+    </div>
+    <div class="result-tile belasting">
+      <div class="lbl">Belasting (bijz. tarief)</div>
+      <div class="v" id="belasting">- € 0</div>
+    </div>
+    <div class="result-tile netto">
+      <div class="lbl">Netto in je hand</div>
+      <div class="v" id="netto">€ 0</div>
+    </div>
+    <div class="result-tile maand">
+      <div class="lbl">Per maand opgebouwd</div>
+      <div class="v" id="permaand">€ 0</div>
+    </div>
+  </div>
+
+  <div class="breakdown">
+    <h3>📋 Hoe het is berekend</h3>
+    <div class="breakdown-row"><span class="lbl">Bruto jaarsalaris</span><span class="val" id="bkBrutoJaar">€ 0</span></div>
+    <div class="breakdown-row"><span class="lbl">× Vakantiegeld percentage</span><span class="val" id="bkPerc">8%</span></div>
+    <div class="breakdown-row"><span class="lbl">× Aantal maanden gewerkt</span><span class="val" id="bkMaanden">12/12</span></div>
+    <div class="breakdown-row"><span class="lbl">× Parttime factor</span><span class="val" id="bkPT">100%</span></div>
+    <div class="breakdown-row tot"><span class="lbl">Bruto vakantiegeld</span><span class="val" id="bkBruto">€ 0</span></div>
+    <div class="breakdown-row"><span class="lbl">Bijzonder tarief belasting</span><span class="val" id="bkTarief">37,56%</span></div>
+    <div class="breakdown-row"><span class="lbl">Bedrag belasting</span><span class="val" id="bkBel" style="color:#EF4444">- € 0</span></div>
+    <div class="breakdown-row tot"><span class="lbl">Netto vakantiegeld</span><span class="val" id="bkNetto" style="color:var(--green-dark)">€ 0</span></div>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> Deze berekening gebruikt het bijzonder tarief 2026 van de Belastingdienst. Werkelijk netto kan afwijken door persoonlijke factoren. Bron: Belastingdienst.nl
+  </div>
+</div>
+</div>
+
+<!-- ============ HOLPAY SEO CONTENT ============ -->
+<section class="holpay-zone">
+<div class="holpay-inner">
+
+<span class="holpay-tag">Gids: vakantiegeld in NL</span>
+
+<h2>Wat is vakantiegeld eigenlijk?</h2>
+<p>Vakantiegeld — officieel "vakantietoeslag" — is een wettelijk verplichte uitkering bovenop je reguliere loon. Het werd in 1923 ingevoerd om werknemers de mogelijkheid te geven écht op vakantie te kunnen, en is sinds de Wet Minimumloon en Minimumvakantiebijslag (WML) van 1969 verankerd in de Nederlandse wet. Volgens cijfers van het CBS ontvangt zo'n <strong>96% van alle werknemers in loondienst</strong> jaarlijks vakantiegeld, met mei als populairste uitbetaalmaand.</p>
+<p>Het standaardpercentage is <strong>8% van je bruto jaarsalaris</strong>. Daarmee komt vakantiegeld neer op ongeveer een extra maandsalaris per jaar. Voor wie €3.000 bruto per maand verdient, betekent dat ongeveer €2.880 bruto extra in mei — netto rond de €1.700 na belasting.</p>
+
+<div class="holpay-percentages">
+<div class="holpay-perc-card"><div class="pct">8%</div><div class="ctx">Wettelijk minimum<br>(meeste werkgevers)</div></div>
+<div class="holpay-perc-card"><div class="pct">8,33%</div><div class="ctx">1 maand extra<br>(13e maand variant)</div></div>
+<div class="holpay-perc-card"><div class="pct">10%</div><div class="ctx">Zorg-cao's<br>(VVT, ziekenhuizen)</div></div>
+<div class="holpay-perc-card"><div class="pct">12%</div><div class="ctx">Overheid<br>(rijksambtenaren)</div></div>
+</div>
+
+<h2>Wanneer wordt het uitbetaald?</h2>
+<p>Wettelijk moet vakantiegeld minstens éénmaal per jaar uitgekeerd worden. De meeste werkgevers kiezen voor <strong>mei</strong> — handig voor de zomervakantie. Maar steeds vaker kiezen werkgevers voor maandelijkse uitbetaling, of voor uitbetaling in juni. Sommige kleine werkgevers betalen het pas in december uit. Wat in jouw geval geldt, staat in je arbeidscontract of cao.</p>
+
+<table class="holpay-monthtable">
+<thead><tr><th>Maand uitbetaling</th><th>Hoe vaak</th></tr></thead>
+<tbody>
+<tr><td>Mei</td><td>~75% van werknemers</td></tr>
+<tr><td>Juni</td><td>~12% van werknemers</td></tr>
+<tr><td>Maandelijks (1/12 deel)</td><td>~8% van werknemers</td></tr>
+<tr><td>December</td><td>~3% van werknemers</td></tr>
+<tr><td>Anders / variabel</td><td>~2% van werknemers</td></tr>
+</tbody>
+</table>
+
+<div class="holpay-sunbox">
+<strong>☀️ Uitbetaaldatum onbekend?</strong>
+Check je arbeidscontract — daar staat het meestal expliciet ("Uitbetaling in de loonperiode mei"). Staat het er niet in? Vraag het bij je HR-afdeling. Bij twijfel: vraag het schriftelijk per email zodat je bewijs hebt.
+</div>
+
+<h2>Waarom houd ik zo weinig over?</h2>
+<p>De grote schok bij vakantiegeld: van €2.000 bruto blijft vaak maar €1.200 netto over. Dat klopt — en het komt door wat we het <strong>bijzonder tarief</strong> noemen. Hier zit de truc.</p>
+
+<h3>Het "bijzonder tarief" uitgelegd</h3>
+<p>Vakantiegeld telt voor de Belastingdienst gewoon mee als regulier loon. Maar het wordt in één keer in mei uitgekeerd, terwijl je salaris over alle 12 maanden is uitgesmeerd. Het effect: in de maand mei kom je tijdelijk in een hogere belastingschijf, omdat je dan ineens je maandsalaris + je vakantiegeld in één klap krijgt.</p>
+<p>Daarom past je werkgever het bijzonder tarief toe — een vooraf bepaald hoger percentage dat wordt ingehouden om te voorkomen dat je later moet bijbetalen. Voor 2026 is dit:</p>
+<ul>
+<li>Bij een jaarinkomen onder €38.883: <strong>35,75%</strong> bijzonder tarief</li>
+<li>Bij een jaarinkomen tussen €38.883 en €78.426: <strong>37,56%</strong> bijzonder tarief</li>
+<li>Bij een jaarinkomen boven €78.426: <strong>49,50%</strong> bijzonder tarief</li>
+</ul>
+
+<div class="holpay-coralbox">
+<strong>💸 Concreet voorbeeld 2026</strong>
+Sander werkt fulltime als postbezorger in Groningen. Hij verdient €2.500 bruto per maand (€30.000 per jaar). Zijn vakantiegeld in mei: €30.000 × 8% = <strong>€2.400 bruto</strong>. Na bijzonder tarief (35,75%): <strong>€1.542 netto</strong>. Hij houdt dus 64% van zijn vakantiegeld over.
+</div>
+
+<h2>Krijg ik geld terug bij belastingaangifte?</h2>
+<p>Vaak wel — en dat is goed nieuws. Het bijzonder tarief is <strong>geen extra belasting</strong>, het is alleen een veiligheidsmarge die je werkgever inhoudt. Bij je jaarlijkse aangifte wordt gekeken naar je <strong>totale inkomen</strong> (regulier loon + vakantiegeld) en de belasting wordt herberekend over het hele jaar.</p>
+<p>Als je over het hele jaar in een lagere schijf bent gebleven dan het bijzonder tarief suggereerde, krijg je het verschil terug. Voor de meeste werknemers betekent dit een teruggave van enkele honderden euro's per jaar — soms meer, soms minder. Aangifte doen is voor de meeste werknemers dus letterlijk gratis geld.</p>
+
+<h2>Wie heeft recht op vakantiegeld?</h2>
+<p>De wet is duidelijk: <strong>iedere werknemer</strong> in Nederland heeft recht op vakantiegeld. Dit geldt voor:</p>
+<ul>
+<li>Werknemers met een vast contract</li>
+<li>Werknemers met een tijdelijk contract</li>
+<li>Werknemers met een 0-uren contract (alleen over gewerkte uren)</li>
+<li>Werknemers met een oproepcontract</li>
+<li>Uitzendkrachten (via uitzendbureau)</li>
+<li>Stagiair(e)s die loon ontvangen</li>
+<li>BBL-leerlingen in dienst</li>
+</ul>
+<p>Wat NIET telt voor vakantiegeld: <strong>ZZP'ers en freelancers</strong>. Werk je voor jezelf via een eigen B.V. of als eenmanszaak, dan moet je je eigen vakantiegeld "regelen" — meestal door simpelweg minder uren in te plannen tijdens vakantieperiodes. Sommige ZZP'ers zetten zelf maandelijks 8% opzij voor een vakantie-spaarpot.</p>
+
+<h2>Speciale situaties: wat dan?</h2>
+
+<h3>Bij ontslag of einde contract</h3>
+<p>Stop je tussentijds met werken? Dan heb je recht op het opgebouwde vakantiegeld tot die datum. Heb je 7 maanden gewerkt, dan ontvang je 7/12 van het volledige jaarbedrag. Dit moet bij je laatste salaris of in een eindafrekening worden uitbetaald.</p>
+
+<h3>Bij ziekte</h3>
+<p>Wanneer je langer dan 6 weken ziek bent, bouw je gewoon vakantiegeld op over het loon dat je ontvangt (meestal 70-100% van je salaris). Bij langdurige ziekte (1+ jaar) bouw je vakantiegeld op over het 70%-loon dat je krijgt.</p>
+
+<h3>Bij wisseling van werkgever</h3>
+<p>Werk je het hele jaar bij dezelfde werkgever, dan krijg je in mei je volledige vakantiegeld. Wissel je halverwege? Dan krijg je 6/12 van je oude werkgever (bij eindafrekening) en 6/12 van je nieuwe werkgever (in mei). Tip: check of je nieuwe werkgever bij indienst je opgebouwde vakantiegeld bij hen onderbrengt — dat kan veel verschil maken.</p>
+
+<h2>Veelgestelde vragen — vakantiegeld</h2>
+
+<div class="holpay-faq-list">
+
+<details class="holpay-faq-card">
+<summary class="holpay-faq-summary"><span class="ico">+</span><span class="question">Mag mijn werkgever vakantiegeld weigeren?</span></summary>
+<div class="holpay-faq-answer">Nee. Vakantiegeld is wettelijk verplicht volgens de Wet Minimumloon en Minimumvakantiebijslag (WML). Een werkgever die het weigert begaat een wetsovertreding. Je kunt dit melden bij de Inspectie SZW (vroeger Arbeidsinspectie) of een procedure starten via een arbeidsadvocaat of de FNV. Het verjaringstermijn voor opeisbare vakantiegeld is 5 jaar.</div>
+</details>
+
+<details class="holpay-faq-card">
+<summary class="holpay-faq-summary"><span class="ico">+</span><span class="question">Kan ik mijn vakantiegeld eerder opvragen?</span></summary>
+<div class="holpay-faq-answer">Dit hangt af van je werkgever en cao. Wettelijk hoeft een werkgever het pas één keer per jaar uit te keren. Veel werkgevers werken mee bij financiële nood, maar zijn dat niet verplicht. Bij sommige werkgevers kun je kiezen voor maandelijkse uitbetaling van 1/12 — dat is fiscaal voordeliger omdat het bijzonder tarief vervalt. Vraag dit aan je HR-afdeling.</div>
+</details>
+
+<details class="holpay-faq-card">
+<summary class="holpay-faq-summary"><span class="ico">+</span><span class="question">Telt vakantiegeld mee voor toeslagen of pensioen?</span></summary>
+<div class="holpay-faq-answer">Voor toeslagen (zoals huur-, zorg- en kinderopvangtoeslag) telt vakantiegeld mee bij je toetsingsinkomen — dus ja, hoger inkomen kan minder toeslag betekenen. Voor pensioenopbouw telt het meestal mee als pensioengevend salaris, waarover pensioenpremie wordt afgedragen. Voor de WW telt het ook mee bij het bepalen van je dagloon.</div>
+</details>
+
+<details class="holpay-faq-card">
+<summary class="holpay-faq-summary"><span class="ico">+</span><span class="question">Wat als ik mijn vakantiegeld nog niet ontvangen heb?</span></summary>
+<div class="holpay-faq-answer">Volgens de wet moet vakantiegeld uiterlijk in juni uitbetaald zijn. Heb je het in juli nog niet ontvangen? Stuur eerst een vriendelijke email naar je werkgever met de vraag wanneer het komt. Geen reactie? Dan kun je een formele ingebrekestelling sturen waarna je bij vertraging wettelijke rente kunt vorderen. Bij blijvende weigering: aangifte bij Inspectie SZW.</div>
+</details>
+
+<details class="holpay-faq-card">
+<summary class="holpay-faq-summary"><span class="ico">+</span><span class="question">Mag mijn werkgever het vakantiegeld inhouden of verrekenen?</span></summary>
+<div class="holpay-faq-answer">Alleen onder strikte voorwaarden. Als jij geld schuldig bent aan je werkgever (bv. een lening of teveel betaalde voorschotten), mag dit verrekend worden — maar alleen tot een maximum dat genoeg ruimte laat voor levensonderhoud (de beslagvrije voet). Vakantiegeld in z'n geheel achterhouden mag NIET, ook niet als straf of compensatie voor mogelijke schade.</div>
+</details>
+
+<details class="holpay-faq-card">
+<summary class="holpay-faq-summary"><span class="ico">+</span><span class="question">Krijg ik vakantiegeld als ik bijbaan studentenjob heb?</span></summary>
+<div class="holpay-faq-answer">Ja. Iedere werknemer — ook studenten met bijbaan — heeft recht op vakantiegeld. Voor scholieren in studentenjobs is het percentage meestal hetzelfde (8%). Bij heel kleine baantjes (paar uur per week) wordt dit soms maandelijks meegenomen in plaats van apart uitgekeerd in mei. Check je loonstrook: staat er "vakantiegeld" of "vakantietoeslag"? Dan klopt het.</div>
+</details>
+
+<details class="holpay-faq-card">
+<summary class="holpay-faq-summary"><span class="ico">+</span><span class="question">Mijn cao geeft 8,33% — wat betekent dat?</span></summary>
+<div class="holpay-faq-answer">8,33% is precies één maandsalaris extra per jaar (1/12 = 8,33%). Sommige cao's gebruiken dit percentage in plaats van 8% omdat het exact aansluit op een 13e-maand-uitkering. Voor jou betekent het dat je iets meer krijgt dan het wettelijk minimum: bij €30.000 bruto jaarinkomen is dat €2.499 i.p.v. €2.400 — dus €99 extra bruto.</div>
+</details>
+
+<details class="holpay-faq-card">
+<summary class="holpay-faq-summary"><span class="ico">+</span><span class="question">Hoe weet ik mijn jaarinkomen voor de berekening?</span></summary>
+<div class="holpay-faq-answer">Je jaarinkomen voor vakantiegeld is meestal je <strong>brutoloon over de afgelopen 12 maanden</strong> (juni vorig jaar t/m mei dit jaar), exclusief het vakantiegeld zelf. Je werkgever hanteert dit als grondslag. Bonussen en eindejaarsuitkering tellen vaak NIET mee voor het vakantiegeld — alleen je reguliere maandsalaris. Check je cao voor exacte regels.</div>
+</details>
+
+</div>
+
+<div class="holpay-toolblock">
+<h3>🧰 Andere tools die hier goed bij passen</h3>
+<p>Wil je verder rekenen aan je salaris of vakantieplanning? Deze tools helpen verder:</p>
+<div class="holpay-tools-grid">
+<a href="/nettoloon.html" class="holpay-tool-item"><strong>💰 Nettoloon Calculator</strong><span>Wat houd je netto per maand over?</span></a>
+<a href="/factuur.html" class="holpay-tool-item"><strong>🧾 Factuur Generator</strong><span>Voor ZZP-bijverdiensten</span></a>
+<a href="/huurcheck.html" class="holpay-tool-item"><strong>🏠 Huurcheck Tool</strong><span>Past je huur bij je inkomen?</span></a>
+<a href="/hypotheek-vs-huur.html" class="holpay-tool-item"><strong>📊 Kopen vs Huren</strong><span>Loont kopen meer?</span></a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="legal-zone">
+<div class="legal-zone-inner">
+<strong>Goed om te weten</strong>
+De Vakantiegeld Calculator van FixlifyNL geeft een indicatie van je bruto en netto vakantiegeld op basis van het wettelijk percentage en de officiële belastingschijven 2026. <strong style="display:inline">Dit is geen fiscaal advies en geen juridische uitspraak</strong>. Je werkelijke vakantiegeld kan afwijken door cao-afspraken, individuele werkgeverpolicy, parttime correcties bij wisselende uren, opbouw bij ziekte of zwangerschapsverlof, of door specifieke fiscale situaties zoals de 30%-regeling. Het bijzonder tarief dat we toepassen is een indicatie — je werkgever kan een ander tarief gebruiken op basis van loonbelastingverklaring of jaartabel. Voor exacte cijfers zie je <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">de Belastingdienst</a> of vraag je werkgever om een specificatie van je vakantiegeldberekening. Bij vragen over je rechten kun je terecht bij <a href="https://www.juridischloket.nl" target="_blank" rel="noopener">het Juridisch Loket</a> (gratis), de FNV of de Inspectie SZW. Aan de uitkomsten van deze tool kunnen geen rechten worden ontleend en het gebruik is op eigen verantwoordelijkheid.
+</div>
+</section>
+
+<div class="update-stamp">Laatst bijgewerkt: mei 2026 · Bronnen: Belastingdienst.nl, CBS, FNV, Wet Minimumloon en Minimumvakantiebijslag</div>
+
+<div class="cookie-strip">
+🔒 Deze site gebruikt alleen functionele opslag — geen tracking, geen analytics. <a href="/privacy.html">Privacyverklaring</a>.
+</div>
+
+<footer>
+<span>&copy; 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></span>
+</footer>
+
+<script>
+const SCHIJF1=38883;const SCHIJF2=78426;const TARIEF1=0.3575;const TARIEF2=0.3756;const TARIEF3=0.4950;
+function getBijzonderTarief(jaarinkomen){if(jaarinkomen<=SCHIJF1)return TARIEF1;if(jaarinkomen<=SCHIJF2)return TARIEF2;return TARIEF3}
+function fmt(n){return'€ '+Math.round(n).toLocaleString('nl-NL')}
+document.getElementById('percentage').addEventListener('change',function(){document.getElementById('customRow').style.display=this.value==='custom'?'grid':'none'});
+function bereken(){const bruto=parseFloat(document.getElementById('bruto').value)||0;let perc=document.getElementById('percentage').value;if(perc==='custom'){perc=parseFloat(document.getElementById('customPerc').value)||8}else{perc=parseFloat(perc)}const maanden=parseInt(document.getElementById('maanden').value)||12;const parttime=parseFloat(document.getElementById('parttime').value)/100;if(!bruto||!perc){alert('Vul minimaal je bruto salaris en percentage in.');return}const brutoJaar=bruto*12*parttime;const verhouding=maanden/12;const brutoVakantiegeld=brutoJaar*(perc/100)*verhouding;const tarief=getBijzonderTarief(brutoJaar);const belasting=brutoVakantiegeld*tarief;const netto=brutoVakantiegeld-belasting;const perMaand=brutoVakantiegeld/maanden;document.getElementById('results').classList.add('show');document.getElementById('nettoBedrag').textContent=fmt(netto);document.getElementById('brutoSub').textContent='van '+fmt(brutoVakantiegeld)+' bruto';document.getElementById('brutoBedrag').textContent=fmt(brutoVakantiegeld);document.getElementById('belasting').textContent='- '+fmt(belasting);document.getElementById('netto').textContent=fmt(netto);document.getElementById('permaand').textContent=fmt(perMaand);document.getElementById('bkBrutoJaar').textContent=fmt(brutoJaar);document.getElementById('bkPerc').textContent=perc.toFixed(2)+'%';document.getElementById('bkMaanden').textContent=maanden+'/12';document.getElementById('bkPT').textContent=(parttime*100).toFixed(0)+'%';document.getElementById('bkBruto').textContent=fmt(brutoVakantiegeld);document.getElementById('bkTarief').textContent=(tarief*100).toFixed(2)+'%';document.getElementById('bkBel').textContent='- '+fmt(belasting);document.getElementById('bkNetto').textContent=fmt(netto);document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'})}
+window.addEventListener('load',()=>{bereken()});
+</script>
+</body>
+</html>
