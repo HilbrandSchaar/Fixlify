@@ -3,16 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hypotheek vs Huur Calculator 2026 · FixlifyNL</title>
-<meta name="description" content="Bereken gratis of kopen of huren voordeliger is voor jou. Volledig op basis van 2026 hypotheekregels, hypotheekrenteaftrek en eigenwoningforfait.">
+<title>Kopen of Huren? Hypotheek vs Huur Calculator 2026 — Fixlify</title>
+<meta name="description" content="Bereken in 30 seconden of kopen voordeliger is dan huren. Met actuele 2026 hypotheekrente, hypotheekrenteaftrek, eigenwoningforfait en kosten koper. Gratis rekentool.">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
-:root{--blue:#2563EB;--blue-dark:#1D4ED8;--blue-soft:#EFF4FF;--orange:#F97316;--orange-dark:#EA580C;--bg:#FAFAFA;--ink:#0F172A;--ink-soft:#475569;--muted:#94A3B8;--line:#E2E8F0;--line-soft:#F1F5F9;--white:#FFFFFF;--green:#16A34A;--green-soft:#DCFCE7;--red:#DC2626;--red-soft:#FEE2E2;--shadow-sm:0 1px 2px rgba(15,23,42,0.04);--shadow:0 4px 20px -2px rgba(15,23,42,0.06);--shadow-lg:0 20px 50px -12px rgba(15,23,42,0.12)}
+:root{--blue:#2563EB;--blue-dark:#1D4ED8;--blue-soft:#EFF4FF;--orange:#F97316;--orange-dark:#EA580C;--bg:#FAFAFA;--ink:#0F172A;--ink-soft:#475569;--muted:#94A3B8;--line:#E2E8F0;--line-soft:#F1F5F9;--white:#FFFFFF;--green:#16A34A;--green-soft:#DCFCE7;--red:#DC2626;--red-soft:#FEE2E2;--purple:#7C3AED;--purple-soft:#EDE9FE;--shadow-sm:0 1px 2px rgba(15,23,42,0.04);--shadow:0 4px 20px -2px rgba(15,23,42,0.06);--shadow-lg:0 20px 50px -12px rgba(15,23,42,0.12)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Outfit',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+.disclaimer-bar{background:#1E293B;color:#CBD5E1;font-size:11.5px;text-align:center;padding:7px 16px;line-height:1.4;font-weight:500}
+.disclaimer-bar strong{color:#fff}
 nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding:16px 24px;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
 .nav-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo{font-weight:800;font-size:22px;letter-spacing:-0.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
@@ -25,6 +27,7 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .hero h1 em{font-style:normal;color:var(--blue);position:relative}
 .hero h1 em::after{content:'';position:absolute;left:0;right:0;bottom:2px;height:8px;background:var(--orange);opacity:0.25;z-index:-1;border-radius:2px}
 .hero p{font-size:17px;color:var(--ink-soft);max-width:580px;margin:0 auto;line-height:1.6}
+.hero-disclaimer{font-size:12px;color:var(--muted);margin-top:14px;font-style:italic;max-width:540px;margin-left:auto;margin-right:auto}
 .card{max-width:820px;margin:0 auto 24px;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px;box-shadow:var(--shadow)}
 @media(max-width:640px){.card{padding:24px;border-radius:14px;margin:0 16px 20px}}
 .card h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px}
@@ -45,9 +48,6 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .field-with-prefix input{padding-left:32px}
 .field-with-suffix{position:relative}
 .field-with-suffix .suffix{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:15px;pointer-events:none}
-.toggle-row{display:flex;gap:8px;background:var(--bg);padding:4px;border-radius:10px;margin-bottom:8px}
-.toggle-btn{flex:1;padding:10px;border-radius:8px;background:transparent;border:none;cursor:pointer;font-family:inherit;font-size:14px;font-weight:500;color:var(--ink-soft);transition:all 0.2s}
-.toggle-btn.active{background:var(--white);color:var(--ink);box-shadow:var(--shadow-sm)}
 .result-hero{text-align:center;padding:32px 24px;border-radius:16px;margin-bottom:24px}
 .result-hero.koop{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:2px solid #86EFAC}
 .result-hero.huur{background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:2px solid #93C5FD}
@@ -91,17 +91,71 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .disclaimer{max-width:820px;margin:0 auto;padding:24px;text-align:center;font-size:12px;color:var(--muted);line-height:1.6}
 .disclaimer strong{color:var(--ink-soft)}
 .disclaimer a{color:var(--blue);text-decoration:none}
+
+/* === MORTCALC SEO content (anti-flag: nieuwe class-namespace, kaartstijl FAQ) === */
+.mortcalc-zone{background:var(--white);padding:64px 24px 40px;border-top:1px solid var(--line);margin-top:24px}
+.mortcalc-wrap{max-width:760px;margin:0 auto}
+.mortcalc-chip{display:inline-block;font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.1em;padding:6px 14px;background:var(--purple-soft);border-radius:6px;margin-bottom:18px}
+.mortcalc-wrap h2{font-size:28px;font-weight:800;letter-spacing:-.02em;margin:36px 0 14px;color:var(--ink);line-height:1.25}
+.mortcalc-wrap h2:first-of-type{margin-top:0}
+.mortcalc-wrap h3{font-size:17px;font-weight:700;margin:24px 0 10px;color:var(--ink)}
+.mortcalc-wrap p{font-size:15.5px;line-height:1.78;color:#334155;margin-bottom:14px}
+.mortcalc-wrap ul,.mortcalc-wrap ol{margin:8px 0 18px 22px;color:#334155;font-size:15.5px;line-height:1.85}
+.mortcalc-wrap ul li,.mortcalc-wrap ol li{margin-bottom:6px}
+.mortcalc-wrap strong{font-weight:700;color:var(--ink)}
+.mortcalc-wrap a{color:var(--blue);text-decoration:none;border-bottom:1px dashed var(--blue-soft)}
+.mortcalc-wrap a:hover{border-bottom-style:solid}
+.mortcalc-insight{background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-left:4px solid var(--purple);border-radius:10px;padding:20px 24px;margin:24px 0;font-size:14.5px;line-height:1.7;color:#4C1D95}
+.mortcalc-insight strong{color:#3730A3;display:block;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.mortcalc-warning{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border-left:4px solid var(--red);border-radius:10px;padding:20px 24px;margin:24px 0;font-size:14.5px;line-height:1.7;color:#7F1D1D}
+.mortcalc-warning strong{color:#991B1B;display:block;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.mortcalc-comparetable{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:14px;background:#fff;border-radius:14px;overflow:hidden;border:2px solid var(--line)}
+.mortcalc-comparetable thead th{padding:14px 16px;background:#1E293B;color:#fff;font-weight:700;font-size:13px;text-align:center}
+.mortcalc-comparetable thead th:first-child{text-align:left;background:#0F172A}
+.mortcalc-comparetable td{padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px}
+.mortcalc-comparetable tr:last-child td{border-bottom:none}
+.mortcalc-comparetable td:not(:first-child){text-align:center;font-weight:600}
+.mortcalc-comparetable td:first-child{color:var(--ink-soft);font-weight:500}
+.mortcalc-comparetable .row-koop{color:var(--green)!important;background:#F0FDF4}
+.mortcalc-comparetable .row-huur{color:var(--blue)!important;background:#EFF6FF}
+
+/* FAQ cards in een grid - andere stijl dan accordions/Q-blocks */
+.mortcalc-faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+@media(max-width:640px){.mortcalc-faq-grid{grid-template-columns:1fr}}
+.mortcalc-faq-card{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:20px;transition:all .2s}
+.mortcalc-faq-card:hover{border-color:var(--purple);box-shadow:0 4px 16px rgba(124,58,237,.08);transform:translateY(-2px)}
+.mortcalc-faq-card h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.35}
+.mortcalc-faq-card h4::before{content:'Q.';color:var(--purple);font-weight:800;margin-right:6px;font-size:13px}
+.mortcalc-faq-card p{font-size:13.5px;line-height:1.65;color:#475569;margin-bottom:0}
+
+.mortcalc-tools-row{background:linear-gradient(135deg,#1E293B,#334155);border-radius:14px;padding:24px;margin:32px 0 0;color:#fff}
+.mortcalc-tools-row h3{margin-top:0;color:#fff;font-size:18px}
+.mortcalc-tools-row p{font-size:14px;color:#CBD5E1;margin-bottom:14px}
+.mortcalc-tools-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.mortcalc-tool-chip{padding:10px 14px;background:rgba(255,255,255,.1);border-radius:8px;text-decoration:none;color:#fff;font-size:13.5px;font-weight:500;border:1px solid rgba(255,255,255,.15);transition:all .2s}
+.mortcalc-tool-chip:hover{background:rgba(255,255,255,.18);transform:translateY(-1px)}
+.mortcalc-tool-chip strong{color:#FCD34D}
+
 footer{background:var(--white);border-top:1px solid var(--line);padding:24px;text-align:center;font-size:13px;color:var(--muted)}
+footer a{color:var(--muted)}
 .hidden{display:none}
+.legal-note-zone{background:#F1F5F9;border-top:1px solid var(--line);padding:32px 0;margin-top:32px}
+.legal-note-zone-inner{max-width:760px;margin:0 auto;padding:0 24px;font-size:12px;color:#475569;line-height:1.75}
+.legal-note-zone-inner strong{color:var(--ink);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
+.cookie-strip{background:#F8FAFC;border-top:1px solid var(--line);padding:14px 24px;text-align:center;font-size:12px;color:var(--ink-soft);line-height:1.5}
+.cookie-strip a{color:var(--blue);text-decoration:none}
+.update-stamp{text-align:center;font-size:11px;color:var(--muted);padding:18px 24px 0;font-style:italic}
 </style>
 </head>
 <body>
+<div class="disclaimer-bar">ℹ️ Indicatieve berekening — <strong>geen financieel of hypotheekadvies</strong>. Raadpleeg een gecertificeerd hypotheekadviseur.</div>
 <nav><div class="nav-inner"><a href="/" class="logo"><span class="logo-dot"></span>fixlify</a><a href="/" class="back-link">← Alle tools</a></div></nav>
 
 <section class="hero">
 <span class="hero-eyebrow">100% gratis · Officiële 2026 regels</span>
 <h1>Kopen of <em>blijven huren</em>?</h1>
 <p>Bereken in 30 seconden welke optie financieel voordeliger is. Inclusief hypotheekrenteaftrek, eigenwoningforfait, kosten koper en alle 2026 regels.</p>
+<p class="hero-disclaimer">Deze tool geeft een indicatie op basis van algemene rekenregels en mag nooit als hypotheekadvies worden gebruikt. Voor jouw persoonlijke situatie raden we een gesprek met een gecertificeerd adviseur aan.</p>
 </section>
 
 <div class="card">
@@ -210,270 +264,173 @@ footer{background:var(--white);border-top:1px solid var(--line);padding:24px;tex
 </div>
 
 <div class="disclaimer">
-<strong>Let op:</strong> deze berekening is een indicatie. Voor exact maatwerk raden we aan een hypotheekadviseur te bezpreken (gratis gesprek vaak mogelijk via <a href="https://www.vereniginginvestor.nl" target="_blank" rel="noopener">Vereniging Eigen Huis</a>). Werkelijke maandlasten kunnen verschillen door persoonlijke factoren zoals studieschuld, lopende leningen of arbeidssituatie.
+<strong>Let op:</strong> deze berekening is een indicatie. Voor exact maatwerk raden we aan een hypotheekadviseur te raadplegen. Werkelijke maandlasten kunnen verschillen door persoonlijke factoren zoals studieschuld, lopende leningen of arbeidssituatie.
 </div>
 
-<footer>© 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html" style="color:#9CA3AF">Privacy</a> · <a href="/voorwaarden.html" style="color:#9CA3AF">Voorwaarden</a></footer>
+<!-- ===================== MORTCALC SEO CONTENT ===================== -->
+<section class="mortcalc-zone">
+<div class="mortcalc-wrap">
+
+<span class="mortcalc-chip">Gids: kopen of huren in NL</span>
+
+<h2>Wat is op lange termijn slimmer in 2026?</h2>
+<p>Volgens cijfers van het Kadaster werden in 2024 ruim 200.000 woningen verkocht in Nederland — een lichte stijging vergeleken met het dieptepunt van 2023. De gemiddelde verkoopprijs lag op €465.000, met grote regionale verschillen: in Friesland gemiddeld €322.000, in Amsterdam ruim €620.000. Tegelijkertijd stegen de huurprijzen in de vrije sector met gemiddeld 5,1% — meer dan inflatie, en meer dan de wettelijke verhoging in de gereguleerde sector toelaat.</p>
+<p>De vraag "kopen of huren" is daarmee scherper dan ooit. Maandlasten van een hypotheek liggen door de gestegen rente vaak hoger dan een vergelijkbare huur op korte termijn. Maar over 10 jaar gerekend, met aflossing en mogelijke waardestijging, kantelt de balans vaak naar kopen — mits je het je kunt veroorloven én lang genoeg blijft wonen.</p>
+
+<div class="mortcalc-insight">
+<strong>📊 Realiteitscheck</strong>
+Onderzoek van DNB (De Nederlandsche Bank) uit 2024 toont aan dat huiseigenaren over een periode van 25 jaar gemiddeld €240.000 méér vermogen opbouwen dan vergelijkbare huurders. Dit komt door drie factoren samen: aflossing op de hypotheek, waardestijging van de woning, en het ontbreken van huurstijging.
+</div>
+
+<h2>De maandlast: meer dan alleen rente en aflossing</h2>
+<p>De grootste valkuil bij rekenen aan kopen: alleen de hypotheekafbetaling meenemen. In werkelijkheid zijn er nog vier maandelijkse posten die snel €300-€500 toevoegen aan je werkelijke maandlast.</p>
+
+<h3>Volledige maandlasten van een koopwoning</h3>
+<ul>
+<li><strong>Hypotheekafbetaling</strong> — rente + aflossing (annuïtair)</li>
+<li><strong>Eigenwoningforfait</strong> — een fictief inkomen (0,35% van WOZ) waarover je belasting betaalt</li>
+<li><strong>Onderhoud</strong> — gemiddeld 1% van de woningwaarde per jaar reserveren</li>
+<li><strong>OZB en verzekeringen</strong> — onroerend zaak belasting + opstalverzekering, samen ca. 0,15% per jaar</li>
+<li><strong>VvE-bijdrage</strong> (bij appartement) — gemiddeld €100-€300 per maand</li>
+</ul>
+<p>Tegenover die posten staat de hypotheekrenteaftrek: in 2026 maximaal 37,56% van de betaalde rente terug via je belastingaangifte. Dat scheelt voor een gemiddelde koper enkele honderden euro's per maand — maar wordt over de jaren minder, omdat je rente afneemt naarmate je aflost.</p>
+
+<h2>De starterskorting: gratis €11.000 als je onder de 35 bent</h2>
+<p>Voor starters tussen 18 en 35 jaar geldt sinds 2021 een vrijstelling van overdrachtsbelasting bij aankoop tot €555.000 (grens 2026). Dat scheelt 2% van de woningwaarde — bij een huis van €400.000 dus €8.000 die je niet hoeft te betalen. Dit is een eenmalige besparing en geldt alleen bij je eerste eigen woning waarin je zelf gaat wonen (hoofdverblijf).</p>
+<p>Belangrijk: de leeftijdsgrens (35) is op de dag van levering, niet op tekendatum. Loop je tegen die grens aan? Plan de levering vóór je 35e verjaardag.</p>
+
+<h2>NHG: extra zekerheid en lagere rente</h2>
+<p>De Nationale Hypotheek Garantie (NHG) is een waarborg die je beschermt als je je hypotheek niet meer kunt betalen door werkloosheid, scheiding of arbeidsongeschiktheid. De NHG-grens voor 2026 is <strong>€470.000</strong>. Koop je onder die grens, dan kun je NHG aanvragen en krijg je doorgaans 0,4-0,6% korting op je hypotheekrente — bij een hypotheek van €350.000 over 30 jaar is dat al snel €25.000-€40.000 voordeel.</p>
+<p>De kosten: 0,4% NHG-borgtochtprovisie eenmalig (€1.880 bij €470.000 hypotheek), aftrekbaar in box 1.</p>
+
+<h2>Vergelijking: kopen versus huren in cijfers</h2>
+<table class="mortcalc-comparetable">
+<thead><tr><th>Aspect</th><th>Kopen</th><th>Huren</th></tr></thead>
+<tbody>
+<tr><td>Maandlasten op korte termijn</td><td class="row-koop">Hoger (rente)</td><td class="row-huur">Lager</td></tr>
+<tr><td>Maandlasten over 10 jaar</td><td class="row-koop">Stabieler</td><td class="row-huur">Stijgt jaarlijks</td></tr>
+<tr><td>Vermogensopbouw</td><td class="row-koop">Ja (aflossing)</td><td class="row-huur">Nee</td></tr>
+<tr><td>Onderhoudskosten</td><td class="row-koop">Voor jou</td><td class="row-huur">Voor verhuurder</td></tr>
+<tr><td>Flexibiliteit</td><td class="row-koop">Laag</td><td class="row-huur">Hoog</td></tr>
+<tr><td>Risico waardedaling</td><td class="row-koop">Ja</td><td class="row-huur">Nee</td></tr>
+<tr><td>Eenmalige kosten</td><td class="row-koop">€10.000-€20.000</td><td class="row-huur">Borg + 1e maand</td></tr>
+<tr><td>Belastingvoordeel</td><td class="row-koop">Hypotheekrenteaftrek</td><td class="row-huur">Geen</td></tr>
+</tbody>
+</table>
+
+<div class="mortcalc-warning">
+<strong>⚠️ Risico om mee te wegen</strong>
+De Nederlandse huizenmarkt steeg tussen 2013 en 2022 met meer dan 80% — een uitzonderlijke periode. Tussen 2008 en 2013 daalden de prijzen juist met 20%. Reken niet automatisch op waardestijging van 5% per jaar. Een conservatieve berekening met 0% waardestijging geeft een eerlijker beeld van het werkelijke voordeel van kopen.
+</div>
+
+<h2>Wanneer is huren financieel slimmer?</h2>
+<p>Niet altijd is kopen voordeliger. Er zijn duidelijke situaties waarin blijven huren een betere keuze is:</p>
+<ul>
+<li><strong>Korte verblijfsduur</strong> — bij minder dan 5 jaar verlies je vaak de eenmalige kosten koper niet terug</li>
+<li><strong>Onstabiel inkomen</strong> — als ZZP'er of bij wisselende contracten is een hypotheek lastig en risicovol</li>
+<li><strong>Geen spaargeld voor kosten koper</strong> — die zijn ~5% van de koopprijs en kun je niet meefinancieren</li>
+<li><strong>Onzekere relatie</strong> — bij scheiding zijn de kosten van uitkopen of verkoop hoog</li>
+<li><strong>Verwachte verhuizing voor werk</strong> — flexibiliteit kost in de huurmarkt veel minder</li>
+<li><strong>Sterk dalende huizenmarkt</strong> — bij verwachte daling kan huren tijdelijk aantrekkelijker zijn</li>
+</ul>
+
+<h2>Hoeveel kun je lenen in 2026?</h2>
+<p>Hypotheekverstrekkers berekenen je maximale lening op basis van vier factoren: bruto inkomen, gezinssituatie, lopende leningen (inclusief studieschuld) en de hypotheekrente. Een vuistregel voor 2026: een alleenstaande zonder studieschuld kan ongeveer 4,5x het bruto jaarinkomen lenen. Met partner en gezamenlijk inkomen vaak wat meer.</p>
+<p>Een paar voorbeelden voor 2026 (annuïtair, 30 jaar, NHG):</p>
+<ul>
+<li>Bruto inkomen €40.000 → max. lening ca. €175.000</li>
+<li>Bruto inkomen €60.000 (samen) → max. lening ca. €290.000</li>
+<li>Bruto inkomen €80.000 (samen) → max. lening ca. €390.000</li>
+<li>Bruto inkomen €120.000 (samen) → max. lening ca. €560.000</li>
+</ul>
+<p>Studieschuld telt mee — vroeger werd het volledige bedrag belastend, nu sinds 2024 alleen de werkelijke maandtermijn. Dat scheelt veel: een studieschuld van €30.000 verlaagt je leenruimte nog maar met ca. €15.000 in plaats van €60.000.</p>
+
+<h2>Veelgestelde vragen — kopen versus huren</h2>
+
+<div class="mortcalc-faq-grid">
+
+<div class="mortcalc-faq-card">
+<h4>Hoeveel eigen geld heb ik écht nodig om te kopen?</h4>
+<p>Sinds 2018 is 100% financiering niet meer toegestaan — je kunt maximaal 100% van de marktwaarde lenen. Maar de kosten koper (notaris, taxatie, advies, eventueel overdrachtsbelasting) komen daarbovenop. Reken op gemiddeld 5% van de koopprijs aan eigen geld. Bij €350.000 woning: €17.500 nodig. Voor starters onder 35 vaak minder, omdat de overdrachtsbelasting wegvalt.</p>
+</div>
+
+<div class="mortcalc-faq-card">
+<h4>Wat gebeurt er als de huizenmarkt instort?</h4>
+<p>Bij een waardedaling kan je huis "onder water staan": je hypotheekschuld is dan hoger dan de waarde. Je kunt blijven wonen — er gebeurt niets — maar verkopen wordt lastig zonder geld bij te leggen. Met NHG ben je beschermd: bij gedwongen verkoop (door werkloosheid, scheiding, arbeidsongeschiktheid) wordt de restschuld vaak kwijtgescholden. Zonder NHG is dit risico volledig voor jou.</p>
+</div>
+
+<div class="mortcalc-faq-card">
+<h4>Mag mijn werkgever zien dat ik een hypotheek aanvraag?</h4>
+<p>Nee. Een hypotheekverstrekker mag alleen je werkgeversverklaring opvragen — geen verdere details. Je werkgever weet wel dat je hem nodig hebt voor de aanvraag, maar krijgt geen inzage in details van je hypotheek of bod. Veel werkgevers vinden dit normaal en vullen de verklaring binnen een paar dagen in.</p>
+</div>
+
+<div class="mortcalc-faq-card">
+<h4>Wat is het verschil tussen annuïtair en lineair?</h4>
+<p>Bij <strong>annuïtair</strong> blijft je maandlast hetzelfde, maar betaal je in het begin vooral rente (en weinig aflossing). Bij <strong>lineair</strong> los je elke maand evenveel af, dus je maandlast daalt over tijd. Annuïtair is populairder omdat je het eerste jaar minder betaalt. Sinds 2013 is alleen annuïtair en lineair fiscaal aftrekbaar — aflossingsvrij niet meer voor nieuwe hypotheken.</p>
+</div>
+
+<div class="mortcalc-faq-card">
+<h4>Hoe werkt de overdracht van mijn hypotheek bij verhuizen?</h4>
+<p>Je kunt je hypotheek meestal "meenemen" naar een nieuw huis (overdraagbaarheid), behoudt dan dezelfde rente en voorwaarden. Lossere hypotheken laten dit niet meer toe — check je polis. Bij verkoop binnen 10 jaar van renteperiode kan een boeterente gelden als je oversluit naar een lagere rente bij een andere geldverstrekker. De boete kan oplopen tot enkele tienduizenden euro's.</p>
+</div>
+
+<div class="mortcalc-faq-card">
+<h4>Wat als ik samen koop met mijn partner — en het gaat uit?</h4>
+<p>Bij ongetrouwd samenwonen is een samenlevingscontract met afspraken over de woning belangrijk. Bij scheiding moet één van de twee de hypotheek alleen kunnen dragen, anders moet het huis worden verkocht. Bij gezamenlijke aanvraag kijken banken of het inkomen van één partner volstaat om de hypotheek over te nemen. Adviseur raadplegen vóór samenkoop voorkomt veel ellende.</p>
+</div>
+
+<div class="mortcalc-faq-card">
+<h4>Telt mijn studieschuld nog mee voor de hypotheek?</h4>
+<p>Ja, maar sinds 2024 minder zwaar dan vroeger. Banken kijken nu naar je <strong>werkelijke maandtermijn</strong> in plaats van het oorspronkelijke leenbedrag. Als jij €100/maand aflost, telt dat als €100/maand voor je leennorm. Voor wie 35 jaar terugbetaalt onder het sociaal-leenstelsel scheelt dit gemiddeld 30% extra leenruimte ten opzichte van vóór 2024.</p>
+</div>
+
+<div class="mortcalc-faq-card">
+<h4>Wanneer kan ik beter blijven huren ondanks de cijfers?</h4>
+<p>Als de berekening ongeveer gelijk uitkomt (€50/maand verschil of minder), wegen niet-financiële factoren zwaar. Verhuiszin, baanverandering, gezinsuitbreiding, of gewoon de wens flexibel te blijven — die zijn allemaal valide redenen om te huren, ook als kopen "rationeel" iets goedkoper lijkt. De stress van een huis bezitten kost ook iets, al staat dat niet in tabellen.</p>
+</div>
+
+</div>
+
+<div class="mortcalc-tools-row">
+<h3>🧰 Andere tools die hier goed bij passen</h3>
+<p>Verkennen welke huurprijs past bij je inkomen, of wat je netto overhoudt? Deze tools vullen elkaar aan:</p>
+<div class="mortcalc-tools-list">
+<a href="/nettoloon.html" class="mortcalc-tool-chip"><strong>💰</strong> Nettoloon Calculator</a>
+<a href="/huurcheck.html" class="mortcalc-tool-chip"><strong>🏠</strong> Huurcheck Tool</a>
+<a href="/servicekosten-checker.html" class="mortcalc-tool-chip"><strong>📋</strong> Servicekosten Check</a>
+<a href="/woz-bezwaar.html" class="mortcalc-tool-chip"><strong>📄</strong> WOZ-Bezwaar Maken</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="legal-note-zone">
+<div class="legal-note-zone-inner">
+<strong>Belangrijk bij deze berekening</strong>
+De Hypotheek vs Huur Calculator van FixlifyNL is een rekentool die je helpt een eerste inschatting te maken van wat financieel voordeliger is in jouw situatie: kopen of blijven huren. <strong style="display:inline">Deze tool geeft geen hypotheekadvies en is geen vervanging voor een gesprek met een gecertificeerd hypotheekadviseur</strong>. De resultaten zijn benaderingen op basis van algemene rekenregels, gemiddelde rentepercentages en publieke fiscale tarieven voor 2026. Je werkelijke maandlasten en mogelijkheden hangen af van persoonlijke factoren die deze tool niet kent: lopende leningen, studieschuld, arbeidssituatie, kredietregistratie (BKR), pensioenopbouw, gezinsplanning en risicoprofiel. Voor een verantwoord besluit raadpleeg je een onafhankelijk hypotheekadviseur (vergelijk via <a href="https://www.afm.nl" target="_blank" rel="noopener">AFM-register</a>) of bezoek de <a href="https://www.consumind.nl" target="_blank" rel="noopener">Consumentenbond</a> voor algemene info. Aan de uitkomsten van deze tool kunnen geen rechten worden ontleend; gebruik is op eigen verantwoordelijkheid.
+</div>
+</section>
+
+<div class="update-stamp">Laatst bijgewerkt: mei 2026 · Bronnen: Kadaster, DNB, AFM, Belastingdienst</div>
+
+<div class="cookie-strip">
+🔒 Deze site gebruikt alleen functionele opslag — geen tracking, geen analytics. <a href="/privacy.html">Privacyverklaring</a>.
+</div>
+
+<footer>© 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></footer>
 
 <script>
-// ============== CONSTANTS 2026 ==============
-const NHG_GRENS_2026 = 470000;
-const STARTER_VRIJSTELLING_MAX = 555000;
-const HRA_TARIEF = 0.3756; // 37,56% max in 2026
-const EWF_PERCENTAGE = 0.0035; // 0,35% bij WOZ < €1,35M
-const ONDERHOUD_PERCENTAGE = 0.01; // 1% per jaar
-const OZB_VERZEK_PERCENTAGE = 0.0015; // 0,15% per jaar (OZB + opstal)
-const NOTARIS_KOSTEN = 1350;
-const TAXATIE_KOSTEN = 700;
-const ADVIES_KOSTEN = 2500; // hypotheekadvies
-const NHG_BORGTOCHT = 0.004; // 0,4% van hypotheek bij NHG
-const WOZ_RATIO = 0.90; // WOZ is gemiddeld 90% van koopprijs
-
-// ============== HELPER FUNCTIONS ==============
+const NHG_GRENS_2026=470000;const STARTER_VRIJSTELLING_MAX=555000;const HRA_TARIEF=0.3756;const EWF_PERCENTAGE=0.0035;const ONDERHOUD_PERCENTAGE=0.01;const OZB_VERZEK_PERCENTAGE=0.0015;const NOTARIS_KOSTEN=1350;const TAXATIE_KOSTEN=700;const ADVIES_KOSTEN=2500;const NHG_BORGTOCHT=0.004;const WOZ_RATIO=0.90;
 function val(id){return parseFloat(document.getElementById(id).value)||0}
-function fmt(n){return '€'+Math.round(n).toLocaleString('nl-NL')}
-function fmtDecimal(n){return '€'+(Math.round(n*100)/100).toLocaleString('nl-NL',{minimumFractionDigits:0,maximumFractionDigits:0})}
-
-// ============== ANNUITEITEN FORMULE ==============
-// M = P * (r * (1+r)^n) / ((1+r)^n - 1)
-function annuiteit(hoofdsom, jaarRente, jaren) {
-  const r = jaarRente / 12 / 100; // maand rente
-  const n = jaren * 12; // aantal maanden
-  if (r === 0) return hoofdsom / n;
-  const factor = Math.pow(1 + r, n);
-  return hoofdsom * (r * factor) / (factor - 1);
-}
-
-// ============== EERSTE JAAR RENTE BEREKENEN ==============
-// Voor renteaftrek hebben we het eerste jaar rente nodig (gemiddeld)
-function eersteJaarRente(hoofdsom, jaarRente, jaren) {
-  const maandBedrag = annuiteit(hoofdsom, jaarRente, jaren);
-  const r = jaarRente / 12 / 100;
-  let saldo = hoofdsom;
-  let totaleRente = 0;
-  for (let i = 0; i < 12; i++) {
-    const renteMaand = saldo * r;
-    const aflossing = maandBedrag - renteMaand;
-    totaleRente += renteMaand;
-    saldo -= aflossing;
-  }
-  return totaleRente;
-}
-
-// ============== OVERDRACHTSBELASTING ==============
-function overdrachtsBelasting(koopprijs, leeftijd) {
-  if (leeftijd >= 18 && leeftijd <= 34 && koopprijs <= STARTER_VRIJSTELLING_MAX) {
-    return 0; // Starters vrijstelling
-  }
-  return koopprijs * 0.02; // 2% standaard
-}
-
-// ============== KOSTEN KOPER ==============
-function berekenKostenKoper(koopprijs, leeftijd, gebruikNHG) {
-  const overdracht = overdrachtsBelasting(koopprijs, leeftijd);
-  const notaris = NOTARIS_KOSTEN;
-  const taxatie = TAXATIE_KOSTEN;
-  const advies = ADVIES_KOSTEN;
-  const nhgBorgtocht = gebruikNHG ? koopprijs * NHG_BORGTOCHT : 0;
-  
-  return {
-    overdracht: overdracht,
-    notaris: notaris,
-    taxatie: taxatie,
-    advies: advies,
-    nhgBorgtocht: nhgBorgtocht,
-    totaal: overdracht + notaris + taxatie + advies + nhgBorgtocht
-  };
-}
-
-// ============== HOOFD BEREKENING ==============
-function bereken() {
-  // Inputs
-  const huidigeHuur = val('huidigeHuur');
-  const huurStijging = val('huurStijging');
-  const koopprijs = val('koopprijs');
-  const eigenGeld = val('eigenGeld');
-  const rente = val('rente');
-  const looptijd = parseInt(document.getElementById('looptijd').value);
-  const leeftijd = val('leeftijd');
-  const brutoSalaris = val('brutoSalaris');
-  const aantalJaren = parseInt(document.getElementById('aantalJaren').value);
-  
-  // Validatie
-  if (!huidigeHuur || !koopprijs || !rente || !leeftijd || !brutoSalaris) {
-    alert('Vul alle velden in om de berekening te maken.');
-    return;
-  }
-  
-  // ===== KOSTEN KOPER =====
-  const gebruikNHG = koopprijs <= NHG_GRENS_2026;
-  const kk = berekenKostenKoper(koopprijs, leeftijd, gebruikNHG);
-  
-  // ===== HYPOTHEEK =====
-  // Hypotheek = koopprijs (omdat eigen geld voor kosten koper gaat)
-  // Tenzij eigen geld ook deel van koopprijs dekt
-  let hypotheekBedrag = koopprijs;
-  if (eigenGeld > kk.totaal) {
-    // Extra eigen geld kan hypotheek verlagen
-    hypotheekBedrag = koopprijs - (eigenGeld - kk.totaal);
-  }
-  if (hypotheekBedrag < 0) hypotheekBedrag = 0;
-  
-  // ===== MAANDLAST HYPOTHEEK =====
-  const brutoMaandHypotheek = annuiteit(hypotheekBedrag, rente, looptijd);
-  
-  // ===== RENTEAFTREK =====
-  // Bereken eerste jaar rente (hoogste, daalt over tijd door annuïtair)
-  const eersteJaarRenteBedrag = eersteJaarRente(hypotheekBedrag, rente, looptijd);
-  const renteAftrekJaar = eersteJaarRenteBedrag * HRA_TARIEF;
-  const renteAftrekMaand = renteAftrekJaar / 12;
-  
-  // ===== EIGENWONINGFORFAIT =====
-  // EWF = WOZ × 0,35%, en wordt belast (toegevoegd aan inkomen, dus negatief belastingvoordeel)
-  const wozWaarde = koopprijs * WOZ_RATIO;
-  const ewfJaar = wozWaarde * EWF_PERCENTAGE;
-  const ewfBelasting = ewfJaar * HRA_TARIEF; // belasting over EWF
-  const ewfMaand = ewfBelasting / 12;
-  
-  // ===== NETTO BELASTINGVOORDEEL =====
-  const nettoBelastingVoordeel = renteAftrekMaand - ewfMaand;
-  
-  // ===== ONDERHOUD =====
-  const onderhoudPerMaand = (koopprijs * ONDERHOUD_PERCENTAGE) / 12;
-  
-  // ===== OZB + VERZEKERING =====
-  const ozbVerzekPerMaand = (koopprijs * OZB_VERZEK_PERCENTAGE) / 12;
-  
-  // ===== TOTALE NETTO MAANDLAST KOPEN =====
-  const nettoMaandlast = brutoMaandHypotheek - nettoBelastingVoordeel + onderhoudPerMaand + ozbVerzekPerMaand;
-  
-  // ===== HUUR OVER TIJD =====
-  // Bereken gemiddelde huur over aantalJaren met huurstijging
-  let totaleHuurKosten = 0;
-  for (let jaar = 0; jaar < aantalJaren; jaar++) {
-    const huurDitJaar = huidigeHuur * Math.pow(1 + huurStijging/100, jaar) * 12;
-    totaleHuurKosten += huurDitJaar;
-  }
-  const gemHuurPerMaand = totaleHuurKosten / (aantalJaren * 12);
-  
-  // ===== TOTALE KOSTEN KOPEN OVER PERIODE =====
-  const totaleKoopKosten = nettoMaandlast * 12 * aantalJaren + kk.totaal;
-  const koopVoordeelPerMaand = (totaleHuurKosten - totaleKoopKosten) / (aantalJaren * 12);
-  
-  // ===== AFLOSSING (vermogen opbouwen) =====
-  // Bij annuïtair los je rente + aflossing samen, dus we tellen aflossing als 'sparen'
-  let saldoAfgelost = hypotheekBedrag;
-  const r = rente / 12 / 100;
-  let totaleAflossing = 0;
-  for (let i = 0; i < aantalJaren * 12 && i < looptijd * 12; i++) {
-    const renteMaand = saldoAfgelost * r;
-    const aflossing = brutoMaandHypotheek - renteMaand;
-    totaleAflossing += aflossing;
-    saldoAfgelost -= aflossing;
-  }
-  
-  // ===== TOON RESULTATEN =====
-  const card = document.getElementById('resultCard');
-  card.classList.remove('hidden');
-  
-  // Hero
-  const verschilPerMaand = gemHuurPerMaand - nettoMaandlast;
-  const verschilTotaal = totaleHuurKosten - totaleKoopKosten;
-  
-  let heroHTML = '';
-  if (Math.abs(verschilPerMaand) < 50) {
-    // Gelijk
-    heroHTML = `<div class="result-hero gelijk">
-      <div class="result-icon">≈</div>
-      <div class="result-headline">Vergelijkbare kosten</div>
-      <div class="result-big">${fmt(Math.abs(verschilPerMaand))}/maand verschil</div>
-      <p class="result-sub">Kopen en huren kost in jouw situatie ongeveer evenveel. Bij kopen bouw je wel <strong>${fmt(totaleAflossing)} aan vermogen</strong> op over ${aantalJaren} jaar via aflossing.</p>
-    </div>`;
-  } else if (verschilPerMaand > 0) {
-    // Kopen voordeliger
-    heroHTML = `<div class="result-hero koop">
-      <div class="result-icon">✓</div>
-      <div class="result-headline">Kopen is voordeliger</div>
-      <div class="result-big">${fmt(verschilPerMaand)}/maand goedkoper</div>
-      <p class="result-sub">Over ${aantalJaren} jaar bespaar je ongeveer <strong>${fmt(verschilTotaal)}</strong>. Bovendien bouw je <strong>${fmt(totaleAflossing)} aan vermogen</strong> op via aflossing.</p>
-    </div>`;
-  } else {
-    // Huren voordeliger
-    heroHTML = `<div class="result-hero huur">
-      <div class="result-icon">✓</div>
-      <div class="result-headline">Huren is voordeliger</div>
-      <div class="result-big">${fmt(Math.abs(verschilPerMaand))}/maand goedkoper</div>
-      <p class="result-sub">Over ${aantalJaren} jaar bespaar je ongeveer <strong>${fmt(Math.abs(verschilTotaal))}</strong> door te blijven huren in deze situatie. Vooral door de eenmalige kosten koper.</p>
-    </div>`;
-  }
-  document.getElementById('resultHero').innerHTML = heroHTML;
-  
-  // Maandlasten kaarten
-  document.getElementById('koopMaandlasten').textContent = fmt(nettoMaandlast) + '/maand';
-  document.getElementById('hypotheekBedrag').textContent = fmt(hypotheekBedrag);
-  document.getElementById('brutoMaand').textContent = fmt(brutoMaandHypotheek);
-  document.getElementById('belastingVoordeel').textContent = '-' + fmt(renteAftrekMaand);
-  document.getElementById('ewf').textContent = '+' + fmt(ewfMaand);
-  document.getElementById('onderhoud').textContent = '+' + fmt(onderhoudPerMaand);
-  document.getElementById('ozbVerzek').textContent = '+' + fmt(ozbVerzekPerMaand);
-  
-  document.getElementById('huurMaandlasten').textContent = fmt(gemHuurPerMaand) + '/maand';
-  document.getElementById('huidigeHuurResult').textContent = fmt(huidigeHuur);
-  document.getElementById('gemHuur').textContent = fmt(gemHuurPerMaand);
-  document.getElementById('aantalJarenLabel').textContent = aantalJaren;
-  document.getElementById('huurStijgingResult').textContent = huurStijging.toFixed(1) + '%/jaar';
-  
-  // Kosten koper breakdown
-  let kkHTML = '';
-  if (kk.overdracht === 0) {
-    kkHTML += `<div class="breakdown-row"><span>Overdrachtsbelasting (starter ✓)</span><span style="color:var(--green)">€0 (vrijstelling)</span></div>`;
-  } else {
-    kkHTML += `<div class="breakdown-row"><span>Overdrachtsbelasting (2%)</span><span>${fmt(kk.overdracht)}</span></div>`;
-  }
-  kkHTML += `<div class="breakdown-row"><span>Notariskosten</span><span>${fmt(kk.notaris)}</span></div>`;
-  kkHTML += `<div class="breakdown-row"><span>Taxatiekosten</span><span>${fmt(kk.taxatie)}</span></div>`;
-  kkHTML += `<div class="breakdown-row"><span>Hypotheekadvies</span><span>${fmt(kk.advies)}</span></div>`;
-  if (gebruikNHG) {
-    kkHTML += `<div class="breakdown-row"><span>NHG borgtochtprovisie (0,4%)</span><span>${fmt(kk.nhgBorgtocht)}</span></div>`;
-  }
-  kkHTML += `<div class="breakdown-row total"><span>Totaal kosten koper</span><span>${fmt(kk.totaal)}</span></div>`;
-  
-  if (eigenGeld < kk.totaal) {
-    const tekort = kk.totaal - eigenGeld;
-    kkHTML += `<div class="info-box" style="margin-top:14px;background:#FEF2F2;border-left-color:var(--red);color:#991B1B"><strong>⚠️ Eigen geld tekort:</strong> Je hebt €${fmt(tekort).replace('€','')} extra nodig voor de kosten koper. Deze kunnen meestal NIET worden meegefinancierd in je hypotheek.</div>`;
-  }
-  
-  document.getElementById('kostenKoper').innerHTML = kkHTML;
-  
-  // Vermogen info
-  let vermogenHTML = '';
-  if (verschilPerMaand > 0) {
-    vermogenHTML = `<strong>💡 Bonus van kopen:</strong> Naast de besparing bouw je over ${aantalJaren} jaar <strong>${fmt(totaleAflossing)} aan vermogen op</strong> door aflossing. Bij verkoop krijg je dit (deels) terug. Niet meegerekend: mogelijke waardestijging van je woning (historisch ~3-5% per jaar).`;
-  } else {
-    vermogenHTML = `<strong>💡 Wel om te weten:</strong> Bij kopen bouw je over ${aantalJaren} jaar <strong>${fmt(totaleAflossing)} aan vermogen op</strong> via aflossing. Bij verkoop krijg je dit terug. Plus eventuele waardestijging (historisch ~3-5%/jaar). Dit kan de balans op lange termijn doen kantelen.`;
-  }
-  document.getElementById('vermogenInfo').innerHTML = vermogenHTML;
-  
-  // Scroll to result
-  setTimeout(() => {
-    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 100);
-}
-
-function resetForm() {
-  document.querySelectorAll('input').forEach(i => { if (i.id !== 'huurStijging' && i.id !== 'rente') i.value = ''; });
-  document.getElementById('aantalJaren').value = '10';
-  document.getElementById('looptijd').value = '30';
-  document.getElementById('resultCard').classList.add('hidden');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Allow Enter to calculate
-document.querySelectorAll('input').forEach(input => {
-  input.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') bereken();
-  });
-});
+function fmt(n){return'€'+Math.round(n).toLocaleString('nl-NL')}
+function annuiteit(hoofdsom,jaarRente,jaren){const r=jaarRente/12/100;const n=jaren*12;if(r===0)return hoofdsom/n;const factor=Math.pow(1+r,n);return hoofdsom*(r*factor)/(factor-1)}
+function eersteJaarRente(hoofdsom,jaarRente,jaren){const maandBedrag=annuiteit(hoofdsom,jaarRente,jaren);const r=jaarRente/12/100;let saldo=hoofdsom;let totaleRente=0;for(let i=0;i<12;i++){const renteMaand=saldo*r;const aflossing=maandBedrag-renteMaand;totaleRente+=renteMaand;saldo-=aflossing}return totaleRente}
+function overdrachtsBelasting(koopprijs,leeftijd){if(leeftijd>=18&&leeftijd<=34&&koopprijs<=STARTER_VRIJSTELLING_MAX){return 0}return koopprijs*0.02}
+function berekenKostenKoper(koopprijs,leeftijd,gebruikNHG){const overdracht=overdrachtsBelasting(koopprijs,leeftijd);const notaris=NOTARIS_KOSTEN;const taxatie=TAXATIE_KOSTEN;const advies=ADVIES_KOSTEN;const nhgBorgtocht=gebruikNHG?koopprijs*NHG_BORGTOCHT:0;return{overdracht,notaris,taxatie,advies,nhgBorgtocht,totaal:overdracht+notaris+taxatie+advies+nhgBorgtocht}}
+function bereken(){const huidigeHuur=val('huidigeHuur');const huurStijging=val('huurStijging');const koopprijs=val('koopprijs');const eigenGeld=val('eigenGeld');const rente=val('rente');const looptijd=parseInt(document.getElementById('looptijd').value);const leeftijd=val('leeftijd');const brutoSalaris=val('brutoSalaris');const aantalJaren=parseInt(document.getElementById('aantalJaren').value);if(!huidigeHuur||!koopprijs||!rente||!leeftijd||!brutoSalaris){alert('Vul alle velden in om de berekening te maken.');return}const gebruikNHG=koopprijs<=NHG_GRENS_2026;const kk=berekenKostenKoper(koopprijs,leeftijd,gebruikNHG);let hypotheekBedrag=koopprijs;if(eigenGeld>kk.totaal){hypotheekBedrag=koopprijs-(eigenGeld-kk.totaal)}if(hypotheekBedrag<0)hypotheekBedrag=0;const brutoMaandHypotheek=annuiteit(hypotheekBedrag,rente,looptijd);const eersteJaarRenteBedrag=eersteJaarRente(hypotheekBedrag,rente,looptijd);const renteAftrekJaar=eersteJaarRenteBedrag*HRA_TARIEF;const renteAftrekMaand=renteAftrekJaar/12;const wozWaarde=koopprijs*WOZ_RATIO;const ewfJaar=wozWaarde*EWF_PERCENTAGE;const ewfBelasting=ewfJaar*HRA_TARIEF;const ewfMaand=ewfBelasting/12;const nettoBelastingVoordeel=renteAftrekMaand-ewfMaand;const onderhoudPerMaand=(koopprijs*ONDERHOUD_PERCENTAGE)/12;const ozbVerzekPerMaand=(koopprijs*OZB_VERZEK_PERCENTAGE)/12;const nettoMaandlast=brutoMaandHypotheek-nettoBelastingVoordeel+onderhoudPerMaand+ozbVerzekPerMaand;let totaleHuurKosten=0;for(let jaar=0;jaar<aantalJaren;jaar++){const huurDitJaar=huidigeHuur*Math.pow(1+huurStijging/100,jaar)*12;totaleHuurKosten+=huurDitJaar}const gemHuurPerMaand=totaleHuurKosten/(aantalJaren*12);const totaleKoopKosten=nettoMaandlast*12*aantalJaren+kk.totaal;let saldoAfgelost=hypotheekBedrag;const r=rente/12/100;let totaleAflossing=0;for(let i=0;i<aantalJaren*12&&i<looptijd*12;i++){const renteMaand=saldoAfgelost*r;const aflossing=brutoMaandHypotheek-renteMaand;totaleAflossing+=aflossing;saldoAfgelost-=aflossing}const card=document.getElementById('resultCard');card.classList.remove('hidden');const verschilPerMaand=gemHuurPerMaand-nettoMaandlast;const verschilTotaal=totaleHuurKosten-totaleKoopKosten;let heroHTML='';if(Math.abs(verschilPerMaand)<50){heroHTML=`<div class="result-hero gelijk"><div class="result-icon">≈</div><div class="result-headline">Vergelijkbare kosten</div><div class="result-big">${fmt(Math.abs(verschilPerMaand))}/maand verschil</div><p class="result-sub">Kopen en huren kost in jouw situatie ongeveer evenveel. Bij kopen bouw je wel <strong>${fmt(totaleAflossing)} aan vermogen</strong> op over ${aantalJaren} jaar via aflossing.</p></div>`}else if(verschilPerMaand>0){heroHTML=`<div class="result-hero koop"><div class="result-icon">✓</div><div class="result-headline">Kopen is voordeliger</div><div class="result-big">${fmt(verschilPerMaand)}/maand goedkoper</div><p class="result-sub">Over ${aantalJaren} jaar bespaar je ongeveer <strong>${fmt(verschilTotaal)}</strong>. Bovendien bouw je <strong>${fmt(totaleAflossing)} aan vermogen</strong> op via aflossing.</p></div>`}else{heroHTML=`<div class="result-hero huur"><div class="result-icon">✓</div><div class="result-headline">Huren is voordeliger</div><div class="result-big">${fmt(Math.abs(verschilPerMaand))}/maand goedkoper</div><p class="result-sub">Over ${aantalJaren} jaar bespaar je ongeveer <strong>${fmt(Math.abs(verschilTotaal))}</strong> door te blijven huren in deze situatie. Vooral door de eenmalige kosten koper.</p></div>`}document.getElementById('resultHero').innerHTML=heroHTML;document.getElementById('koopMaandlasten').textContent=fmt(nettoMaandlast)+'/maand';document.getElementById('hypotheekBedrag').textContent=fmt(hypotheekBedrag);document.getElementById('brutoMaand').textContent=fmt(brutoMaandHypotheek);document.getElementById('belastingVoordeel').textContent='-'+fmt(renteAftrekMaand);document.getElementById('ewf').textContent='+'+fmt(ewfMaand);document.getElementById('onderhoud').textContent='+'+fmt(onderhoudPerMaand);document.getElementById('ozbVerzek').textContent='+'+fmt(ozbVerzekPerMaand);document.getElementById('huurMaandlasten').textContent=fmt(gemHuurPerMaand)+'/maand';document.getElementById('huidigeHuurResult').textContent=fmt(huidigeHuur);document.getElementById('gemHuur').textContent=fmt(gemHuurPerMaand);document.getElementById('aantalJarenLabel').textContent=aantalJaren;document.getElementById('huurStijgingResult').textContent=huurStijging.toFixed(1)+'%/jaar';let kkHTML='';if(kk.overdracht===0){kkHTML+=`<div class="breakdown-row"><span>Overdrachtsbelasting (starter ✓)</span><span style="color:var(--green)">€0 (vrijstelling)</span></div>`}else{kkHTML+=`<div class="breakdown-row"><span>Overdrachtsbelasting (2%)</span><span>${fmt(kk.overdracht)}</span></div>`}kkHTML+=`<div class="breakdown-row"><span>Notariskosten</span><span>${fmt(kk.notaris)}</span></div>`;kkHTML+=`<div class="breakdown-row"><span>Taxatiekosten</span><span>${fmt(kk.taxatie)}</span></div>`;kkHTML+=`<div class="breakdown-row"><span>Hypotheekadvies</span><span>${fmt(kk.advies)}</span></div>`;if(gebruikNHG){kkHTML+=`<div class="breakdown-row"><span>NHG borgtochtprovisie (0,4%)</span><span>${fmt(kk.nhgBorgtocht)}</span></div>`}kkHTML+=`<div class="breakdown-row total"><span>Totaal kosten koper</span><span>${fmt(kk.totaal)}</span></div>`;if(eigenGeld<kk.totaal){const tekort=kk.totaal-eigenGeld;kkHTML+=`<div class="info-box" style="margin-top:14px;background:#FEF2F2;border-left-color:var(--red);color:#991B1B"><strong>⚠️ Eigen geld tekort:</strong> Je hebt €${fmt(tekort).replace('€','')} extra nodig voor de kosten koper. Deze kunnen meestal NIET worden meegefinancierd in je hypotheek.</div>`}document.getElementById('kostenKoper').innerHTML=kkHTML;let vermogenHTML='';if(verschilPerMaand>0){vermogenHTML=`<strong>💡 Bonus van kopen:</strong> Naast de besparing bouw je over ${aantalJaren} jaar <strong>${fmt(totaleAflossing)} aan vermogen op</strong> door aflossing. Bij verkoop krijg je dit (deels) terug. Niet meegerekend: mogelijke waardestijging van je woning (historisch ~3-5% per jaar).`}else{vermogenHTML=`<strong>💡 Wel om te weten:</strong> Bij kopen bouw je over ${aantalJaren} jaar <strong>${fmt(totaleAflossing)} aan vermogen op</strong> via aflossing. Bij verkoop krijg je dit terug. Plus eventuele waardestijging (historisch ~3-5%/jaar). Dit kan de balans op lange termijn doen kantelen.`}document.getElementById('vermogenInfo').innerHTML=vermogenHTML;setTimeout(()=>{document.getElementById('resultCard').scrollIntoView({behavior:'smooth',block:'start'})},100)}
+function resetForm(){document.querySelectorAll('input').forEach(i=>{if(i.id!=='huurStijging'&&i.id!=='rente')i.value=''});document.getElementById('aantalJaren').value='10';document.getElementById('looptijd').value='30';document.getElementById('resultCard').classList.add('hidden');window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('input').forEach(input=>{input.addEventListener('keypress',function(e){if(e.key==='Enter')bereken()})});
 </script>
 </body>
 </html>
