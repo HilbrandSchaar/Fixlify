@@ -3,16 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fixlify — 50+ Slimme tools voor werk, wonen, geld en ZZP</title>
-<meta name="description" content="50+ Nederlandse tools en calculators. Huurcheck, sollicitatiebrief, factuur, salaris berekenen. Gratis & professioneel.">
+<title>Fixlify — De beste gratis Nederlandse tools & calculators (50+)</title>
+<meta name="description" content="50+ gratis Nederlandse tools en calculators. Huurcheck, CV maker, sollicitatiebrief, factuur, salaris berekenen. 100% gratis, geen account, direct downloaden.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--blue:#2563EB;--blue-dark:#1D4ED8;--blue-soft:#EFF6FF;--purple:#7C3AED;--orange:#F97316;--dark:#0F172A;--ink:#1E293B;--gray:#64748B;--light:#94A3B8;--border:#E2E8F0;--bg:#FAFBFC;--white:#fff;--green:#059669;--green-soft:#ECFDF5;--red:#DC2626;--red-soft:#FEF2F2}
+:root{--blue:#2563EB;--blue-dark:#1D4ED8;--blue-soft:#EFF6FF;--purple:#7C3AED;--orange:#F97316;--dark:#0F172A;--ink:#1E293B;--gray:#64748B;--light:#94A3B8;--border:#E2E8F0;--bg:#FAFBFC;--white:#fff;--green:#059669;--green-soft:#ECFDF5;--red:#DC2626;--red-soft:#FEF2F2;--yellow:#FEF3C7}
 body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.04);padding:14px 0}
+.disclaimer-bar{background:#1E293B;color:#CBD5E1;font-size:11.5px;text-align:center;padding:7px 16px;line-height:1.4;font-weight:500}
+.disclaimer-bar strong{color:#fff}
+nav{position:sticky;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.04);padding:14px 0}
 .nav-inner{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:9px}
 .logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
@@ -23,13 +25,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252,
 .nav-cta{background:var(--dark);color:#fff;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;transition:transform .2s}
 .nav-cta:hover{transform:translateY(-1px)}
 @media(max-width:768px){.nav-links{display:none}}
-.hero{max-width:1140px;margin:0 auto;padding:120px 24px 50px;text-align:center}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:var(--red-soft);border:1px solid #FECACA;border-radius:100px;margin-bottom:24px;font-size:13px;font-weight:600;color:var(--red)}
-.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+.hero{max-width:1140px;margin:0 auto;padding:80px 24px 50px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:var(--green-soft);border:1px solid #A7F3D0;border-radius:100px;margin-bottom:24px;font-size:13px;font-weight:600;color:var(--green)}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.hero h1{font-size:clamp(36px,6vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:20px;color:var(--dark)}
+.hero h1{font-size:clamp(36px,6vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:20px;color:var(--dark)}
 .hero h1 span{background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:clamp(16px,2vw,19px);color:var(--gray);max-width:600px;margin:0 auto 36px;line-height:1.65}
+.hero-sub{font-size:clamp(16px,2vw,19px);color:var(--gray);max-width:620px;margin:0 auto 36px;line-height:1.65}
 .hero-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
 .btn-h{padding:15px 32px;border-radius:12px;font-size:16px;font-weight:700;font-family:'Outfit';border:none;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:8px}
 .btn-hp{background:var(--orange);color:#fff;box-shadow:0 4px 16px rgba(249,115,22,.25)}
@@ -37,13 +39,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252,
 .btn-ho{background:var(--white);color:var(--dark);border:2px solid var(--border)}
 .btn-ho:hover{border-color:var(--dark);background:var(--dark);color:#fff}
 .micro-trust{font-size:13px;color:var(--light);margin-bottom:36px}
-.trust{max-width:800px;margin:0 auto 60px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+.trust{max-width:880px;margin:0 auto 60px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
 .trust-item{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--gray);font-weight:500}
+.benefits{max-width:1140px;margin:0 auto 80px;padding:0 24px}
+.benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:980px){.benefits-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.benefits-grid{grid-template-columns:1fr}}
+.benefit-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;transition:all .25s}
+.benefit-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.benefit-icon{font-size:28px;margin-bottom:10px;display:block}
+.benefit-title{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:6px}
+.benefit-desc{font-size:13px;color:var(--gray);line-height:1.5}
 .categories{max-width:1140px;margin:0 auto 80px;padding:0 24px}
 .cat-header{text-align:center;margin-bottom:40px}
 .cat-eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:8px}
 .cat-title{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.03em;color:var(--dark)}
-.cat-sub{font-size:16px;color:var(--gray);max-width:560px;margin:8px auto 0;line-height:1.6}
+.cat-sub{font-size:16px;color:var(--gray);max-width:600px;margin:8px auto 0;line-height:1.6}
 .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 @media(max-width:980px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.cat-grid{grid-template-columns:1fr}}
@@ -67,6 +78,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252,
 .featured-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--red);color:#fff;border-radius:12px;font-size:15px;font-weight:700;transition:all .25s;margin-bottom:16px}
 .featured-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(220,38,38,.3)}
 .featured-trust{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--gray);font-weight:500}
+.featured-disclaimer{font-size:11px;color:var(--light);margin-top:14px;line-height:1.5;font-style:italic}
 .featured-right{flex:0 0 320px;position:relative;z-index:1}
 .featured-mockup{background:#fff;border-radius:16px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.04)}
 .fm-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
@@ -76,6 +88,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252,
 .fm-result{background:var(--red-soft);border-radius:10px;padding:14px;margin-top:12px;text-align:center}
 .fm-result-big{font-size:28px;font-weight:800;color:var(--red)}
 .fm-result-sub{font-size:12px;color:var(--gray);margin-top:2px}
+.fm-disclaimer{font-size:9px;color:var(--light);text-align:center;margin-top:8px;font-style:italic}
 @media(max-width:860px){.featured-card{flex-direction:column;padding:32px}.featured-right{flex:none;width:100%;max-width:360px}}
 .cat-section{max-width:1140px;margin:0 auto 64px;padding:0 24px;scroll-margin-top:80px}
 .cat-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px}
@@ -91,49 +104,41 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252,
 .tool-card.coming:hover{transform:none;box-shadow:none;border-color:var(--border)}
 .tool-emoji{font-size:24px;margin-bottom:10px;display:block}
 .tool-card h3{font-size:15px;font-weight:700;margin-bottom:5px;color:var(--dark);line-height:1.3}
-.tool-card p{font-size:12px;color:var(--gray);line-height:1.5;margin-bottom:14px;min-height:36px}
+.tool-card p{font-size:12px;color:var(--gray);line-height:1.5;margin-bottom:14px;min-height:48px}
 .tool-footer{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .tool-tag{font-size:10px;font-weight:600;padding:3px 8px;border-radius:5px;white-space:nowrap}
-.tag-save{background:var(--red-soft);color:var(--red)}
 .tag-free{background:var(--green-soft);color:var(--green)}
-.tag-fast{background:var(--blue-soft);color:var(--blue)}
-.tag-instant{background:#FEF3C7;color:#D97706}
-.tag-pro{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#92400E}
 .tag-coming{background:#F1F5F9;color:var(--light)}
 .tool-arrow{font-size:12px;color:var(--blue);font-weight:600;white-space:nowrap}
 .tool-badge{position:absolute;top:-1px;right:14px;background:var(--orange);color:#fff;font-size:9px;font-weight:700;padding:3px 8px;border-radius:0 0 6px 6px;text-transform:uppercase;letter-spacing:.04em}
 .tool-badge.new{background:var(--green)}
-.tool-badge.pro{background:linear-gradient(135deg,#F59E0B,#D97706)}
-.pro-teaser{max-width:1140px;margin:80px auto;padding:0 24px}
-.pro-card{background:linear-gradient(135deg,#0F172A 0%,#1E293B 100%);border-radius:24px;padding:48px;color:#fff;display:flex;align-items:center;gap:48px;position:relative;overflow:hidden}
-.pro-card::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;border-radius:50%;background:linear-gradient(135deg,rgba(245,158,11,.2),rgba(217,119,6,.1))}
-.pro-left{flex:1;position:relative;z-index:1}
-.pro-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:#FCD34D;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
-.pro-card h2{font-size:32px;font-weight:800;letter-spacing:-.03em;margin-bottom:12px}
-.pro-card p{font-size:16px;color:#CBD5E1;line-height:1.6;margin-bottom:24px;max-width:480px}
-.pro-features{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:28px}
-.pro-feature{font-size:13px;color:#E2E8F0;display:flex;align-items:center;gap:6px}
-.pro-pricing{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
-.pro-price{font-size:36px;font-weight:800;color:#fff}
-.pro-period{font-size:14px;color:#94A3B8}
-.pro-yearly{font-size:13px;color:#FCD34D;font-weight:600;margin-bottom:20px}
-.pro-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:#F59E0B;color:#fff;border-radius:12px;font-size:15px;font-weight:700;transition:all .25s;border:none;font-family:Outfit;cursor:pointer}
-.pro-cta.disabled{background:#475569;cursor:not-allowed;opacity:.7}
-.pro-right{flex:0 0 280px;position:relative;z-index:1}
-.pro-stack{display:flex;flex-direction:column;gap:10px}
-.pro-stack-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px;font-size:13px;color:#E2E8F0;display:flex;align-items:center;gap:10px}
-.pro-stack-item .check{color:#FCD34D;font-weight:700}
-@media(max-width:860px){.pro-card{flex-direction:column;padding:32px}.pro-right{flex:none;width:100%}}
+.why{max-width:1140px;margin:0 auto 80px;padding:0 24px}
+.why-card{background:linear-gradient(135deg,#0F172A 0%,#1E293B 100%);border-radius:24px;padding:60px 48px;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden}
+.why-card::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;border-radius:50%;background:rgba(37,99,235,.15)}
+.why-card::after{content:'';position:absolute;bottom:-80px;left:-80px;width:240px;height:240px;border-radius:50%;background:rgba(124,58,237,.1)}
+.why-left{position:relative;z-index:1}
+.why-left .cat-eyebrow{color:#FCD34D}
+.why-left h2{font-size:34px;font-weight:800;letter-spacing:-.03em;margin:8px 0 16px;line-height:1.15}
+.why-left p{font-size:16px;color:#CBD5E1;line-height:1.7;margin-bottom:14px}
+.why-cta{display:inline-flex;margin-top:14px;padding:14px 28px;background:var(--orange);color:#fff;border-radius:12px;font-size:15px;font-weight:700;transition:all .25s}
+.why-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.4)}
+.why-right{position:relative;z-index:1;display:grid;gap:12px}
+.why-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px;display:flex;gap:14px;align-items:flex-start}
+.why-icon{flex:0 0 36px;width:36px;height:36px;border-radius:8px;background:rgba(37,99,235,.2);color:#93C5FD;display:flex;align-items:center;justify-content:center;font-size:18px}
+.why-item-text strong{font-size:15px;color:#fff;display:block;margin-bottom:2px}
+.why-item-text span{font-size:13px;color:#CBD5E1;line-height:1.5}
+@media(max-width:860px){.why-card{grid-template-columns:1fr;padding:40px 32px}}
 .pain{max-width:1140px;margin:0 auto 80px;padding:0 24px}
 .pain-card{background:#0F172A;color:#fff;border-radius:24px;padding:60px 48px;text-align:center;position:relative;overflow:hidden}
 .pain-card::before{content:'';position:absolute;top:-100px;left:-100px;width:300px;height:300px;border-radius:50%;background:rgba(220,38,38,.08)}
 .pain-card::after{content:'';position:absolute;bottom:-100px;right:-100px;width:300px;height:300px;border-radius:50%;background:rgba(124,58,237,.08)}
 .pain-card h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.03em;margin-bottom:18px;position:relative;z-index:1}
 .pain-card h2 span{color:#FCA5A5}
-.pain-card p{font-size:17px;color:#CBD5E1;max-width:640px;margin:0 auto 16px;line-height:1.7;position:relative;z-index:1}
+.pain-card p{font-size:17px;color:#CBD5E1;max-width:680px;margin:0 auto 16px;line-height:1.7;position:relative;z-index:1}
 .pain-card .pain-stress{font-size:18px;color:#FCA5A5;font-weight:600;margin-top:24px;position:relative;z-index:1}
 .pain-card .pain-cta{margin-top:32px;display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--orange);color:#fff;border-radius:12px;font-size:16px;font-weight:700;transition:all .25s;position:relative;z-index:1}
 .pain-card .pain-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.4)}
+.pain-disclaimer{font-size:11px;color:#64748B;margin-top:20px;font-style:italic;position:relative;z-index:1}
 .how{padding:64px 0;background:var(--white);margin-bottom:80px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1140px;margin:0 auto;padding:0 24px}
 @media(max-width:700px){.how-grid{grid-template-columns:1fr}}
@@ -147,15 +152,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252,
 .faq-q span{font-size:20px;color:var(--light);transition:transform .3s}
 .faq-q.open span{transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:14px;color:var(--gray);line-height:1.7}
-.faq-a.open{max-height:400px;padding-top:12px}
+.faq-a.open{max-height:600px;padding-top:12px}
 .cta-bottom{max-width:1140px;margin:0 auto 80px;padding:0 24px}
 .cta-card{background:linear-gradient(135deg,var(--dark) 0%,#1E293B 100%);border-radius:24px;padding:64px 48px;text-align:center;color:#fff;position:relative;overflow:hidden}
 .cta-card::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;border-radius:50%;background:rgba(37,99,235,.15)}
 .cta-card h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.03em;margin-bottom:12px}
-.cta-card p{font-size:17px;color:#94A3B8;max-width:480px;margin:0 auto 32px;line-height:1.6}
+.cta-card p{font-size:17px;color:#94A3B8;max-width:520px;margin:0 auto 32px;line-height:1.6}
 .cta-btn{display:inline-flex;padding:16px 36px;background:var(--orange);color:#fff;border-radius:12px;font-size:17px;font-weight:700;transition:all .25s}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.4)}
 .cta-guarantee{margin-top:20px;font-size:13px;color:#94A3B8;display:flex;align-items:center;justify-content:center;gap:6px}
+.legal-footer{background:#F1F5F9;border-top:1px solid var(--border);padding:32px 0}
+.legal-footer-inner{max-width:1140px;margin:0 auto;padding:0 24px;font-size:12px;color:var(--gray);line-height:1.7}
+.legal-footer-inner strong{color:var(--ink);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
 footer{border-top:1px solid var(--border);padding:48px 0 32px;background:var(--white)}
 .footer-inner{max-width:1140px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
 .footer-col h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--dark);margin-bottom:12px}
@@ -172,41 +180,53 @@ footer{border-top:1px solid var(--border);padding:48px 0 32px;background:var(--w
 </style>
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a><div class="nav-links"><a href="#categorieen">Categorieën</a><a href="#hoe-het-werkt">Hoe het werkt</a><a href="#pro">Pro</a><a href="#faq">FAQ</a><a href="/huurcheck.html" class="nav-cta">Gratis huurcheck →</a></div></div></nav>
+
+<div class="disclaimer-bar">ℹ️ Fixlify biedt <strong>indicatieve hulpmiddelen</strong> — geen juridisch, fiscaal of financieel advies. Resultaten zijn richtwaarden.</div>
+
+<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a><div class="nav-links"><a href="#categorieen">Categorieën</a><a href="#waarom">Waarom Fixlify</a><a href="#hoe-het-werkt">Hoe het werkt</a><a href="#faq">FAQ</a><a href="/huurcheck.html" class="nav-cta">Gratis huurcheck →</a></div></div></nav>
 
 <section class="hero">
-<div class="hero-badge"><span class="hero-badge-dot"></span> 50+ slimme tools voor heel Nederland</div>
-<h1>Slimme tools voor<br><span>werk, wonen & geld</span></h1>
-<p class="hero-sub">Van huurcheck tot factuurmaker. Gratis calculators en betaalbare professionele documenten — alles in minuten geregeld, zonder advocaat of duur abonnement.</p>
+<div class="hero-badge"><span class="hero-badge-dot"></span> 50+ tools — 100% gratis, voor altijd</div>
+<h1>De beste gratis<br><span>Nederlandse tools.</span></h1>
+<p class="hero-sub">Snel je nettoloon berekenen, een professioneel CV opmaken of checken of je teveel huur betaalt. 50+ tools voor werk, wonen en geld — gratis, geen account, direct downloadbaar.</p>
 <div class="hero-buttons">
 <a href="#categorieen" class="btn-h btn-hp">🚀 Bekijk alle 50+ tools</a>
 <a href="/huurcheck.html" class="btn-h btn-ho">Start huurcheck</a>
 </div>
-<div class="micro-trust">Geen account nodig · Direct resultaat · 100% privé</div>
+<div class="micro-trust">Geen account · Direct resultaat · 100% privé · Nooit kosten</div>
 </section>
 
 <div class="trust">
-<div class="trust-item">✓ Geen account nodig</div>
+<div class="trust-item">✓ Volledig gratis</div>
 <div class="trust-item">⚡ Direct resultaat</div>
 <div class="trust-item">🔒 Privé in je browser</div>
-<div class="trust-item">🇳🇱 100% Nederlands</div>
+<div class="trust-item">🇳🇱 Voor Nederlanders</div>
 </div>
+
+<section class="benefits">
+<div class="benefits-grid">
+<div class="benefit-card"><span class="benefit-icon">💸</span><div class="benefit-title">Volledig gratis</div><div class="benefit-desc">Alle tools gratis te gebruiken. Geen verborgen kosten, geen abonnement.</div></div>
+<div class="benefit-card"><span class="benefit-icon">⚡</span><div class="benefit-title">In 2 minuten klaar</div><div class="benefit-desc">Geen account, geen gedoe. Vul in en je antwoord staat er direct.</div></div>
+<div class="benefit-card"><span class="benefit-icon">🔒</span><div class="benefit-title">100% privé</div><div class="benefit-desc">Je gegevens blijven in je browser. We slaan niets op, geen tracking.</div></div>
+<div class="benefit-card"><span class="benefit-icon">🇳🇱</span><div class="benefit-title">Voor Nederland</div><div class="benefit-desc">Alle tools toegespitst op de Nederlandse situatie en taal.</div></div>
+</div>
+</section>
 
 <section class="categories" id="categorieen">
 <div class="cat-header">
 <div class="cat-eyebrow">Alle categorieën</div>
 <div class="cat-title">Vind de tool die jij nodig hebt</div>
-<p class="cat-sub">7 categorieën met 50+ tools voor elke Nederlander.</p>
+<p class="cat-sub">7 categorieën met 50+ tools. Allemaal gratis, geen verborgen kosten.</p>
 </div>
 <div class="cat-grid">
 <a href="#wonen" class="cat-card"><span class="cat-icon">🏠</span><div class="cat-name">Wonen</div><div class="cat-count">8 tools</div><span class="cat-arrow">Bekijken →</span></a>
 <a href="#werk" class="cat-card"><span class="cat-icon">💼</span><div class="cat-name">Werk</div><div class="cat-count">8 tools</div><span class="cat-arrow">Bekijken →</span></a>
 <a href="#zzp" class="cat-card"><span class="cat-icon">📊</span><div class="cat-name">ZZP & Admin</div><div class="cat-count">7 tools</div><span class="cat-arrow">Bekijken →</span></a>
 <a href="#geld" class="cat-card"><span class="cat-icon">💰</span><div class="cat-name">Geld & Belasting</div><div class="cat-count">10 tools</div><span class="cat-arrow">Bekijken →</span></a>
-<a href="#juridisch" class="cat-card"><span class="cat-icon">⚖️</span><div class="cat-name">Juridisch</div><div class="cat-count">6 tools</div><span class="cat-arrow">Bekijken →</span></a>
+<a href="#juridisch" class="cat-card"><span class="cat-icon">⚖️</span><div class="cat-name">Brieven & Bezwaar</div><div class="cat-count">6 tools</div><span class="cat-arrow">Bekijken →</span></a>
 <a href="#ai" class="cat-card"><span class="cat-icon">🤖</span><div class="cat-name">AI Tools</div><div class="cat-count">6 tools</div><span class="cat-arrow">Bekijken →</span></a>
 <a href="#excel" class="cat-card"><span class="cat-icon">📑</span><div class="cat-name">Excel & Templates</div><div class="cat-count">5 tools</div><span class="cat-arrow">Bekijken →</span></a>
-<a href="#pro" class="cat-card" style="background:linear-gradient(135deg,#0F172A,#1E293B);color:#fff;border-color:#1E293B"><span class="cat-icon">⭐</span><div class="cat-name" style="color:#fff">Pro Abonnement</div><div class="cat-count" style="color:#94A3B8">Alles unlimited</div><span class="cat-arrow" style="color:#FCD34D">Meer info →</span></a>
+<a href="#waarom" class="cat-card" style="background:linear-gradient(135deg,#0F172A,#1E293B);color:#fff;border-color:#1E293B"><span class="cat-icon">⭐</span><div class="cat-name" style="color:#fff">Waarom Fixlify?</div><div class="cat-count" style="color:#94A3B8">Lees meer</div><span class="cat-arrow" style="color:#FCD34D">Ontdekken →</span></a>
 </div>
 </section>
 
@@ -214,166 +234,152 @@ footer{border-top:1px solid var(--border);padding:48px 0 32px;background:var(--w
 <div class="featured-left">
 <div class="featured-label">🔥 Meest gebruikte tool</div>
 <h2>Betaal jij teveel huur?</h2>
-<p>Veel huurders betalen meer dan wettelijk is toegestaan. Met de Huurcommissie kun je tot 12 maanden teruggaande huur terugvorderen — als je op tijd bezwaar maakt.</p>
+<p>Veel huurders in Nederland betalen meer dan strikt nodig. Met onze gratis huurcheck krijg je in 2 minuten een indicatie of je een te hoge huur hebt — inclusief twee voorbeeldbrieven die je direct kunt downloaden als PDF.</p>
 <div class="featured-stats">
 <div class="featured-stat"><div class="featured-stat-value">3,5M</div><div class="featured-stat-label">huurders in NL</div></div>
-<div class="featured-stat"><div class="featured-stat-value">€200+</div><div class="featured-stat-label">gem. teveel p/m</div></div>
-<div class="featured-stat"><div class="featured-stat-value">12 mnd</div><div class="featured-stat-label">terug te vorderen</div></div>
+<div class="featured-stat"><div class="featured-stat-value">2 min</div><div class="featured-stat-label">snelle check</div></div>
+<div class="featured-stat"><div class="featured-stat-value">Gratis</div><div class="featured-stat-label">geen kosten</div></div>
 </div>
-<a href="/huurcheck.html" class="featured-btn">Gratis huurcheck — duurt 2 min →</a>
-<div class="featured-trust"><span>🔒 Veilig & privé</span><span>⚡ Direct resultaat</span><span>📄 Direct downloadbaar</span></div>
+<a href="/huurcheck.html" class="featured-btn">Doe gratis de huurcheck →</a>
+<div class="featured-trust"><span>🔒 Privé</span><span>⚡ Direct</span><span>📄 Direct downloadbaar</span></div>
+<div class="featured-disclaimer">Indicatieve berekening. Geen juridisch advies. Voor jouw specifieke situatie raden we aan contact op te nemen met de Huurcommissie of het Juridisch Loket.</div>
 </div>
 <div class="featured-right"><div class="featured-mockup">
 <div class="fm-row"><span class="fm-label">Oppervlakte</span><span class="fm-value">35 m²</span></div>
 <div class="fm-row"><span class="fm-label">Energielabel</span><span class="fm-value">C</span></div>
 <div class="fm-row"><span class="fm-label">Huidige huur</span><span class="fm-value">€ 950</span></div>
-<div class="fm-row"><span class="fm-label">Max. huur</span><span class="fm-value" style="color:var(--green)">€ 487</span></div>
-<div class="fm-result"><div class="fm-result-big">€463 teveel</div><div class="fm-result-sub">per maand · €5.556 per jaar</div></div>
+<div class="fm-row"><span class="fm-label">Indicatie max.</span><span class="fm-value" style="color:var(--green)">€ 487</span></div>
+<div class="fm-result"><div class="fm-result-big">€463 indicatie</div><div class="fm-result-sub">verschil per maand</div></div>
+<div class="fm-disclaimer">Voorbeeldberekening — niet bindend</div>
 </div></div>
 </div></div>
 
 <section class="cat-section" id="wonen">
-<div class="cat-section-header"><div class="cat-section-title"><span class="icon">🏠</span> Wonen</div><div class="cat-section-tagline">Geld besparen op je woning</div></div>
+<div class="cat-section-header"><div class="cat-section-title"><span class="icon">🏠</span> Wonen</div><div class="cat-section-tagline">Slim met je woonsituatie</div></div>
 <div class="tools-grid">
-<a href="/huurcheck.html" class="tool-card"><div class="tool-badge">Populair</div><span class="tool-emoji">🏠</span><h3>Huurcommissie Bezwaar</h3><p>Check of je teveel huur betaalt en genereer direct een bezwaarbrief.</p><div class="tool-footer"><span class="tool-tag tag-save">€9,99</span><span class="tool-arrow">Starten →</span></div></a>
-<a href="/hypotheek-vs-huur.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">📊</span><h3>Hypotheek vs Huur</h3><p>Bereken of kopen of huren financieel voordeliger is voor jou.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
-<a href="/servicekosten-checker.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">📋</span><h3>Servicekosten Checker</h3><p>Check of je servicekosten kloppen volgens de wet.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Checken →</span></div></a>
-<a href="/woz-bezwaar.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">📄</span><h3>WOZ-Bezwaar Generator</h3><p>Maak bezwaar tegen je WOZ-waarde en bespaar honderden euro's.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Starten →</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">💳</span><h3>Borg-terug Brief</h3><p>Verhuurder betaalt je borg niet terug? Stuur deze brief.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">📈</span><h3>Huurverhoging Checker</h3><p>Mag je verhuurder de huur verhogen? En met hoeveel max?</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">⚡</span><h3>Energielabel Calculator</h3><p>Bereken het energielabel van je woning (indicatief).</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">📦</span><h3>Verhuiskosten Calculator</h3><p>Bereken hoeveel je verhuizing gaat kosten.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="/huurcheck.html" class="tool-card"><div class="tool-badge">Populair</div><span class="tool-emoji">🏠</span><h3>Huurcheck</h3><p>Krijg een indicatie of je huur in lijn is met de richtlijnen. Inclusief twee voorbeeldbrieven om direct te downloaden.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Starten →</span></div></a>
+<a href="/hypotheek-vs-huur.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">📊</span><h3>Hypotheek vs Huur</h3><p>Vergelijk indicatief of kopen of huren voordeliger uitkomt voor jouw situatie.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Vergelijken →</span></div></a>
+<a href="/servicekosten-checker.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">📋</span><h3>Servicekosten Check</h3><p>Krijg inzicht in waar je servicekosten uit bestaan en wat normale richtwaarden zijn.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Bekijken →</span></div></a>
+<a href="/woz-bezwaar.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">📄</span><h3>WOZ-Bezwaar Voorbeeld</h3><p>Voorbeeldbrief voor bezwaar tegen je WOZ-waarde — met de juiste opbouw.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Genereren →</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">💳</span><h3>Borg-terug Brief</h3><p>Voorbeeldbrief om je verhuurder te vragen je borg terug te storten.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📈</span><h3>Huurverhoging Check</h3><p>Krijg een indicatie of een aangekondigde huurverhoging redelijk is.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">⚡</span><h3>Energielabel Indicatie</h3><p>Indicatieve schatting van het energielabel van je woning.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📦</span><h3>Verhuiskosten Schatter</h3><p>Krijg een indicatie van wat je verhuizing ongeveer gaat kosten.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
 </div>
 </section>
 
 <section class="cat-section" id="werk">
 <div class="cat-section-header"><div class="cat-section-title"><span class="icon">💼</span> Werk & Sollicitatie</div><div class="cat-section-tagline">Krijg de baan die je wilt</div></div>
 <div class="tools-grid">
-<a href="/cv-maker.html" class="tool-card"><span class="tool-emoji">📄</span><h3>CV Maker</h3><p>Professioneel CV in minuten. Templates, direct download als PDF.</p><div class="tool-footer"><span class="tool-tag tag-fast">€2,99</span><span class="tool-arrow">Maken →</span></div></a>
-<a href="/sollicitatiebrief.html" class="tool-card"><span class="tool-emoji">✉️</span><h3>Sollicitatiebrief AI</h3><p>Krachtige sollicitatiebrief op maat. Met AI gegenereerd.</p><div class="tool-footer"><span class="tool-tag tag-instant">€2,99</span><span class="tool-arrow">Genereren →</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">💼</span><h3>LinkedIn Optimizer AI</h3><p>Verbeter je LinkedIn profiel met AI suggesties.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">💪</span><h3>Salarisonderhandeling Script</h3><p>AI script om succesvol je salaris te onderhandelen.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="/vakantiedagen.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">🏖️</span><h3>Vakantiedagen Calculator</h3><p>Bereken je opgebouwde en resterende vakantiedagen.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">📊</span><h3>WW-uitkering Check</h3><p>Heb je recht op WW en hoe hoog is dat?</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">📜</span><h3>Concurrentiebeding Checker</h3><p>Is jouw concurrentiebeding wel geldig?</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="/reiskostenvergoeding.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">🚗</span><h3>Reiskostenvergoeding</h3><p>Bereken je netto reiskostenvergoeding.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
+<a href="/cv-maker.html" class="tool-card"><div class="tool-badge new">Gratis</div><span class="tool-emoji">📄</span><h3>CV Maker</h3><p>Maak een professioneel CV met 5 templates. Direct downloaden als PDF — geen watermerk.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Maken →</span></div></a>
+<a href="/sollicitatiebrief.html" class="tool-card"><span class="tool-emoji">✉️</span><h3>Sollicitatiebrief AI</h3><p>Krachtige sollicitatiebrief op maat — door AI geschreven op basis van vacature en profiel.</p><div class="tool-footer"><span class="tool-arrow">Genereren →</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">💼</span><h3>LinkedIn Optimizer</h3><p>Krijg AI-suggesties om je LinkedIn profiel sterker te maken.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">💪</span><h3>Salarisonderhandeling</h3><p>Inspiratie en voorbeeldzinnen voor een salarisgesprek met je werkgever.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="/vakantiedagen.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">🏖️</span><h3>Vakantiedagen Calculator</h3><p>Indicatie van je opgebouwde vakantiedagen op basis van je werksituatie.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📊</span><h3>WW Indicatie</h3><p>Krijg een ruwe schatting van je mogelijke WW-uitkering.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📜</span><h3>Concurrentiebeding Check</h3><p>Krijg inzicht in wat normale eisen aan een concurrentiebeding zijn.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="/reiskostenvergoeding.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">🚗</span><h3>Reiskostenvergoeding</h3><p>Indicatie van je netto reiskostenvergoeding met actuele richtbedragen.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
 </div>
 </section>
 
 <section class="cat-section" id="zzp">
-<div class="cat-section-header"><div class="cat-section-title"><span class="icon">📊</span> ZZP & Admin</div><div class="cat-section-tagline">Professioneel ondernemen zonder gedoe</div></div>
+<div class="cat-section-header"><div class="cat-section-title"><span class="icon">📊</span> ZZP & Admin</div><div class="cat-section-tagline">Ondernemen zonder gedoe</div></div>
 <div class="tools-grid">
-<a href="/factuur.html" class="tool-card"><span class="tool-emoji">🧾</span><h3>Factuur Generator</h3><p>Professionele facturen voor ZZP'ers. Direct PDF.</p><div class="tool-footer"><span class="tool-tag tag-fast">€0,50</span><span class="tool-arrow">Maken →</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">📝</span><h3>Offerte Generator</h3><p>Maak professionele offertes met één klik.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">📨</span><h3>Aanmaning Generator</h3><p>Klant betaalt niet? Stuur direct een aanmaning.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="/zzp-uurtarief.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">💰</span><h3>ZZP Uurtarief Calculator</h3><p>Wat moet jij vragen om winstgevend te zijn?</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">📋</span><h3>Algemene Voorwaarden</h3><p>Genereer jouw AV voor klanten in 5 minuten.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">🔒</span><h3>Privacyverklaring AVG</h3><p>AVG-proof privacyverklaring voor je website.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">🐷</span><h3>Reservering ZZP Calculator</h3><p>Hoeveel moet je opzij zetten voor belasting?</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="/factuur.html" class="tool-card"><span class="tool-emoji">🧾</span><h3>Factuur Generator</h3><p>Mooie factuur opmaken met je gegevens en logo. Direct downloaden als PDF.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Maken →</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📝</span><h3>Offerte Generator</h3><p>Maak in een paar minuten een professioneel ogende offerte voor je klant.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📨</span><h3>Aanmaning Voorbeeld</h3><p>Voorbeeldbrief voor wanneer een klant te lang wacht met betalen.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="/zzp-uurtarief.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">💰</span><h3>ZZP Uurtarief</h3><p>Indicatie van een redelijk uurtarief op basis van jouw kosten en gewenst inkomen.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📋</span><h3>Algemene Voorwaarden</h3><p>Voorbeeld-AV waarmee je een eigen versie kunt opstellen voor je bedrijf.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">🔒</span><h3>Privacyverklaring</h3><p>Voorbeeldverklaring als basis voor je eigen privacy-pagina.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">🐷</span><h3>ZZP Reservering</h3><p>Indicatie van hoeveel je opzij kunt zetten voor belastingen.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
 </div>
 </section>
 
 <section class="cat-section" id="geld">
 <div class="cat-section-header"><div class="cat-section-title"><span class="icon">💰</span> Geld & Belasting</div><div class="cat-section-tagline">Krijg grip op je financiën</div></div>
 <div class="tools-grid">
-<a href="/nettoloon.html" class="tool-card"><div class="tool-badge">Populair</div><span class="tool-emoji">💰</span><h3>Nettoloon Calculator</h3><p>Bereken wat je overhoudt van je bruto salaris in 2026.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
-<a href="/btw-calculator.html" class="tool-card"><span class="tool-emoji">📊</span><h3>BTW Calculator</h3><p>BTW berekenen en terugrekenen. Actuele tarieven 2026.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">🌴</span><h3>Vakantiegeld Calculator</h3><p>Hoeveel vakantiegeld krijg je in mei?</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="/auto-bijtelling.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">🚗</span><h3>Auto Bijtelling</h3><p>Bereken je netto bijtelling auto van de zaak.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
-<a href="/studieschuld.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">🎓</span><h3>Studieschuld Calculator</h3><p>Hoeveel betaal je af per maand en wanneer ben je klaar?</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
-<a href="/pensioen.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">👴</span><h3>Pensioencalculator</h3><p>Hoeveel pensioen krijg je later? Reken het uit.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">📈</span><h3>Spaargeld Groei</h3><p>Hoeveel groeit je spaargeld over X jaar?</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="/toeslagen.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">🏥</span><h3>Toeslagen Check</h3><p>Heb je recht op zorgtoeslag of huurtoeslag?</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Checken →</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">💸</span><h3>Belastingteruggave</h3><p>Hoeveel belasting krijg je terug dit jaar?</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">🚙</span><h3>Lease vs Koop Auto</h3><p>Auto leasen of kopen — wat is voordeliger?</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="/nettoloon.html" class="tool-card"><div class="tool-badge">Populair</div><span class="tool-emoji">💰</span><h3>Nettoloon Calculator</h3><p>Krijg een indicatie van wat je netto overhoudt op basis van je bruto salaris.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
+<a href="/btw-calculator.html" class="tool-card"><span class="tool-emoji">📊</span><h3>BTW Calculator</h3><p>BTW snel berekenen of terugrekenen met de Nederlandse tarieven.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">🌴</span><h3>Vakantiegeld Indicatie</h3><p>Hoeveel vakantiegeld krijg je in mei? Krijg een snelle schatting.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="/auto-bijtelling.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">🚗</span><h3>Auto Bijtelling</h3><p>Indicatie van je netto bijtelling voor een auto van de zaak.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
+<a href="/studieschuld.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">🎓</span><h3>Studieschuld Calculator</h3><p>Indicatie van je maandelijkse aflossing en wanneer je klaar bent.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
+<a href="/pensioen.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">👴</span><h3>Pensioen Indicatie</h3><p>Krijg een ruwe schatting van je toekomstige pensioen.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📈</span><h3>Spaargeld Groei</h3><p>Indicatie van hoe je spaargeld zou kunnen groeien over de jaren.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="/toeslagen.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">🏥</span><h3>Toeslagen Indicatie</h3><p>Krijg een ruwe indicatie of zorgtoeslag of huurtoeslag voor jou interessant kan zijn.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Bekijken →</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">💸</span><h3>Belastingteruggave</h3><p>Indicatie van wat je dit jaar mogelijk terug kunt krijgen.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">🚙</span><h3>Lease vs Koop</h3><p>Indicatieve vergelijking tussen leasen of zelf een auto kopen.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
 </div>
 </section>
 
 <section class="cat-section" id="juridisch">
-<div class="cat-section-header"><div class="cat-section-title"><span class="icon">⚖️</span> Juridisch</div><div class="cat-section-tagline">Sta sterker met de juiste brieven</div></div>
+<div class="cat-section-header"><div class="cat-section-title"><span class="icon">⚖️</span> Brieven & Bezwaar</div><div class="cat-section-tagline">Voorbeeldbrieven om mee te starten</div></div>
 <div class="tools-grid">
-<a href="#" class="tool-card coming"><span class="tool-emoji">🚨</span><h3>Verkeersboete Bezwaar</h3><p>Onterechte boete? Maak bezwaar met deze brief.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">🛡️</span><h3>Garantie Claim Brief</h3><p>Product kapot binnen garantie? Eis vervanging.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">💸</span><h3>Refund Claim Brief</h3><p>Geld terug eisen van een bedrijf.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">😤</span><h3>Klacht bij Bedrijf</h3><p>Officiële klacht indienen die wel serieus genomen wordt.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">🤝</span><h3>NDA Generator</h3><p>Geheimhoudingsovereenkomst in jouw stijl.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">🏘️</span><h3>Burenruzie Brief</h3><p>Officiële brief voor herrie/overlast door buren.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">🚨</span><h3>Verkeersboete Bezwaar</h3><p>Voorbeeldbrief als basis voor een eigen bezwaar tegen een verkeersboete.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">🛡️</span><h3>Garantie Brief</h3><p>Voorbeeldbrief om bij een verkoper aan te kloppen voor garantie.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">💸</span><h3>Refund Voorbeeld</h3><p>Voorbeeldbrief om je geld terug te vragen bij een aankoop.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">😤</span><h3>Klachtbrief Voorbeeld</h3><p>Voorbeeld om een serieuze klacht in te dienen bij een bedrijf.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">🤝</span><h3>NDA Voorbeeld</h3><p>Voorbeeld-geheimhoudingsovereenkomst als basis voor eigen aanpassingen.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">🏘️</span><h3>Burenoverlast Brief</h3><p>Voorbeeldbrief om buren aan te schrijven over aanhoudende overlast.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
 </div>
 </section>
 
 <section class="cat-section" id="ai">
 <div class="cat-section-header"><div class="cat-section-title"><span class="icon">🤖</span> AI Tools</div><div class="cat-section-tagline">Bespaar uren werk met AI</div></div>
 <div class="tools-grid">
-<a href="#" class="tool-card coming"><div class="tool-badge pro">Pro</div><span class="tool-emoji">📧</span><h3>Email Schrijver</h3><p>AI schrijft de perfecte zakelijke email voor jou.</p><div class="tool-footer"><span class="tool-tag tag-pro">Pro</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><div class="tool-badge pro">Pro</div><span class="tool-emoji">📝</span><h3>Notulen Samenvatter</h3><p>Vergaderingsnotulen samenvatten met AI.</p><div class="tool-footer"><span class="tool-tag tag-pro">Pro</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><div class="tool-badge pro">Pro</div><span class="tool-emoji">📄</span><h3>Document Samenvatter</h3><p>Lange documenten in seconden samenvatten.</p><div class="tool-footer"><span class="tool-tag tag-pro">Pro</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><div class="tool-badge pro">Pro</div><span class="tool-emoji">🌍</span><h3>Vertaler NL ↔ EN/DE/FR</h3><p>Professionele vertalingen door AI.</p><div class="tool-footer"><span class="tool-tag tag-pro">Pro</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><div class="tool-badge pro">Pro</div><span class="tool-emoji">🎭</span><h3>Tone Check Email</h3><p>Klinkt mijn email wel goed? AI checkt de toon.</p><div class="tool-footer"><span class="tool-tag tag-pro">Pro</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><div class="tool-badge pro">Pro</div><span class="tool-emoji">✏️</span><h3>Tekstcorrector NL</h3><p>Spelling en grammatica perfect met AI.</p><div class="tool-footer"><span class="tool-tag tag-pro">Pro</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📧</span><h3>Email Schrijver</h3><p>Laat AI helpen met het schrijven van een goede zakelijke email.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📝</span><h3>Notulen Samenvatter</h3><p>Vergaderingsnotulen automatisch laten samenvatten met AI.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📄</span><h3>Document Samenvatter</h3><p>Lange documenten in seconden laten samenvatten door AI.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">🌍</span><h3>Vertaler NL ↔ EN/DE/FR</h3><p>Snelle vertalingen tussen Nederlands en andere talen.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">🎭</span><h3>Tone Check</h3><p>Klinkt mijn email goed? Laat AI de toon checken voor je hem verstuurt.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">✏️</span><h3>Tekstcorrector NL</h3><p>Spelling en grammatica laten checken door AI.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
 </div>
 </section>
 
 <section class="cat-section" id="excel">
 <div class="cat-section-header"><div class="cat-section-title"><span class="icon">📑</span> Excel & Templates</div><div class="cat-section-tagline">Kant-en-klare templates voor je administratie</div></div>
 <div class="tools-grid">
-<a href="#" class="tool-card coming"><span class="tool-emoji">📊</span><h3>Huishoudboekje Template</h3><p>Houd je inkomsten en uitgaven bij in Excel.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">⏰</span><h3>Urenregistratie ZZP</h3><p>Registreer je gewerkte uren per klant.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">📚</span><h3>Boekhouding ZZP</h3><p>Simpele boekhouding template voor ZZP'ers.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
-<a href="#" class="tool-card coming"><span class="tool-emoji">🚗</span><h3>Kilometerregistratie</h3><p>Track zakelijke kilometers voor de Belastingdienst.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📊</span><h3>Huishoudboekje</h3><p>Excel template om je inkomsten en uitgaven overzichtelijk bij te houden.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">⏰</span><h3>Urenregistratie ZZP</h3><p>Template om je gewerkte uren per klant te registreren.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">📚</span><h3>Boekhouding ZZP</h3><p>Eenvoudige boekhouding-template voor zelfstandigen.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
+<a href="#" class="tool-card coming"><span class="tool-emoji">🚗</span><h3>Kilometerregistratie</h3><p>Template voor je rittenadministratie en zakelijke kilometers.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
 <a href="#" class="tool-card coming"><span class="tool-emoji">📅</span><h3>Project Planner</h3><p>Plan je projecten in een overzichtelijke template.</p><div class="tool-footer"><span class="tool-tag tag-coming">Binnenkort</span><span class="tool-arrow" style="color:var(--light)">Soon</span></div></a>
 </div>
 </section>
 
-<section class="pro-teaser" id="pro">
-<div class="pro-card">
-<div class="pro-left">
-<div class="pro-badge">⭐ Binnenkort: Fixlify Pro</div>
-<h2>Alle tools onbeperkt voor één prijs</h2>
-<p>Power users en ZZP'ers — schaf het Pro abonnement aan en gebruik alle 50+ tools onbeperkt zonder watermerk. Plus AI productivity tools die alleen voor Pro beschikbaar zijn.</p>
-<div class="pro-features">
-<div class="pro-feature">✓ Alle tools unlimited</div>
-<div class="pro-feature">✓ Watermerk weg</div>
-<div class="pro-feature">✓ AI productivity tools</div>
-<div class="pro-feature">✓ Onbeperkt facturen</div>
-<div class="pro-feature">✓ Premium templates</div>
-<div class="pro-feature">✓ 7 dagen gratis trial</div>
+<section class="why" id="waarom">
+<div class="why-card">
+<div class="why-left">
+<div class="cat-eyebrow">Waarom Fixlify?</div>
+<h2>De gratis toolsite waar Nederland écht iets aan heeft.</h2>
+<p>Geen abonnementen, geen verborgen kosten, geen verplichte accounts. Geen e-mail-popups die je tien keer per pagina achtervolgen. Geen watermerken op je downloads. Gewoon: tools die werken, in jouw taal, op jouw situatie.</p>
+<a href="#categorieen" class="why-cta">Bekijk de tools →</a>
 </div>
-<div class="pro-pricing">
-<div class="pro-price">€9,99</div>
-<div class="pro-period">/maand</div>
-</div>
-<div class="pro-yearly">Of €99/jaar (bespaar €20)</div>
-<button class="pro-cta disabled">Beschikbaar binnen 4 weken</button>
-</div>
-<div class="pro-right">
-<div class="pro-stack">
-<div class="pro-stack-item"><span class="check">✓</span> Onbeperkt huurchecks</div>
-<div class="pro-stack-item"><span class="check">✓</span> Onbeperkt facturen</div>
-<div class="pro-stack-item"><span class="check">✓</span> Onbeperkt sollicitatiebrieven</div>
-<div class="pro-stack-item"><span class="check">✓</span> AI email schrijver</div>
-<div class="pro-stack-item"><span class="check">✓</span> AI vertaler</div>
-<div class="pro-stack-item"><span class="check">✓</span> En 45+ andere tools</div>
-</div>
+<div class="why-right">
+<div class="why-item"><div class="why-icon">💸</div><div class="why-item-text"><strong>Gratis blijft gratis</strong><span>Geen paywalls, ook niet later. Geen "premium" knopjes verstopt in de tools.</span></div></div>
+<div class="why-item"><div class="why-icon">⚡</div><div class="why-item-text"><strong>Direct bruikbaar</strong><span>Je krijgt meteen wat je zoekt — geen registratie, geen mail-bevestiging, geen wachten.</span></div></div>
+<div class="why-item"><div class="why-icon">🔒</div><div class="why-item-text"><strong>Privé per ontwerp</strong><span>Veel berekeningen draaien in je browser. We slaan geen persoonsgegevens op externe servers op.</span></div></div>
+<div class="why-item"><div class="why-icon">🇳🇱</div><div class="why-item-text"><strong>Echt Nederlands</strong><span>Geen vertaalde Amerikaanse calculators. Alles is gemaakt voor de Nederlandse situatie.</span></div></div>
 </div>
 </div>
 </section>
 
 <section class="pain">
 <div class="pain-card">
-<h2>Elke maand dat je wacht, <span>kost je geld.</span></h2>
-<p>Het verschil tussen wettelijke maximumhuur en wat huurders daadwerkelijk betalen kan oplopen tot meer dan <strong style="color:#fff">€200 per maand</strong>. Dat is meer dan <strong style="color:#fff">€2.400 per jaar</strong> — geld dat je nu mist.</p>
-<p>De Huurcommissie kan dit verschil <strong style="color:#fff">tot 12 maanden met terugwerkende kracht</strong> laten terugbetalen. Maar alleen als je op tijd bezwaar maakt.</p>
-<div class="pain-stress">Hoe langer je wacht, hoe meer geld weg is.</div>
-<a href="/huurcheck.html" class="pain-cta">Check nu gratis je huur →</a>
+<h2>Goedkoper, sneller en <span>zonder gedoe.</span></h2>
+<p>Veel mensen verliezen tijd en geld omdat ze geen zin hebben in de hassle — een huurcheck regelen, een CV opmaken, hun nettoloon uitrekenen. Bij Fixlify doe je het in 2 minuten.</p>
+<p>Geen abonnement, geen account, geen kosten. Hou je portemonnee in je zak.</p>
+<div class="pain-stress">Wat heb je nu eigenlijk nog te verliezen?</div>
+<a href="/huurcheck.html" class="pain-cta">Doe gratis de huurcheck →</a>
+<div class="pain-disclaimer">Onze tools geven indicatieve resultaten en vervangen geen professioneel juridisch of financieel advies.</div>
 </div>
 </section>
 
 <section class="how" id="hoe-het-werkt">
 <div style="max-width:1140px;margin:0 auto 48px;padding:0 24px;text-align:center"><div class="cat-eyebrow">Hoe het werkt</div><div class="cat-title">Drie stappen, klaar.</div></div>
 <div class="how-grid">
-<div class="how-card"><div class="how-num">1</div><h3>Kies een tool</h3><p>Browse onze 50+ tools per categorie. Vind direct wat je nodig hebt.</p></div>
+<div class="how-card"><div class="how-num">1</div><h3>Kies een tool</h3><p>Browse de 50+ tools per categorie. Vind direct wat je nodig hebt.</p></div>
 <div class="how-card"><div class="how-num">2</div><h3>Vul je gegevens in</h3><p>Simpele formulieren. Duurt 2-5 minuten. Geen account nodig.</p></div>
-<div class="how-card"><div class="how-num">3</div><h3>Krijg resultaat</h3><p>Download je document of bezwaarbrief — direct verstuurklaar.</p></div>
+<div class="how-card"><div class="how-num">3</div><h3>Krijg je resultaat</h3><p>Download je document of bekijk je indicatie — direct bruikbaar, zonder watermerk.</p></div>
 </div>
 </section>
 
@@ -381,7 +387,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 32px;background:var(--w
 <div style="background:var(--blue-soft);border:2px solid #BFDBFE;border-radius:20px;padding:40px;text-align:center">
 <div style="font-size:32px;margin-bottom:8px">📋</div>
 <h3 style="font-size:22px;font-weight:800;margin-bottom:8px;color:var(--dark)">Krijg de gratis Huurcheck-Checklist</h3>
-<p style="font-size:15px;color:var(--gray);margin-bottom:20px;line-height:1.6">12 punten waarmee je direct ziet of je verhuurder je tekortdoet — plus hoe je bezwaar maakt zonder advocaat. Gratis PDF in je inbox.</p>
+<p style="font-size:15px;color:var(--gray);margin-bottom:20px;line-height:1.6">12 punten waar je naar kunt kijken om te zien of je verhuurder alles netjes regelt. Gratis PDF in je inbox.</p>
 <div style="display:flex;gap:8px;max-width:420px;margin:0 auto;flex-wrap:wrap">
 <input type="email" id="emailCapture" placeholder="Je e-mailadres" style="flex:1;min-width:200px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:Outfit;font-size:15px;background:#fff">
 <button onclick="alert('Bedankt! Je bent aangemeld.')" style="padding:14px 24px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-family:Outfit;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap">Stuur me de checklist →</button>
@@ -393,36 +399,41 @@ footer{border-top:1px solid var(--border);padding:48px 0 32px;background:var(--w
 <section class="faq" id="faq">
 <div style="text-align:center;margin-bottom:32px"><div class="cat-eyebrow">FAQ</div><div class="cat-title">Veelgestelde vragen</div></div>
 
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoeveel kan ik echt besparen met de huurcheck?<span>+</span></div><div class="faq-a">Dat hangt af van je woning. Veel huurders betalen €100-€400 per maand teveel ten opzichte van de wettelijke maximumhuur. De Huurcommissie kan dit verschil tot 12 maanden met terugwerkende kracht laten terugbetalen.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Zijn alle tools écht volledig gratis?<span>+</span></div><div class="faq-a">Ja. Alle tools op Fixlify zijn gratis te gebruiken zonder account. Geen verborgen kosten, geen abonnement, geen watermerk op je downloads. We worden in de toekomst mogelijk ondersteund door affiliate-samenwerkingen — niet door jou.</div></div>
 
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wanneer komen de andere tools online?<span>+</span></div><div class="faq-a">We bouwen elke week 2-3 nieuwe tools. Volg ons op TikTok of Instagram (@fixlifynl) voor updates. De gratis calculators komen eerst, daarna de premium tools en als laatste het Pro abonnement.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Vervangen jullie tools een advocaat of accountant?<span>+</span></div><div class="faq-a">Nee, absoluut niet. Onze tools zijn <strong>indicatieve hulpmiddelen</strong> — handige eerste stappen, voorbeeldbrieven en richtwaarden. Voor jouw specifieke situatie raden we altijd aan een professional te raadplegen, of contact op te nemen met instanties als het Juridisch Loket, de Belastingdienst of de Huurcommissie.</div></div>
 
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Heb ik een account nodig?<span>+</span></div><div class="faq-a">Voor de huidige tools niet. Zodra het Pro abonnement live is heb je daarvoor wel een account nodig — maar voor losse tools blijft het altijd zonder registratie.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe nauwkeurig zijn de berekeningen?<span>+</span></div><div class="faq-a">Onze calculators geven richtwaarden op basis van algemene uitgangspunten. Persoonlijke factoren (zoals afwijkende fiscale situaties, lokale regelingen of recente wetswijzigingen) zijn niet altijd meegenomen. Beschouw de resultaten dus als <strong>indicatie</strong>, niet als eindbedrag.</div></div>
 
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe werkt de betaling?<span>+</span></div><div class="faq-a">Bij betaalde tools betaal je via iDEAL, creditcard, Apple Pay of Klarna. Je betaalt eenmalig — geen abonnement (tenzij je voor Pro kiest).</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kan ik me op de uitkomsten beroepen?<span>+</span></div><div class="faq-a">Nee. Aan de uitkomsten van onze tools kunnen geen rechten worden ontleend. We doen ons best om accurate informatie te bieden, maar Fixlify aanvaardt geen aansprakelijkheid voor beslissingen die op basis van deze tools worden genomen.</div></div>
 
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wat is het verschil tussen losse tools en Pro?<span>+</span></div><div class="faq-a">Losse tools koop je per stuk (€0,50-€9,99 eenmalig). Pro is een maandabonnement (€9,99/m of €99/jaar) waarmee je ALLE betaalde tools onbeperkt kunt gebruiken zonder watermerk, plus toegang krijgt tot premium AI-tools.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Heb ik een account nodig?<span>+</span></div><div class="faq-a">Nee. Geen tool op Fixlify vraagt om registratie. Je vult je gegevens in, krijgt direct resultaat, en we slaan niets op externe servers op. Je gegevens blijven lokaal in je browser.</div></div>
 
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Zijn de brieven juridisch geldig?<span>+</span></div><div class="faq-a">Onze brieven zijn voorbeelddocumenten gebaseerd op de juiste wetsartikelen. Dit is geen juridisch advies. Voor specifieke situaties kun je gratis terecht bij het Juridisch Loket.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wanneer komen de "Binnenkort" tools online?<span>+</span></div><div class="faq-a">We bouwen elke week nieuwe tools. Volg ons op TikTok of Instagram (@fixlifynl) voor updates.</div></div>
 
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe zit het met mijn privacy?<span>+</span></div><div class="faq-a">Je gegevens worden lokaal in je browser verwerkt. We gebruiken geen tracking-cookies of analytics. Lees onze <a href="/privacy.html" style="color:var(--blue);text-decoration:underline">privacyverklaring</a> voor meer details.</div></div>
-
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kan ik mijn geld terugkrijgen?<span>+</span></div><div class="faq-a">Bij digitale producten vervalt het wettelijke herroepingsrecht zodra de levering begint (art. 6:230p BW). Bij technische problemen kun je natuurlijk altijd contact opnemen via fixlifyNL@outlook.com.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe zit het met mijn privacy?<span>+</span></div><div class="faq-a">Je gegevens worden zoveel mogelijk lokaal in je browser verwerkt. We gebruiken geen tracking-cookies of analytics. Lees onze <a href="/privacy.html" style="color:var(--blue);text-decoration:underline">privacyverklaring</a> voor meer details.</div></div>
 
 </section>
 
 <section class="cta-bottom"><div class="cta-card">
 <h2>Begin vandaag nog.</h2>
-<p>Check of je teveel huur betaalt, bereken je nettoloon, of maak een professioneel CV. 50+ tools — alles in minuten geregeld.</p>
+<p>Check je huur, bereken je nettoloon, of maak een professioneel CV. 50+ tools — allemaal gratis, zonder watermerk.</p>
 <a href="#categorieen" class="cta-btn">Bekijk alle 50+ tools →</a>
-<div class="cta-guarantee">⚡ Geen account nodig · Direct resultaat · Eenmalig betalen</div>
+<div class="cta-guarantee">⚡ Geen account · Direct resultaat · Volledig gratis</div>
 </div></section>
+
+<section class="legal-footer">
+<div class="legal-footer-inner">
+<strong>Belangrijke disclaimer</strong>
+Fixlify biedt informatieve en indicatieve hulpmiddelen aan. De tools, calculators, voorbeeldbrieven en andere content op deze website zijn <strong style="display:inline">geen vervanging</strong> voor professioneel juridisch, fiscaal, financieel of medisch advies. De inhoud is met zorg samengesteld, maar Fixlify garandeert niet dat alle informatie volledig, actueel of foutloos is. Aan de uitkomsten van de tools en aan de inhoud van deze website kunnen geen rechten worden ontleend. Het gebruik van deze tools is volledig op eigen risico. Voor specifieke vragen of beslissingen raden we je aan om een gekwalificeerde professional in te schakelen, of contact op te nemen met de relevante officiële instantie (zoals het Juridisch Loket, de Belastingdienst, het UWV of de Huurcommissie). Fixlify is niet aansprakelijk voor enige schade die voortvloeit uit het gebruik van de informatie of tools op deze website.
+</div>
+</section>
 
 <footer>
 <div class="footer-inner">
 <div class="footer-col">
 <div class="logo" style="margin-bottom:12px"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></div>
-<p style="font-size:13px;color:var(--gray);max-width:240px;line-height:1.6;margin-bottom:14px">50+ slimme online tools voor werk, wonen, geld en ZZP. Gemaakt in Nederland.</p>
+<p style="font-size:13px;color:var(--gray);max-width:240px;line-height:1.6;margin-bottom:14px">50+ gratis online tools voor werk, wonen, geld en ZZP. Alle tools zijn indicatieve hulpmiddelen. Gemaakt in Nederland.</p>
 <div class="footer-business">
 <strong>FixlifyNL</strong> · Leeuwarden<br>
 KvK: 77981197 · BTW: NL003270597B29<br>
@@ -430,9 +441,9 @@ KvK: 77981197 · BTW: NL003270597B29<br>
 <a href="/voorwaarden.html" style="color:var(--gray);font-size:12px">Volledige bedrijfsgegevens →</a>
 </div>
 </div>
-<div class="footer-col"><h4>Categorieën</h4><a href="#wonen">🏠 Wonen</a><a href="#werk">💼 Werk</a><a href="#zzp">📊 ZZP</a><a href="#geld">💰 Geld</a><a href="#juridisch">⚖️ Juridisch</a><a href="#ai">🤖 AI</a><a href="#excel">📑 Excel</a></div>
+<div class="footer-col"><h4>Categorieën</h4><a href="#wonen">🏠 Wonen</a><a href="#werk">💼 Werk</a><a href="#zzp">📊 ZZP</a><a href="#geld">💰 Geld</a><a href="#juridisch">⚖️ Brieven</a><a href="#ai">🤖 AI</a><a href="#excel">📑 Excel</a></div>
 <div class="footer-col"><h4>Populair</h4><a href="/huurcheck.html">Huurcheck</a><a href="/nettoloon.html">Nettoloon</a><a href="/cv-maker.html">CV Maker</a><a href="/sollicitatiebrief.html">Sollicitatiebrief</a><a href="/factuur.html">Factuur</a><a href="/btw-calculator.html">BTW</a><a href="/hypotheek-vs-huur.html">Hypotheek vs Huur</a></div>
-<div class="footer-col"><h4>Bedrijf</h4><a href="mailto:fixlifyNL@outlook.com">Contact</a><a href="/privacy.html">Privacy</a><a href="/voorwaarden.html">Voorwaarden</a><a href="#pro">Pro abonnement</a></div>
+<div class="footer-col"><h4>Bedrijf</h4><a href="mailto:fixlifyNL@outlook.com">Contact</a><a href="/privacy.html">Privacy</a><a href="/voorwaarden.html">Voorwaarden</a><a href="#waarom">Over Fixlify</a></div>
 </div>
 <div class="footer-bottom"><span class="footer-copy">© 2026 FixlifyNL — Alle rechten voorbehouden</span><div class="footer-legal"><a href="/privacy.html">Privacy</a><a href="/voorwaarden.html">Voorwaarden</a></div></div>
 </footer>
