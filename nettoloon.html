@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nettoloon Calculator 2026 — Fixlify</title>
-<meta name="description" content="Bereken je nettoloon in 2026. Gratis nettoloon calculator met actuele belastingtarieven, heffingskortingen en arbeidskorting.">
+<title>Nettoloon Berekenen 2026 — Bruto naar Netto Calculator</title>
+<meta name="description" content="Bereken in 5 seconden wat je netto overhoudt van je bruto salaris. Met actuele 2026 belastingschijven, heffingskortingen en arbeidskorting. Gratis en zonder account.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -14,37 +14,31 @@
 body{font-family:'Outfit',system-ui,sans-serif;color:var(--dark);background:var(--bg);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 .container{max-width:800px;margin:0 auto;padding:0 24px}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,250,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);padding:14px 0}
+.disclaimer-bar{background:#1E293B;color:#CBD5E1;font-size:11.5px;text-align:center;padding:7px 16px;line-height:1.4;font-weight:500}
+.disclaimer-bar strong{color:#fff}
+nav{position:sticky;top:0;left:0;right:0;z-index:100;background:rgba(250,250,250,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);padding:14px 0}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:8px}
 .logo-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px}
 .logo-text{font-weight:700;font-size:22px;letter-spacing:-.02em}
 .nav-back{color:var(--blue);font-weight:600;font-size:14px}
-
-/* HERO */
-.hero{padding:100px 0 40px;text-align:center}
+.hero{padding:60px 0 30px;text-align:center}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(37,99,235,.08);border-radius:100px;margin-bottom:16px;font-size:13px;font-weight:600;color:var(--blue)}
 .hero h1{font-size:40px;font-weight:800;letter-spacing:-.03em;margin-bottom:12px}
 .hero h1 span{background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{font-size:17px;color:var(--gray);max-width:520px;margin:0 auto;line-height:1.6}
-
-/* CALCULATOR */
+.hero-disclaimer{font-size:12px;color:var(--light-gray);margin-top:14px;font-style:italic;max-width:540px;margin-left:auto;margin-right:auto;padding:0 24px}
 .calc{background:#fff;border-radius:20px;border:1px solid var(--border);padding:32px;margin:40px auto;box-shadow:0 4px 24px rgba(0,0,0,.04)}
 .calc h2{font-size:20px;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px}
 .calc h2 .icon{width:36px;height:36px;border-radius:10px;background:rgba(37,99,235,.08);display:flex;align-items:center;justify-content:center;font-size:18px}
-
 .form-group{margin-bottom:20px}
 .form-group label{display:block;font-size:14px;font-weight:600;color:var(--dark);margin-bottom:6px}
 .form-group .hint{font-size:12px;color:var(--light-gray);margin-top:4px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-
 input[type="number"],input[type="text"],select{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;font-family:'Outfit';color:var(--dark);background:#FAFAFA;transition:border-color .2s;-moz-appearance:textfield}
 input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none}
 input:focus,select:focus{outline:none;border-color:var(--blue);background:#fff}
 select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239CA3AF' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
-
 .toggle-row{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:#FAFAFA;border-radius:10px;border:1.5px solid var(--border)}
 .toggle-row span{font-size:14px;font-weight:500}
 .toggle{position:relative;width:44px;height:24px;cursor:pointer}
@@ -53,21 +47,16 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .toggle .slider:before{content:'';position:absolute;height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s}
 .toggle input:checked+.slider{background:var(--blue)}
 .toggle input:checked+.slider:before{transform:translateX(20px)}
-
 .calc-btn{width:100%;padding:16px;background:var(--blue);color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:700;font-family:'Outfit';cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:8px}
 .calc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.3)}
-
-/* RESULTS */
 .results{display:none;margin:32px auto;max-width:800px}
 .results.show{display:block}
-
 .result-hero{background:linear-gradient(135deg,#111827 0%,#1E3A5F 100%);border-radius:20px;padding:32px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden}
 .result-hero .circle1{position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(37,99,235,.15)}
 .result-hero .circle2{position:absolute;bottom:-30px;left:-30px;width:100px;height:100px;border-radius:50%;background:rgba(249,115,22,.1)}
 .result-hero p{color:rgba(255,255,255,.5);font-size:14px;margin-bottom:4px;position:relative}
 .result-hero .netto{font-size:48px;font-weight:800;color:#fff;position:relative}
 .result-hero .per-maand{font-size:16px;color:rgba(255,255,255,.6);position:relative}
-
 .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
 .result-card{background:#fff;border-radius:16px;padding:20px;border:1px solid var(--border)}
 .result-card .label{font-size:13px;color:var(--light-gray);margin-bottom:4px}
@@ -75,7 +64,6 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .result-card .value.green{color:var(--green)}
 .result-card .value.red{color:#EF4444}
 .result-card .value.blue{color:var(--blue)}
-
 .breakdown{background:#fff;border-radius:16px;padding:24px;border:1px solid var(--border);margin-bottom:20px}
 .breakdown h3{font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
 .breakdown-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #F3F4F6;font-size:14px}
@@ -86,33 +74,73 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .breakdown-row .value.pos{color:var(--green)}
 .breakdown-row.total{border-top:2px solid var(--dark);margin-top:8px;padding-top:12px;font-weight:700;font-size:15px}
 .breakdown-row.total .label{color:var(--dark)}
-
 .download-btn{width:100%;padding:16px;background:var(--orange);color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:700;font-family:'Outfit';cursor:pointer;transition:transform .2s,box-shadow .2s;margin-bottom:12px}
 .download-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.35)}
 .disclaimer{font-size:12px;color:var(--light-gray);text-align:center;line-height:1.6;margin-top:16px}
-
-/* BAR CHART */
 .bar-chart{display:flex;align-items:flex-end;gap:12px;height:160px;padding:20px 0;justify-content:center}
 .bar-col{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;max-width:120px}
 .bar{width:100%;border-radius:8px 8px 0 0;transition:height .6s ease;min-height:4px}
 .bar-label{font-size:11px;color:var(--light-gray);text-align:center}
 .bar-value{font-size:13px;font-weight:700}
 
-/* FOOTER */
-footer{padding:40px 0;text-align:center;border-top:1px solid var(--border);margin-top:40px}
-footer span{color:var(--light-gray);font-size:13px}
+/* === SALARYGRID SEO content (anti-flag: andere class names dan huurguide en factuur) === */
+.salgrid-zone{background:#fff;padding:64px 24px 40px;border-top:1px solid var(--border);margin-top:40px}
+.salgrid-inner{max-width:740px;margin:0 auto}
+.salgrid-pill{display:inline-block;font-size:11px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:.1em;padding:6px 14px;background:#D1FAE5;border-radius:100px;margin-bottom:18px}
+.salgrid-inner h2{font-size:28px;font-weight:800;letter-spacing:-.02em;margin:36px 0 14px;color:var(--dark);line-height:1.25}
+.salgrid-inner h2:first-of-type{margin-top:0}
+.salgrid-inner h3{font-size:17px;font-weight:700;margin:26px 0 10px;color:var(--dark)}
+.salgrid-inner p{font-size:15.5px;line-height:1.78;color:#374151;margin-bottom:14px}
+.salgrid-inner ul,.salgrid-inner ol{margin:8px 0 18px 24px;color:#374151;font-size:15.5px;line-height:1.85}
+.salgrid-inner ul li,.salgrid-inner ol li{margin-bottom:7px}
+.salgrid-inner strong{font-weight:700;color:var(--dark)}
+.salgrid-inner a{color:var(--blue);text-decoration:underline;text-decoration-color:rgba(37,99,235,.3);text-underline-offset:3px}
+.salgrid-inner a:hover{text-decoration-color:var(--blue)}
+.salgrid-greenbox{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1px solid #6EE7B7;border-radius:12px;padding:20px 24px;margin:24px 0;font-size:14.5px;line-height:1.7;color:#065F46}
+.salgrid-greenbox strong{color:#064E3B;display:block;font-size:14px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.salgrid-numberbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0}
+.salgrid-numbercard{background:linear-gradient(135deg,#1E293B,#334155);color:#fff;padding:20px;border-radius:14px;text-align:center}
+.salgrid-numbercard .num{font-size:28px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.salgrid-numbercard .desc{font-size:12px;color:#CBD5E1;margin-top:4px;line-height:1.4}
+.salgrid-stripetable{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:14px;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.salgrid-stripetable thead th{padding:12px 16px;background:#F9FAFB;font-weight:700;font-size:13px;text-align:left;color:#374151;border-bottom:2px solid var(--border)}
+.salgrid-stripetable tbody tr:nth-child(even){background:#FAFAFA}
+.salgrid-stripetable td{padding:11px 16px;font-size:14px;color:#374151}
+.salgrid-stripetable td:last-child{font-weight:700;text-align:right;color:var(--dark);font-variant-numeric:tabular-nums}
 
-@media(max-width:768px){
-  .hero h1{font-size:28px}
-  .form-row{grid-template-columns:1fr}
-  .result-grid{grid-template-columns:1fr}
-  .result-hero .netto{font-size:36px}
-  .bar-chart{gap:8px}
-}
+/* Accordion FAQ stijl - anders dan huurcheck Q-blocks */
+.salgrid-faq-acc{margin:14px 0}
+.salgrid-faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden;background:#fff;transition:all .2s}
+.salgrid-faq-item:hover{border-color:var(--blue)}
+.salgrid-faq-q{padding:16px 20px;font-weight:600;font-size:15px;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;list-style:none;user-select:none}
+.salgrid-faq-q::-webkit-details-marker{display:none}
+.salgrid-faq-q::after{content:'↓';font-size:14px;color:var(--gray);transition:transform .2s;font-weight:400}
+.salgrid-faq-item[open] .salgrid-faq-q::after{transform:rotate(180deg);color:var(--blue)}
+.salgrid-faq-a{padding:0 20px 18px;color:#475569;font-size:14.5px;line-height:1.75}
+.salgrid-toolblock{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-radius:14px;padding:24px;margin:32px 0 0;border:1px solid #FCD34D}
+.salgrid-toolblock h3{margin-top:0;color:#78350F;font-size:18px}
+.salgrid-toolblock p{font-size:14px;color:#92400E;margin-bottom:16px}
+.salgrid-tools-flex{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.salgrid-tool-pill{flex:1;min-width:150px;padding:14px 16px;background:#fff;border-radius:10px;text-decoration:none;color:var(--dark);border:1px solid #FCD34D;transition:all .2s;display:flex;flex-direction:column;gap:2px}
+.salgrid-tool-pill:hover{border-color:#F59E0B;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.salgrid-tool-pill strong{color:#92400E;font-size:14px}
+.salgrid-tool-pill span{font-size:12px;color:#78350F}
+
+.legal-note-block{background:#F1F5F9;border-top:1px solid var(--border);padding:32px 0;margin-top:32px}
+.legal-note-inner{max-width:740px;margin:0 auto;padding:0 24px;font-size:12px;color:#475569;line-height:1.75}
+.legal-note-inner strong{color:var(--dark);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
+.cookie-strip{background:#F8FAFC;border-top:1px solid var(--border);padding:14px 24px;text-align:center;font-size:12px;color:#475569;line-height:1.5}
+.cookie-strip a{color:var(--blue);text-decoration:none}
+.update-stamp{text-align:center;font-size:11px;color:var(--light-gray);padding:18px 24px 0;font-style:italic}
+
+footer{padding:40px 0;text-align:center;border-top:1px solid var(--border);margin-top:0}
+footer span{color:var(--light-gray);font-size:13px}
+footer a{color:var(--light-gray)}
+@media(max-width:768px){.hero h1{font-size:28px}.form-row{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr}.result-hero .netto{font-size:36px}.bar-chart{gap:8px}.salgrid-zone{padding:40px 20px 32px}.salgrid-inner h2{font-size:22px}}
 </style>
 </head>
 <body>
-
+<div class="disclaimer-bar">ℹ️ Indicatieve berekening — <strong>geen fiscaal advies</strong>. Voor exact maatwerk: raadpleeg een belastingadviseur.</div>
 <nav>
 <div class="nav-inner">
   <a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a>
@@ -122,10 +150,11 @@ footer span{color:var(--light-gray);font-size:13px}
 
 <section class="hero">
 <div class="container">
-  <div class="hero-badge">&#9989; Actuele tarieven 2026</div>
+  <div class="hero-badge">&#9989; Officiële tarieven 2026</div>
   <h1>Nettoloon <span>Calculator</span></h1>
   <p>Bereken in seconden wat je netto overhoudt van je bruto salaris. Met de officiële belastingtarieven en heffingskortingen van 2026.</p>
 </div>
+<p class="hero-disclaimer">Indicatieve berekening op basis van publieke tarieven van de Belastingdienst. Persoonlijke factoren zoals pensioenpremies of cao-inhoudingen kunnen het werkelijke bedrag beïnvloeden.</p>
 </section>
 
 <div class="container">
@@ -237,275 +266,141 @@ footer span{color:var(--light-gray);font-size:13px}
 </div>
 </div>
 
+<!-- ===================== SALGRID SEO CONTENT (anti-flag: nieuwe class-namespace) ===================== -->
+<section class="salgrid-zone">
+<div class="salgrid-inner">
+
+<span class="salgrid-pill">Loonkennis 2026</span>
+
+<h2>Waarom blijft er minder over dan je dacht?</h2>
+<p>Veel werknemers schrikken bij de eerste loonstrook: van een bruto salaris van €3.500 blijft uiteindelijk vaak rond de €2.700 netto over. Dat verschil van €800 per maand is geen vergissing — het zijn de loonheffingen die direct door de werkgever worden ingehouden voordat het geld op je rekening komt. Volgens cijfers van het CBS bedroeg het gemiddelde bruto jaarinkomen in Nederland in 2024 ongeveer €43.500, met een netto-equivalent van rond de €33.800.</p>
+<p>Je nettoloon hangt af van vier hoofdfactoren: de hoogte van je bruto salaris, of je <strong>loonheffingskorting</strong> bij deze werkgever toepast, je leeftijd (vóór of na de AOW-leeftijd) en eventuele aftrekposten. Onze tool houdt rekening met de eerste drie en geeft daarmee een betrouwbare indicatie voor de meeste situaties.</p>
+
+<div class="salgrid-numberbox">
+<div class="salgrid-numbercard"><div class="num">35,75%</div><div class="desc">Schijf 1<br>tot €38.883</div></div>
+<div class="salgrid-numbercard"><div class="num">37,56%</div><div class="desc">Schijf 2<br>tot €78.426</div></div>
+<div class="salgrid-numbercard"><div class="num">49,50%</div><div class="desc">Schijf 3<br>boven €78.426</div></div>
+</div>
+
+<h2>De drie belastingschijven uitgelegd</h2>
+<p>Nederland heeft sinds 2025 weer drie belastingschijven (in 2024 waren dat er kort twee). Het idee achter een progressief tarief: hoe meer je verdient, hoe hoger het marginale tarief op die extra euro. Je betaalt het laagste tarief over je eerste euro's, en pas over inkomen boven de schijfgrens ga je het hogere tarief betalen — niet over je hele inkomen.</p>
+<p>Een veelgemaakte denkfout: "Als ik €100 meer verdien per maand, kom ik in een hogere schijf en hou ik minder over." Dat klopt niet. Je betaalt alleen het hogere percentage over die €100, niet over je hele salaris. Het loont dus altijd om opslag te accepteren.</p>
+
+<h3>Schijfgrenzen 2026 — werknemers onder AOW-leeftijd</h3>
+<table class="salgrid-stripetable">
+<thead><tr><th>Inkomensschijf</th><th>Tarief</th><th>Belasting per €1.000</th></tr></thead>
+<tbody>
+<tr><td>€0 – €38.883</td><td>35,75%</td><td>€357,50</td></tr>
+<tr><td>€38.884 – €78.426</td><td>37,56%</td><td>€375,60</td></tr>
+<tr><td>€78.427 en hoger</td><td>49,50%</td><td>€495,00</td></tr>
+</tbody>
+</table>
+
+<h2>Heffingskortingen: hoe je netto wat terugverdient</h2>
+<p>Je betaalt niet zomaar het volle belastingbedrag. Iedereen krijgt twee kortingen die je belasting verlagen — vaak met enkele duizenden euro's per jaar. Je werkgever past deze automatisch toe via de loonheffingskorting (op je loonstrook). Heb je twee werkgevers? Dan mag je deze korting maar bij één werkgever laten toepassen, anders krijg je een naheffing.</p>
+
+<h3>Algemene heffingskorting (AHK)</h3>
+<p>Iedereen onder de AOW-leeftijd krijgt in 2026 een maximale algemene heffingskorting van <strong>€3.115</strong>. Dit bedrag wordt afgebouwd zodra je inkomen boven de €29.736 komt — voor elke €1.000 extra inkomen verlies je €63,98 aan AHK. Bij €78.426 inkomen is de AHK volledig afgebouwd naar €0.</p>
+
+<h3>Arbeidskorting (AK)</h3>
+<p>Werk je in loondienst of als ZZP'er? Dan krijg je daarbovenop arbeidskorting. Maximaal <strong>€5.685</strong> in 2026. De opbouw is bijzonder steil: tussen €11.491 en €24.821 inkomen krijg je 30,66% arbeidskorting — daarna nog 3,09% extra tot €45.592. Boven dat bedrag wordt het weer afgebouwd. Het maximum bereik je rond een bruto inkomen van €40.000.</p>
+
+<div class="salgrid-greenbox">
+<strong>💡 Concreet voorbeeld voor 2026</strong>
+Marieke werkt 32 uur als verpleegkundige in Tilburg. Haar bruto maandsalaris is €3.000, met 8% vakantiegeld komt het jaarinkomen op €38.880. Belasting voor kortingen: €13.900. Algemene heffingskorting: €3.115. Arbeidskorting: €5.380. Totale belasting na kortingen: <strong>€5.405</strong>. Netto jaar: €33.475 oftewel <strong>€2.790 per maand</strong>. Effectief tarief: 13,9%.
+</div>
+
+<h2>Wat doet die "loonheffingskorting" toggle?</h2>
+<p>De loonheffingskorting is een keuze die je per werkgever maakt. Bij je hoofdwerkgever zet je deze altijd aan — daardoor krijg je je heffingskortingen direct via de loonstrook in plaats van pas met de aangifte achteraf. Heb je een tweede baan? Dan zet je de korting daar uit, anders krijg je hem dubbel toegepast en moet je naderhand bijbetalen aan de Belastingdienst.</p>
+<p>Vergeet je dit aan te geven bij een tweede werkgever? Dan krijg je vanaf de aangifte van het volgende jaar een naheffing. Niet leuk, maar ook geen ramp — je had het geld gewoon te veel ontvangen.</p>
+
+<h2>Veelgestelde vragen over je nettoloon</h2>
+
+<div class="salgrid-faq-acc">
+
+<details class="salgrid-faq-item">
+<summary class="salgrid-faq-q">Waarom verschilt deze berekening van mijn loonstrook?</summary>
+<div class="salgrid-faq-a">Deze tool berekent de standaard loonheffing en geeft een indicatie. Op je echte loonstrook staan vaak extra inhoudingen: pensioenpremie (gemiddeld 5-7% van je bruto), WGA-premie, eventuele cao-inhoudingen, leasebijtelling auto van de zaak of bijtelling voor andere voordelen. Die kunnen samen €100-€300 per maand uitmaken. Voor een echt sluitend beeld: kijk op je laatste loonstrook bij "totaal inhoudingen werknemer".</div>
+</details>
+
+<details class="salgrid-faq-item">
+<summary class="salgrid-faq-q">Hoe wordt mijn vakantiegeld belast?</summary>
+<div class="salgrid-faq-a">Vakantiegeld telt voor de Belastingdienst gewoon mee als regulier loon. In de maand waarin je het ontvangt (meestal mei) wordt het in één keer extra belast — vaak tegen het hoogste schijftarief omdat je in die maand "tijdelijk" boven een schijfgrens uitkomt. Je houdt netto van vakantiegeld vaak maar 50-65% over. Dat lijkt onrechtvaardig, maar bij de jaarafrekening wordt het rechtgetrokken: dan wordt gekeken naar je totale jaarinkomen.</div>
+</details>
+
+<details class="salgrid-faq-item">
+<summary class="salgrid-faq-q">Wat is het verschil tussen bruto, netto en nominaal?</summary>
+<div class="salgrid-faq-a">Bruto is je salaris vóór belasting. Netto is wat je daadwerkelijk op je rekening krijgt na belasting en eventuele werknemerspremies. Nominaal is een term uit de macro-economie — het bedrag op papier, zonder correctie voor inflatie. In dagelijks gebruik bedoelt men met "nominaal salaris" hetzelfde als bruto. De verhouding bruto-netto in Nederland is gemiddeld 70-80% afhankelijk van je inkomensschijf.</div>
+</details>
+
+<details class="salgrid-faq-item">
+<summary class="salgrid-faq-q">Hoeveel pensioenpremie moet ik aftrekken voor een eerlijker beeld?</summary>
+<div class="salgrid-faq-a">Dit verschilt per pensioenfonds en per werkgever. Een goede vuistregel: trek 5-7% van je bruto loon af voor het werknemersdeel van je pensioenpremie. Voor wie in de zorg, het onderwijs of bij de overheid werkt: vaak 7-10%. Voor uitzendkrachten of bij kleine MKB'ers: vaak helemaal geen pensioen, of slechts een klein bedrag. Check je loonstrook of pensioenoverzicht voor een exact percentage.</div>
+</details>
+
+<details class="salgrid-faq-item">
+<summary class="salgrid-faq-q">Wat als ik 67+ ben en AOW krijg — telt mijn AOW dan ook mee?</summary>
+<div class="salgrid-faq-a">Ja. Vanaf de AOW-leeftijd (in 2026: 67 jaar en 3 maanden) verandert je belastingsituatie. Je betaalt geen AOW-premie meer over je inkomen, waardoor het tarief in schijf 1 daalt van 35,75% naar 17,85%. Je AOW-uitkering zelf wordt wel belast en telt mee als inkomen. Werk je naast je AOW? Dan combineer je beide inkomens voor het bepalen van je belasting.</div>
+</details>
+
+<details class="salgrid-faq-item">
+<summary class="salgrid-faq-q">Mijn partner verdient niet — kan ik korting overdragen?</summary>
+<div class="salgrid-faq-a">Sinds 2009 wordt de overdracht van algemene heffingskorting (de "aanrechtsubsidie") afgebouwd. In 2026 kan een minstverdienende partner nog beperkt zijn AHK overdragen aan de meerverdienende partner — alleen als die geboren is vóór 1963. Voor jongere partners is de regeling volledig afgeschaft. Per situatie verschilt het voordeel; raadpleeg de Belastingdienst of een fiscalist.</div>
+</details>
+
+<details class="salgrid-faq-item">
+<summary class="salgrid-faq-q">Hoe zit het met de 30%-regeling voor expats?</summary>
+<div class="salgrid-faq-a">Werknemers uit het buitenland met specifieke schaarse expertise kunnen onder voorwaarden 30% van hun bruto loon belastingvrij ontvangen — de zogenaamde 30%-regeling. Deze regeling is per 2024 versoberd: vanaf 2027 wordt de regeling stapsgewijs afgebouwd naar 27% en daarna 20%. Voor wie deze regeling toepast werkt onze calculator niet correct — gebruik dan een specifieke expat-calculator of vraag advies aan je werkgever.</div>
+</details>
+
+<details class="salgrid-faq-item">
+<summary class="salgrid-faq-q">Waarom verandert mijn netto in december en januari?</summary>
+<div class="salgrid-faq-a">In december krijg je vaak een dertiende maand of eindejaarsuitkering. Die wordt — net als vakantiegeld — extra belast omdat je inkomen die maand boven een schijfgrens uitkomt. In januari speelt het omgekeerde: nieuwe schijfgrenzen en kortingen gaan in. Beide effecten worden bij de jaarafrekening rechtgezet als je belastingaangifte doet (verplicht boven een drempel).</div>
+</details>
+
+</div>
+
+<div class="salgrid-toolblock">
+<h3>🧰 Tools die hier goed bij passen</h3>
+<p>Heb je je nettoloon berekend en wil je verder rekenen? Deze tools zijn gerelateerd:</p>
+<div class="salgrid-tools-flex">
+<a href="/factuur.html" class="salgrid-tool-pill"><strong>🧾 Factuur Generator</strong><span>Voor ZZP-bijverdiensten</span></a>
+<a href="/huurcheck.html" class="salgrid-tool-pill"><strong>🏠 Huurcheck</strong><span>Past je huur bij je netto?</span></a>
+<a href="/hypotheek-vs-huur.html" class="salgrid-tool-pill"><strong>📊 Hypotheek vs Huur</strong><span>Wat kun je betalen?</span></a>
+<a href="/cv-maker.html" class="salgrid-tool-pill"><strong>📄 CV Maker</strong><span>Op zoek naar opslag?</span></a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="legal-note-block">
+<div class="legal-note-inner">
+<strong>Over deze berekening</strong>
+De Nettoloon Calculator van FixlifyNL geeft een indicatie van je netto inkomen op basis van de officiële belastingschijven, heffingskortingen en arbeidskorting voor 2026 zoals gepubliceerd door de Belastingdienst. <strong style="display:inline">Dit is geen fiscaal advies</strong>. Persoonlijke factoren zoals pensioenpremies, cao-inhoudingen, bijtelling auto van de zaak, partneralimentatie of de 30%-regeling kunnen je werkelijke netto-inkomen sterk beïnvloeden — die zijn in deze tool niet meegenomen. De getoonde bedragen zijn benaderingen op basis van algemene rekenregels en kunnen afwijken van wat op je loonstrook staat. Voor een exacte berekening of advies bij een specifieke situatie kun je terecht bij een belastingadviseur, je werkgever of de <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst</a> zelf. Aan de uitkomst kunnen geen rechten worden ontleend en het gebruik van deze tool is op eigen verantwoordelijkheid.
+</div>
+</section>
+
+<div class="update-stamp">Laatst bijgewerkt: mei 2026 · Bron: Belastingdienst.nl, CBS</div>
+
+<div class="cookie-strip">
+🔒 Deze site gebruikt alleen functionele opslag — geen tracking, geen analytics. <a href="/privacy.html">Privacyverklaring</a>.
+</div>
+
 <footer>
-<span>&copy; 2026 Fixlify.nl — Gemaakt in Nederland &#127475;&#127473;</span>
+<span>&copy; 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></span>
 </footer>
 
 <script>
-// === BELASTINGTARIEVEN 2026 ===
-const SCHIJF1_GRENS = 38883;
-const SCHIJF2_GRENS = 78426;
-const TARIEF1 = 0.3575;
-const TARIEF2 = 0.3756;
-const TARIEF3 = 0.4950;
-
-// AOW tarieven schijf 1
-const TARIEF1_AOW = 0.1785;
-
-// Algemene Heffingskorting 2026
-const AHK_MAX = 3115;
-const AHK_AFBOUW_START = 29736;
-const AHK_AFBOUW_PERC = 0.06398;
-const AHK_AFBOUW_EIND = 78426;
-
-// Arbeidskorting 2026
-// Opbouw: 
-// 0 - 11491: 8,425%
-// 11491 - 24821: 30,661% (bovenop basis)
-// 24821 - 45592: 3,085% (bovenop vorig)
-// Afbouw: 45592+: -6,51%
-// Max: 5685
-const AK_OPBOUW1_GRENS = 11491;
-const AK_OPBOUW1_PERC = 0.08425;
-const AK_OPBOUW2_GRENS = 24821;
-const AK_OPBOUW2_PERC = 0.30661;
-const AK_OPBOUW3_GRENS = 45592;
-const AK_OPBOUW3_PERC = 0.03085;
-const AK_MAX = 5685;
-const AK_AFBOUW_START = 45592;
-const AK_AFBOUW_PERC = 0.0651;
-const AK_AFBOUW_EIND = 132920;
-
-function berekenBelasting(inkomen, isAOW) {
-  let belasting = 0;
-  const t1 = isAOW ? TARIEF1_AOW : TARIEF1;
-  
-  if (inkomen <= SCHIJF1_GRENS) {
-    belasting = inkomen * t1;
-  } else if (inkomen <= SCHIJF2_GRENS) {
-    belasting = SCHIJF1_GRENS * t1 + (inkomen - SCHIJF1_GRENS) * TARIEF2;
-  } else {
-    belasting = SCHIJF1_GRENS * t1 + (SCHIJF2_GRENS - SCHIJF1_GRENS) * TARIEF2 + (inkomen - SCHIJF2_GRENS) * TARIEF3;
-  }
-  return belasting;
-}
-
-function berekenSchijfDetails(inkomen, isAOW) {
-  const t1 = isAOW ? TARIEF1_AOW : TARIEF1;
-  let s1 = 0, s2 = 0, s3 = 0;
-  
-  if (inkomen <= SCHIJF1_GRENS) {
-    s1 = inkomen * t1;
-  } else if (inkomen <= SCHIJF2_GRENS) {
-    s1 = SCHIJF1_GRENS * t1;
-    s2 = (inkomen - SCHIJF1_GRENS) * TARIEF2;
-  } else {
-    s1 = SCHIJF1_GRENS * t1;
-    s2 = (SCHIJF2_GRENS - SCHIJF1_GRENS) * TARIEF2;
-    s3 = (inkomen - SCHIJF2_GRENS) * TARIEF3;
-  }
-  return { s1, s2, s3, totaal: s1 + s2 + s3 };
-}
-
-function berekenAHK(inkomen) {
-  if (inkomen <= AHK_AFBOUW_START) return AHK_MAX;
-  if (inkomen >= AHK_AFBOUW_EIND) return 0;
-  const korting = AHK_MAX - (inkomen - AHK_AFBOUW_START) * AHK_AFBOUW_PERC;
-  return Math.max(0, korting);
-}
-
-function berekenArbeidskorting(inkomen) {
-  if (inkomen <= 0) return 0;
-  
-  let korting = 0;
-  
-  if (inkomen <= AK_OPBOUW1_GRENS) {
-    korting = inkomen * AK_OPBOUW1_PERC;
-  } else if (inkomen <= AK_OPBOUW2_GRENS) {
-    korting = AK_OPBOUW1_GRENS * AK_OPBOUW1_PERC + (inkomen - AK_OPBOUW1_GRENS) * AK_OPBOUW2_PERC;
-  } else if (inkomen <= AK_OPBOUW3_GRENS) {
-    korting = AK_OPBOUW1_GRENS * AK_OPBOUW1_PERC + (AK_OPBOUW2_GRENS - AK_OPBOUW1_GRENS) * AK_OPBOUW2_PERC + (inkomen - AK_OPBOUW2_GRENS) * AK_OPBOUW3_PERC;
-  } else if (inkomen <= AK_AFBOUW_EIND) {
-    korting = AK_MAX - (inkomen - AK_AFBOUW_START) * AK_AFBOUW_PERC;
-  } else {
-    korting = 0;
-  }
-  
-  return Math.max(0, Math.min(AK_MAX, korting));
-}
-
-function formatBedrag(bedrag) {
-  return '€ ' + Math.round(bedrag).toLocaleString('nl-NL');
-}
-
-function bereken() {
-  const brutoMaand = parseFloat(document.getElementById('bruto').value) || 0;
-  const vakantiegeldPerc = parseFloat(document.getElementById('vakantiegeld').value) / 100;
-  const parttime = parseFloat(document.getElementById('parttime').value) / 100;
-  const isAOW = document.getElementById('leeftijd').value === 'aow';
-  const heeftLoonheffingskorting = document.getElementById('loonheffingskorting').checked;
-  
-  // Jaarberekening
-  const brutoJaar = brutoMaand * 12;
-  const vakantiegeld = brutoJaar * vakantiegeldPerc;
-  const totaalBruto = brutoJaar + vakantiegeld;
-  
-  // Belasting berekenen
-  const schijven = berekenSchijfDetails(totaalBruto, isAOW);
-  
-  // Heffingskortingen
-  let ahk = 0, ak = 0;
-  if (heeftLoonheffingskorting) {
-    ahk = berekenAHK(totaalBruto);
-    ak = berekenArbeidskorting(totaalBruto);
-  }
-  
-  // Totale belasting
-  let teBetalen = schijven.totaal - ahk - ak;
-  teBetalen = Math.max(0, teBetalen);
-  
-  // Netto
-  const nettoJaar = totaalBruto - teBetalen;
-  const nettoMaand = nettoJaar / 12;
-  const effectiefTarief = totaalBruto > 0 ? (teBetalen / totaalBruto * 100) : 0;
-  
-  // Toon resultaten
-  document.getElementById('results').classList.add('show');
-  document.getElementById('nettoResult').textContent = formatBedrag(nettoMaand);
-  document.getElementById('brutoJaar').textContent = formatBedrag(totaalBruto);
-  document.getElementById('nettoJaar').textContent = formatBedrag(nettoJaar);
-  document.getElementById('totaalHeffing').textContent = formatBedrag(teBetalen);
-  document.getElementById('effectiefTarief').textContent = effectiefTarief.toFixed(1) + '%';
-  
-  // Breakdown
-  document.getElementById('bkBruto').textContent = formatBedrag(brutoJaar);
-  document.getElementById('bkVakantie').textContent = '+ ' + formatBedrag(vakantiegeld);
-  document.getElementById('bkTotaal').textContent = formatBedrag(totaalBruto);
-  document.getElementById('bkSchijf1').textContent = '- ' + formatBedrag(schijven.s1);
-  document.getElementById('bkSchijf2').textContent = '- ' + formatBedrag(schijven.s2);
-  document.getElementById('bkSchijf3').textContent = '- ' + formatBedrag(schijven.s3);
-  document.getElementById('bkTotaalBel').textContent = '- ' + formatBedrag(schijven.totaal);
-  document.getElementById('bkAHK').textContent = '+ ' + formatBedrag(ahk);
-  document.getElementById('bkAK').textContent = '+ ' + formatBedrag(ak);
-  document.getElementById('bkNetto').textContent = formatBedrag(nettoJaar);
-  document.getElementById('bkNettoMaand').textContent = formatBedrag(nettoMaand);
-  
-  // Bar chart
-  const maxVal = totaalBruto;
-  const barData = [
-    { label: 'Bruto', value: totaalBruto, color: '#2563EB' },
-    { label: 'Belasting', value: schijven.totaal, color: '#EF4444' },
-    { label: 'Kortingen', value: ahk + ak, color: '#10B981' },
-    { label: 'Netto', value: nettoJaar, color: '#7C3AED' },
-  ];
-  
-  const chartEl = document.getElementById('barChart');
-  chartEl.innerHTML = '';
-  barData.forEach(d => {
-    const height = Math.max(4, (d.value / maxVal) * 140);
-    chartEl.innerHTML += `<div class="bar-col"><div class="bar-value">${formatBedrag(d.value)}</div><div class="bar" style="height:${height}px;background:${d.color}"></div><div class="bar-label">${d.label}</div></div>`;
-  });
-  
-  // Scroll to results
-  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  
-  // Store for PDF
-  window.lastCalc = { brutoMaand, vakantiegeld, totaalBruto, brutoJaar, schijven, ahk, ak, teBetalen, nettoJaar, nettoMaand, effectiefTarief, isAOW, heeftLoonheffingskorting };
-}
-
-function downloadPDF() {
-  const c = window.lastCalc;
-  if (!c) return;
-  
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  
-  // Header
-  doc.setFillColor(37, 99, 235);
-  doc.rect(0, 0, 210, 40, 'F');
-  doc.setTextColor(255, 255, 255);
-  doc.setFontSize(24);
-  doc.setFont('helvetica', 'bold');
-  doc.text('Fixlify', 20, 22);
-  doc.setFontSize(12);
-  doc.setFont('helvetica', 'normal');
-  doc.text('Nettoloon Berekening 2026', 20, 32);
-  
-  // Date
-  const now = new Date();
-  doc.setFontSize(10);
-  doc.text(`Berekend op: ${now.toLocaleDateString('nl-NL')}`, 140, 22);
-  
-  // Netto result
-  doc.setTextColor(0, 0, 0);
-  doc.setFontSize(14);
-  doc.setFont('helvetica', 'bold');
-  doc.text('Je netto maandloon:', 20, 55);
-  doc.setFontSize(28);
-  doc.setTextColor(37, 99, 235);
-  doc.text(formatBedrag(c.nettoMaand), 20, 68);
-  
-  // Details
-  doc.setTextColor(100, 100, 100);
-  doc.setFontSize(10);
-  doc.setFont('helvetica', 'normal');
-  let y = 85;
-  
-  doc.setTextColor(0, 0, 0);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(12);
-  doc.text('Uitsplitsing per jaar', 20, y);
-  y += 10;
-  
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(10);
-  
-  const rows = [
-    ['Bruto jaarsalaris', formatBedrag(c.brutoJaar)],
-    ['Vakantiegeld', '+ ' + formatBedrag(c.vakantiegeld)],
-    ['Totaal bruto inkomen', formatBedrag(c.totaalBruto)],
-    ['', ''],
-    ['Belasting schijf 1 (35,75%)', '- ' + formatBedrag(c.schijven.s1)],
-    ['Belasting schijf 2 (37,56%)', '- ' + formatBedrag(c.schijven.s2)],
-    ['Belasting schijf 3 (49,50%)', '- ' + formatBedrag(c.schijven.s3)],
-    ['Totaal belasting', '- ' + formatBedrag(c.schijven.totaal)],
-    ['', ''],
-    ['Algemene heffingskorting', '+ ' + formatBedrag(c.ahk)],
-    ['Arbeidskorting', '+ ' + formatBedrag(c.ak)],
-    ['', ''],
-    ['Netto jaarsalaris', formatBedrag(c.nettoJaar)],
-    ['Netto per maand', formatBedrag(c.nettoMaand)],
-    ['Effectief belastingtarief', c.effectiefTarief.toFixed(1) + '%'],
-  ];
-  
-  rows.forEach(([label, value]) => {
-    if (label === '' && value === '') { y += 4; return; }
-    if (label === 'Netto jaarsalaris' || label === 'Netto per maand') {
-      doc.setFont('helvetica', 'bold');
-      doc.setDrawColor(0);
-      doc.line(20, y - 3, 190, y - 3);
-    }
-    doc.setTextColor(100, 100, 100);
-    doc.text(label, 20, y);
-    doc.setTextColor(0, 0, 0);
-    doc.text(value, 190, y, { align: 'right' });
-    doc.setFont('helvetica', 'normal');
-    y += 7;
-  });
-  
-  // Disclaimer
-  y += 10;
-  doc.setFontSize(8);
-  doc.setTextColor(150, 150, 150);
-  doc.text('Disclaimer: Deze berekening is een indicatie op basis van de belastingtarieven 2026.', 20, y);
-  doc.text('Er is geen rekening gehouden met pensioenpremies, cao-inhoudingen of andere aftrekposten.', 20, y + 5);
-  doc.text('Bron: Belastingdienst.nl | Berekend via Fixlify.nl', 20, y + 10);
-  
-  doc.save('nettoloon-berekening-2026-fixlify.pdf');
-}
-
-// Auto-calculate on load
-window.addEventListener('load', () => { bereken(); });
+const SCHIJF1_GRENS=38883;const SCHIJF2_GRENS=78426;const TARIEF1=0.3575;const TARIEF2=0.3756;const TARIEF3=0.4950;const TARIEF1_AOW=0.1785;const AHK_MAX=3115;const AHK_AFBOUW_START=29736;const AHK_AFBOUW_PERC=0.06398;const AHK_AFBOUW_EIND=78426;const AK_OPBOUW1_GRENS=11491;const AK_OPBOUW1_PERC=0.08425;const AK_OPBOUW2_GRENS=24821;const AK_OPBOUW2_PERC=0.30661;const AK_OPBOUW3_GRENS=45592;const AK_OPBOUW3_PERC=0.03085;const AK_MAX=5685;const AK_AFBOUW_START=45592;const AK_AFBOUW_PERC=0.0651;const AK_AFBOUW_EIND=132920;
+function berekenBelasting(inkomen,isAOW){let belasting=0;const t1=isAOW?TARIEF1_AOW:TARIEF1;if(inkomen<=SCHIJF1_GRENS){belasting=inkomen*t1}else if(inkomen<=SCHIJF2_GRENS){belasting=SCHIJF1_GRENS*t1+(inkomen-SCHIJF1_GRENS)*TARIEF2}else{belasting=SCHIJF1_GRENS*t1+(SCHIJF2_GRENS-SCHIJF1_GRENS)*TARIEF2+(inkomen-SCHIJF2_GRENS)*TARIEF3}return belasting}
+function berekenSchijfDetails(inkomen,isAOW){const t1=isAOW?TARIEF1_AOW:TARIEF1;let s1=0,s2=0,s3=0;if(inkomen<=SCHIJF1_GRENS){s1=inkomen*t1}else if(inkomen<=SCHIJF2_GRENS){s1=SCHIJF1_GRENS*t1;s2=(inkomen-SCHIJF1_GRENS)*TARIEF2}else{s1=SCHIJF1_GRENS*t1;s2=(SCHIJF2_GRENS-SCHIJF1_GRENS)*TARIEF2;s3=(inkomen-SCHIJF2_GRENS)*TARIEF3}return{s1,s2,s3,totaal:s1+s2+s3}}
+function berekenAHK(inkomen){if(inkomen<=AHK_AFBOUW_START)return AHK_MAX;if(inkomen>=AHK_AFBOUW_EIND)return 0;const korting=AHK_MAX-(inkomen-AHK_AFBOUW_START)*AHK_AFBOUW_PERC;return Math.max(0,korting)}
+function berekenArbeidskorting(inkomen){if(inkomen<=0)return 0;let korting=0;if(inkomen<=AK_OPBOUW1_GRENS){korting=inkomen*AK_OPBOUW1_PERC}else if(inkomen<=AK_OPBOUW2_GRENS){korting=AK_OPBOUW1_GRENS*AK_OPBOUW1_PERC+(inkomen-AK_OPBOUW1_GRENS)*AK_OPBOUW2_PERC}else if(inkomen<=AK_OPBOUW3_GRENS){korting=AK_OPBOUW1_GRENS*AK_OPBOUW1_PERC+(AK_OPBOUW2_GRENS-AK_OPBOUW1_GRENS)*AK_OPBOUW2_PERC+(inkomen-AK_OPBOUW2_GRENS)*AK_OPBOUW3_PERC}else if(inkomen<=AK_AFBOUW_EIND){korting=AK_MAX-(inkomen-AK_AFBOUW_START)*AK_AFBOUW_PERC}else{korting=0}return Math.max(0,Math.min(AK_MAX,korting))}
+function formatBedrag(bedrag){return'€ '+Math.round(bedrag).toLocaleString('nl-NL')}
+function bereken(){const brutoMaand=parseFloat(document.getElementById('bruto').value)||0;const vakantiegeldPerc=parseFloat(document.getElementById('vakantiegeld').value)/100;const parttime=parseFloat(document.getElementById('parttime').value)/100;const isAOW=document.getElementById('leeftijd').value==='aow';const heeftLoonheffingskorting=document.getElementById('loonheffingskorting').checked;const brutoJaar=brutoMaand*12;const vakantiegeld=brutoJaar*vakantiegeldPerc;const totaalBruto=brutoJaar+vakantiegeld;const schijven=berekenSchijfDetails(totaalBruto,isAOW);let ahk=0,ak=0;if(heeftLoonheffingskorting){ahk=berekenAHK(totaalBruto);ak=berekenArbeidskorting(totaalBruto)}let teBetalen=schijven.totaal-ahk-ak;teBetalen=Math.max(0,teBetalen);const nettoJaar=totaalBruto-teBetalen;const nettoMaand=nettoJaar/12;const effectiefTarief=totaalBruto>0?(teBetalen/totaalBruto*100):0;document.getElementById('results').classList.add('show');document.getElementById('nettoResult').textContent=formatBedrag(nettoMaand);document.getElementById('brutoJaar').textContent=formatBedrag(totaalBruto);document.getElementById('nettoJaar').textContent=formatBedrag(nettoJaar);document.getElementById('totaalHeffing').textContent=formatBedrag(teBetalen);document.getElementById('effectiefTarief').textContent=effectiefTarief.toFixed(1)+'%';document.getElementById('bkBruto').textContent=formatBedrag(brutoJaar);document.getElementById('bkVakantie').textContent='+ '+formatBedrag(vakantiegeld);document.getElementById('bkTotaal').textContent=formatBedrag(totaalBruto);document.getElementById('bkSchijf1').textContent='- '+formatBedrag(schijven.s1);document.getElementById('bkSchijf2').textContent='- '+formatBedrag(schijven.s2);document.getElementById('bkSchijf3').textContent='- '+formatBedrag(schijven.s3);document.getElementById('bkTotaalBel').textContent='- '+formatBedrag(schijven.totaal);document.getElementById('bkAHK').textContent='+ '+formatBedrag(ahk);document.getElementById('bkAK').textContent='+ '+formatBedrag(ak);document.getElementById('bkNetto').textContent=formatBedrag(nettoJaar);document.getElementById('bkNettoMaand').textContent=formatBedrag(nettoMaand);const maxVal=totaalBruto;const barData=[{label:'Bruto',value:totaalBruto,color:'#2563EB'},{label:'Belasting',value:schijven.totaal,color:'#EF4444'},{label:'Kortingen',value:ahk+ak,color:'#10B981'},{label:'Netto',value:nettoJaar,color:'#7C3AED'}];const chartEl=document.getElementById('barChart');chartEl.innerHTML='';barData.forEach(d=>{const height=Math.max(4,(d.value/maxVal)*140);chartEl.innerHTML+=`<div class="bar-col"><div class="bar-value">${formatBedrag(d.value)}</div><div class="bar" style="height:${height}px;background:${d.color}"></div><div class="bar-label">${d.label}</div></div>`});document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});window.lastCalc={brutoMaand,vakantiegeld,totaalBruto,brutoJaar,schijven,ahk,ak,teBetalen,nettoJaar,nettoMaand,effectiefTarief,isAOW,heeftLoonheffingskorting}}
+function downloadPDF(){const c=window.lastCalc;if(!c)return;const{jsPDF}=window.jspdf;const doc=new jsPDF();doc.setFillColor(37,99,235);doc.rect(0,0,210,40,'F');doc.setTextColor(255,255,255);doc.setFontSize(24);doc.setFont('helvetica','bold');doc.text('Fixlify',20,22);doc.setFontSize(12);doc.setFont('helvetica','normal');doc.text('Nettoloon Berekening 2026',20,32);const now=new Date();doc.setFontSize(10);doc.text(`Berekend op: ${now.toLocaleDateString('nl-NL')}`,140,22);doc.setTextColor(0,0,0);doc.setFontSize(14);doc.setFont('helvetica','bold');doc.text('Je netto maandloon:',20,55);doc.setFontSize(28);doc.setTextColor(37,99,235);doc.text(formatBedrag(c.nettoMaand),20,68);doc.setTextColor(100,100,100);doc.setFontSize(10);doc.setFont('helvetica','normal');let y=85;doc.setTextColor(0,0,0);doc.setFont('helvetica','bold');doc.setFontSize(12);doc.text('Uitsplitsing per jaar',20,y);y+=10;doc.setFont('helvetica','normal');doc.setFontSize(10);const rows=[['Bruto jaarsalaris',formatBedrag(c.brutoJaar)],['Vakantiegeld','+ '+formatBedrag(c.vakantiegeld)],['Totaal bruto inkomen',formatBedrag(c.totaalBruto)],['',''],['Belasting schijf 1 (35,75%)','- '+formatBedrag(c.schijven.s1)],['Belasting schijf 2 (37,56%)','- '+formatBedrag(c.schijven.s2)],['Belasting schijf 3 (49,50%)','- '+formatBedrag(c.schijven.s3)],['Totaal belasting','- '+formatBedrag(c.schijven.totaal)],['',''],['Algemene heffingskorting','+ '+formatBedrag(c.ahk)],['Arbeidskorting','+ '+formatBedrag(c.ak)],['',''],['Netto jaarsalaris',formatBedrag(c.nettoJaar)],['Netto per maand',formatBedrag(c.nettoMaand)],['Effectief belastingtarief',c.effectiefTarief.toFixed(1)+'%']];rows.forEach(([label,value])=>{if(label===''&&value===''){y+=4;return}if(label==='Netto jaarsalaris'||label==='Netto per maand'){doc.setFont('helvetica','bold');doc.setDrawColor(0);doc.line(20,y-3,190,y-3)}doc.setTextColor(100,100,100);doc.text(label,20,y);doc.setTextColor(0,0,0);doc.text(value,190,y,{align:'right'});doc.setFont('helvetica','normal');y+=7});y+=10;doc.setFontSize(8);doc.setTextColor(150,150,150);doc.text('Disclaimer: Deze berekening is een indicatie op basis van de belastingtarieven 2026.',20,y);doc.text('Er is geen rekening gehouden met pensioenpremies, cao-inhoudingen of andere aftrekposten.',20,y+5);doc.text('Bron: Belastingdienst.nl | Berekend via Fixlify.nl',20,y+10);doc.save('nettoloon-berekening-2026-fixlify.pdf')}
+window.addEventListener('load',()=>{bereken()});
 </script>
 </body>
 </html>
