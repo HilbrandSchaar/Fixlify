@@ -3,111 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Algemene Voorwaarden — Fixlify</title>
+<title>Algemene Voorwaarden · Fixlify</title>
+<meta name="description" content="Algemene voorwaarden van Fixlify. Bedrijfsgegevens, aansprakelijkheid, klachten en geschillen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Outfit',system-ui,sans-serif;color:#1E293B;background:#FAFBFC;line-height:1.7}
-a{color:#2563EB;text-decoration:none}
+:root{--blue:#2563EB;--purple:#7C3AED;--orange:#F97316;--dark:#0F172A;--ink:#1E293B;--gray:#64748B;--light:#94A3B8;--border:#E2E8F0;--bg:#FAFBFC;--white:#fff;--green:#059669;--blue-soft:#EFF6FF}
+body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);padding:14px 0}
-.nav-inner{max-width:800px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.disclaimer-bar{background:#1E293B;color:#CBD5E1;font-size:11.5px;text-align:center;padding:7px 16px;line-height:1.4;font-weight:500}
+.disclaimer-bar strong{color:#fff}
+nav{background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.04);padding:14px 0;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:9px}
-.logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
-.logo-text{font-weight:800;font-size:21px;color:#0F172A}
-.back{font-size:14px;font-weight:500;color:#64748B}
-.container{max-width:800px;margin:0 auto;padding:100px 24px 60px}
-h1{font-size:36px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px;color:#0F172A}
-.lastupdated{font-size:14px;color:#94A3B8;margin-bottom:32px}
-.intro{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:24px;margin-bottom:32px}
-h2{font-size:18px;font-weight:700;color:#0F172A;margin:28px 0 10px}
-p{margin-bottom:12px;color:#475569}
-strong{color:#0F172A;font-weight:600}
-.contact-box{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:12px;padding:20px;margin:24px 0}
-.contact-box p{margin-bottom:6px}
-ul{margin:8px 0 16px 20px;color:#475569}
-ul li{margin-bottom:6px}
-footer{padding:32px 0;text-align:center;border-top:1px solid #E2E8F0;margin-top:60px;background:#fff}
-footer span{color:#94A3B8;font-size:13px}
+.logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
+.logo-text{font-weight:800;font-size:21px;letter-spacing:-.02em;color:var(--dark)}
+.nav-back{color:var(--blue);font-size:14px;font-weight:600}
+.container{max-width:780px;margin:0 auto;padding:60px 24px 80px}
+h1{font-size:clamp(32px,5vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;color:var(--dark)}
+.lead{font-size:17px;color:var(--gray);margin-bottom:8px}
+.updated{font-size:13px;color:var(--light);margin-bottom:40px;font-style:italic}
+h2{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:36px 0 14px;color:var(--dark);padding-top:20px;border-top:1px solid var(--border)}
+h2:first-of-type{padding-top:0;border-top:none}
+h3{font-size:16px;font-weight:700;margin:20px 0 8px;color:var(--dark)}
+p{margin-bottom:14px;color:var(--ink);font-size:15px}
+ul,ol{padding-left:22px;margin-bottom:14px}
+li{margin-bottom:6px;font-size:15px;color:var(--ink)}
+strong{color:var(--dark);font-weight:600}
+.contact-box{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;margin:20px 0;font-size:14px;line-height:1.7}
+.contact-box strong{display:block;color:var(--dark);font-size:15px;margin-bottom:6px}
+.warn{background:#FFFBEB;border-left:3px solid #D97706;padding:14px 18px;border-radius:8px;margin:16px 0;font-size:14px;color:#78350F;line-height:1.6}
+.warn strong{color:#78350F}
+.legal-footer{background:#F1F5F9;border-top:1px solid var(--border);padding:32px 0;font-size:12px;color:var(--gray);line-height:1.7;text-align:center}
+.legal-footer a{color:var(--gray)}
+footer{padding:24px 0;text-align:center;border-top:1px solid var(--border);background:#fff}
+footer span{color:var(--light);font-size:13px}
+footer a{color:var(--light)}
 </style>
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a><a href="/" class="back">← Terug naar home</a></div></nav>
+<div class="disclaimer-bar">ℹ️ Fixlify biedt <strong>indicatieve hulpmiddelen</strong> — geen juridisch, fiscaal of financieel advies.</div>
+<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a><a href="/" class="nav-back">← Terug naar home</a></div></nav>
 
 <div class="container">
+
 <h1>Algemene Voorwaarden</h1>
-<p class="lastupdated">Laatst bijgewerkt: 1 mei 2026</p>
+<p class="lead">Voor het gebruik van de tools en diensten op Fixlify.nl.</p>
+<p class="updated">Laatst bijgewerkt: 5 mei 2026</p>
 
-<div class="intro">
-<p>Deze algemene voorwaarden zijn van toepassing op elk gebruik van fixlify.nl en alle diensten die door FixlifyNL worden aangeboden. Door gebruik te maken van onze website en tools ga je akkoord met deze voorwaarden.</p>
-</div>
-
-<h2>Artikel 1 — Definities</h2>
-<p><strong>FixlifyNL:</strong> de eenmanszaak FixlifyNL, gevestigd aan Monnikemuurstraat 105, 8911GC Leeuwarden, ingeschreven bij de Kamer van Koophandel onder nummer 77981197.</p>
-<p><strong>Gebruiker:</strong> iedere natuurlijke of rechtspersoon die de website fixlify.nl bezoekt of gebruikmaakt van de aangeboden diensten.</p>
-<p><strong>Digitaal product:</strong> een door FixlifyNL gegenereerd document (PDF, brief, CV, factuur) dat na betaling beschikbaar wordt gesteld voor download.</p>
-<p><strong>Tool:</strong> een online toepassing op fixlify.nl waarmee een berekening wordt uitgevoerd of een document wordt gegenereerd.</p>
-
-<h2>Artikel 2 — Toepasselijkheid</h2>
-<p>Deze voorwaarden zijn van toepassing op ieder gebruik van fixlify.nl en alle aangeboden diensten. FixlifyNL behoudt zich het recht voor deze voorwaarden te wijzigen. Gewijzigde voorwaarden gelden zodra zij op de website zijn gepubliceerd.</p>
-
-<h2>Artikel 3 — Aanbod en prijzen</h2>
-<p>Alle prijzen op fixlify.nl zijn in euro's. FixlifyNL valt onder de kleineondernemersregeling (KOR) en brengt daarom geen BTW in rekening.</p>
-<p>FixlifyNL kan prijzen op elk moment wijzigen. Gewijzigde prijzen gelden niet voor reeds afgeronde bestellingen.</p>
-
-<h2>Artikel 4 — Totstandkoming overeenkomst</h2>
-<p>Een overeenkomst komt tot stand op het moment dat de gebruiker een betaling voltooit via onze betaalprovider Stripe. Na succesvolle betaling krijgt de gebruiker direct toegang tot het digitale product.</p>
-
-<h2>Artikel 5 — Herroepingsrecht bij digitale producten</h2>
-<p>Op grond van artikel 6:230p lid 1 sub c van het Burgerlijk Wetboek vervalt het herroepingsrecht bij digitale inhoud die niet op een materiële drager is geleverd, zodra de levering is begonnen met uitdrukkelijke voorafgaande toestemming van de gebruiker.</p>
-<p>Bij het afronden van de bestelling stemt de gebruiker er uitdrukkelijk mee in dat:</p>
-<ul>
-<li>de levering van het digitale product onmiddellijk begint na betaling</li>
-<li>de gebruiker daarmee uitdrukkelijk afstand doet van het herroepingsrecht</li>
-</ul>
-<p>FixlifyNL streeft naar tevreden klanten. Bij technische problemen of klachten kun je contact opnemen via <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a> en wij zoeken samen een oplossing.</p>
-
-<h2>Artikel 6 — Betaling</h2>
-<p>Betalingen verlopen via Stripe Inc. Beschikbare betaalmethoden zijn onder andere iDEAL, creditcard, Apple Pay, Bancontact en Klarna. FixlifyNL heeft geen toegang tot bank- of creditcardgegevens van de gebruiker.</p>
-
-<h2>Artikel 7 — Gebruik van de tools</h2>
-<p>De gebruiker is zelf verantwoordelijk voor de juistheid en volledigheid van de gegevens die hij invult.</p>
-<p>De door onze tools gegenereerde documenten zijn voorbeelddocumenten gebaseerd op algemene informatie. Zij vormen <strong>geen juridisch, financieel, fiscaal of medisch advies</strong>. Bij specifieke vragen raadpleeg je een gekwalificeerd adviseur of het Juridisch Loket.</p>
-<p>Het is niet toegestaan om onze tools, content of code te kopiëren, te wijzigen, te herdistribueren of als eigen dienst aan te bieden zonder schriftelijke toestemming.</p>
-
-<h2>Artikel 8 — Intellectueel eigendom</h2>
-<p>Alle rechten op de website, tools, ontwerp, code en content berusten bij FixlifyNL. De gegenereerde documenten worden eigendom van de gebruiker en mogen vrij worden gebruikt voor persoonlijke of zakelijke doeleinden.</p>
-
-<h2>Artikel 9 — Aansprakelijkheid</h2>
-<p>FixlifyNL is niet aansprakelijk voor schade die voortvloeit uit het gebruik van gegenereerde documenten of berekeningen. De berekeningen en documenten zijn een hulpmiddel en geen vervanging voor professioneel advies.</p>
-<p>De aansprakelijkheid van FixlifyNL is in alle gevallen beperkt tot het bedrag dat de gebruiker voor de specifieke dienst heeft betaald. FixlifyNL is niet aansprakelijk voor indirecte schade, gevolgschade of gederfde winst.</p>
-<p>FixlifyNL streeft naar continue beschikbaarheid van de website maar kan niet garanderen dat de dienst altijd zonder onderbreking beschikbaar is.</p>
-
-<h2>Artikel 10 — Disclaimer juridische en fiscale tools</h2>
-<p>FixlifyNL is geen advocatenkantoor, juridisch adviseur, of fiscaal adviseur. Tools zoals de huurcheck, bezwaarbrieven en belastingcalculators bieden indicatieve informatie en voorbeelddocumenten op basis van algemene wetgeving en richtlijnen.</p>
-<p>De definitieve toetsing en uitspraak in juridische procedures (zoals bij de Huurcommissie) gebeurt altijd door de bevoegde instantie. Voor juridische vragen kun je gratis terecht bij het <a href="https://www.juridischloket.nl" target="_blank" rel="noopener">Juridisch Loket</a>.</p>
-
-<h2>Artikel 11 — Persoonsgegevens en privacy</h2>
-<p>Op het gebruik van fixlify.nl is onze <a href="/privacy.html">privacyverklaring</a> van toepassing.</p>
-
-<h2>Artikel 12 — Klachten</h2>
-<p>Klachten over onze dienstverlening kun je per e-mail indienen bij <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a>. Wij reageren binnen 14 dagen.</p>
-<p>Komen we er samen niet uit? Dan kun je je geschil voorleggen aan het Europese ODR-platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
-
-<h2>Artikel 13 — Toepasselijk recht</h2>
-<p>Op deze voorwaarden en alle overeenkomsten tussen FixlifyNL en de gebruiker is uitsluitend Nederlands recht van toepassing. Geschillen worden bij voorkeur in onderling overleg opgelost.</p>
-
-<h2>Contact</h2>
+<h2>1. Bedrijfsgegevens</h2>
+<p>Fixlify wordt aangeboden door:</p>
 <div class="contact-box">
-<p><strong>FixlifyNL</strong></p>
-<p>Monnikemuurstraat 105</p>
-<p>8911GC Leeuwarden</p>
-<p>KvK: 77981197</p>
-<p>BTW: NL003270597B29</p>
-<p>E-mail: <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a></p>
-</div>
+<strong>FixlifyNL (eenmanszaak)</strong>
+Gevestigd in Nederland<br><br>
+KvK-nummer: 77981197<br>
+BTW-nummer: NL003270597B29<br>
+E-mail: <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a>
 </div>
 
-<footer><span>© 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29</span></footer>
+<h2>2. Definities</h2>
+<ul>
+<li><strong>Fixlify / wij / ons:</strong> FixlifyNL, eenmanszaak van Hilbrand Schaar.</li>
+<li><strong>Gebruiker / je:</strong> degene die de website fixlify.nl bezoekt of de tools gebruikt.</li>
+<li><strong>Tools:</strong> de calculators, generatoren en andere hulpmiddelen op Fixlify.nl.</li>
+<li><strong>Output:</strong> alles wat een tool genereert (berekeningen, voorbeeldbrieven, PDF's, indicaties).</li>
+</ul>
+
+<h2>3. Toepasselijkheid</h2>
+<p>Deze voorwaarden gelden voor ieder gebruik van Fixlify.nl en de daarop aangeboden tools. Door de website of tools te gebruiken stem je in met deze voorwaarden. Gebruik je de site niet akkoord? Maak dan geen gebruik van Fixlify.</p>
+
+<h2>4. Aard van de dienst — geen advies</h2>
+<div class="warn">
+<strong>⚠️ Belangrijk om te weten</strong>
+Fixlify biedt informatieve en indicatieve hulpmiddelen aan. De tools, calculators, voorbeeldbrieven en andere content zijn <strong>geen juridisch, fiscaal, financieel of medisch advies</strong> en mogen niet als zodanig worden opgevat.
+</div>
+<ul>
+<li>De output van de tools betreft <strong>indicatieve uitkomsten</strong> op basis van algemene uitgangspunten.</li>
+<li>Persoonlijke factoren, lokale regelingen of recente wetswijzigingen zijn niet altijd verwerkt.</li>
+<li>Voor een specifieke situatie raden we aan een gekwalificeerde professional in te schakelen of contact op te nemen met de relevante officiële instantie (zoals het Juridisch Loket, de Belastingdienst, het UWV of de Huurcommissie).</li>
+<li>Aan de output van de tools kunnen geen rechten worden ontleend.</li>
+</ul>
+
+<h2>5. Aansprakelijkheid</h2>
+<p>Fixlify spant zich in om de tools en informatie zo zorgvuldig mogelijk samen te stellen, maar:</p>
+<ul>
+<li>Fixlify geeft geen garantie dat de informatie volledig, actueel of foutloos is.</li>
+<li>Het gebruik van de tools en de daarop gebaseerde beslissingen zijn volledig voor eigen rekening en risico van de gebruiker.</li>
+<li>Fixlify is niet aansprakelijk voor enige directe of indirecte schade, gevolgschade, gederfde inkomsten, gemiste besparingen of andere financiële of immateriële schade die voortvloeit uit of verband houdt met het gebruik van de website of de tools.</li>
+<li>Voor zover wettelijk toegestaan is de aansprakelijkheid van Fixlify in alle gevallen beperkt tot het bedrag dat de gebruiker (indien van toepassing) voor de specifieke dienst heeft betaald, met een maximum van € 50,-.</li>
+<li>De uitsluitingen en beperkingen van aansprakelijkheid gelden niet bij opzet of bewuste roekeloosheid van Fixlify.</li>
+</ul>
+
+<h2>6. Gebruik van de tools</h2>
+<p>Door Fixlify te gebruiken ga je ermee akkoord dat je:</p>
+<ul>
+<li>De tools alleen gebruikt voor wettige doeleinden.</li>
+<li>De tools niet gebruikt om schade toe te brengen aan derden.</li>
+<li>Geen pogingen onderneemt de website te hacken, te overbelasten of de werking ervan te verstoren.</li>
+<li>De output kritisch beoordeelt en zelf verantwoordelijk bent voor het gebruik ervan.</li>
+<li>Bij het gebruik van de Sollicitatiebrief AI tool geen onnodige gevoelige persoonsgegevens van anderen invoert.</li>
+</ul>
+
+<h2>7. Intellectueel eigendom</h2>
+<p>De vormgeving, code, teksten, logo's en overige content op Fixlify.nl zijn eigendom van FixlifyNL. Het kopiëren, verspreiden of commercieel exploiteren van deze content zonder schriftelijke toestemming is niet toegestaan. De output die je zelf met de tools genereert (zoals een ingevulde factuur of een voorbeeldbrief op basis van jouw input) mag je vrij gebruiken.</p>
+
+<h2>8. Betaalde diensten</h2>
+<p>De meeste tools op Fixlify zijn volledig gratis. Voor sommige tools (zoals de Sollicitatiebrief AI) wordt een eenmalige bijdrage gevraagd. Hiervoor geldt:</p>
+<ul>
+<li>De prijs wordt vooraf duidelijk vermeld voordat je betaalt.</li>
+<li>Betalingen verlopen via Stripe (iDEAL, creditcard, Apple Pay, etc.).</li>
+<li>Bij digitale producten geldt: zodra de levering begint (de tool wordt uitgevoerd) vervalt het wettelijke herroepingsrecht conform artikel 6:230p BW.</li>
+<li>Bij technische problemen of ontbrekende levering kun je contact opnemen via <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a>.</li>
+</ul>
+
+<h2>9. Affiliate-samenwerkingen</h2>
+<p>Fixlify kan in de toekomst gebruik maken van affiliate-samenwerkingen, waarbij een vergoeding wordt ontvangen wanneer je via een link op de website een product of dienst bij een derde partij afneemt.</p>
+<ul>
+<li>Affiliate-links worden duidelijk als zodanig gemarkeerd op de pagina waar ze verschijnen.</li>
+<li>Het gebruik van een affiliate-link kost jou als gebruiker niets extra.</li>
+<li>De vermelding van een product of dienst betekent niet automatisch dat dit het beste of goedkoopste alternatief is.</li>
+<li>Fixlify is niet verantwoordelijk voor de kwaliteit, levering of werking van producten of diensten van derden.</li>
+<li>Klachten over een aankoop bij een derde partij dien je rechtstreeks bij die partij in te dienen.</li>
+</ul>
+
+<h2>10. Externe links</h2>
+<p>Fixlify bevat links naar externe websites zoals het Juridisch Loket, de Belastingdienst en de Huurcommissie. Fixlify is niet verantwoordelijk voor de inhoud, beschikbaarheid of het privacybeleid van deze externe sites.</p>
+
+<h2>11. Klachten</h2>
+<p>Heb je een klacht over een tool, de website of onze dienstverlening? Stuur dan een e-mail naar <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a> met een duidelijke omschrijving van de klacht.</p>
+<ul>
+<li>We reageren binnen <strong>14 dagen</strong> op je klacht.</li>
+<li>Komen we er samen niet uit, dan kun je je wenden tot de bevoegde rechter (zie artikel 13).</li>
+<li>Voor consumentengeschillen kun je ook gebruik maken van het Europese ODR-platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a></li>
+</ul>
+
+<h2>12. Wijzigingen</h2>
+<p>Fixlify kan deze voorwaarden van tijd tot tijd aanpassen. De meest actuele versie staat altijd op deze pagina. De datum bovenaan geeft aan wanneer de laatste wijziging is doorgevoerd. Bij belangrijke wijzigingen worden gebruikers daarop geattendeerd via de website.</p>
+
+<h2>13. Toepasselijk recht en geschillen</h2>
+<p>Op deze voorwaarden en het gebruik van Fixlify is uitsluitend <strong>Nederlands recht</strong> van toepassing. Alle geschillen die voortvloeien uit of verband houden met deze voorwaarden of het gebruik van Fixlify worden voorgelegd aan de bevoegde Nederlandse rechter, tenzij dwingend recht een andere rechter aanwijst.</p>
+
+<h2>14. Slotbepalingen</h2>
+<ul>
+<li>Mocht een bepaling van deze voorwaarden ongeldig of onuitvoerbaar zijn, dan blijven de overige bepalingen onverkort van kracht.</li>
+<li>Als wij op enig moment besluiten een recht uit deze voorwaarden niet af te dwingen, betekent dat niet dat we dat recht in de toekomst niet meer kunnen uitoefenen.</li>
+<li>Deze voorwaarden vormen samen met de <a href="/privacy.html">privacyverklaring</a> de volledige overeenkomst tussen Fixlify en de gebruiker.</li>
+</ul>
+
+<h2>15. Contact</h2>
+<p>Vragen over deze voorwaarden? Stuur een e-mail naar <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a>.</p>
+
+</div>
+
+<section class="legal-footer">
+<div style="max-width:780px;margin:0 auto;padding:0 24px">
+Deze site gebruikt alleen functionele opslag — geen tracking, geen analytics. <a href="/privacy.html">Lees onze privacyverklaring</a>.
+</div>
+</section>
+
+<footer><span>© 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></span></footer>
+
 </body>
 </html>
+
