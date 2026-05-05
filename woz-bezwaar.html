@@ -3,16 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>WOZ-Bezwaar Generator 2026 · FixlifyNL</title>
-<meta name="description" content="Genereer gratis een professionele WOZ-bezwaarbrief voor de gemeente. Op basis van officiële procedures.">
+<title>Gratis WOZ-Bezwaar Voorbeeldbrief · FixlifyNL</title>
+<meta name="description" content="Genereer gratis een voorbeeld-bezwaarbrief voor je WOZ-waarde. Indicatief hulpmiddel, geen juridisch advies.">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
-:root{--blue:#2563EB;--blue-dark:#1D4ED8;--blue-soft:#EFF4FF;--orange:#F97316;--orange-dark:#EA580C;--bg:#FAFAFA;--ink:#0F172A;--ink-soft:#475569;--muted:#94A3B8;--line:#E2E8F0;--line-soft:#F1F5F9;--white:#FFFFFF;--green:#16A34A;--red:#DC2626;--yellow:#D97706}
+:root{--blue:#2563EB;--blue-dark:#1D4ED8;--blue-soft:#EFF4FF;--orange:#F97316;--orange-dark:#EA580C;--bg:#FAFAFA;--ink:#0F172A;--ink-soft:#475569;--muted:#94A3B8;--line:#E2E8F0;--line-soft:#F1F5F9;--white:#FFFFFF;--green:#16A34A;--green-soft:#DCFCE7;--red:#DC2626;--yellow:#D97706}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Outfit',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+.disclaimer-bar{background:#1E293B;color:#CBD5E1;font-size:11.5px;text-align:center;padding:7px 16px;line-height:1.4;font-weight:500}
+.disclaimer-bar strong{color:#fff}
 nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding:16px 24px;position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
 .nav-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo{font-weight:800;font-size:22px;letter-spacing:-0.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
@@ -20,16 +22,17 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .back-link{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:500}
 .back-link:hover{color:var(--blue)}
 .hero{max-width:820px;margin:0 auto;padding:48px 24px 32px;text-align:center}
-.hero-eyebrow{display:inline-block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue);background:var(--blue-soft);padding:6px 12px;border-radius:100px;margin-bottom:20px}
+.hero-eyebrow{display:inline-block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--green);background:var(--green-soft);padding:6px 12px;border-radius:100px;margin-bottom:20px}
 .hero h1{font-size:clamp(32px,5vw,48px);font-weight:700;letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
 .hero h1 em{font-style:normal;color:var(--blue);position:relative}
 .hero h1 em::after{content:'';position:absolute;left:0;right:0;bottom:2px;height:8px;background:var(--orange);opacity:0.25;z-index:-1;border-radius:2px}
 .hero p{font-size:17px;color:var(--ink-soft);max-width:580px;margin:0 auto;line-height:1.6}
-.urgency-banner{max-width:820px;margin:0 auto 24px;background:linear-gradient(135deg,#FEE2E2,#FEF2F2);border:2px solid #FECACA;border-radius:14px;padding:16px 24px;display:flex;align-items:center;gap:12px}
-.urgency-banner .icon{font-size:24px;flex-shrink:0}
-.urgency-banner .text{flex:1;font-size:14px;color:#991B1B;line-height:1.5}
+.hero-disclaimer{font-size:12px;color:var(--muted);margin-top:14px;font-style:italic;max-width:540px;margin-left:auto;margin-right:auto}
+.urgency-banner{max-width:820px;margin:0 auto 24px;background:#FFFBEB;border:1px solid #FDE68A;border-radius:14px;padding:14px 22px;display:flex;align-items:center;gap:12px}
+.urgency-banner .icon{font-size:20px;flex-shrink:0}
+.urgency-banner .text{flex:1;font-size:13px;color:#78350F;line-height:1.5}
 .urgency-banner strong{font-weight:700}
-@media(max-width:640px){.urgency-banner{margin:0 16px 24px;padding:14px 18px;font-size:13px}}
+@media(max-width:640px){.urgency-banner{margin:0 16px 24px;padding:12px 16px;font-size:12px}}
 .card{max-width:820px;margin:0 auto 24px;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px;box-shadow:0 4px 20px -2px rgba(15,23,42,0.06)}
 @media(max-width:640px){.card{padding:24px;border-radius:14px;margin:0 16px 20px}}
 .card h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px}
@@ -65,87 +68,63 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .result-headline{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;color:#15803D}
 .result-big{font-size:clamp(28px,5vw,40px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:8px;color:#15803D}
 .result-sub{font-size:15px;color:var(--ink-soft);max-width:540px;margin:0 auto}
+.result-disclaimer{font-size:11px;color:var(--muted);margin-top:14px;font-style:italic;max-width:480px;margin-left:auto;margin-right:auto}
 .savings-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:18px}
 .savings-box h3{font-size:14px;font-weight:600;margin-bottom:12px}
 .savings-row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px}
 .savings-row.total{border-top:2px solid var(--line);margin-top:8px;padding-top:10px;font-weight:700;font-size:14px}
-
-/* A4 Brief met Watermerk */
+.savings-disclaimer{font-size:11px;color:var(--muted);margin-top:10px;font-style:italic;line-height:1.5}
 .brief-section{margin-top:32px}
 .brief-section h3{font-size:16px;font-weight:700;margin-bottom:16px}
 .brief-container{position:relative;max-width:700px;margin:0 auto;background:var(--white);border:2px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.12)}
-.brief-paper{background:var(--white);padding:60px 60px;font-family:Georgia,'Times New Roman',serif;font-size:13px;line-height:1.7;color:var(--ink);position:relative;min-height:900px;
-user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-webkit-touch-callout:none;
-}
+.brief-paper{background:var(--white);padding:60px 60px;font-family:Georgia,'Times New Roman',serif;font-size:13px;line-height:1.7;color:var(--ink);position:relative;min-height:900px}
 @media(max-width:640px){.brief-paper{padding:32px 24px;font-size:11px;min-height:600px}}
-.watermark-overlay{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden;z-index:5}
-.watermark-text{position:absolute;font-family:'Outfit',sans-serif;font-weight:900;color:rgba(249,115,22,0.18);font-size:80px;letter-spacing:0.02em;white-space:nowrap;transform:rotate(-30deg);transform-origin:center;text-transform:uppercase;line-height:1}
-@media(max-width:640px){.watermark-text{font-size:48px}}
-.wm1{top:8%;left:-10%}
-.wm2{top:28%;left:-15%}
-.wm3{top:48%;left:-10%}
-.wm4{top:68%;left:-15%}
-.wm5{top:88%;left:-10%}
-.watermark-corner{position:absolute;font-family:'Outfit',sans-serif;font-weight:700;color:rgba(249,115,22,0.6);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;z-index:10;pointer-events:none;display:flex;align-items:center;gap:4px}
-.watermark-corner::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:2px}
-.wc-tl{top:14px;left:14px}
-.wc-tr{top:14px;right:14px}
-.wc-bl{bottom:14px;left:14px}
-.wc-br{bottom:14px;right:14px}
 .brief-paper p{margin-bottom:12px}
 .brief-paper h4{font-size:13px;font-weight:700;text-transform:uppercase;margin-top:18px;margin-bottom:10px;letter-spacing:0.05em}
 .brief-paper ol{margin-left:24px;margin-bottom:12px}
 .brief-paper ol li{margin-bottom:6px}
 .brief-paper .underline{border-top:1px solid var(--ink);width:200px;margin:48px 0 4px}
-
-.cta-pro{margin-top:24px;background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:2px solid #FED7AA;border-radius:16px;padding:28px;text-align:center}
-.cta-pro h3{font-size:20px;font-weight:700;margin-bottom:8px}
-.cta-pro p{font-size:14px;color:var(--ink-soft);margin-bottom:16px;max-width:480px;margin-left:auto;margin-right:auto}
-.cta-pro .price{font-size:32px;font-weight:800;color:var(--orange-dark);line-height:1;margin-bottom:4px}
-.cta-pro .price-sub{font-size:12px;color:var(--ink-soft);margin-bottom:20px}
-.cta-features{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:20px;text-align:left;max-width:480px;margin-left:auto;margin-right:auto}
-.cta-feature{font-size:13px;color:var(--ink);display:flex;align-items:center;gap:6px}
-.cta-feature::before{content:'✓';color:var(--green);font-weight:700}
-.btn-pro{background:var(--orange);color:#fff;font-size:16px;font-weight:700;padding:14px 32px;border-radius:10px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;text-decoration:none}
-.btn-pro:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 6px 16px rgba(249,115,22,0.3)}
-.cta-fineprint{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.5}
-
+.download-section{margin-top:24px;background:var(--blue-soft);border:1px solid #BFDBFE;border-radius:12px;padding:24px;text-align:center}
+.download-section h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.download-section p{font-size:14px;color:var(--ink-soft);margin-bottom:16px;max-width:480px;margin-left:auto;margin-right:auto}
+.btn-download{background:var(--blue);color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:10px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;text-decoration:none;font-family:inherit}
+.btn-download:hover{background:var(--blue-dark);transform:translateY(-1px)}
+.download-fineprint{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.5}
 .info-box{background:var(--blue-soft);border-left:3px solid var(--blue);padding:14px 16px;border-radius:8px;margin:18px 0;font-size:13px;color:var(--ink);line-height:1.6}
 .info-box.warn{background:#FEF3C7;border-left-color:var(--yellow)}
-.assumptions{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:16px;font-size:12px;color:var(--ink-soft);line-height:1.6;margin-top:18px}
-.assumptions strong{color:var(--ink)}
-.assumptions ul{list-style:none;margin-top:8px}
-.assumptions li{padding:3px 0}
-.assumptions li::before{content:'•';color:var(--blue);margin-right:8px;font-weight:700}
+.tool-disclaimer-box{background:#FFFBEB;border:1.5px solid #FDE68A;border-radius:12px;padding:18px 20px;margin:24px 0;font-size:13px;color:#78350F;line-height:1.6}
+.tool-disclaimer-box strong{display:block;color:#78350F;margin-bottom:6px;font-size:14px;font-weight:700}
+.legal-footer{background:#F1F5F9;border-top:1px solid var(--line);padding:32px 0;margin-top:24px}
+.legal-footer-inner{max-width:820px;margin:0 auto;padding:0 24px;font-size:12px;color:var(--ink-soft);line-height:1.7}
+.legal-footer-inner strong{color:var(--ink);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
 .disclaimer{max-width:820px;margin:0 auto;padding:24px;text-align:center;font-size:12px;color:var(--muted);line-height:1.6}
 .disclaimer strong{color:var(--ink-soft)}
 .disclaimer a{color:var(--blue);text-decoration:none}
 footer{background:var(--white);border-top:1px solid var(--line);padding:24px;text-align:center;font-size:13px;color:var(--muted)}
 footer a{color:var(--muted)}
 .hidden{display:none}
-@media print{
-.brief-container{display:none !important}
-.cta-pro{display:none !important}
-}
+@media print{.brief-container{display:none !important}.download-section{display:none !important}}
 </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
+<div class="disclaimer-bar">ℹ️ Indicatieve tool — <strong>geen juridisch advies</strong>. Aan de uitkomsten kunnen geen rechten worden ontleend.</div>
 <nav><div class="nav-inner"><a href="/" class="logo"><span class="logo-dot"></span>fixlify</a><a href="/" class="back-link">← Alle tools</a></div></nav>
 
 <section class="hero">
-<span class="hero-eyebrow">100% gratis · Wettelijk correct · 2026 procedure</span>
-<h1>WOZ te hoog? <em>Maak gratis</em> bezwaar</h1>
-<p>Genereer in 2 minuten een professionele bezwaarbrief op basis van officiële procedures. Gemiddeld €272 besparing per jaar bij succes.</p>
+<span class="hero-eyebrow">Volledig gratis · Geen account</span>
+<h1>WOZ te hoog? <em>Maak gratis</em> een voorbeeldbrief.</h1>
+<p>Vul je gegevens in en krijg een voorbeeld-bezwaarbrief die je kunt gebruiken als basis voor jouw eigen bezwaar bij de gemeente.</p>
+<p class="hero-disclaimer">Indicatief hulpmiddel — vervangt geen juridisch advies. Voor jouw specifieke situatie raden we aan contact op te nemen met het Juridisch Loket of de gemeente.</p>
 </section>
 
 <div class="urgency-banner">
 <span class="icon">⏰</span>
-<div class="text"><strong>Bezwaartermijn: 6 weken na dagtekening WOZ-beschikking.</strong> Te laat = je zit een jaar vast aan de huidige WOZ-waarde. Begin nu.</div>
+<div class="text"><strong>Bezwaartermijn is meestal 6 weken na dagtekening WOZ-beschikking.</strong> Check de exacte termijn op je beschikking — die is leidend.</div>
 </div>
 
 <div class="card">
 <h2>Vul je gegevens in</h2>
-<p class="card-sub">Op basis van jouw input genereren we een complete bezwaarbrief op formele wijze.</p>
+<p class="card-sub">Op basis van jouw input genereren we een voorbeeldbrief die je kunt aanpassen op jouw situatie.</p>
 
 <div class="section-title">Persoonlijke gegevens</div>
 <div class="grid">
@@ -177,7 +156,7 @@ footer a{color:var(--muted)}
 </div>
 <div class="field"><label for="dagtekening">Dagtekening WOZ-beschikking</label>
 <input type="date" id="dagtekening" />
-<span class="field-help">Vanaf deze datum heb je 6 weken</span>
+<span class="field-help">Check de bezwaartermijn op je beschikking</span>
 </div>
 <div class="field"><label for="wozWaarde">Vastgestelde WOZ-waarde</label>
 <div class="field-with-prefix"><span class="prefix">€</span><input type="number" id="wozWaarde" placeholder="450000" min="0" step="1000" /></div>
@@ -185,7 +164,7 @@ footer a{color:var(--muted)}
 </div>
 <div class="field"><label for="schattingWaarde">Jouw geschatte werkelijke waarde</label>
 <div class="field-with-prefix"><span class="prefix">€</span><input type="number" id="schattingWaarde" placeholder="400000" min="0" step="1000" /></div>
-<span class="field-help">Realistic verschil = 5-20% lager</span>
+<span class="field-help">Onderbouw dit met bewijs (foto's, vergelijkbare verkopen, etc.)</span>
 </div>
 <div class="field"><label for="woningType">Type woning</label>
 <select id="woningType">
@@ -199,15 +178,15 @@ footer a{color:var(--muted)}
 </div>
 </div>
 
-<div class="section-title">Redenen voor bezwaar</div>
-<p style="font-size:12px;color:var(--muted);margin-bottom:14px">Vink alle punten aan die op jouw situatie van toepassing zijn. Hoe meer onderbouwde redenen, hoe sterker je bezwaar.</p>
+<div class="section-title">Mogelijke redenen voor bezwaar</div>
+<p style="font-size:12px;color:var(--muted);margin-bottom:14px">Vink alle punten aan die op jouw situatie van toepassing kúnnen zijn. Onderbouw deze in je bezwaar met bewijs (foto's, taxatie, vergelijkbare verkopen).</p>
 
 <div class="checkbox-grid">
 <label class="check-item">
 <input type="checkbox" id="reden-kenmerken" onchange="toggleReden(this)">
 <div class="info">
-<div class="info-name">Onjuiste objectkenmerken</div>
-<div class="info-desc">Bouwjaar, oppervlakte, perceel, woningtype of bijgebouwen kloppen niet</div>
+<div class="info-name">Mogelijk onjuiste objectkenmerken</div>
+<div class="info-desc">Bouwjaar, oppervlakte, perceel, woningtype of bijgebouwen kloppen mogelijk niet</div>
 </div>
 </label>
 
@@ -222,8 +201,8 @@ footer a{color:var(--muted)}
 <label class="check-item">
 <input type="checkbox" id="reden-vergelijking" onchange="toggleReden(this)">
 <div class="info">
-<div class="info-name">Vergelijkingspanden niet vergelijkbaar</div>
-<div class="info-desc">Referentiewoningen zijn groter, beter onderhouden of beter gelegen</div>
+<div class="info-name">Vergelijkingspanden mogelijk niet vergelijkbaar</div>
+<div class="info-desc">Referentiewoningen lijken groter, beter onderhouden of beter gelegen</div>
 </div>
 </label>
 
@@ -246,7 +225,7 @@ footer a{color:var(--muted)}
 <label class="check-item">
 <input type="checkbox" id="reden-marktwaarde" onchange="toggleReden(this)">
 <div class="info">
-<div class="info-name">Recente verkoopprijs / koopsom lager</div>
+<div class="info-name">Recente verkoopprijs / koopsom lijkt lager</div>
 <div class="info-desc">Eigen aankoop of vergelijkbare verkoop rond peildatum 1 jan 2025</div>
 </div>
 </label>
@@ -254,8 +233,8 @@ footer a{color:var(--muted)}
 <label class="check-item">
 <input type="checkbox" id="reden-buurt" onchange="toggleReden(this)">
 <div class="info">
-<div class="info-name">Buren met vergelijkbare woning hebben lagere WOZ</div>
-<div class="info-desc">Check via wozwaardeloket.nl voor onderbouwing</div>
+<div class="info-name">Buren met vergelijkbare woning lijken lagere WOZ te hebben</div>
+<div class="info-desc">Indicatief te checken via wozwaardeloket.nl</div>
 </div>
 </label>
 </div>
@@ -266,75 +245,60 @@ footer a{color:var(--muted)}
 </div>
 
 <div class="btn-row">
-<button class="btn btn-primary" onclick="bereken()">Maak gratis mijn bezwaarbrief →</button>
+<button class="btn btn-primary" onclick="bereken()">Maak gratis voorbeeldbrief →</button>
 </div>
 </div>
 
 <div class="card hidden" id="resultCard">
 <div class="result-hero">
 <div class="result-icon">📄</div>
-<div class="result-headline">Je bezwaarbrief is klaar</div>
+<div class="result-headline">Je voorbeeldbrief is klaar</div>
 <div class="result-big" id="besparingHero">€0/jaar potentiële besparing</div>
-<p class="result-sub">Op basis van een verlaging van <span id="verlagingHero">€0</span> kun je deze besparing realiseren bij een succesvol bezwaar.</p>
+<p class="result-sub">Op basis van een verlaging van <span id="verlagingHero">€0</span> zou je deze besparing indicatief kunnen realiseren bij een succesvol bezwaar.</p>
+<p class="result-disclaimer">Indicatieve schatting op basis van gemiddelde tarieven. Werkelijke besparing kan afwijken.</p>
 </div>
 
 <div class="savings-box">
-<h3>💰 Mogelijke jaarlijkse besparing</h3>
-<div class="savings-row"><span>OZB (gemeentelijke belasting, ~0,12%)</span><span id="ozbBesparing">€0</span></div>
-<div class="savings-row"><span>Eigenwoningforfait inkomstenbelasting</span><span id="ewfBesparing">€0</span></div>
-<div class="savings-row"><span>Waterschapsbelasting / rioolheffing</span><span id="waterBesparing">€0</span></div>
-<div class="savings-row total"><span>Totaal jaarlijkse besparing</span><span id="totaalBesparing">€0</span></div>
+<h3>💰 Indicatieve jaarlijkse besparing</h3>
+<div class="savings-row"><span>OZB (gemeentelijke belasting, gemiddeld ~0,12%)</span><span id="ozbBesparing">€0</span></div>
+<div class="savings-row"><span>Eigenwoningforfait inkomstenbelasting (indicatief)</span><span id="ewfBesparing">€0</span></div>
+<div class="savings-row"><span>Waterschapsbelasting / rioolheffing (gemiddeld)</span><span id="waterBesparing">€0</span></div>
+<div class="savings-row total"><span>Totaal jaarlijkse besparing (indicatief)</span><span id="totaalBesparing">€0</span></div>
+<p class="savings-disclaimer">Tarieven verschillen per gemeente en waterschap. Aan deze indicatie kunnen geen rechten worden ontleend.</p>
 </div>
 
-<div class="info-box warn">
-<strong>⚠️ Let op:</strong> de werkelijke besparing kan afwijken. OZB-tarieven verschillen per gemeente. Bij een succesvol bezwaar krijg je deze besparing elk jaar tot de volgende waardepeildatum.
+<div class="tool-disclaimer-box">
+<strong>⚠️ Belangrijk om te weten</strong>
+Dit is een <strong>voorbeeldbrief op basis van jouw input</strong>. Of jouw bezwaar slaagt, hangt volledig af van jouw specifieke situatie en de beoordeling door de gemeente. Onderbouw je bezwaar met bewijs (foto's, taxatierapport, vergelijkbare verkopen). Bij twijfel: raadpleeg een belastingadviseur, het Juridisch Loket of de Vereniging Eigen Huis.
 </div>
 
 <div class="brief-section">
-<h3>📄 Je bezwaarbrief (preview)</h3>
+<h3>📄 Je voorbeeldbrief (preview)</h3>
 <div class="brief-container">
-<div class="brief-paper" id="briefPaper" oncopy="return false;" oncut="return false;" onpaste="return false;">
+<div class="brief-paper" id="briefPaper">
 <!-- Brief content -->
 </div>
-<div class="watermark-overlay">
-<div class="watermark-text wm1">FIXLIFY PREVIEW</div>
-<div class="watermark-text wm2">FIXLIFY PREVIEW</div>
-<div class="watermark-text wm3">FIXLIFY PREVIEW</div>
-<div class="watermark-text wm4">FIXLIFY PREVIEW</div>
-<div class="watermark-text wm5">FIXLIFY PREVIEW</div>
-</div>
-<div class="watermark-corner wc-tl">fixlify preview</div>
-<div class="watermark-corner wc-tr">fixlify preview</div>
-<div class="watermark-corner wc-bl">fixlify preview</div>
-<div class="watermark-corner wc-br">fixlify preview</div>
 </div>
 </div>
 
-<div class="cta-pro">
-<h3>📄 Download je bezwaarbrief</h3>
-<p>De brief hierboven is een preview met watermerk. <strong>Voor nu:</strong> kopieer de inhoud en plak in Word, of download als PDF hieronder.</p>
-<button class="btn-pro" onclick="downloadPDF()">Download als PDF →</button>
-<div class="cta-fineprint">Tip: print en stuur per post (aangetekend aanbevolen)</div>
+<div class="download-section">
+<h3>📄 Download je voorbeeldbrief</h3>
+<p>Download de brief als PDF, lees 'm goed door en pas hem aan op jouw situatie voor je hem verstuurt.</p>
+<button class="btn-download" onclick="downloadPDF()">⬇ Download als PDF</button>
+<div class="download-fineprint">Tip: print en stuur per post (aangetekend aanbevolen) — of mail digitaal als de gemeente dat ondersteunt</div>
 </div>
-</div>
-
-<div class="assumptions">
-<strong>📋 Op basis van:</strong>
-<ul>
-<li>Wet Waardering Onroerende Zaken (Wet WOZ)</li>
-<li>Algemene wet bestuursrecht (Awb), artikel 6:4 en 7:15</li>
-<li>Officiële procedure Rijksoverheid voor WOZ-bezwaar</li>
-<li>Waarderingskamer richtlijnen 2026</li>
-<li>Peildatum: 1 januari 2025 (voor WOZ 2026)</li>
-<li>Bezwaartermijn: 6 weken na dagtekening</li>
-<li>Gemiddelde verlaging bij succes: 8-15%</li>
-<li>Slagingspercentage onderbouwde bezwaren: 45-60%</li>
-</ul>
 </div>
 
 <div class="disclaimer">
-<strong>⚖️ Disclaimer:</strong> Deze tool genereert een bezwaarbrief op basis van de wettelijke bezwaarprocedure. <strong>Dit is geen juridisch advies.</strong> Het succes van je bezwaar hangt af van je specifieke situatie en de beoordeling door de gemeente. Bij twijfel raadpleeg het <a href="https://www.juridischloket.nl" target="_blank" rel="noopener">Juridisch Loket</a> (0900-8020, gratis) of de <a href="https://www.eigenhuis.nl" target="_blank" rel="noopener">Vereniging Eigen Huis</a>. Voor de officiële procedure zie <a href="https://www.rijksoverheid.nl/onderwerpen/waardering-onroerende-zaken-woz" target="_blank" rel="noopener">Rijksoverheid.nl</a>.
+<strong>⚖️ Disclaimer:</strong> Deze tool genereert een <strong>voorbeeldbrief</strong> op basis van jouw input. <strong>Dit is geen juridisch advies.</strong> Aan de inhoud van de brief en de indicatieve berekeningen kunnen geen rechten worden ontleend. Het succes van een bezwaar hangt volledig af van jouw specifieke situatie en de beoordeling door de gemeente. Voor advies kun je terecht bij het <a href="https://www.juridischloket.nl" target="_blank" rel="noopener">Juridisch Loket</a> (gratis) of de <a href="https://www.eigenhuis.nl" target="_blank" rel="noopener">Vereniging Eigen Huis</a>. Voor de officiële procedure zie <a href="https://www.rijksoverheid.nl/onderwerpen/waardering-onroerende-zaken-woz" target="_blank" rel="noopener">Rijksoverheid.nl</a>.
 </div>
+
+<section class="legal-footer">
+<div class="legal-footer-inner">
+<strong>Belangrijke disclaimer</strong>
+Fixlify biedt informatieve en indicatieve hulpmiddelen aan. Deze WOZ-tool en de bijbehorende voorbeeldbrief zijn <strong style="display:inline">geen vervanging</strong> voor professioneel juridisch of fiscaal advies. De inhoud is met zorg samengesteld, maar Fixlify garandeert niet dat alle informatie volledig, actueel of foutloos is. Aan de uitkomsten van deze tool en aan de inhoud van de voorbeeldbrief kunnen geen rechten worden ontleend. Het gebruik van deze tool is volledig op eigen risico. Voor specifieke vragen of beslissingen raden we aan een gekwalificeerde professional in te schakelen, of contact op te nemen met het Juridisch Loket, de Belastingdienst of jouw gemeente. Fixlify is niet aansprakelijk voor enige schade die voortvloeit uit het gebruik van deze tool.
+</div>
+</section>
 
 <footer>© 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></footer>
 
@@ -351,13 +315,13 @@ function isChecked(id) { return document.getElementById(id).checked; }
 function fmt(n) { return '€' + Math.round(n).toLocaleString('nl-NL'); }
 
 const redenTeksten = {
-  'reden-kenmerken': {title:'Onjuiste objectkenmerken',text:'In het taxatieverslag van de gemeente zijn objectkenmerken vermeld die niet overeenkomen met de werkelijkheid. Dit betreft bijvoorbeeld onjuiste vermelding van bouwjaar, woonoppervlak, perceelgrootte, woningtype, of bijgebouwen. Aangezien deze kenmerken direct doorwerken in de modelmatige waardebepaling, leidt deze onjuistheid tot een te hoge WOZ-waarde.'},
-  'reden-onderhoud': {title:'Achterstallig onderhoud en gebreken',text:'De woning verkeert in een staat van onderhoud die niet in lijn is met de modelmatig vastgestelde waarde. Er is sprake van achterstallig onderhoud, gedateerde voorzieningen en/of gebreken die de waarde van de woning negatief beïnvloeden. Deze waardedrukkende factoren zijn onvoldoende meegewogen in de WOZ-waardebepaling.'},
-  'reden-vergelijking': {title:'Vergelijkingspanden niet vergelijkbaar',text:'De door de gemeente gehanteerde vergelijkingspanden in het taxatieverslag zijn niet voldoende vergelijkbaar met mijn woning. De referentiepanden zijn groter, beter onderhouden, beter gelegen of van een ander type. De toegepaste correcties voor deze verschillen zijn onvoldoende, waardoor de waardevergelijking niet representatief is.'},
-  'reden-omgeving': {title:'Ongunstige omgevingsfactoren',text:'Er zijn ongunstige omgevingsfactoren die de waarde van mijn woning negatief beïnvloeden, maar onvoldoende zijn meegewogen in de WOZ-waardebepaling. Het betreft onder andere geluidsoverlast, ongunstige ligging, milieubelasting of andere waardedrukkende omstandigheden in de directe omgeving.'},
-  'reden-bestemming': {title:'Onzekere bestemmingsplannen',text:'In de directe omgeving van mijn woning spelen onzekere bestemmingsplannen of geplande herontwikkeling die de waarde van mijn woning negatief kunnen beïnvloeden. Deze waardedrukkende factor is niet meegewogen in de huidige WOZ-waardebepaling.'},
-  'reden-marktwaarde': {title:'Recente marktwaarde lager',text:'De recente koopsom van mijn woning of vergelijkbare panden in de directe omgeving rond de waardepeildatum 1 januari 2025 ligt aanzienlijk lager dan de vastgestelde WOZ-waarde. Dit duidt erop dat de WOZ-waarde niet de werkelijke marktwaarde op de peildatum reflecteert.'},
-  'reden-buurt': {title:'Vergelijking met buurpanden',text:'Vergelijking via wozwaardeloket.nl met vergelijkbare woningen in dezelfde buurt toont aan dat mijn WOZ-waarde structureel hoger is vastgesteld dan vergelijkbare panden, zonder dat hier objectief gerechtvaardigde redenen voor bestaan.'}
+  'reden-kenmerken': {title:'Mogelijk onjuiste objectkenmerken',text:'Mogelijk komen objectkenmerken in het taxatieverslag niet overeen met de werkelijkheid (bijvoorbeeld bouwjaar, woonoppervlak, perceelgrootte, woningtype, of bijgebouwen). Indien dat het geval is, werkt dit door in de modelmatige waardebepaling.'},
+  'reden-onderhoud': {title:'Achterstallig onderhoud en gebreken',text:'De staat van onderhoud van de woning lijkt onvoldoende meegewogen in de waardebepaling. Er is sprake van achterstallig onderhoud, gedateerde voorzieningen en/of gebreken die de waarde negatief beïnvloeden.'},
+  'reden-vergelijking': {title:'Vergelijkingspanden lijken niet vergelijkbaar',text:'De gehanteerde vergelijkingspanden in het taxatieverslag lijken niet voldoende vergelijkbaar met mijn woning. De referentiepanden zijn mogelijk groter, beter onderhouden, beter gelegen of van een ander type. De toegepaste correcties hiervoor lijken onvoldoende.'},
+  'reden-omgeving': {title:'Ongunstige omgevingsfactoren',text:'Er zijn ongunstige omgevingsfactoren die de waarde van mijn woning negatief beïnvloeden, maar mogelijk onvoldoende zijn meegewogen. Het betreft onder andere geluidsoverlast, ongunstige ligging, milieubelasting of andere waardedrukkende omstandigheden in de directe omgeving.'},
+  'reden-bestemming': {title:'Onzekere bestemmingsplannen',text:'In de directe omgeving van mijn woning spelen onzekere bestemmingsplannen of geplande herontwikkeling die de waarde van mijn woning negatief kunnen beïnvloeden. Deze waardedrukkende factor lijkt niet meegewogen in de huidige waardebepaling.'},
+  'reden-marktwaarde': {title:'Recente marktwaarde lijkt lager',text:'De recente koopsom van mijn woning of vergelijkbare panden in de directe omgeving rond de waardepeildatum 1 januari 2025 lijkt lager dan de vastgestelde WOZ-waarde. Dit zou kunnen duiden op een afwijking van de werkelijke marktwaarde op de peildatum.'},
+  'reden-buurt': {title:'Vergelijking met buurpanden',text:'Vergelijking via wozwaardeloket.nl met vergelijkbare woningen in dezelfde buurt suggereert dat mijn WOZ-waarde mogelijk hoger is vastgesteld dan vergelijkbare panden, zonder dat hier objectief gerechtvaardigde redenen voor lijken te bestaan.'}
 };
 
 function genereerBriefHTML() {
@@ -384,9 +348,9 @@ function genereerBriefHTML() {
   html += `<p>${naam}<br>${adres}<br>${postcode} ${woonplaats}<br>${email}</p>`;
   html += `<p style="margin-top:24px">${woonplaats}, ${today}</p>`;
   html += `<p style="margin-top:24px">Aan: ${gemeente}<br>T.a.v. de heffingsambtenaar / afdeling Belastingen</p>`;
-  html += `<p style="margin-top:24px"><strong>Betreft: BEZWAAR tegen WOZ-beschikking ${beschikkingsnummer}</strong><br>Object: ${adres}, ${postcode} ${woonplaats}<br>Dagtekening beschikking: ${dagtekening}</p>`;
+  html += `<p style="margin-top:24px"><strong>Betreft: bezwaar tegen WOZ-beschikking ${beschikkingsnummer}</strong><br>Object: ${adres}, ${postcode} ${woonplaats}<br>Dagtekening beschikking: ${dagtekening}</p>`;
   html += `<p style="margin-top:24px">Geachte heer/mevrouw,</p>`;
-  html += `<p>Hierbij maak ik, ${naam}, op grond van artikel 6:4 en volgende van de Algemene wet bestuursrecht (Awb) tijdig en formeel <strong>bezwaar</strong> tegen de WOZ-beschikking met bovengenoemd nummer, betreffende mijn woning aan ${adres} te ${woonplaats}.</p>`;
+  html += `<p>Hierbij maak ik, ${naam}, bezwaar tegen de WOZ-beschikking met bovengenoemd nummer, betreffende mijn woning aan ${adres} te ${woonplaats}.</p>`;
   html += `<p>De vastgestelde WOZ-waarde naar waardepeildatum 1 januari 2025 bedraagt <strong>${fmt(wozWaarde)}</strong>. Naar mijn mening is deze waarde te hoog vastgesteld. Naar mijn inschatting bedraagt de werkelijke marktwaarde op peildatum 1 januari 2025 ten hoogste <strong>${fmt(schattingWaarde)}</strong>.</p>`;
   
   html += `<h4>Gronden van het bezwaar</h4>`;
@@ -405,10 +369,10 @@ function genereerBriefHTML() {
   html += `<h4>Verzoek</h4>`;
   html += `<p>Op grond van het bovenstaande verzoek ik u:</p>`;
   html += `<ol>`;
-  html += `<li>De WOZ-waarde van mijn woning te verlagen naar de werkelijke marktwaarde op peildatum 1 januari 2025;</li>`;
+  html += `<li>De WOZ-waarde van mijn woning te heroverwegen en zo nodig te verlagen naar de werkelijke marktwaarde op peildatum 1 januari 2025;</li>`;
   html += `<li>Het taxatieverslag opnieuw te beoordelen op feitelijke juistheid;</li>`;
-  html += `<li>Mij in de gelegenheid te stellen tot een hoorzitting voordat een beslissing op bezwaar wordt genomen, conform artikel 7:2 Awb;</li>`;
-  html += `<li>Bij gegrondverklaring van mijn bezwaar de proceskostenvergoeding toe te kennen op grond van artikel 7:15 Awb juncto het Besluit proceskosten bestuursrecht.</li>`;
+  html += `<li>Mij in de gelegenheid te stellen tot een hoorzitting voordat een beslissing op bezwaar wordt genomen;</li>`;
+  html += `<li>Bij gegrondverklaring van mijn bezwaar de eventueel toekomende proceskostenvergoeding toe te kennen.</li>`;
   html += `</ol>`;
   
   html += `<p>Ik verzoek u tevens mij een kopie te verstrekken van het volledige taxatieverslag en de gehanteerde vergelijkingspanden, indien deze nog niet in mijn bezit zijn.</p>`;
@@ -419,7 +383,7 @@ function genereerBriefHTML() {
   html += `<div class="underline"></div>`;
   html += `<p style="margin-top:0">${naam}<br>${adres}<br>${postcode} ${woonplaats}</p>`;
   
-  html += `<p style="margin-top:24px;font-size:11px;color:#666"><em>Bijlagen (indien van toepassing):<br>- Foto's van de woning<br>- Taxatieverslag gemeente<br>- Onderhoudsrapporten<br>- Bewijs vergelijkingspanden</em></p>`;
+  html += `<p style="margin-top:24px;font-size:11px;color:#666"><em>Bijlagen (optioneel, sterk aanbevolen):<br>- Foto's van de woning (binnen en buiten)<br>- Taxatieverslag gemeente<br>- Eventuele onderhoudsrapporten<br>- Bewijs van vergelijkbare verkopen</em></p>`;
   
   return html;
 }
@@ -437,7 +401,7 @@ function bereken() {
   const schattingWaarde = valNum('schattingWaarde');
   
   if (schattingWaarde >= wozWaarde) {
-    alert('Je geschatte werkelijke waarde moet LAGER zijn dan de WOZ-waarde om bezwaar te maken.');
+    alert('Je geschatte werkelijke waarde moet LAGER zijn dan de WOZ-waarde om bezwaar te overwegen.');
     return;
   }
   
@@ -445,7 +409,7 @@ function bereken() {
   const verlagingPercentage = (verlaging / wozWaarde) * 100;
   
   if (verlagingPercentage > 30) {
-    if (!confirm('Je voorgestelde verlaging is ' + verlagingPercentage.toFixed(0) + '%. Dit is erg hoog (gemiddeld is 8-15%). Wil je doorgaan?')) {
+    if (!confirm('Je voorgestelde verlaging is ' + verlagingPercentage.toFixed(0) + '%. Dit is erg hoog. Weet je zeker dat je dit kunt onderbouwen? Wil je doorgaan?')) {
       return;
     }
   }
@@ -476,15 +440,90 @@ function bereken() {
   }, 100);
 }
 
-// Disable Ctrl+C, Ctrl+A, Ctrl+P, Ctrl+S in brief
-document.addEventListener('keydown', function(e) {
-  if (e.target.closest && e.target.closest('.brief-paper')) {
-    if ((e.ctrlKey || e.metaKey) && ['c','a','p','s','x'].includes(e.key.toLowerCase())) {
-      e.preventDefault();
-      return false;
+function downloadPDF() {
+  const naam = val('naam') || 'naam';
+  const briefHTML = document.getElementById('briefPaper').innerHTML;
+  
+  // Create plain text version of the brief for jsPDF
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = briefHTML;
+  
+  const jsPDF = window.jspdf.jsPDF;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+  const mL = 25, mR = 25, mT = 25, mB = 25;
+  const maxW = 210 - mL - mR;
+  const lH = 5.5;
+  
+  doc.setFont('times', 'normal');
+  doc.setFontSize(11);
+  
+  let y = mT;
+  
+  // Walk through child nodes and render
+  const nodes = tempDiv.childNodes;
+  
+  function addText(text, isBold, fontSize) {
+    if (isBold) doc.setFont('times', 'bold');
+    else doc.setFont('times', 'normal');
+    doc.setFontSize(fontSize || 11);
+    
+    const lines = doc.splitTextToSize(text, maxW);
+    lines.forEach(function(line) {
+      if (y > 297 - mB) { doc.addPage(); y = mT; }
+      doc.text(line, mL, y);
+      y += lH;
+    });
+  }
+  
+  function processNode(node) {
+    if (node.nodeType === 3) {
+      // Text node
+      const text = node.textContent.trim();
+      if (text) addText(text, false, 11);
+    } else if (node.nodeType === 1) {
+      const tag = node.tagName.toLowerCase();
+      const text = node.textContent.trim();
+      
+      if (tag === 'h4') {
+        y += 3;
+        addText(text, true, 11);
+        y += 2;
+      } else if (tag === 'ol') {
+        const items = node.querySelectorAll('li');
+        items.forEach(function(li, i) {
+          addText((i+1) + '. ' + li.textContent.trim(), false, 11);
+        });
+        y += 2;
+      } else if (tag === 'p') {
+        // Check for bold (strong) inside p
+        const html = node.innerHTML;
+        const hasStrong = html.includes('<strong>');
+        if (hasStrong) {
+          // Simple handling: render whole paragraph in bold if it starts with strong
+          const strongMatch = html.match(/^<strong>(.*?)<\/strong>/);
+          if (strongMatch) {
+            addText(strongMatch[1], true, 11);
+            const rest = text.substring(strongMatch[1].length).trim();
+            if (rest) addText(rest, false, 11);
+          } else {
+            addText(text, false, 11);
+          }
+        } else {
+          addText(text, false, 11);
+        }
+        y += 2;
+      } else if (tag === 'div') {
+        if (text) addText(text, false, 11);
+        y += 4;
+      }
     }
   }
-});
+  
+  Array.from(nodes).forEach(processNode);
+  
+  const filename = 'WOZ-bezwaar-voorbeeld-' + naam.replace(/[^a-zA-Z0-9]/g,'-').toLowerCase() + '.pdf';
+  doc.save(filename);
+}
 </script>
 </body>
 </html>
