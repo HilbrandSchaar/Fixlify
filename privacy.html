@@ -3,145 +3,226 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacyverklaring — Fixlify</title>
+<title>Privacyverklaring · Fixlify</title>
+<meta name="description" content="Privacyverklaring van Fixlify — hoe we omgaan met je gegevens. AVG-compliant, geen tracking, geen verkoop van data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Outfit',system-ui,sans-serif;color:#1E293B;background:#FAFBFC;line-height:1.7}
-a{color:#2563EB;text-decoration:none}
+:root{--blue:#2563EB;--purple:#7C3AED;--orange:#F97316;--dark:#0F172A;--ink:#1E293B;--gray:#64748B;--light:#94A3B8;--border:#E2E8F0;--bg:#FAFBFC;--white:#fff;--green:#059669;--blue-soft:#EFF6FF}
+body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);padding:14px 0}
-.nav-inner{max-width:800px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.disclaimer-bar{background:#1E293B;color:#CBD5E1;font-size:11.5px;text-align:center;padding:7px 16px;line-height:1.4;font-weight:500}
+.disclaimer-bar strong{color:#fff}
+nav{background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.04);padding:14px 0;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:9px}
-.logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
-.logo-text{font-weight:800;font-size:21px;color:#0F172A}
-.back{font-size:14px;font-weight:500;color:#64748B}
-.container{max-width:800px;margin:0 auto;padding:100px 24px 60px}
-h1{font-size:36px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px;color:#0F172A}
-.lastupdated{font-size:14px;color:#94A3B8;margin-bottom:32px}
-.intro{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:24px;margin-bottom:32px}
-h2{font-size:20px;font-weight:700;color:#0F172A;margin:32px 0 12px}
-p{margin-bottom:14px;color:#475569}
-strong{color:#0F172A;font-weight:600}
-.contact-box{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:12px;padding:20px;margin:24px 0}
-.contact-box p{margin-bottom:6px}
-ul{margin:8px 0 16px 20px;color:#475569}
-ul li{margin-bottom:6px}
-footer{padding:32px 0;text-align:center;border-top:1px solid #E2E8F0;margin-top:60px;background:#fff}
-footer span{color:#94A3B8;font-size:13px}
+.logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
+.logo-text{font-weight:800;font-size:21px;letter-spacing:-.02em;color:var(--dark)}
+.nav-back{color:var(--blue);font-size:14px;font-weight:600}
+.container{max-width:780px;margin:0 auto;padding:60px 24px 80px}
+h1{font-size:clamp(32px,5vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;color:var(--dark)}
+.lead{font-size:17px;color:var(--gray);margin-bottom:8px}
+.updated{font-size:13px;color:var(--light);margin-bottom:40px;font-style:italic}
+.tldr{background:var(--blue-soft);border:1px solid #BFDBFE;border-radius:14px;padding:20px 24px;margin-bottom:40px}
+.tldr h3{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.tldr ul{list-style:none;padding:0}
+.tldr li{font-size:14px;color:var(--ink);padding:4px 0;display:flex;align-items:flex-start;gap:8px}
+.tldr li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+h2{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:36px 0 14px;color:var(--dark);padding-top:20px;border-top:1px solid var(--border)}
+h2:first-of-type{padding-top:0;border-top:none}
+h3{font-size:16px;font-weight:700;margin:20px 0 8px;color:var(--dark)}
+p{margin-bottom:14px;color:var(--ink);font-size:15px}
+ul,ol{padding-left:22px;margin-bottom:14px}
+li{margin-bottom:6px;font-size:15px;color:var(--ink)}
+strong{color:var(--dark);font-weight:600}
+.contact-box{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;margin:20px 0;font-size:14px;line-height:1.7}
+.contact-box strong{display:block;color:var(--dark);font-size:15px;margin-bottom:6px}
+.warn{background:#FFFBEB;border-left:3px solid #D97706;padding:14px 18px;border-radius:8px;margin:16px 0;font-size:14px;color:#78350F;line-height:1.6}
+.warn strong{color:#78350F}
+.legal-footer{background:#F1F5F9;border-top:1px solid var(--border);padding:32px 0;font-size:12px;color:var(--gray);line-height:1.7;text-align:center}
+.legal-footer a{color:var(--gray)}
+footer{padding:24px 0;text-align:center;border-top:1px solid var(--border);background:#fff}
+footer span{color:var(--light);font-size:13px}
+footer a{color:var(--light)}
 </style>
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a><a href="/" class="back">← Terug naar home</a></div></nav>
+<div class="disclaimer-bar">ℹ️ Fixlify biedt <strong>indicatieve hulpmiddelen</strong> — geen juridisch, fiscaal of financieel advies.</div>
+<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a><a href="/" class="nav-back">← Terug naar home</a></div></nav>
 
 <div class="container">
+
 <h1>Privacyverklaring</h1>
-<p class="lastupdated">Laatst bijgewerkt: 1 mei 2026</p>
+<p class="lead">Hoe we omgaan met jouw gegevens als je Fixlify gebruikt.</p>
+<p class="updated">Laatst bijgewerkt: 5 mei 2026</p>
 
-<div class="intro">
-<p>FixlifyNL respecteert je privacy en gaat zorgvuldig om met je persoonsgegevens. In deze verklaring lees je welke gegevens wij verwerken, waarom, en welke rechten je hebt onder de Algemene Verordening Gegevensbescherming (AVG).</p>
+<div class="tldr">
+<h3>📌 Korte samenvatting</h3>
+<ul>
+<li>Geen tracking-cookies, geen analytics, geen advertentienetwerken</li>
+<li>Geen accounts of registratie nodig voor onze tools</li>
+<li>Je gegevens worden zoveel mogelijk lokaal in je browser verwerkt</li>
+<li>We verkopen of delen geen gegevens met derden voor marketing</li>
+<li>Je hebt onder de AVG altijd recht op inzage en verwijdering</li>
+</ul>
 </div>
 
-<h2>1. Wie zijn wij</h2>
-<p>FixlifyNL is een eenmanszaak gevestigd in Nederland. Wij zijn verantwoordelijk voor de verwerking van persoonsgegevens via fixlify.nl.</p>
+<h2>1. Wie is verwerkingsverantwoordelijke?</h2>
+<p>De verwerkingsverantwoordelijke voor het gebruik van Fixlify is:</p>
 <div class="contact-box">
-<p><strong>FixlifyNL</strong></p>
-<p>Monnikemuurstraat 105</p>
-<p>8911GC Leeuwarden</p>
-<p>KvK: 77981197</p>
-<p>BTW: NL003270597B29</p>
-<p>E-mail: <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a></p>
+<strong>FixlifyNL (eenmanszaak)</strong>
+Gevestigd in Nederland<br>
+KvK: 77981197 · BTW: NL003270597B29<br>
+E-mail: <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a>
 </div>
 
-<h2>2. Welke gegevens verwerken wij</h2>
-<p>Afhankelijk van welke tool of dienst je gebruikt, verwerken wij verschillende soorten gegevens:</p>
+<h2>2. Welke gegevens verwerken we?</h2>
 
-<p><strong>Bij gebruik van onze tools (CV-maker, factuur, sollicitatiebrief, huurcheck, calculators):</strong></p>
+<h3>2.1 Gegevens die je zelf invult in onze tools</h3>
+<p>Verschillende tools op Fixlify (zoals de Huurcheck, CV Maker, Factuurgenerator, WOZ-bezwaar) vragen om gegevens zoals:</p>
 <ul>
-<li>Gegevens die je zelf invult in de formulieren (bijvoorbeeld naam, adres, telefoonnummer, salarisgegevens, woninggegevens)</li>
-<li>Deze gegevens worden tijdelijk in je eigen browser opgeslagen (localStorage) zodat ze behouden blijven tijdens je sessie</li>
-<li>Wij verzenden geen tool-gegevens naar onze servers, behalve waar dit technisch noodzakelijk is (zoals bij de AI-sollicitatiebrief)</li>
+<li>Naam, adres, e-mailadres, telefoonnummer</li>
+<li>Inkomensgegevens, huurprijs, WOZ-waarde</li>
+<li>Bedrijfsgegevens (KvK, BTW-nummer, IBAN) bij ZZP-tools</li>
+<li>Gegevens over je werksituatie of woonsituatie</li>
+</ul>
+<p><strong>Belangrijk:</strong> Deze gegevens worden in de meeste tools volledig <strong>lokaal in je browser</strong> verwerkt. Ze worden niet naar onze servers verzonden. Wanneer je je browser sluit of je gegevens wist, zijn ze verdwenen — tenzij je ze hebt opgeslagen via de "auto-save" functie (zie hieronder).</p>
+
+<h3>2.2 Lokale opslag (localStorage)</h3>
+<p>Sommige tools (CV Maker, Factuurgenerator) bieden een auto-save functie waarmee je ingevulde gegevens lokaal in je browser bewaard worden, zodat je later verder kunt waar je gebleven was. Dit gebruikt de <strong>localStorage</strong> functie van je browser.</p>
+<ul>
+<li>Deze gegevens staan <strong>alleen op jouw eigen apparaat</strong>, niet op onze servers</li>
+<li>De bewaartermijn is maximaal 30 dagen, daarna worden ze automatisch verwijderd</li>
+<li>Je kunt deze gegevens zelf op elk moment wissen via de "Alle gegevens wissen" knop in de tool, of door je browsergeschiedenis/cache te legen</li>
+<li>Voor functionele opslag zoals dit is geen toestemming vereist (artikel 11.7a Telecommunicatiewet)</li>
 </ul>
 
-<p><strong>Bij de sollicitatiebrief generator:</strong></p>
+<h3>2.3 Sollicitatiebrief AI tool</h3>
+<div class="warn">
+<strong>⚠️ Belangrijk: deze tool gebruikt AI van een Amerikaanse leverancier</strong>
+Wanneer je de Sollicitatiebrief AI gebruikt, wordt je input (zoals je gewenste functie, ervaring en motivatie) verzonden naar de AI-dienst van <strong>Anthropic PBC</strong> in de Verenigde Staten. Anthropic verwerkt deze gegevens om een sollicitatiebrief voor je te genereren.
+</div>
+<p><strong>Wat je moet weten:</strong></p>
 <ul>
-<li>De door jou ingevulde brief-gegevens worden eenmalig naar onze server gestuurd om te worden doorgegeven aan onze AI-leverancier (Anthropic)</li>
-<li>Deze gegevens worden niet opgeslagen op onze servers</li>
+<li>Anthropic is gevestigd in de VS — dit is een doorgifte buiten de EER</li>
+<li>Anthropic heeft een Data Processing Addendum en gebruikt Standard Contractual Clauses voor EU-data</li>
+<li>Anthropic gebruikt API-input volgens hun beleid niet voor het trainen van AI-modellen</li>
+<li>Vul geen gevoelige persoonsgegevens in (zoals BSN, medische info, gegevens van anderen) tenzij strikt noodzakelijk</li>
+<li>Voor meer info zie het privacybeleid van Anthropic: <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a></li>
+</ul>
+<p>Wil je deze tool niet gebruiken vanwege de doorgifte naar de VS? Geen probleem — alle andere tools op Fixlify werken volledig lokaal in je browser.</p>
+
+<h2>3. Cookies en vergelijkbare technieken</h2>
+<p>Fixlify gebruikt <strong>geen tracking-cookies en geen analytics</strong>. Concreet:</p>
+<ul>
+<li>Geen Google Analytics, Meta Pixel, TikTok Pixel of vergelijkbare trackers</li>
+<li>Geen advertentiecookies of remarketing pixels</li>
+<li>Geen cross-site tracking</li>
+<li>Geen "third-party" cookies van advertentienetwerken</li>
+</ul>
+<p>Wat we wel gebruiken:</p>
+<ul>
+<li><strong>Functionele opslag (localStorage)</strong> — voor het onthouden van formulierdata in tools waar je dat zelf wenst (zie 2.2). Geen toestemming vereist.</li>
+<li><strong>Technische cookies van onze hostingprovider Vercel</strong> — uitsluitend voor het functioneren van de website (zoals load-balancing en beveiliging). Hiervoor is geen toestemming vereist onder de Telecommunicatiewet.</li>
+</ul>
+<p><strong>Wijzigt dit in de toekomst?</strong> Als we ooit analytics of tracking toevoegen, wordt deze verklaring bijgewerkt en plaatsen we vóór die activiteit start een cookiebanner waarin je toestemming kunt geven of weigeren.</p>
+
+<h2>4. Waarom verwerken we deze gegevens? (Doel en grondslag)</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0;font-size:14px">
+<thead>
+<tr style="background:#F1F5F9;text-align:left">
+<th style="padding:10px;border:1px solid var(--border)">Doel</th>
+<th style="padding:10px;border:1px solid var(--border)">Grondslag (AVG)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding:10px;border:1px solid var(--border)">Werking van de tools (calculaties, voorbeeldbrieven)</td>
+<td style="padding:10px;border:1px solid var(--border)">Uitvoering overeenkomst (art. 6 lid 1 sub b)</td>
+</tr>
+<tr>
+<td style="padding:10px;border:1px solid var(--border)">Auto-save functie (localStorage)</td>
+<td style="padding:10px;border:1px solid var(--border)">Gerechtvaardigd belang (art. 6 lid 1 sub f)</td>
+</tr>
+<tr>
+<td style="padding:10px;border:1px solid var(--border)">Beantwoorden van e-mails</td>
+<td style="padding:10px;border:1px solid var(--border)">Gerechtvaardigd belang (art. 6 lid 1 sub f)</td>
+</tr>
+<tr>
+<td style="padding:10px;border:1px solid var(--border)">Voldoen aan wettelijke verplichtingen (administratie)</td>
+<td style="padding:10px;border:1px solid var(--border)">Wettelijke verplichting (art. 6 lid 1 sub c)</td>
+</tr>
+</tbody>
+</table>
+
+<h2>5. Met wie delen we gegevens?</h2>
+<p>We verkopen je gegevens niet en delen ze niet voor marketingdoeleinden. We gebruiken wel de volgende verwerkers:</p>
+<ul>
+<li><strong>Vercel Inc. (VS)</strong> — hosting van de website. Vercel verwerkt geen persoonsgegevens uit onze tools, alleen technische serverlogs voor het functioneren van de site.</li>
+<li><strong>Anthropic PBC (VS)</strong> — alleen voor de Sollicitatiebrief AI tool, zie sectie 2.3.</li>
+<li><strong>Stripe (VS/IE)</strong> — uitsluitend voor de Sollicitatiebrief AI betaling. Stripe verwerkt je betaalgegevens, wij ontvangen alleen een transactiebevestiging.</li>
+</ul>
+<p>Voor doorgiftes naar de VS gelden de standaardcontractbepalingen (Standard Contractual Clauses) van de Europese Commissie.</p>
+
+<h2>6. Hoe lang bewaren we gegevens?</h2>
+<ul>
+<li><strong>Gegevens in tools:</strong> alleen tijdens je sessie, of maximaal 30 dagen bij gebruik van auto-save (lokaal in je browser).</li>
+<li><strong>E-mails die je ons stuurt:</strong> maximaal 2 jaar, daarna verwijderd.</li>
+<li><strong>Administratie (facturen, betalingen):</strong> 7 jaar, conform fiscale bewaartermijn.</li>
+<li><strong>Server-logs hostingprovider:</strong> maximaal 30 dagen, alleen voor beveiliging en technisch beheer.</li>
 </ul>
 
-<p><strong>Bij betaalde tools:</strong></p>
+<h2>7. Jouw rechten onder de AVG</h2>
+<p>Je hebt onder de Algemene Verordening Gegevensbescherming (AVG) de volgende rechten:</p>
 <ul>
-<li>E-mailadres en betaalgegevens worden verwerkt door onze betaalprovider Stripe (zie sectie 5)</li>
-<li>Wij ontvangen alleen een bevestiging van betaling met je e-mailadres, geen creditcardgegevens</li>
+<li><strong>Recht op inzage</strong> — je mag opvragen welke gegevens we van je hebben</li>
+<li><strong>Recht op correctie</strong> — je mag onjuiste gegevens laten aanpassen</li>
+<li><strong>Recht op verwijdering</strong> — je mag vragen om je gegevens te wissen</li>
+<li><strong>Recht op beperking</strong> — je mag het gebruik van je gegevens beperken</li>
+<li><strong>Recht op dataportabiliteit</strong> — je mag je gegevens in een gangbaar formaat opvragen</li>
+<li><strong>Recht van bezwaar</strong> — je mag bezwaar maken tegen de verwerking</li>
+<li><strong>Recht om toestemming in te trekken</strong> — als de verwerking op toestemming berust</li>
+</ul>
+<p>Een verzoek indienen? Stuur een e-mail naar <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a>. We reageren binnen 4 weken.</p>
+
+<h2>8. Beveiliging</h2>
+<p>We nemen passende technische en organisatorische maatregelen om je gegevens te beschermen:</p>
+<ul>
+<li>Verbinding met de website via HTTPS (SSL-encryptie)</li>
+<li>Hosting bij een gerenommeerde provider (Vercel) met security best practices</li>
+<li>Geen onnodige opslag van gegevens — alles wordt waar mogelijk lokaal verwerkt</li>
+<li>Toegang tot e-mails alleen voor de eigenaar van Fixlify</li>
 </ul>
 
-<p><strong>Bij contact via e-mail:</strong></p>
-<ul>
-<li>E-mailadres en de inhoud van je bericht</li>
-</ul>
-
-<p><strong>Automatisch verzameld bij ieder bezoek:</strong></p>
-<ul>
-<li>IP-adres (verkort opgeslagen voor anonimisering)</li>
-<li>Type browser en besturingssysteem</li>
-<li>Bezochte pagina's en tijdstip</li>
-</ul>
-
-<h2>3. Waarom wij gegevens verwerken</h2>
-<ul>
-<li><strong>Uitvoering van de dienst:</strong> om de tools te laten functioneren en gevraagde documenten te genereren</li>
-<li><strong>Betalingen verwerken:</strong> om transacties via Stripe af te handelen</li>
-<li><strong>Klantcontact:</strong> om je vragen of klachten te beantwoorden</li>
-<li><strong>Wettelijke verplichting:</strong> bewaarplicht voor administratie (Belastingdienst)</li>
-<li><strong>Beveiliging en verbetering:</strong> om misbruik te voorkomen en de site te verbeteren</li>
-</ul>
-
-<h2>4. Bewaartermijnen</h2>
-<ul>
-<li><strong>Tool-invoer in browser:</strong> blijft staan zolang je de tool gebruikt of tot je de browsergegevens wist</li>
-<li><strong>Betalingsgegevens (factuuradministratie):</strong> 7 jaar (wettelijke fiscale bewaarplicht)</li>
-<li><strong>E-mailcorrespondentie:</strong> maximaal 2 jaar na laatste contact</li>
-<li><strong>Server logs:</strong> maximaal 30 dagen</li>
-</ul>
-
-<h2>5. Met wie wij gegevens delen</h2>
-<p>Wij verkopen je gegevens nooit. Wij schakelen wel de volgende verwerkers in om onze dienst te leveren:</p>
-<ul>
-<li><strong>Stripe Inc. (Verenigde Staten)</strong> — betalingsverwerking. Doorgifte naar de VS gebeurt op basis van de Standard Contractual Clauses (SCC's).</li>
-<li><strong>Vercel Inc. (Verenigde Staten)</strong> — hosting van onze website. Doorgifte op basis van Standard Contractual Clauses (SCC's).</li>
-<li><strong>Anthropic PBC (Verenigde Staten)</strong> — AI-tekstgeneratie voor de sollicitatiebrief. Doorgifte op basis van Standard Contractual Clauses (SCC's). Anthropic gebruikt jouw gegevens niet om AI-modellen te trainen.</li>
-</ul>
-
-<h2>6. Cookies en lokale opslag</h2>
-<p>Wij gebruiken alleen technisch noodzakelijke cookies en localStorage voor het functioneren van onze tools. Wij gebruiken geen tracking-cookies, advertentiecookies, of analytics van derden zoals Google Analytics.</p>
-
-<h2>7. Beveiliging</h2>
-<ul>
-<li>Onze website werkt volledig via een versleutelde HTTPS-verbinding</li>
-<li>Betalingen verlopen via Stripe, een PCI-DSS gecertificeerde betaalprovider</li>
-<li>Wij slaan geen creditcardgegevens of bankgegevens op</li>
-</ul>
-
-<h2>8. Jouw rechten onder de AVG</h2>
-<p>Je hebt de volgende rechten:</p>
-<ul>
-<li><strong>Recht op inzage:</strong> opvragen welke gegevens wij van je hebben</li>
-<li><strong>Recht op rectificatie:</strong> gegevens laten corrigeren als ze niet kloppen</li>
-<li><strong>Recht op verwijdering:</strong> gegevens laten wissen ('recht om vergeten te worden')</li>
-<li><strong>Recht op beperking:</strong> verwerking laten beperken</li>
-<li><strong>Recht op overdraagbaarheid:</strong> gegevens in een leesbaar formaat ontvangen</li>
-<li><strong>Recht van bezwaar:</strong> bezwaar maken tegen verwerking</li>
-</ul>
-<p>Stuur een verzoek naar <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a>. Wij reageren binnen 30 dagen.</p>
-<p>Vind je dat wij niet zorgvuldig met je gegevens omgaan? Dan heb je het recht om een klacht in te dienen bij de <a href="https://www.autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>
-
-<h2>9. Wijzigingen</h2>
-<p>Wij kunnen deze privacyverklaring wijzigen. De laatste versie staat altijd op deze pagina. Bij belangrijke wijzigingen informeren wij je per e-mail (indien van toepassing).</p>
-
-<h2>Contact</h2>
-<p>Vragen over deze privacyverklaring? Stuur een e-mail naar <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a>.</p>
+<h2>9. Klachten</h2>
+<p>Heb je een klacht over hoe we met je gegevens omgaan? Neem dan eerst contact met ons op via <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a>. We reageren binnen 14 dagen.</p>
+<p>Kom je er met ons niet uit? Dan heb je het recht een klacht in te dienen bij de Nederlandse toezichthouder:</p>
+<div class="contact-box">
+<strong>Autoriteit Persoonsgegevens</strong>
+Postbus 93374<br>
+2509 AJ Den Haag<br>
+Telefoon: 088 - 1805 250<br>
+Website: <a href="https://www.autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener">autoriteitpersoonsgegevens.nl</a>
 </div>
 
-<footer><span>© 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29</span></footer>
+<h2>10. Wijzigingen in deze verklaring</h2>
+<p>Deze privacyverklaring kan worden aangepast als de werking van de tools verandert of wetgeving daarom vraagt. De meest actuele versie staat altijd op deze pagina. De datum bovenaan geeft aan wanneer de laatste wijziging is doorgevoerd.</p>
+
+<h2>11. Contact</h2>
+<p>Vragen over deze privacyverklaring of over hoe we met gegevens omgaan? Stuur een e-mail naar <a href="mailto:fixlifyNL@outlook.com">fixlifyNL@outlook.com</a>.</p>
+
+</div>
+
+<section class="legal-footer">
+<div style="max-width:780px;margin:0 auto;padding:0 24px">
+Deze site gebruikt alleen functionele opslag — geen tracking, geen analytics. <a href="/privacy.html">Lees onze privacyverklaring</a>.
+</div>
+</section>
+
+<footer><span>© 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></span></footer>
+
 </body>
 </html>
+
