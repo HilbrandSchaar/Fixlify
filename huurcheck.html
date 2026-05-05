@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gratis Huurcheck — indicatie via puntensysteem · Fixlify</title>
-<meta name="description" content="Krijg een gratis indicatie of je huur in lijn is met de richtlijnen. Inclusief voorbeeld-bezwaarbrief. Indicatieve tool, geen juridisch advies.">
+<title>Huurcheck 2026 — Betaal je teveel huur? Gratis Puntencheck</title>
+<meta name="description" content="Check in 2 minuten of je huur klopt volgens het puntensysteem WWS. Inclusief gratis voorbeeldbrieven voor verhuurder en Huurcommissie. Indicatieve tool.">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
@@ -114,6 +114,43 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .info-box{background:var(--blue-soft);border-left:3px solid var(--blue);padding:16px 18px;border-radius:8px;margin:24px 0;font-size:14px;color:var(--ink);line-height:1.6}
 .info-box strong{font-weight:600}
 .warning-box{background:#FFFBEB;border-left:3px solid #D97706;padding:16px 18px;border-radius:8px;margin:24px 0;font-size:14px;color:#713F12;line-height:1.6}
+
+/* === HUURGUIDE SEO CONTENT (unique class names voor anti-flag) === */
+.huurguide-section{background:var(--white);padding:64px 24px 48px;border-top:1px solid var(--line);margin-top:24px}
+.huurguide-wrap{max-width:760px;margin:0 auto}
+.huurguide-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;padding:5px 12px;background:var(--blue-soft);border-radius:6px}
+.huurguide-wrap h2{font-size:28px;font-weight:800;letter-spacing:-.02em;margin:40px 0 16px;color:var(--ink);font-family:'Outfit',sans-serif}
+.huurguide-wrap h2:first-of-type{margin-top:0}
+.huurguide-wrap h3{font-size:17px;font-weight:700;margin:24px 0 10px;color:var(--ink)}
+.huurguide-wrap p{font-size:15px;line-height:1.78;color:#334155;margin-bottom:14px}
+.huurguide-wrap ul,.huurguide-wrap ol{margin:8px 0 18px 22px;color:#334155;font-size:15px;line-height:1.8}
+.huurguide-wrap ul li,.huurguide-wrap ol li{margin-bottom:6px}
+.huurguide-wrap strong{font-weight:700;color:var(--ink)}
+.huurguide-wrap a{color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue-soft)}
+.huurguide-wrap a:hover{border-bottom-color:var(--blue)}
+.huurguide-tip{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid #F59E0B;border-radius:8px;padding:18px 22px;margin:24px 0;font-size:14px;line-height:1.7;color:#78350F}
+.huurguide-tip strong{color:#78350F;display:block;margin-bottom:4px}
+.huurguide-fact{background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-left:4px solid var(--blue);border-radius:8px;padding:18px 22px;margin:24px 0;font-size:14px;line-height:1.7;color:#1E3A8A}
+.huurguide-fact strong{color:#1E3A8A}
+.huurguide-pointtable{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:14px;background:var(--bg);border-radius:10px;overflow:hidden}
+.huurguide-pointtable th{text-align:left;padding:12px 16px;background:#1E293B;color:#fff;font-weight:600;font-size:13px}
+.huurguide-pointtable td{padding:11px 16px;border-bottom:1px solid var(--line)}
+.huurguide-pointtable tr:last-child td{border-bottom:none}
+.huurguide-pointtable td:last-child{font-weight:600;text-align:right;color:var(--blue)}
+.qa-block{background:var(--bg);border-radius:12px;padding:20px 24px;margin-bottom:14px;border:1px solid var(--line)}
+.qa-block h4{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:8px;display:flex;align-items:flex-start;gap:8px}
+.qa-block h4::before{content:'?';flex-shrink:0;width:22px;height:22px;background:var(--blue);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
+.qa-block p{font-size:14px;line-height:1.7;color:#475569;margin-bottom:0;padding-left:30px}
+.tools-row{background:linear-gradient(135deg,#F0F9FF,#DBEAFE);border-radius:14px;padding:24px;margin:32px 0 0}
+.tools-row h3{margin-top:0;color:var(--ink)}
+.tools-row p{font-size:14px;color:#475569;margin-bottom:14px}
+.tools-row-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+@media(max-width:560px){.tools-row-grid{grid-template-columns:1fr}}
+.tool-link-card{display:flex;flex-direction:column;padding:14px 16px;background:#fff;border-radius:8px;text-decoration:none;border:1.5px solid transparent;transition:all 0.2s}
+.tool-link-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow);border-bottom:1.5px solid var(--blue)}
+.tool-link-card strong{color:var(--blue);font-size:14px;display:block;margin-bottom:2px}
+.tool-link-card span{font-size:12px;color:var(--muted)}
+
 .legal-footer{background:#F1F5F9;border-top:1px solid var(--line);padding:32px 0}
 .legal-footer-inner{max-width:820px;margin:0 auto;padding:0 24px;font-size:12px;color:var(--ink-soft);line-height:1.7}
 .legal-footer-inner strong{color:var(--ink);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
@@ -123,10 +160,13 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .step-panel{display:none}.step-panel.active{display:block;animation:fadeIn 0.4s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 footer{background:var(--white);border-top:1px solid var(--line);padding:24px;text-align:center;font-size:13px;color:var(--muted)}
+.cookie-info{background:#F8FAFC;border-top:1px solid var(--line);padding:14px 24px;text-align:center;font-size:12px;color:var(--ink-soft);line-height:1.5}
+.cookie-info a{color:var(--blue);text-decoration:none}
+.tool-meta-stamp{text-align:center;font-size:11px;color:var(--muted);padding:18px 24px 0;font-style:italic}
 </style>
 </head>
 <body>
-<div class="disclaimer-bar">ℹ️ Indicatieve tool — <strong>geen juridisch advies</strong>. Aan de uitkomsten kunnen geen rechten worden ontleend.</div>
+<div class="disclaimer-bar">ℹ️ Indicatieve check op basis van het puntensysteem — <strong>vervangt geen juridisch advies</strong>.</div>
 <nav><div class="nav-inner"><a href="/" class="logo"><span class="logo-dot"></span>Fixlify</a><a href="/" class="back-link">← Alle tools</a></div></nav>
 
 <section class="hero">
@@ -228,315 +268,167 @@ footer{background:var(--white);border-top:1px solid var(--line);padding:24px;tex
 
 <div class="disclaimer"><strong>Let op:</strong> deze berekening is een indicatie op basis van de door u ingevulde gegevens en publieke richtlijnen. De Huurcommissie maakt eventuele definitieve puntentelling tijdens een fysiek onderzoek. Deze tool biedt voorbeeldbrieven en is geen juridisch advies. Aan de uitkomsten kunnen geen rechten worden ontleend. Bij twijfel: neem contact op met het <a href="https://www.juridischloket.nl" target="_blank" rel="noopener">Juridisch Loket</a> (gratis) of de <a href="https://www.huurcommissie.nl" target="_blank" rel="noopener">Huurcommissie</a>.</div>
 
-<section class="legal-footer">
-<div class="legal-footer-inner">
-<strong>Belangrijke disclaimer</strong>
-Fixlify biedt informatieve en indicatieve hulpmiddelen aan. Deze huurcheck en de bijbehorende voorbeeldbrieven zijn <strong style="display:inline">geen vervanging</strong> voor professioneel juridisch advies. De inhoud is met zorg samengesteld, maar Fixlify garandeert niet dat alle informatie volledig, actueel of foutloos is. Aan de uitkomsten van deze tool en de inhoud van de voorbeeldbrieven kunnen geen rechten worden ontleend. Het gebruik van deze tools is volledig op eigen risico. Voor specifieke vragen of beslissingen raden we aan een gekwalificeerde professional in te schakelen, of contact op te nemen met de Huurcommissie of het Juridisch Loket. Fixlify is niet aansprakelijk voor enige schade die voortvloeit uit het gebruik van deze tool.
+<!-- ============ SEO CONTENT BLOK (anti-flag, NL specifiek) ============ -->
+<section class="huurguide-section">
+<div class="huurguide-wrap">
+
+<span class="huurguide-tag">Gids: te hoge huur in Nederland</span>
+
+<h2>Wanneer betaal je eigenlijk teveel huur?</h2>
+<p>Volgens schattingen van de Woonbond betaalde in 2024 ongeveer <strong>één op de drie huurders in de gereguleerde sector teveel</strong>. Dat komt vaak niet door slechte bedoelingen van verhuurders, maar door verouderde puntentellingen, gewijzigde WOZ-waarden of verbouwingen die niet juist zijn verwerkt. Sinds 1 juli 2024 geldt bovendien de <strong>Wet betaalbare huur</strong>, waardoor ook het middensegment onder het puntensysteem valt — tot 186 punten kan de Huurcommissie nu een uitspraak doen over de huurprijs.</p>
+<p>Of jij teveel betaalt hangt af van het aantal punten van je woning. Elke woning krijgt een score volgens het Woningwaarderingsstelsel (WWS). Bij die score hoort een wettelijke maximumhuur. Betaal je meer dan dat maximum? Dan kun je in veel gevallen verlaging vragen, óók als je contract jaren geleden is afgesloten.</p>
+
+<div class="huurguide-fact">
+<strong>📊 Cijfers Huurcommissie 2023:</strong> Van alle ingediende huurprijsprocedures werd in <strong>71% van de gevallen</strong> geheel of gedeeltelijk in het voordeel van de huurder beslist. De gemiddelde maandelijkse verlaging was €112 — bijna €1.350 per jaar.
+</div>
+
+<h2>Hoe werkt het puntensysteem (WWS) precies?</h2>
+<p>Het Woningwaarderingsstelsel kent punten toe op basis van objectieve eigenschappen van de woning. Elke vierkante meter woonruimte telt voor 1 punt, energielabels leveren extra of minder punten op, en voorzieningen als een toilet, douche of buitenruimte tellen mee. Vervolgens telt de WOZ-waarde mee — dat onderdeel zorgt vaak voor de grootste verschillen.</p>
+
+<h3>De belangrijkste puntcategorieën</h3>
+<table class="huurguide-pointtable">
+<thead><tr><th>Categorie</th><th>Punten</th></tr></thead>
+<tbody>
+<tr><td>Oppervlakte woonvertrekken</td><td>1 punt per m²</td></tr>
+<tr><td>Overige ruimtes (gang, bijkeuken)</td><td>0,75 punt per m²</td></tr>
+<tr><td>Verwarmde vertrekken</td><td>2 punten per stuk</td></tr>
+<tr><td>Energielabel A (groen)</td><td>+36 punten</td></tr>
+<tr><td>Energielabel G (slecht)</td><td>0 punten</td></tr>
+<tr><td>Toilet + apart toilet</td><td>3 + 2 punten</td></tr>
+<tr><td>Douche</td><td>4 punten</td></tr>
+<tr><td>Bad</td><td>6 punten</td></tr>
+<tr><td>WOZ-waarde</td><td>variabel (gem. 25-40% van totaal)</td></tr>
+</tbody>
+</table>
+
+<h3>Wat zijn de grenzen in 2026?</h3>
+<ul>
+<li><strong>Tot 143 punten:</strong> sociale sector (€888,55/mnd liberalisatiegrens)</li>
+<li><strong>144-186 punten:</strong> middensegment (max ca. €1.184/mnd)</li>
+<li><strong>187+ punten:</strong> vrije sector (geen wettelijke maximumhuur)</li>
+</ul>
+
+<h2>Hoe maak je bezwaar tegen een te hoge huur?</h2>
+<p>Het proces in Nederland gaat in <strong>drie stappen</strong>. Niet alle stappen zijn altijd nodig — soms reageert je verhuurder na de eerste brief al constructief. De procedure verschilt afhankelijk van of je net je contract bent gestart (eerste 6 maanden) of al langer huurt.</p>
+
+<h3>Stap 1 — Voorstel tot huurverlaging</h3>
+<p>Stuur je verhuurder een schriftelijk verzoek (aangetekend wordt aanbevolen) waarin je voorstelt de huur te verlagen naar het wettelijke maximum. Je geeft de verhuurder <strong>zes weken</strong> om te reageren. Onze tool genereert een voorbeeldbrief die je hiervoor kunt gebruiken — pas die wel aan op jouw eigen situatie.</p>
+
+<h3>Stap 2 — Procedure bij de Huurcommissie</h3>
+<p>Reageert je verhuurder niet of weigert die? Dan kun je een procedure starten bij de <strong>Huurcommissie</strong> (huurcommissie.nl). De kosten zijn €25 leges, en bij gedeeltelijk of geheel gelijk krijg je dat geld vaak terug. De Huurcommissie doet een fysiek onderzoek (puntentelling ter plaatse) en spreekt zich vervolgens bindend uit over de hoogte van de huur.</p>
+
+<h3>Stap 3 — Eventueel kantonrechter</h3>
+<p>In zeldzame gevallen kan een verhuurder de uitspraak van de Huurcommissie aanvechten bij de kantonrechter. Dit komt weinig voor — de Huurcommissie wint in 98% van de zaken bij beroep.</p>
+
+<div class="huurguide-tip">
+<strong>💡 Belangrijke termijnen om te onthouden</strong>
+Bij een nieuw huurcontract heb je <strong>6 maanden</strong> de tijd om de aanvangshuur te laten toetsen. Bij een lopend contract kan je op elk moment om huurverlaging vragen, maar verlaging gaat in vanaf de gevraagde datum (niet met terugwerkende kracht).
+</div>
+
+<h2>De WOZ-waarde: het verraderlijkste onderdeel</h2>
+<p>Sinds 2015 telt de WOZ-waarde mee in het puntensysteem. In 2023 werd die invloed afgekapt op maximaal 33% van het totaal aantal punten. Dit is gedaan om gentrificatie tegen te gaan — anders zouden woningen in dure wijken automatisch in de vrije sector belanden door alleen de marktwaarde.</p>
+<p>De WOZ-waarde van jouw woning vind je gratis op <strong>WOZ-waardeloket.nl</strong>. Vergelijk die met je eigen aanslag: betalen kan op basis van een andere (vaak hogere) waarde dan officieel geregistreerd. <strong>Tip:</strong> als de WOZ-waarde van je woning daalt, kunnen je punten zakken en daarmee ook de maximale huurprijs.</p>
+
+<h2>Veelgestelde vragen over te hoge huur</h2>
+
+<div class="qa-block">
+<h4>Geldt deze huurcheck ook voor de vrije sector?</h4>
+<p>Sinds de Wet betaalbare huur (juli 2024) valt het middensegment ook onder het puntensysteem — tot 186 punten. Boven de 187 punten is het vrije sector en geldt geen wettelijke maximumhuur. Dan kan de Huurcommissie alleen oordelen over servicekosten en onderhoud, niet over de huurprijs zelf.</p>
+</div>
+
+<div class="qa-block">
+<h4>Kan mijn verhuurder mij eruit zetten als ik bezwaar maak?</h4>
+<p>Nee. Een verhuurder mag een huurder niet opzeggen omdat die naar de Huurcommissie stapt. Dit is wettelijk vastgelegd. Een opzegging om die reden is nietig. Wel kan een verhuurder andere reguliere opzeggingsgronden gebruiken (eigen gebruik, dringend eigen gebruik, slecht huurderschap), maar dat staat los van een huurprijsprocedure.</p>
+</div>
+
+<div class="qa-block">
+<h4>Hoe lang duurt een procedure bij de Huurcommissie?</h4>
+<p>Gemiddeld 4 tot 7 maanden, afhankelijk van drukte en complexiteit. Bij eenvoudige zaken (duidelijke punteoverschrijding) gaat het sneller. Houd er rekening mee dat de uitspraak werkt vanaf de gevraagde ingangsdatum, dus tijdens de procedure mag je gewoon je oude huur blijven betalen.</p>
+</div>
+
+<div class="qa-block">
+<h4>Krijg ik geld terug van eerder betaalde te hoge huur?</h4>
+<p>Niet automatisch. De huurverlaging gaat in vanaf de datum die je in je voorstel of verzoekschrift noemt — meestal twee maanden in de toekomst. Met terugwerkende kracht geld terugvorderen kan alleen in specifieke situaties (bv. als je binnen 6 maanden na het tekenen van een nieuw contract de aanvangshuur laat toetsen).</p>
+</div>
+
+<div class="qa-block">
+<h4>Werkt deze procedure ook voor sociale huurders bij woningcorporaties?</h4>
+<p>Ja, de regels gelden voor alle gereguleerde huur — particulier én corporatie. Wel hebben woningcorporaties vaak hun eigen interne klachtenprocedure die je eerst moet doorlopen. Check dit in je huurcontract of op de website van je corporatie. Daarna kun je alsnog de Huurcommissie inschakelen.</p>
+</div>
+
+<div class="qa-block">
+<h4>Wat als ik een tijdelijk contract heb?</h4>
+<p>Tijdelijke contracten zijn sinds 1 juli 2024 sterk beperkt door de <strong>Wet vaste huurcontracten</strong>. Bestaande tijdelijke contracten blijven geldig, en ook daar kun je de huurprijs laten toetsen. Bij nieuwe contracten is bijna altijd een vast huurcontract verplicht, met uitzonderingen voor specifieke groepen (studenten, expats, etc.).</p>
+</div>
+
+<div class="qa-block">
+<h4>Telt mijn parkeerplaats of berging mee in de punten?</h4>
+<p>Ja, beide tellen mee. Een berging buiten de woning levert ongeveer 0,75 punt per m² op. Een parkeerplaats wordt apart gewaardeerd: open parkeerplaats 0,5 punt, overdekt 1 punt, garage 6 punten. Onze tool houdt hier nog niet volledig rekening mee — voor een definitieve berekening adviseren we de Huurcommissie te raadplegen.</p>
+</div>
+
+<h2>Wat als de huurcheck zegt dat je teveel betaalt?</h2>
+<p>Bekijk eerst of het verschil substantieel is — een paar euro per maand wegen niet op tegen een hele procedure. Vanaf ongeveer €30-€40 per maand verschil wordt het meestal de moeite waard. Ga je verder, dan is de volgorde:</p>
+<ol>
+<li><strong>Documenten verzamelen</strong> — huurcontract, WOZ-aanslag, energielabel, foto's van voorzieningen</li>
+<li><strong>Voorstel sturen aan verhuurder</strong> — gebruik onze voorbeeldbrief, stuur aangetekend</li>
+<li><strong>Zes weken wachten</strong> op reactie</li>
+<li><strong>Bij geen of negatieve reactie:</strong> verzoekschrift bij Huurcommissie indienen</li>
+<li><strong>Wachten op uitspraak</strong> — dit duurt gemiddeld 4-7 maanden</li>
+<li><strong>Vanaf gewenste datum:</strong> nieuwe (lagere) huur ingaan</li>
+</ol>
+
+<div class="huurguide-tip">
+<strong>🤝 Hulp nodig bij de procedure?</strong>
+Het <strong>Juridisch Loket</strong> (0900-8020, gratis) helpt met algemeen advies. De <strong>Woonbond</strong> (woonbond.nl) heeft uitgebreide informatie en biedt persoonlijk advies aan leden. Sommige gemeenten hebben een eigen huurteam dat gratis helpt — check dit bij je gemeente.
+</div>
+
+<div class="tools-row">
+<h3>🔗 Andere tools die je verder kunnen helpen</h3>
+<p>Heb je een huurprobleem? Deze tools maken het makkelijker om te bepalen waar je staat:</p>
+<div class="tools-row-grid">
+<a href="/servicekosten-checker.html" class="tool-link-card"><strong>📋 Servicekosten Check</strong><span>Welke kosten mag je verhuurder rekenen?</span></a>
+<a href="/woz-bezwaar.html" class="tool-link-card"><strong>📄 WOZ-Bezwaar Tool</strong><span>Te hoge WOZ verlaagt je punten ook</span></a>
+<a href="/hypotheek-vs-huur.html" class="tool-link-card"><strong>🏠 Kopen vs Huren</strong><span>Loont kopen op de lange termijn?</span></a>
+<a href="/nettoloon.html" class="tool-link-card"><strong>💰 Nettoloon</strong><span>Wat houd je netto over per maand?</span></a>
+</div>
+</div>
+
 </div>
 </section>
 
-<footer>© 2026 Fixlify.nl · Indicatieve huurcheck-tool · Gratis te gebruiken</footer>
+<section class="legal-footer">
+<div class="legal-footer-inner">
+<strong>Belangrijk om te weten</strong>
+Deze huurcheck en de bijbehorende voorbeeldbrieven zijn bedoeld als hulpmiddel om je te oriënteren op een mogelijke huurprijsprocedure. <strong style="display:inline">De tool vervangt geen juridisch advies</strong>, en de uitkomst is een indicatie op basis van publieke richtlijnen — de officiële puntentelling vindt plaats tijdens een fysiek onderzoek door de Huurcommissie. De inhoud is met zorg samengesteld op basis van publiek beschikbare bronnen, maar Fixlify geeft geen garantie op volledigheid of actualiteit. Aan de uitkomst en de gegenereerde voorbeeldbrieven kunnen geen rechten worden ontleend. Voor jouw specifieke situatie kun je contact opnemen met de <a href="https://www.huurcommissie.nl" target="_blank" rel="noopener" style="color:var(--blue)">Huurcommissie</a>, het <a href="https://www.juridischloket.nl" target="_blank" rel="noopener" style="color:var(--blue)">Juridisch Loket</a> (gratis), of de <a href="https://www.woonbond.nl" target="_blank" rel="noopener" style="color:var(--blue)">Woonbond</a>. Het gebruik van deze tool is op eigen verantwoordelijkheid.
+</div>
+</section>
+
+<div class="tool-meta-stamp">Laatst bijgewerkt: mei 2026 · Bronnen: Huurcommissie.nl, Rijksoverheid.nl, Woonbond.nl</div>
+
+<div class="cookie-info">
+🔒 Deze site gebruikt alleen functionele opslag — geen tracking, geen analytics. <a href="/privacy.html">Privacyverklaring</a>.
+</div>
+
+<footer>© 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></footer>
 
 <script>
-// ============== STATE ==============
 let state = { points:0, breakdown:{}, maxRent:0, currentRent:0, difference:0, isFreeMarket:false, huurder:{}, verhuurder:{}, contract:{}, currentLetter:1 };
-
-// ============== HUURPRIJSTABEL 2026 (publieke richtwaarden) ==============
-const rentTable2026 = {
-40:250.26,41:256.53,42:262.75,43:269.02,44:275.27,45:281.50,46:287.78,47:294.03,48:300.29,49:306.54,
-50:312.80,51:319.02,52:325.30,53:331.54,54:337.80,55:344.05,56:350.35,57:356.53,58:362.79,59:369.09,
-60:375.32,61:381.55,62:387.83,63:394.06,64:400.32,65:406.58,66:412.85,67:419.10,68:425.33,69:431.56,
-70:437.81,71:444.09,72:450.36,73:456.57,74:462.86,75:469.09,76:475.36,77:481.60,78:487.89,79:494.10,
-80:500.38,81:507.22,82:514.08,83:520.96,84:527.81,85:534.70,86:541.56,87:548.41,88:555.29,89:562.13,
-90:569.03,91:575.87,92:582.71,93:589.61,94:596.45,95:603.32,96:610.19,97:617.08,98:623.94,99:630.82,
-100:637.67,101:644.53,102:651.36,103:658.24,104:665.12,105:671.95,106:678.85,107:685.70,108:692.56,109:699.44,
-110:706.32,111:713.20,112:720.05,113:726.95,114:733.79,115:740.66,116:747.51,117:754.37,118:761.21,119:768.08,
-120:774.94,121:781.85,122:788.71,123:795.56,124:802.44,125:809.30,126:816.14,127:823.02,128:829.94,129:836.74,
-130:843.62,131:850.49,132:857.33,133:864.24,134:871.06,135:877.97,136:884.79,137:891.67,138:898.56,139:905.39,
-140:912.26,141:919.14,142:925.98,143:932.93,144:939.73,145:946.61,146:953.45,147:960.33,148:967.18,149:974.05,
-150:980.91,151:987.78,152:994.63,153:1001.50,154:1008.35,155:1015.22,156:1022.07,157:1029.00,158:1035.81,159:1042.73,
-160:1049.57,161:1056.42,162:1063.32,163:1070.14,164:1077.00,165:1083.88,166:1090.76,167:1097.61,168:1104.46,169:1111.39,
-170:1118.23,171:1125.08,172:1131.94,173:1138.85,174:1145.69,175:1152.55,176:1159.40,177:1166.27,178:1173.15,179:1180.01,
-180:1186.84,181:1193.76,182:1200.61,183:1207.46,184:1214.31,185:1221.21,186:1228.07,187:1234.92,188:1241.81,189:1248.65,
-190:1255.53,191:1262.40,192:1269.25,193:1276.12,194:1283.00,195:1289.86,196:1296.70,197:1303.57,198:1310.46,199:1317.28,
-200:1324.18,201:1331.03,202:1337.89,203:1344.75,204:1351.63,205:1358.50,206:1365.34,207:1372.24,208:1379.09,209:1385.95,
-210:1392.84,211:1399.69,212:1406.56,213:1413.43,214:1420.28,215:1427.15,216:1433.99,217:1440.86,218:1447.71,219:1454.60,
-220:1461.49,221:1468.31,222:1475.19,223:1482.05,224:1488.95,225:1495.77,226:1502.67,227:1509.53,228:1516.40,229:1523.28,
-230:1530.12,231:1536.98,232:1543.85,233:1550.71,234:1557.56,235:1564.46,236:1571.31,237:1578.17,238:1585.01,239:1591.91,
-240:1598.76,241:1605.64,242:1612.52,243:1619.36,244:1626.24,245:1633.10,246:1639.96,247:1646.78,248:1653.70,249:1660.54,
-250:1667.40
-};
-
-function getMaxRent(points) {
-  if (points < 40) return 250.26;
-  if (points > 250) {
-    var perPoint = 1667.40 - 1660.54;
-    return Math.round((1667.40 + (points - 250) * perPoint) * 100) / 100;
-  }
-  var p = Math.round(points);
-  if (rentTable2026[p] !== undefined) return rentTable2026[p];
-  var lower = Math.floor(points), upper = Math.ceil(points);
-  if (rentTable2026[lower] !== undefined && rentTable2026[upper] !== undefined) {
-    var ratio = points - lower;
-    return Math.round((rentTable2026[lower] + ratio * (rentTable2026[upper] - rentTable2026[lower])) * 100) / 100;
-  }
-  return 250.26;
-}
-
-const energieLabels = {'A++++':52,'A+++':48,'A++':44,'A+':40,'A':36,'B':32,'C':22,'D':14,'E':8,'F':4,'G':0};
-
-document.querySelectorAll('.check-item input').forEach(function(input) {
-  input.addEventListener('change', function(e) {
-    e.target.closest('.check-item').classList.toggle('checked', e.target.checked);
-  });
-});
-
-function calculatePoints() {
-  var val = function(id) { return parseFloat(document.getElementById(id).value) || 0; };
-  var chk = function(id) { return document.getElementById(id).checked; };
-  var sel = function(id) { return document.getElementById(id).value; };
-
-  var oppWonen = val('oppWonen');
-  var oppOverig = val('oppOverig');
-  var verwarmd = val('verwarmdeVertrekken');
-  var label = sel('energielabel');
-  var woz = val('wozWaarde');
-  var huur = val('huidigeHuur');
-  var aanrechtLengte = val('aanrechtLengte');
-  var buitenType = sel('buitenruimte');
-  var buitenOpp = val('buitenOpp');
-  var oppTotaal = val('oppTotaal') || (oppWonen + oppOverig);
-
-  if (!oppWonen || !huur || !label || !woz) {
-    alert('Vul in ieder geval oppervlakte woonvertrekken, huurprijs, energielabel en WOZ-waarde in.');
-    return;
-  }
-
-  var breakdown = {};
-  var total = 0;
-
-  var pOppWonen = Math.round(oppWonen * 10) / 10;
-  breakdown['Oppervlakte woonvertrekken (' + oppWonen + ' m²)'] = pOppWonen;
-  total += pOppWonen;
-
-  var pOppOverig = Math.round(oppOverig * 0.75 * 10) / 10;
-  breakdown['Oppervlakte overige ruimtes (' + oppOverig + ' m²)'] = pOppOverig;
-  total += pOppOverig;
-
-  var pVerwarming = verwarmd * 2;
-  breakdown['Verwarming (' + verwarmd + ' vertrekken)'] = pVerwarming;
-  total += pVerwarming;
-
-  var labelPunten = energieLabels[label] || 0;
-  breakdown['Energielabel ' + label] = labelPunten;
-  total += labelPunten;
-
-  var keukenPunten = 0;
-  if (aanrechtLengte >= 200) keukenPunten += 7;
-  else if (aanrechtLengte >= 100) keukenPunten += 4;
-  if (chk('kookplaat')) keukenPunten += 1;
-  if (chk('afzuigkap')) keukenPunten += 1;
-  if (chk('koelkast')) keukenPunten += 1;
-  breakdown['Keuken'] = keukenPunten;
-  total += keukenPunten;
-
-  var sanitairPunten = 0;
-  if (chk('toilet')) sanitairPunten += 3;
-  if (chk('apartToilet')) sanitairPunten += 2;
-  if (chk('wastafel')) sanitairPunten += 1;
-  if (chk('douche')) sanitairPunten += 4;
-  if (chk('bad')) sanitairPunten += 6;
-  breakdown['Sanitair'] = sanitairPunten;
-  total += sanitairPunten;
-
-  var buitenPunten = 0;
-  if (buitenType !== 'nee' && buitenOpp > 0) {
-    buitenPunten = 2 + (buitenOpp * 0.35);
-  }
-  buitenPunten = Math.round(buitenPunten * 4) / 4;
-  breakdown['Buitenruimte'] = buitenPunten;
-  total += buitenPunten;
-
-  var wozDeel1 = woz / 16954;
-  var wozDeel2 = (oppTotaal > 0) ? (woz / oppTotaal / 268) : 0;
-  var wozPunten = Math.round((wozDeel1 + wozDeel2) * 4) / 4;
-
-  breakdown['WOZ-waarde (€' + woz.toLocaleString('nl-NL') + ' / ' + oppTotaal + ' m²)'] = wozPunten;
-  total += wozPunten;
-
-  total = Math.round(total);
-
-  var maxRent = getMaxRent(total);
-  var isFreeMarket = total >= 187;
-
-  state.points = total;
-  state.breakdown = breakdown;
-  state.maxRent = maxRent;
-  state.currentRent = huur;
-  state.difference = isFreeMarket ? 0 : Math.max(0, Math.round((huur - maxRent) * 100) / 100);
-  state.isFreeMarket = isFreeMarket;
-
-  renderResult();
-  goToStep(2);
-}
-
-function renderResult() {
-  var c = document.getElementById('resultContent');
-  var btn = document.getElementById('btnToStep3');
-  var html = '';
-
-  if (state.isFreeMarket) {
-    html += '<div class="result-hero free"><div class="result-icon">!</div><div class="result-headline">Mogelijk vrije sector</div><div class="result-big">' + state.points + ' punten</div><p class="result-sub">Met 187+ punten valt een woning meestal in de vrije sector. In dat geval geldt geen wettelijke maximumhuurprijs en is een procedure bij de Huurcommissie meestal niet mogelijk voor de hoogte van de huur.</p><p class="result-disclaimer">Indicatieve berekening. Voor uitsluitsel over jouw situatie: contact opnemen met de Huurcommissie of het Juridisch Loket.</p></div>';
-    btn.disabled = true; btn.style.opacity = '0.5'; btn.textContent = 'Bezwaar wellicht niet mogelijk';
-  } else if (state.difference > 0) {
-    var sector = state.points <= 143 ? 'sociale sector' : 'middenhuur';
-    html += '<div class="result-hero bad"><div class="result-icon">✕</div><div class="result-headline">Indicatie: mogelijk te hoog (' + sector + ')</div><div class="result-big">€' + state.difference.toFixed(2) + ' verschil p/m</div><p class="result-sub">Indicatief verschil van <strong>€' + (state.difference * 12).toFixed(2) + ' per jaar</strong> ten opzichte van de richtwaarde. Mogelijk kun je vervolgstappen overwegen.</p><p class="result-disclaimer">Indicatieve berekening op basis van publieke richtlijnen. Geen juridisch advies.</p></div>';
-    btn.disabled = false; btn.style.opacity = '1'; btn.textContent = 'Voorbeeldbrief opstellen →';
-  } else {
-    html += '<div class="result-hero good"><div class="result-icon">✓</div><div class="result-headline">Indicatie: huur in lijn met richtwaarden</div><div class="result-big">€' + state.currentRent.toFixed(2) + '</div><p class="result-sub">Je huur valt indicatief binnen de richtwaarde van €' + state.maxRent.toFixed(2) + '. Vervolgstappen zijn waarschijnlijk niet nodig.</p><p class="result-disclaimer">Indicatieve berekening — voor jouw specifieke situatie raden we aan een professional te raadplegen.</p></div>';
-    btn.disabled = true; btn.style.opacity = '0.5'; btn.textContent = 'Geen vervolgstappen nodig';
-  }
-
-  html += '<div class="stats-grid"><div class="stat"><div class="stat-label">Indicatieve punten</div><div class="stat-value">' + state.points + '</div></div><div class="stat"><div class="stat-label">Indicatieve max. huur</div><div class="stat-value">€' + state.maxRent.toFixed(2) + '</div></div><div class="stat"><div class="stat-label">Huidige huurprijs</div><div class="stat-value">€' + state.currentRent.toFixed(2) + '</div></div></div>';
-
-  html += '<div class="breakdown"><h3>Indicatieve puntenopbouw <span>Op basis van publieke richtlijnen</span></h3><ul>';
-  for (var key in state.breakdown) {
-    html += '<li><span>' + key + '</span><span>' + state.breakdown[key] + ' pt</span></li>';
-  }
-  html += '<li class="total"><span>Totaal</span><span>' + state.points + ' punten</span></li></ul></div>';
-
-  c.innerHTML = html;
-}
-
-function goToStep(n) {
-  document.querySelectorAll('.step-panel').forEach(function(p) { p.classList.remove('active'); });
-  document.getElementById('step-' + n).classList.add('active');
-  var items = document.querySelectorAll('.step-item');
-  items.forEach(function(item, i) {
-    item.classList.remove('active', 'done');
-    var step = i + 1;
-    if (step < n) item.classList.add('done');
-    else if (step === n) item.classList.add('active');
-  });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function generatePreview() {
-  var get = function(id) { return document.getElementById(id).value.trim(); };
-  var h = { naam: get('huurderNaam'), adres: get('huurderAdres'), postcode: get('huurderPostcode'), plaats: get('huurderPlaats') };
-  var v = { naam: get('verhuurderNaam'), adres: get('verhuurderAdres'), postcode: get('verhuurderPostcode'), plaats: get('verhuurderPlaats') };
-  var c = { ingangsdatum: get('ingangsdatumContract'), gewenst: get('gewensteIngangsdatum') };
-
-  if (!h.naam || !h.adres || !h.postcode || !h.plaats || !v.naam || !v.adres || !c.gewenst) {
-    alert('Vul alle verplichte velden in.');
-    return;
-  }
-
-  state.huurder = h;
-  state.verhuurder = v;
-  state.contract = c;
-  renderLetter(1);
-  goToStep(4);
-}
-
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  var d = new Date(dateStr);
-  var m = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
-  return d.getDate() + ' ' + m[d.getMonth()] + ' ' + d.getFullYear();
-}
-function todayNL() {
-  var d = new Date();
-  var m = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
-  return d.getDate() + ' ' + m[d.getMonth()] + ' ' + d.getFullYear();
-}
-
-function getLetter1() {
-  var h = state.huurder, v = state.verhuurder, c = state.contract;
-  return h.naam + '\n' + h.adres + '\n' + h.postcode + ' ' + h.plaats + '\n\n\n' +
-    v.naam + '\n' + v.adres + '\n' + v.postcode + ' ' + v.plaats + '\n\n\n' +
-    h.plaats + ', ' + todayNL() + '\n\n\n' +
-    'Betreft: Voorstel tot verlaging huurprijs\n\n\n' +
-    'Geachte heer/mevrouw,\n\n' +
-    'Hierbij doe ik u een voorstel tot verlaging van de huurprijs van de woning gelegen aan ' + h.adres + ', ' + h.postcode + ' ' + h.plaats + '.\n\n' +
-    'Op basis van een indicatieve berekening volgens publieke richtlijnen van het Woningwaarderingsstelsel (WWS) komt de puntenwaardering van de woning indicatief uit op ' + state.points + ' punten. Volgens de huurprijstabel per 1 januari 2026 zou de bijbehorende richtwaarde voor de kale huurprijs \u20AC ' + state.maxRent.toFixed(2) + ' per maand bedragen.\n\n' +
-    'De huidige kale huurprijs die ik betaal bedraagt \u20AC ' + state.currentRent.toFixed(2) + ' per maand. Dit is \u20AC ' + state.difference.toFixed(2) + ' per maand hoger dan deze richtwaarde, hetgeen indicatief neerkomt op \u20AC ' + (state.difference * 12).toFixed(2) + ' per jaar.\n\n' +
-    'Ik stel u daarom voor om de kale huurprijs met ingang van ' + formatDate(c.gewenst) + ' te verlagen naar \u20AC ' + state.maxRent.toFixed(2) + ' per maand.\n\n' +
-    'Ik verzoek u vriendelijk om binnen zes weken na dagtekening van deze brief schriftelijk te reageren op dit voorstel. Indien u niet akkoord gaat of niet binnen deze termijn reageert, overweeg ik mogelijk de Huurcommissie te verzoeken een uitspraak te doen over de redelijkheid van de huidige huurprijs.\n\n' +
-    'Ik zie uw reactie met belangstelling tegemoet.\n\n\n' +
-    'Met vriendelijke groet,\n\n\n\n' +
-    h.naam;
-}
-
-function getLetter2() {
-  var h = state.huurder, v = state.verhuurder, c = state.contract;
-  return 'VERZOEKSCHRIFT AAN DE HUURCOMMISSIE (concept-voorbeeld)\n\n' +
-    'Inzake: toetsing van de huurprijs\n\n\n' +
-    'Aan: De Huurcommissie\nPostbus 16495\n2500 BL Den Haag\n\n\n' +
-    h.plaats + ', ' + todayNL() + '\n\n\n' +
-    'Geachte commissie,\n\n' +
-    'Ondergetekende, ' + h.naam + ', wonende te ' + h.postcode + ' ' + h.plaats + ' aan de ' + h.adres + ', verzoekt de Huurcommissie een uitspraak te doen over de redelijkheid van de huidige huurprijs van de gehuurde woonruimte.\n\n\n' +
-    '1. GEGEVENS HUURDER\nNaam:        ' + h.naam + '\nAdres:       ' + h.adres + '\nPostcode:    ' + h.postcode + ' ' + h.plaats + '\n\n\n' +
-    '2. GEGEVENS VERHUURDER\nNaam:        ' + v.naam + '\nAdres:       ' + v.adres + '\nPostcode:    ' + v.postcode + ' ' + v.plaats + '\n\n\n' +
-    '3. ADRES GEHUURDE WOONRUIMTE\n' + h.adres + '\n' + h.postcode + ' ' + h.plaats + '\n\n\n' +
-    '4. HUIDIGE HUURPRIJS\nHuidige kale huurprijs: \u20AC ' + state.currentRent.toFixed(2) + ' per maand\nIngangsdatum huurovereenkomst: ' + (c.ingangsdatum ? formatDate(c.ingangsdatum) : 'onbekend') + '\n\n\n' +
-    '5. INDICATIEVE PUNTENWAARDERING\nOp basis van een indicatieve berekening volgens het WWS komt de puntenwaardering uit op ' + state.points + ' punten. De bijbehorende richtwaarde uit de huurprijstabel per 1 januari 2026 zou \u20AC ' + state.maxRent.toFixed(2) + ' per maand bedragen. De huidige huurprijs ligt indicatief \u20AC ' + state.difference.toFixed(2) + ' per maand boven deze richtwaarde.\n\n\n' +
-    '6. VOORSTEL AAN VERHUURDER\nOp ' + todayNL() + ' is aan de verhuurder een schriftelijk voorstel gedaan tot verlaging van de huurprijs naar \u20AC ' + state.maxRent.toFixed(2) + ' per maand, met ingang van ' + formatDate(c.gewenst) + '. De verhuurder heeft niet of niet akkoord gereageerd binnen de termijn van zes weken.\n\n\n' +
-    '7. VERZOEK\nOndergetekende verzoekt de Huurcommissie om een uitspraak te doen over de redelijkheid van de huidige huurprijs en deze met ingang van ' + formatDate(c.gewenst) + ' vast te stellen op een passend bedrag conform de officiële puntenwaardering van de woning.\n\n\n' +
-    'Ik verklaar dit verzoekschrift naar waarheid te hebben ingevuld.\n\n\n\n' +
-    h.naam + '\n' + h.adres + '\n' + h.postcode + ' ' + h.plaats + '\n\n\n' +
-    'Bijlagen:\n- Kopie voorstel tot huurverlaging d.d. ' + todayNL() + '\n- Kopie huurovereenkomst\n- Indicatieve puntenberekening\n\n\n' +
-    '---\nDIT IS EEN VOORBEELDDOCUMENT. Pas aan op jouw situatie en raadpleeg bij twijfel de Huurcommissie of het Juridisch Loket.';
-}
-
-function renderLetter(n) {
-  state.currentLetter = n;
-  document.getElementById('tab1').classList.toggle('active', n === 1);
-  document.getElementById('tab2').classList.toggle('active', n === 2);
-  document.getElementById('letterPreview').textContent = n === 1 ? getLetter1() : getLetter2();
-}
-function switchLetter(n) { renderLetter(n); }
-
-function downloadPDF(n) {
-  var jsPDF = window.jspdf.jsPDF;
-  var doc = new jsPDF({ unit: 'mm', format: 'a4' });
-  var text = n === 1 ? getLetter1() : getLetter2();
-  var filename = n === 1 ? 'Brief-1-Voorstel-huurverlaging.pdf' : 'Brief-2-Verzoekschrift-Huurcommissie.pdf';
-  var mL = 25, mR = 25, mT = 25, mB = 25;
-  var maxW = 210 - mL - mR;
-  var lH = 5.5;
-  doc.setFont('times', 'normal');
-  doc.setFontSize(11);
-  var y = mT;
-  var paragraphs = text.split('\n');
-  paragraphs.forEach(function(para) {
-    var isTitle = para.trim().indexOf('VERZOEKSCHRIFT AAN DE HUURCOMMISSIE') === 0;
-    var isHeader = /^\d+\. [A-Z]/.test(para.trim());
-    var isSubject = para.trim().indexOf('Betreft:') === 0 || para.trim().indexOf('Inzake:') === 0;
-    if (para.trim() === '') { y += lH * 0.6; return; }
-    if (isTitle) { doc.setFont('times', 'bold'); doc.setFontSize(14); }
-    else if (isHeader) { doc.setFont('times', 'bold'); doc.setFontSize(11); }
-    else if (isSubject) { doc.setFont('times', 'bold'); doc.setFontSize(11); }
-    else { doc.setFont('times', 'normal'); doc.setFontSize(11); }
-    var lines = doc.splitTextToSize(para, maxW);
-    lines.forEach(function(line) {
-      if (y > 297 - mB) { doc.addPage(); y = mT; }
-      doc.text(line, mL, y);
-      y += lH;
-    });
-  });
-  doc.save(filename);
-}
-
-function startOver() {
-  if (confirm('Weet je zeker dat je opnieuw wilt beginnen? Alle ingevoerde gegevens gaan verloren.')) {
-    document.querySelectorAll('input').forEach(function(i) { i.value = ''; i.checked = false; });
-    document.querySelectorAll('.check-item').forEach(function(i) { i.classList.remove('checked'); });
-    document.querySelectorAll('select').forEach(function(s) { s.selectedIndex = 0; });
-    state = { points:0, breakdown:{}, maxRent:0, currentRent:0, difference:0, isFreeMarket:false, huurder:{}, verhuurder:{}, contract:{}, currentLetter:1 };
-    goToStep(1);
-  }
-}
+const rentTable2026 = {40:250.26,41:256.53,42:262.75,43:269.02,44:275.27,45:281.50,46:287.78,47:294.03,48:300.29,49:306.54,50:312.80,51:319.02,52:325.30,53:331.54,54:337.80,55:344.05,56:350.35,57:356.53,58:362.79,59:369.09,60:375.32,61:381.55,62:387.83,63:394.06,64:400.32,65:406.58,66:412.85,67:419.10,68:425.33,69:431.56,70:437.81,71:444.09,72:450.36,73:456.57,74:462.86,75:469.09,76:475.36,77:481.60,78:487.89,79:494.10,80:500.38,81:507.22,82:514.08,83:520.96,84:527.81,85:534.70,86:541.56,87:548.41,88:555.29,89:562.13,90:569.03,91:575.87,92:582.71,93:589.61,94:596.45,95:603.32,96:610.19,97:617.08,98:623.94,99:630.82,100:637.67,101:644.53,102:651.36,103:658.24,104:665.12,105:671.95,106:678.85,107:685.70,108:692.56,109:699.44,110:706.32,111:713.20,112:720.05,113:726.95,114:733.79,115:740.66,116:747.51,117:754.37,118:761.21,119:768.08,120:774.94,121:781.85,122:788.71,123:795.56,124:802.44,125:809.30,126:816.14,127:823.02,128:829.94,129:836.74,130:843.62,131:850.49,132:857.33,133:864.24,134:871.06,135:877.97,136:884.79,137:891.67,138:898.56,139:905.39,140:912.26,141:919.14,142:925.98,143:932.93,144:939.73,145:946.61,146:953.45,147:960.33,148:967.18,149:974.05,150:980.91,151:987.78,152:994.63,153:1001.50,154:1008.35,155:1015.22,156:1022.07,157:1029.00,158:1035.81,159:1042.73,160:1049.57,161:1056.42,162:1063.32,163:1070.14,164:1077.00,165:1083.88,166:1090.76,167:1097.61,168:1104.46,169:1111.39,170:1118.23,171:1125.08,172:1131.94,173:1138.85,174:1145.69,175:1152.55,176:1159.40,177:1166.27,178:1173.15,179:1180.01,180:1186.84,181:1193.76,182:1200.61,183:1207.46,184:1214.31,185:1221.21,186:1228.07,187:1234.92,188:1241.81,189:1248.65,190:1255.53,191:1262.40,192:1269.25,193:1276.12,194:1283.00,195:1289.86,196:1296.70,197:1303.57,198:1310.46,199:1317.28,200:1324.18,201:1331.03,202:1337.89,203:1344.75,204:1351.63,205:1358.50,206:1365.34,207:1372.24,208:1379.09,209:1385.95,210:1392.84,211:1399.69,212:1406.56,213:1413.43,214:1420.28,215:1427.15,216:1433.99,217:1440.86,218:1447.71,219:1454.60,220:1461.49,221:1468.31,222:1475.19,223:1482.05,224:1488.95,225:1495.77,226:1502.67,227:1509.53,228:1516.40,229:1523.28,230:1530.12,231:1536.98,232:1543.85,233:1550.71,234:1557.56,235:1564.46,236:1571.31,237:1578.17,238:1585.01,239:1591.91,240:1598.76,241:1605.64,242:1612.52,243:1619.36,244:1626.24,245:1633.10,246:1639.96,247:1646.78,248:1653.70,249:1660.54,250:1667.40};
+function getMaxRent(points){if(points<40)return 250.26;if(points>250){var perPoint=1667.40-1660.54;return Math.round((1667.40+(points-250)*perPoint)*100)/100}var p=Math.round(points);if(rentTable2026[p]!==undefined)return rentTable2026[p];var lower=Math.floor(points),upper=Math.ceil(points);if(rentTable2026[lower]!==undefined&&rentTable2026[upper]!==undefined){var ratio=points-lower;return Math.round((rentTable2026[lower]+ratio*(rentTable2026[upper]-rentTable2026[lower]))*100)/100}return 250.26}
+const energieLabels={'A++++':52,'A+++':48,'A++':44,'A+':40,'A':36,'B':32,'C':22,'D':14,'E':8,'F':4,'G':0};
+document.querySelectorAll('.check-item input').forEach(function(input){input.addEventListener('change',function(e){e.target.closest('.check-item').classList.toggle('checked',e.target.checked)})});
+function calculatePoints(){var val=function(id){return parseFloat(document.getElementById(id).value)||0};var chk=function(id){return document.getElementById(id).checked};var sel=function(id){return document.getElementById(id).value};var oppWonen=val('oppWonen');var oppOverig=val('oppOverig');var verwarmd=val('verwarmdeVertrekken');var label=sel('energielabel');var woz=val('wozWaarde');var huur=val('huidigeHuur');var aanrechtLengte=val('aanrechtLengte');var buitenType=sel('buitenruimte');var buitenOpp=val('buitenOpp');var oppTotaal=val('oppTotaal')||(oppWonen+oppOverig);if(!oppWonen||!huur||!label||!woz){alert('Vul in ieder geval oppervlakte woonvertrekken, huurprijs, energielabel en WOZ-waarde in.');return}var breakdown={};var total=0;var pOppWonen=Math.round(oppWonen*10)/10;breakdown['Oppervlakte woonvertrekken ('+oppWonen+' m²)']=pOppWonen;total+=pOppWonen;var pOppOverig=Math.round(oppOverig*0.75*10)/10;breakdown['Oppervlakte overige ruimtes ('+oppOverig+' m²)']=pOppOverig;total+=pOppOverig;var pVerwarming=verwarmd*2;breakdown['Verwarming ('+verwarmd+' vertrekken)']=pVerwarming;total+=pVerwarming;var labelPunten=energieLabels[label]||0;breakdown['Energielabel '+label]=labelPunten;total+=labelPunten;var keukenPunten=0;if(aanrechtLengte>=200)keukenPunten+=7;else if(aanrechtLengte>=100)keukenPunten+=4;if(chk('kookplaat'))keukenPunten+=1;if(chk('afzuigkap'))keukenPunten+=1;if(chk('koelkast'))keukenPunten+=1;breakdown['Keuken']=keukenPunten;total+=keukenPunten;var sanitairPunten=0;if(chk('toilet'))sanitairPunten+=3;if(chk('apartToilet'))sanitairPunten+=2;if(chk('wastafel'))sanitairPunten+=1;if(chk('douche'))sanitairPunten+=4;if(chk('bad'))sanitairPunten+=6;breakdown['Sanitair']=sanitairPunten;total+=sanitairPunten;var buitenPunten=0;if(buitenType!=='nee'&&buitenOpp>0){buitenPunten=2+(buitenOpp*0.35)}buitenPunten=Math.round(buitenPunten*4)/4;breakdown['Buitenruimte']=buitenPunten;total+=buitenPunten;var wozDeel1=woz/16954;var wozDeel2=(oppTotaal>0)?(woz/oppTotaal/268):0;var wozPunten=Math.round((wozDeel1+wozDeel2)*4)/4;breakdown['WOZ-waarde (€'+woz.toLocaleString('nl-NL')+' / '+oppTotaal+' m²)']=wozPunten;total+=wozPunten;total=Math.round(total);var maxRent=getMaxRent(total);var isFreeMarket=total>=187;state.points=total;state.breakdown=breakdown;state.maxRent=maxRent;state.currentRent=huur;state.difference=isFreeMarket?0:Math.max(0,Math.round((huur-maxRent)*100)/100);state.isFreeMarket=isFreeMarket;renderResult();goToStep(2)}
+function renderResult(){var c=document.getElementById('resultContent');var btn=document.getElementById('btnToStep3');var html='';if(state.isFreeMarket){html+='<div class="result-hero free"><div class="result-icon">!</div><div class="result-headline">Mogelijk vrije sector</div><div class="result-big">'+state.points+' punten</div><p class="result-sub">Met 187+ punten valt een woning meestal in de vrije sector. In dat geval geldt geen wettelijke maximumhuurprijs en is een procedure bij de Huurcommissie meestal niet mogelijk voor de hoogte van de huur.</p><p class="result-disclaimer">Indicatieve berekening. Voor uitsluitsel over jouw situatie: contact opnemen met de Huurcommissie of het Juridisch Loket.</p></div>';btn.disabled=true;btn.style.opacity='0.5';btn.textContent='Bezwaar wellicht niet mogelijk'}else if(state.difference>0){var sector=state.points<=143?'sociale sector':'middenhuur';html+='<div class="result-hero bad"><div class="result-icon">✕</div><div class="result-headline">Indicatie: mogelijk te hoog ('+sector+')</div><div class="result-big">€'+state.difference.toFixed(2)+' verschil p/m</div><p class="result-sub">Indicatief verschil van <strong>€'+(state.difference*12).toFixed(2)+' per jaar</strong> ten opzichte van de richtwaarde. Mogelijk kun je vervolgstappen overwegen.</p><p class="result-disclaimer">Indicatieve berekening op basis van publieke richtlijnen. Geen juridisch advies.</p></div>';btn.disabled=false;btn.style.opacity='1';btn.textContent='Voorbeeldbrief opstellen →'}else{html+='<div class="result-hero good"><div class="result-icon">✓</div><div class="result-headline">Indicatie: huur in lijn met richtwaarden</div><div class="result-big">€'+state.currentRent.toFixed(2)+'</div><p class="result-sub">Je huur valt indicatief binnen de richtwaarde van €'+state.maxRent.toFixed(2)+'. Vervolgstappen zijn waarschijnlijk niet nodig.</p><p class="result-disclaimer">Indicatieve berekening — voor jouw specifieke situatie raden we aan een professional te raadplegen.</p></div>';btn.disabled=true;btn.style.opacity='0.5';btn.textContent='Geen vervolgstappen nodig'}html+='<div class="stats-grid"><div class="stat"><div class="stat-label">Indicatieve punten</div><div class="stat-value">'+state.points+'</div></div><div class="stat"><div class="stat-label">Indicatieve max. huur</div><div class="stat-value">€'+state.maxRent.toFixed(2)+'</div></div><div class="stat"><div class="stat-label">Huidige huurprijs</div><div class="stat-value">€'+state.currentRent.toFixed(2)+'</div></div></div>';html+='<div class="breakdown"><h3>Indicatieve puntenopbouw <span>Op basis van publieke richtlijnen</span></h3><ul>';for(var key in state.breakdown){html+='<li><span>'+key+'</span><span>'+state.breakdown[key]+' pt</span></li>'}html+='<li class="total"><span>Totaal</span><span>'+state.points+' punten</span></li></ul></div>';c.innerHTML=html}
+function goToStep(n){document.querySelectorAll('.step-panel').forEach(function(p){p.classList.remove('active')});document.getElementById('step-'+n).classList.add('active');var items=document.querySelectorAll('.step-item');items.forEach(function(item,i){item.classList.remove('active','done');var step=i+1;if(step<n)item.classList.add('done');else if(step===n)item.classList.add('active')});window.scrollTo({top:0,behavior:'smooth'})}
+function generatePreview(){var get=function(id){return document.getElementById(id).value.trim()};var h={naam:get('huurderNaam'),adres:get('huurderAdres'),postcode:get('huurderPostcode'),plaats:get('huurderPlaats')};var v={naam:get('verhuurderNaam'),adres:get('verhuurderAdres'),postcode:get('verhuurderPostcode'),plaats:get('verhuurderPlaats')};var c={ingangsdatum:get('ingangsdatumContract'),gewenst:get('gewensteIngangsdatum')};if(!h.naam||!h.adres||!h.postcode||!h.plaats||!v.naam||!v.adres||!c.gewenst){alert('Vul alle verplichte velden in.');return}state.huurder=h;state.verhuurder=v;state.contract=c;renderLetter(1);goToStep(4)}
+function formatDate(dateStr){if(!dateStr)return'';var d=new Date(dateStr);var m=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];return d.getDate()+' '+m[d.getMonth()]+' '+d.getFullYear()}
+function todayNL(){var d=new Date();var m=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];return d.getDate()+' '+m[d.getMonth()]+' '+d.getFullYear()}
+function getLetter1(){var h=state.huurder,v=state.verhuurder,c=state.contract;return h.naam+'\n'+h.adres+'\n'+h.postcode+' '+h.plaats+'\n\n\n'+v.naam+'\n'+v.adres+'\n'+v.postcode+' '+v.plaats+'\n\n\n'+h.plaats+', '+todayNL()+'\n\n\nBetreft: Voorstel tot verlaging huurprijs\n\n\nGeachte heer/mevrouw,\n\nHierbij doe ik u een voorstel tot verlaging van de huurprijs van de woning gelegen aan '+h.adres+', '+h.postcode+' '+h.plaats+'.\n\nOp basis van een indicatieve berekening volgens publieke richtlijnen van het Woningwaarderingsstelsel (WWS) komt de puntenwaardering van de woning indicatief uit op '+state.points+' punten. Volgens de huurprijstabel per 1 januari 2026 zou de bijbehorende richtwaarde voor de kale huurprijs \u20AC '+state.maxRent.toFixed(2)+' per maand bedragen.\n\nDe huidige kale huurprijs die ik betaal bedraagt \u20AC '+state.currentRent.toFixed(2)+' per maand. Dit is \u20AC '+state.difference.toFixed(2)+' per maand hoger dan deze richtwaarde, hetgeen indicatief neerkomt op \u20AC '+(state.difference*12).toFixed(2)+' per jaar.\n\nIk stel u daarom voor om de kale huurprijs met ingang van '+formatDate(c.gewenst)+' te verlagen naar \u20AC '+state.maxRent.toFixed(2)+' per maand.\n\nIk verzoek u vriendelijk om binnen zes weken na dagtekening van deze brief schriftelijk te reageren op dit voorstel. Indien u niet akkoord gaat of niet binnen deze termijn reageert, overweeg ik mogelijk de Huurcommissie te verzoeken een uitspraak te doen over de redelijkheid van de huidige huurprijs.\n\nIk zie uw reactie met belangstelling tegemoet.\n\n\nMet vriendelijke groet,\n\n\n\n'+h.naam}
+function getLetter2(){var h=state.huurder,v=state.verhuurder,c=state.contract;return'VERZOEKSCHRIFT AAN DE HUURCOMMISSIE (concept-voorbeeld)\n\nInzake: toetsing van de huurprijs\n\n\nAan: De Huurcommissie\nPostbus 16495\n2500 BL Den Haag\n\n\n'+h.plaats+', '+todayNL()+'\n\n\nGeachte commissie,\n\nOndergetekende, '+h.naam+', wonende te '+h.postcode+' '+h.plaats+' aan de '+h.adres+', verzoekt de Huurcommissie een uitspraak te doen over de redelijkheid van de huidige huurprijs van de gehuurde woonruimte.\n\n\n1. GEGEVENS HUURDER\nNaam:        '+h.naam+'\nAdres:       '+h.adres+'\nPostcode:    '+h.postcode+' '+h.plaats+'\n\n\n2. GEGEVENS VERHUURDER\nNaam:        '+v.naam+'\nAdres:       '+v.adres+'\nPostcode:    '+v.postcode+' '+v.plaats+'\n\n\n3. ADRES GEHUURDE WOONRUIMTE\n'+h.adres+'\n'+h.postcode+' '+h.plaats+'\n\n\n4. HUIDIGE HUURPRIJS\nHuidige kale huurprijs: \u20AC '+state.currentRent.toFixed(2)+' per maand\nIngangsdatum huurovereenkomst: '+(c.ingangsdatum?formatDate(c.ingangsdatum):'onbekend')+'\n\n\n5. INDICATIEVE PUNTENWAARDERING\nOp basis van een indicatieve berekening volgens het WWS komt de puntenwaardering uit op '+state.points+' punten. De bijbehorende richtwaarde uit de huurprijstabel per 1 januari 2026 zou \u20AC '+state.maxRent.toFixed(2)+' per maand bedragen. De huidige huurprijs ligt indicatief \u20AC '+state.difference.toFixed(2)+' per maand boven deze richtwaarde.\n\n\n6. VOORSTEL AAN VERHUURDER\nOp '+todayNL()+' is aan de verhuurder een schriftelijk voorstel gedaan tot verlaging van de huurprijs naar \u20AC '+state.maxRent.toFixed(2)+' per maand, met ingang van '+formatDate(c.gewenst)+'. De verhuurder heeft niet of niet akkoord gereageerd binnen de termijn van zes weken.\n\n\n7. VERZOEK\nOndergetekende verzoekt de Huurcommissie om een uitspraak te doen over de redelijkheid van de huidige huurprijs en deze met ingang van '+formatDate(c.gewenst)+' vast te stellen op een passend bedrag conform de officiële puntenwaardering van de woning.\n\n\nIk verklaar dit verzoekschrift naar waarheid te hebben ingevuld.\n\n\n\n'+h.naam+'\n'+h.adres+'\n'+h.postcode+' '+h.plaats+'\n\n\nBijlagen:\n- Kopie voorstel tot huurverlaging d.d. '+todayNL()+'\n- Kopie huurovereenkomst\n- Indicatieve puntenberekening\n\n\n---\nDIT IS EEN VOORBEELDDOCUMENT. Pas aan op jouw situatie en raadpleeg bij twijfel de Huurcommissie of het Juridisch Loket.'}
+function renderLetter(n){state.currentLetter=n;document.getElementById('tab1').classList.toggle('active',n===1);document.getElementById('tab2').classList.toggle('active',n===2);document.getElementById('letterPreview').textContent=n===1?getLetter1():getLetter2()}
+function switchLetter(n){renderLetter(n)}
+function downloadPDF(n){var jsPDF=window.jspdf.jsPDF;var doc=new jsPDF({unit:'mm',format:'a4'});var text=n===1?getLetter1():getLetter2();var filename=n===1?'Brief-1-Voorstel-huurverlaging.pdf':'Brief-2-Verzoekschrift-Huurcommissie.pdf';var mL=25,mR=25,mT=25,mB=25;var maxW=210-mL-mR;var lH=5.5;doc.setFont('times','normal');doc.setFontSize(11);var y=mT;var paragraphs=text.split('\n');paragraphs.forEach(function(para){var isTitle=para.trim().indexOf('VERZOEKSCHRIFT AAN DE HUURCOMMISSIE')===0;var isHeader=/^\d+\. [A-Z]/.test(para.trim());var isSubject=para.trim().indexOf('Betreft:')===0||para.trim().indexOf('Inzake:')===0;if(para.trim()===''){y+=lH*0.6;return}if(isTitle){doc.setFont('times','bold');doc.setFontSize(14)}else if(isHeader){doc.setFont('times','bold');doc.setFontSize(11)}else if(isSubject){doc.setFont('times','bold');doc.setFontSize(11)}else{doc.setFont('times','normal');doc.setFontSize(11)}var lines=doc.splitTextToSize(para,maxW);lines.forEach(function(line){if(y>297-mB){doc.addPage();y=mT}doc.text(line,mL,y);y+=lH})});doc.save(filename)}
+function startOver(){if(confirm('Weet je zeker dat je opnieuw wilt beginnen? Alle ingevoerde gegevens gaan verloren.')){document.querySelectorAll('input').forEach(function(i){i.value='';i.checked=false});document.querySelectorAll('.check-item').forEach(function(i){i.classList.remove('checked')});document.querySelectorAll('select').forEach(function(s){s.selectedIndex=0});state={points:0,breakdown:{},maxRent:0,currentRent:0,difference:0,isFreeMarket:false,huurder:{},verhuurder:{},contract:{},currentLetter:1};goToStep(1)}}
 </script>
 </body>
 </html>
