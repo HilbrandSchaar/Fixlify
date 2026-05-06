@@ -112,6 +112,7 @@ nav{position:sticky;top:0;left:0;right:0;z-index:100;background:rgba(250,251,252
 .tool-arrow{font-size:12px;color:var(--blue);font-weight:600;white-space:nowrap}
 .tool-badge{position:absolute;top:-1px;right:14px;background:var(--orange);color:#fff;font-size:9px;font-weight:700;padding:3px 8px;border-radius:0 0 6px 6px;text-transform:uppercase;letter-spacing:.04em}
 .tool-badge.new{background:var(--green)}
+.tool-badge.hot{background:#DC2626}
 .why{max-width:1140px;margin:0 auto 80px;padding:0 24px}
 .why-card{background:linear-gradient(135deg,#0F172A 0%,#1E293B 100%);border-radius:24px;padding:60px 48px;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden}
 .why-card::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;border-radius:50%;background:rgba(37,99,235,.15)}
@@ -189,9 +190,9 @@ footer{border-top:1px solid var(--border);padding:48px 0 32px;background:var(--w
 <nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">F</div><span class="logo-text">fixlify</span></a><div class="nav-links"><a href="#categorieen">Categorieën</a><a href="#waarom">Waarom Fixlify</a><a href="#hoe-het-werkt">Hoe het werkt</a><a href="#faq">FAQ</a><a href="/huurcheck.html" class="nav-cta">Gratis huurcheck →</a></div></div></nav>
 
 <section class="hero">
-<div class="hero-badge"><span class="hero-badge-dot"></span> 9 gratis tools — meer onderweg</div>
+<div class="hero-badge"><span class="hero-badge-dot"></span> 11 gratis tools — meer onderweg</div>
 <h1>De beste gratis<br><span>Nederlandse tools.</span></h1>
-<p class="hero-sub">Snel je huur checken, een professioneel CV opmaken of een factuur maken. Gratis Nederlandse tools voor werk, wonen en geld — zonder account, direct downloadbaar.</p>
+<p class="hero-sub">Snel je huur checken, een professioneel CV opmaken of bereken wanneer je AOW krijgt. Gratis Nederlandse tools voor werk, wonen, geld en pensioen — zonder account, direct downloadbaar.</p>
 <div class="hero-buttons">
 <a href="#categorieen" class="btn-h btn-hp">🚀 Bekijk alle tools</a>
 <a href="/huurcheck.html" class="btn-h btn-ho">Start huurcheck</a>
@@ -219,13 +220,13 @@ footer{border-top:1px solid var(--border);padding:48px 0 32px;background:var(--w
 <div class="cat-header">
 <div class="cat-eyebrow">Alle categorieën</div>
 <div class="cat-title">Vind de tool die jij nodig hebt</div>
-<p class="cat-sub">4 categorieën met 9 werkende tools en meer onderweg. Allemaal gratis te gebruiken.</p>
+<p class="cat-sub">4 categorieën met 11 werkende tools en meer onderweg. Allemaal gratis te gebruiken.</p>
 </div>
 <div class="cat-grid">
 <a href="#wonen" class="cat-card"><span class="cat-icon">🏠</span><div class="cat-name">Wonen</div><div class="cat-count">4 tools</div><span class="cat-arrow">Bekijken →</span></a>
 <a href="#werk" class="cat-card"><span class="cat-icon">💼</span><div class="cat-name">Werk</div><div class="cat-count">2 tools</div><span class="cat-arrow">Bekijken →</span></a>
-<a href="#zzp" class="cat-card"><span class="cat-icon">📊</span><div class="cat-name">ZZP & Admin</div><div class="cat-count">2 tools</div><span class="cat-arrow">Bekijken →</span></a>
-<a href="#geld" class="cat-card"><span class="cat-icon">💰</span><div class="cat-name">Geld & Belasting</div><div class="cat-count">1 tool</div><span class="cat-arrow">Bekijken →</span></a>
+<a href="#zzp" class="cat-card"><span class="cat-icon">📊</span><div class="cat-name">ZZP & Admin</div><div class="cat-count">3 tools</div><span class="cat-arrow">Bekijken →</span></a>
+<a href="#geld" class="cat-card"><span class="cat-icon">💰</span><div class="cat-name">Geld & Pensioen</div><div class="cat-count">4 tools</div><span class="cat-arrow">Bekijken →</span></a>
 <a href="#waarom" class="cat-card" style="background:linear-gradient(135deg,#0F172A,#1E293B);color:#fff;border-color:#1E293B"><span class="cat-icon">⭐</span><div class="cat-name" style="color:#fff">Waarom Fixlify?</div><div class="cat-count" style="color:#94A3B8">Lees meer</div><span class="cat-arrow" style="color:#FCD34D">Ontdekken →</span></a>
 </div>
 </section>
@@ -282,10 +283,12 @@ footer{border-top:1px solid var(--border);padding:48px 0 32px;background:var(--w
 </section>
 
 <section class="cat-section" id="geld">
-<div class="cat-section-header"><div class="cat-section-title"><span class="icon">💰</span> Geld & Belasting</div><div class="cat-section-tagline">Krijg grip op je financiën</div></div>
+<div class="cat-section-header"><div class="cat-section-title"><span class="icon">💰</span> Geld & Pensioen</div><div class="cat-section-tagline">Krijg grip op je financiële toekomst</div></div>
 <div class="tools-grid">
 <a href="/nettoloon.html" class="tool-card"><div class="tool-badge">Populair</div><span class="tool-emoji">💰</span><h3>Nettoloon Calculator</h3><p>Krijg een indicatie van wat je netto overhoudt op basis van je bruto salaris.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
 <a href="/vakantiegeld.html" class="tool-card"><div class="tool-badge new">Nieuw</div><span class="tool-emoji">☀️</span><h3>Vakantiegeld Calculator</h3><p>Bereken bruto en netto vakantiegeld voor mei. Inclusief parttime correctie en bijzonder tarief.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
+<a href="/compound-interest.html" class="tool-card"><div class="tool-badge hot">Hot</div><span class="tool-emoji">📈</span><h3>Rente op Rente Calculator</h3><p>Visualiseer hoe je vermogen exponentieel groeit. Met sneeuwbal-animatie en Box 3 indicatie 2026.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
+<a href="/aow-leeftijd.html" class="tool-card"><div class="tool-badge hot">Hot</div><span class="tool-emoji">⏰</span><h3>AOW Leeftijd Calculator</h3><p>Wanneer krijg jij AOW? Met aftelklok, animatie en officiële SVB-tabel 2026-2031.</p><div class="tool-footer"><span class="tool-tag tag-free">Gratis</span><span class="tool-arrow">Berekenen →</span></div></a>
 </div>
 </section>
 
@@ -349,7 +352,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 32px;background:var(--w
 
 <section class="cta-bottom"><div class="cta-card">
 <h2>Begin vandaag nog.</h2>
-<p>Check je huur, maak een professioneel CV of stel een offerte op. Gratis tools, zonder account.</p>
+<p>Check je huur, maak een professioneel CV of bereken wanneer je AOW krijgt. Gratis tools, zonder account.</p>
 <a href="#categorieen" class="cta-btn">Bekijk alle tools →</a>
 <div class="cta-guarantee">⚡ Geen account · Direct resultaat · Privacyvriendelijk</div>
 </div></section>
@@ -377,8 +380,8 @@ KvK: 77981197 · BTW: NL003270597B29<br>
 <a href="/voorwaarden.html" style="color:var(--gray);font-size:12px">Algemene voorwaarden →</a>
 </div>
 </div>
-<div class="footer-col"><h4>Categorieën</h4><a href="#wonen">🏠 Wonen</a><a href="#werk">💼 Werk</a><a href="#zzp">📊 ZZP</a><a href="#geld">💰 Geld</a></div>
-<div class="footer-col"><h4>Populair</h4><a href="/huurcheck.html">Huurcheck</a><a href="/nettoloon.html">Nettoloon</a><a href="/vakantiegeld.html">Vakantiegeld</a><a href="/btw-calculator.html">BTW Calculator</a><a href="/cv-maker.html">CV Maker</a><a href="/factuur.html">Factuur</a><a href="/offerte.html">Offerte</a><a href="/woz-bezwaar.html">WOZ-Bezwaar</a></div>
+<div class="footer-col"><h4>Categorieën</h4><a href="#wonen">🏠 Wonen</a><a href="#werk">💼 Werk</a><a href="#zzp">📊 ZZP</a><a href="#geld">💰 Geld & Pensioen</a></div>
+<div class="footer-col"><h4>Populair</h4><a href="/huurcheck.html">Huurcheck</a><a href="/nettoloon.html">Nettoloon</a><a href="/aow-leeftijd.html">AOW Leeftijd</a><a href="/compound-interest.html">Rente op Rente</a><a href="/vakantiegeld.html">Vakantiegeld</a><a href="/btw-calculator.html">BTW Calculator</a><a href="/cv-maker.html">CV Maker</a><a href="/factuur.html">Factuur</a><a href="/offerte.html">Offerte</a><a href="/woz-bezwaar.html">WOZ-Bezwaar</a></div>
 <div class="footer-col"><h4>Bedrijf</h4><a href="mailto:fixlifyNL@outlook.com">Contact</a><a href="/privacy.html">Privacy</a><a href="/voorwaarden.html">Voorwaarden</a><a href="#waarom">Over Fixlify</a></div>
 </div>
 <div class="footer-bottom"><span class="footer-copy">© 2026 FixlifyNL — Alle rechten voorbehouden</span><div class="footer-legal"><a href="/privacy.html">Privacy</a><a href="/voorwaarden.html">Voorwaarden</a></div></div>
