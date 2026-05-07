@@ -648,63 +648,99 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-const searchInput=document.getElementById('searchInput');
-const noResults=document.getElementById('noResults');
-const allSections=document.querySelectorAll('.tool-section');
-let activeFilter='all';
-
-function filterTools(){
-  const q=searchInput.value.toLowerCase().trim();
-  let visibleCount=0;
-  
-  allSections.forEach(section=>{
-    const sectionCat=section.dataset.cat;
-    const cards=section.querySelectorAll('.tool-card');
-    let sectionHasVisible=false;
+// Wait for DOM ready before setting up search
+(function(){
+  function initSearch(){
+    var searchInput=document.getElementById('searchInput');
+    var noResults=document.getElementById('noResults');
     
-    cards.forEach(card=>{
-      const name=card.dataset.name||'';
-      const matchesSearch=q===''||name.toLowerCase().includes(q)||card.querySelector('.tool-name').textContent.toLowerCase().includes(q);
-      const matchesFilter=activeFilter==='all'||activeFilter===sectionCat;
+    if(!searchInput){
+      console.warn('Search input not found');
+      return;
+    }
+    
+    var allSections=document.querySelectorAll('.tool-section');
+    var allCards=document.querySelectorAll('.tool-card');
+    var activeFilter='all';
+
+    function filterTools(){
+      var q=searchInput.value.toLowerCase().trim();
+      var visibleCount=0;
       
-      if(matchesSearch&&matchesFilter){
-        card.classList.remove('hidden');
-        sectionHasVisible=true;
-        visibleCount++;
+      allSections.forEach(function(section){
+        var sectionCat=section.getAttribute('data-cat');
+        var cards=section.querySelectorAll('.tool-card');
+        var sectionHasVisible=false;
+        
+        cards.forEach(function(card){
+          var dataName=(card.getAttribute('data-name')||'').toLowerCase();
+          var nameEl=card.querySelector('.tool-name');
+          var nameText=nameEl?nameEl.textContent.toLowerCase():'';
+          var descEl=card.querySelector('.tool-desc');
+          var descText=descEl?descEl.textContent.toLowerCase():'';
+          
+          var matchesSearch=(q==='')||dataName.indexOf(q)>=0||nameText.indexOf(q)>=0||descText.indexOf(q)>=0;
+          var matchesFilter=(activeFilter==='all')||(activeFilter===sectionCat);
+          
+          if(matchesSearch&&matchesFilter){
+            card.classList.remove('hidden');
+            sectionHasVisible=true;
+            visibleCount++;
+          }else{
+            card.classList.add('hidden');
+          }
+        });
+        
+        if(sectionHasVisible){
+          section.classList.remove('hidden');
+        }else{
+          section.classList.add('hidden');
+        }
+      });
+      
+      if(visibleCount===0){
+        noResults.classList.add('show');
       }else{
-        card.classList.add('hidden');
+        noResults.classList.remove('show');
+      }
+    }
+
+    // Listen for input events
+    searchInput.addEventListener('input',filterTools);
+    searchInput.addEventListener('keyup',filterTools);
+    
+    // Category tabs
+    var tabs=document.querySelectorAll('.cat-tab');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click',function(){
+        tabs.forEach(function(t){t.classList.remove('active')});
+        tab.classList.add('active');
+        activeFilter=tab.getAttribute('data-filter');
+        filterTools();
+        var toolsSection=document.getElementById('tools');
+        var rect=toolsSection.getBoundingClientRect();
+        if(rect.top<0){
+          toolsSection.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+
+    // Cmd+K / Ctrl+K
+    document.addEventListener('keydown',function(e){
+      if((e.metaKey||e.ctrlKey)&&(e.key==='k'||e.key==='K')){
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.select();
       }
     });
-    
-    if(sectionHasVisible){section.classList.remove('hidden')}
-    else{section.classList.add('hidden')}
-  });
-  
-  if(visibleCount===0){noResults.classList.add('show')}
-  else{noResults.classList.remove('show')}
-}
-
-searchInput.addEventListener('input',filterTools);
-
-document.querySelectorAll('.cat-tab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
-    activeFilter=tab.dataset.filter;
-    filterTools();
-    const toolsSection=document.getElementById('tools');
-    const rect=toolsSection.getBoundingClientRect();
-    if(rect.top<0){toolsSection.scrollIntoView({behavior:'smooth',block:'start'})}
-  });
-});
-
-document.addEventListener('keydown',e=>{
-  if((e.metaKey||e.ctrlKey)&&e.key==='k'){
-    e.preventDefault();
-    searchInput.focus();
-    searchInput.select();
   }
-});
+  
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',initSearch);
+  }else{
+    initSearch();
+  }
+})();
 </script>
 </body>
 </html>
