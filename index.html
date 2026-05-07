@@ -120,14 +120,6 @@ nav{position:sticky;top:0;background:rgba(255,255,255,0.92);backdrop-filter:blur
 
 .hero-sub{font-size:clamp(15px,1.5vw,18px);color:var(--ink-soft);max-width:580px;margin:0 auto 28px;line-height:1.55}
 
-.search-wrap{max-width:580px;margin:0 auto 16px;position:relative}
-.search-input{width:100%;padding:16px 20px 16px 48px;font-family:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1.5px solid var(--border);border-radius:12px;transition:all .2s;font-weight:500}
-.search-input::placeholder{color:var(--light)}
-.search-input:focus{outline:none;border-color:var(--terra);box-shadow:0 0 0 4px rgba(194,65,12,0.1)}
-.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--gray);pointer-events:none}
-.search-shortcut{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-family:'JetBrains Mono';font-size:11px;color:var(--light);background:var(--border-soft);padding:3px 6px;border-radius:5px;font-weight:600;pointer-events:none}
-@media(max-width:520px){.search-shortcut{display:none}}
-
 .hero-meta{margin-top:18px;font-size:13px;color:var(--gray);font-family:'JetBrains Mono';font-weight:500;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 .hero-meta span::before{content:'·';margin-right:14px;color:var(--light)}
 .hero-meta span:first-child::before{display:none}
@@ -207,8 +199,7 @@ nav{position:sticky;top:0;background:rgba(255,255,255,0.92);backdrop-filter:blur
 .tool-arrow{font-family:'JetBrains Mono';font-size:11px;color:var(--terra);font-weight:700;white-space:nowrap;transition:transform .2s}
 .tool-card:hover .tool-arrow{transform:translateX(3px)}
 
-.no-results{display:none;text-align:center;padding:48px 24px;color:var(--gray);font-size:14px}
-.no-results.show{display:block}
+.no-results{display:none}
 .tool-card.hidden{display:none}
 .tool-section.hidden{display:none}
 
@@ -298,12 +289,6 @@ footer{border-top:1px solid var(--border);padding:48px 0 24px;background:var(--b
 <div class="hero-tag"><span class="hero-tag-dot"></span>11 tools · Bijgewerkt mei 2026</div>
 <h1>Slimme tools voor <span class="accent">Nederland</span>.</h1>
 <p class="hero-sub">Bereken huur, AOW-leeftijd, BTW, nettoloon en meer. Direct in je browser, geen account nodig. 11 calculators voor de meest gestelde Nederlandse vragen.</p>
-
-<div class="search-wrap">
-<svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
-<input type="text" id="searchInput" class="search-input" placeholder="Zoek een tool... (huur, AOW, BTW, factuur)" autocomplete="off">
-<span class="search-shortcut">⌘ K</span>
-</div>
 
 <div class="hero-meta"><span>Geen account</span><span>Direct resultaat</span><span>PDF download</span></div>
 </section>
@@ -516,8 +501,6 @@ footer{border-top:1px solid var(--border);padding:48px 0 24px;background:var(--b
 </a>
 </div>
 </div>
-
-<div class="no-results" id="noResults">Geen tools gevonden voor deze zoekopdracht.</div>
 </section>
 
 <!-- WHY — KORT, 4 USP CARDS -->
@@ -651,61 +634,20 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 });
 
 window.addEventListener('load',function(){
-  var searchInput=document.getElementById('searchInput');
-  var noResults=document.getElementById('noResults');
-  
-  if(!searchInput){console.error('Fixlify: search input not found');return;}
-  
   var activeFilter='all';
 
-  function filterTools(){
-    var q=searchInput.value.toLowerCase().trim();
-    var visibleCount=0;
+  function filterByCategory(){
     var sections=document.querySelectorAll('.tool-section');
-    
     for(var i=0;i<sections.length;i++){
       var section=sections[i];
       var sectionCat=section.getAttribute('data-cat');
-      var cards=section.querySelectorAll('.tool-card');
-      var sectionHasVisible=false;
-      
-      for(var j=0;j<cards.length;j++){
-        var card=cards[j];
-        var dataName=(card.getAttribute('data-name')||'').toLowerCase();
-        var nameEl=card.querySelector('.tool-name');
-        var nameText=nameEl?nameEl.textContent.toLowerCase():'';
-        var descEl=card.querySelector('.tool-desc');
-        var descText=descEl?descEl.textContent.toLowerCase():'';
-        
-        var matchesSearch=(q==='')||(dataName.indexOf(q)!==-1)||(nameText.indexOf(q)!==-1)||(descText.indexOf(q)!==-1);
-        var matchesFilter=(activeFilter==='all')||(activeFilter===sectionCat);
-        
-        if(matchesSearch&&matchesFilter){
-          card.classList.remove('hidden');
-          sectionHasVisible=true;
-          visibleCount++;
-        }else{
-          card.classList.add('hidden');
-        }
-      }
-      
-      if(sectionHasVisible){
+      if(activeFilter==='all'||activeFilter===sectionCat){
         section.classList.remove('hidden');
       }else{
         section.classList.add('hidden');
       }
     }
-    
-    if(visibleCount===0&&noResults){
-      noResults.classList.add('show');
-    }else if(noResults){
-      noResults.classList.remove('show');
-    }
   }
-
-  searchInput.addEventListener('input',filterTools);
-  searchInput.addEventListener('keyup',filterTools);
-  searchInput.addEventListener('change',filterTools);
   
   var tabs=document.querySelectorAll('.cat-tab');
   for(var k=0;k<tabs.length;k++){
@@ -715,20 +657,10 @@ window.addEventListener('load',function(){
         for(var m=0;m<tabs.length;m++){tabs[m].classList.remove('active')}
         tab.classList.add('active');
         activeFilter=tab.getAttribute('data-filter');
-        filterTools();
+        filterByCategory();
       });
     })(tabs[k]);
   }
-
-  document.addEventListener('keydown',function(e){
-    if((e.metaKey||e.ctrlKey)&&(e.key==='k'||e.key==='K')){
-      e.preventDefault();
-      searchInput.focus();
-      searchInput.select();
-    }
-  });
-  
-  console.log('Fixlify search initialized. Tool cards:',document.querySelectorAll('.tool-card').length);
 });
 </script>
 </body>
