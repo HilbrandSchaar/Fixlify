@@ -636,111 +636,100 @@ Leeuwarden, NL<br><br>
 function toggleFaq(el){
   var a=el.nextElementSibling;
   var o=a.classList.contains('open');
-  document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));
-  document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('.faq-a').forEach(function(x){x.classList.remove('open')});
+  document.querySelectorAll('.faq-q').forEach(function(x){x.classList.remove('open')});
   if(!o){a.classList.add('open');el.classList.add('open')}
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
-    var t=document.querySelector(this.getAttribute('href'));
+    var href=this.getAttribute('href');
+    if(href==='#'||href==='')return;
+    var t=document.querySelector(href);
     if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
   });
 });
 
-// Wait for DOM ready before setting up search
-(function(){
-  function initSearch(){
-    var searchInput=document.getElementById('searchInput');
-    var noResults=document.getElementById('noResults');
-    
-    if(!searchInput){
-      console.warn('Search input not found');
-      return;
-    }
-    
-    var allSections=document.querySelectorAll('.tool-section');
-    var allCards=document.querySelectorAll('.tool-card');
-    var activeFilter='all';
+window.addEventListener('load',function(){
+  var searchInput=document.getElementById('searchInput');
+  var noResults=document.getElementById('noResults');
+  
+  if(!searchInput){console.error('Fixlify: search input not found');return;}
+  
+  var activeFilter='all';
 
-    function filterTools(){
-      var q=searchInput.value.toLowerCase().trim();
-      var visibleCount=0;
+  function filterTools(){
+    var q=searchInput.value.toLowerCase().trim();
+    var visibleCount=0;
+    var sections=document.querySelectorAll('.tool-section');
+    
+    for(var i=0;i<sections.length;i++){
+      var section=sections[i];
+      var sectionCat=section.getAttribute('data-cat');
+      var cards=section.querySelectorAll('.tool-card');
+      var sectionHasVisible=false;
       
-      allSections.forEach(function(section){
-        var sectionCat=section.getAttribute('data-cat');
-        var cards=section.querySelectorAll('.tool-card');
-        var sectionHasVisible=false;
+      for(var j=0;j<cards.length;j++){
+        var card=cards[j];
+        var dataName=(card.getAttribute('data-name')||'').toLowerCase();
+        var nameEl=card.querySelector('.tool-name');
+        var nameText=nameEl?nameEl.textContent.toLowerCase():'';
+        var descEl=card.querySelector('.tool-desc');
+        var descText=descEl?descEl.textContent.toLowerCase():'';
         
-        cards.forEach(function(card){
-          var dataName=(card.getAttribute('data-name')||'').toLowerCase();
-          var nameEl=card.querySelector('.tool-name');
-          var nameText=nameEl?nameEl.textContent.toLowerCase():'';
-          var descEl=card.querySelector('.tool-desc');
-          var descText=descEl?descEl.textContent.toLowerCase():'';
-          
-          var matchesSearch=(q==='')||dataName.indexOf(q)>=0||nameText.indexOf(q)>=0||descText.indexOf(q)>=0;
-          var matchesFilter=(activeFilter==='all')||(activeFilter===sectionCat);
-          
-          if(matchesSearch&&matchesFilter){
-            card.classList.remove('hidden');
-            sectionHasVisible=true;
-            visibleCount++;
-          }else{
-            card.classList.add('hidden');
-          }
-        });
+        var matchesSearch=(q==='')||(dataName.indexOf(q)!==-1)||(nameText.indexOf(q)!==-1)||(descText.indexOf(q)!==-1);
+        var matchesFilter=(activeFilter==='all')||(activeFilter===sectionCat);
         
-        if(sectionHasVisible){
-          section.classList.remove('hidden');
+        if(matchesSearch&&matchesFilter){
+          card.classList.remove('hidden');
+          sectionHasVisible=true;
+          visibleCount++;
         }else{
-          section.classList.add('hidden');
+          card.classList.add('hidden');
         }
-      });
+      }
       
-      if(visibleCount===0){
-        noResults.classList.add('show');
+      if(sectionHasVisible){
+        section.classList.remove('hidden');
       }else{
-        noResults.classList.remove('show');
+        section.classList.add('hidden');
       }
     }
-
-    // Listen for input events
-    searchInput.addEventListener('input',filterTools);
-    searchInput.addEventListener('keyup',filterTools);
     
-    // Category tabs
-    var tabs=document.querySelectorAll('.cat-tab');
-    tabs.forEach(function(tab){
-      tab.addEventListener('click',function(){
-        tabs.forEach(function(t){t.classList.remove('active')});
+    if(visibleCount===0&&noResults){
+      noResults.classList.add('show');
+    }else if(noResults){
+      noResults.classList.remove('show');
+    }
+  }
+
+  searchInput.addEventListener('input',filterTools);
+  searchInput.addEventListener('keyup',filterTools);
+  searchInput.addEventListener('change',filterTools);
+  
+  var tabs=document.querySelectorAll('.cat-tab');
+  for(var k=0;k<tabs.length;k++){
+    (function(tab){
+      tab.addEventListener('click',function(e){
+        e.preventDefault();
+        for(var m=0;m<tabs.length;m++){tabs[m].classList.remove('active')}
         tab.classList.add('active');
         activeFilter=tab.getAttribute('data-filter');
         filterTools();
-        var toolsSection=document.getElementById('tools');
-        var rect=toolsSection.getBoundingClientRect();
-        if(rect.top<0){
-          toolsSection.scrollIntoView({behavior:'smooth',block:'start'});
-        }
       });
-    });
+    })(tabs[k]);
+  }
 
-    // Cmd+K / Ctrl+K
-    document.addEventListener('keydown',function(e){
-      if((e.metaKey||e.ctrlKey)&&(e.key==='k'||e.key==='K')){
-        e.preventDefault();
-        searchInput.focus();
-        searchInput.select();
-      }
-    });
-  }
+  document.addEventListener('keydown',function(e){
+    if((e.metaKey||e.ctrlKey)&&(e.key==='k'||e.key==='K')){
+      e.preventDefault();
+      searchInput.focus();
+      searchInput.select();
+    }
+  });
   
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',initSearch);
-  }else{
-    initSearch();
-  }
-})();
+  console.log('Fixlify search initialized. Tool cards:',document.querySelectorAll('.tool-card').length);
+});
 </script>
 </body>
 </html>
