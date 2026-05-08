@@ -303,11 +303,11 @@ footer a{color:var(--light-gray)}
 <p>Iedereen onder de AOW-leeftijd krijgt in 2026 een maximale algemene heffingskorting van <strong>€3.115</strong>. Dit bedrag wordt afgebouwd zodra je inkomen boven de €29.736 komt — voor elke €1.000 extra inkomen verlies je €63,98 aan AHK. Bij €78.426 inkomen is de AHK volledig afgebouwd naar €0.</p>
 
 <h3>Arbeidskorting (AK)</h3>
-<p>Werk je in loondienst of als ZZP'er? Dan krijg je daarbovenop arbeidskorting. Maximaal <strong>€5.685</strong> in 2026. De opbouw is bijzonder steil: tussen €11.491 en €24.821 inkomen krijg je 30,66% arbeidskorting — daarna nog 3,09% extra tot €45.592. Boven dat bedrag wordt het weer afgebouwd. Het maximum bereik je rond een bruto inkomen van €40.000.</p>
+<p>Werk je in loondienst of als ZZP'er? Dan krijg je daarbovenop arbeidskorting. Maximaal <strong>€5.712</strong> in 2026. De opbouw is bijzonder steil: tussen €11.491 en €24.821 inkomen krijg je 30,66% arbeidskorting — daarna nog 3,09% extra tot €45.592. Boven dat bedrag wordt het weer afgebouwd. Het maximum bereik je rond een bruto inkomen van €40.000.</p>
 
 <div class="salgrid-greenbox">
 <strong>💡 Concreet voorbeeld voor 2026</strong>
-Marieke werkt 32 uur als verpleegkundige in Tilburg. Haar bruto maandsalaris is €3.000, met 8% vakantiegeld komt het jaarinkomen op €38.880. Belasting voor kortingen: €13.900. Algemene heffingskorting: €3.115. Arbeidskorting: €5.380. Totale belasting na kortingen: <strong>€5.405</strong>. Netto jaar: €33.475 oftewel <strong>€2.790 per maand</strong>. Effectief tarief: 13,9%.
+Marieke werkt 32 uur als verpleegkundige in Tilburg. Haar bruto maandsalaris is €3.000, met 8% vakantiegeld komt het jaarinkomen op €38.880. Belasting voor kortingen: €13.900. Algemene heffingskorting: €3.115. Arbeidskorting: €5.407. Totale belasting na kortingen: <strong>€5.378</strong>. Netto jaar: €33.502 oftewel <strong>€2.792 per maand</strong>. Effectief tarief: 13,8%.
 </div>
 
 <h2>Wat doet die "loonheffingskorting" toggle?</h2>
@@ -392,7 +392,7 @@ De Nettoloon Calculator van FixlifyNL geeft een indicatie van je netto inkomen o
 </footer>
 
 <script>
-const SCHIJF1_GRENS=38883;const SCHIJF2_GRENS=78426;const TARIEF1=0.3575;const TARIEF2=0.3756;const TARIEF3=0.4950;const TARIEF1_AOW=0.1785;const AHK_MAX=3115;const AHK_AFBOUW_START=29736;const AHK_AFBOUW_PERC=0.06398;const AHK_AFBOUW_EIND=78426;const AK_OPBOUW1_GRENS=11491;const AK_OPBOUW1_PERC=0.08425;const AK_OPBOUW2_GRENS=24821;const AK_OPBOUW2_PERC=0.30661;const AK_OPBOUW3_GRENS=45592;const AK_OPBOUW3_PERC=0.03085;const AK_MAX=5685;const AK_AFBOUW_START=45592;const AK_AFBOUW_PERC=0.0651;const AK_AFBOUW_EIND=132920;
+const SCHIJF1_GRENS=38883;const SCHIJF2_GRENS=78426;const TARIEF1=0.3575;const TARIEF2=0.3756;const TARIEF3=0.4950;const TARIEF1_AOW=0.1785;const AHK_MAX=3115;const AHK_AFBOUW_START=29736;const AHK_AFBOUW_PERC=0.06398;const AHK_AFBOUW_EIND=78426;const AK_OPBOUW1_GRENS=11491;const AK_OPBOUW1_PERC=0.08425;const AK_OPBOUW2_GRENS=24821;const AK_OPBOUW2_PERC=0.30661;const AK_OPBOUW3_GRENS=45592;const AK_OPBOUW3_PERC=0.03085;const AK_MAX=5712;const AK_AFBOUW_START=45592;const AK_AFBOUW_PERC=0.0651;const AK_AFBOUW_EIND=132920;
 function berekenBelasting(inkomen,isAOW){let belasting=0;const t1=isAOW?TARIEF1_AOW:TARIEF1;if(inkomen<=SCHIJF1_GRENS){belasting=inkomen*t1}else if(inkomen<=SCHIJF2_GRENS){belasting=SCHIJF1_GRENS*t1+(inkomen-SCHIJF1_GRENS)*TARIEF2}else{belasting=SCHIJF1_GRENS*t1+(SCHIJF2_GRENS-SCHIJF1_GRENS)*TARIEF2+(inkomen-SCHIJF2_GRENS)*TARIEF3}return belasting}
 function berekenSchijfDetails(inkomen,isAOW){const t1=isAOW?TARIEF1_AOW:TARIEF1;let s1=0,s2=0,s3=0;if(inkomen<=SCHIJF1_GRENS){s1=inkomen*t1}else if(inkomen<=SCHIJF2_GRENS){s1=SCHIJF1_GRENS*t1;s2=(inkomen-SCHIJF1_GRENS)*TARIEF2}else{s1=SCHIJF1_GRENS*t1;s2=(SCHIJF2_GRENS-SCHIJF1_GRENS)*TARIEF2;s3=(inkomen-SCHIJF2_GRENS)*TARIEF3}return{s1,s2,s3,totaal:s1+s2+s3}}
 function berekenAHK(inkomen){if(inkomen<=AHK_AFBOUW_START)return AHK_MAX;if(inkomen>=AHK_AFBOUW_EIND)return 0;const korting=AHK_MAX-(inkomen-AHK_AFBOUW_START)*AHK_AFBOUW_PERC;return Math.max(0,korting)}
