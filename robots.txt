@@ -1,4 +1,31 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fixlify.nl/sitemap.xml
+# Sitemap
+Sitemap: https://www.fixlify.nl/sitemap.xml
+
+# Crawl-delay voor agressieve bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# AI-crawlers (toegestaan voor indexering, maar respecteer rate)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
