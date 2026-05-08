@@ -170,7 +170,7 @@ a{text-decoration:none;color:inherit}
 .brand-name{font-weight:700;font-size:22px;letter-spacing:-.02em}
 .back-link{color:var(--primary);font-weight:600;font-size:14px}
 
-/* Hero - intentionally different from factuur */
+/* Hero */
 .intro{padding:56px 0 24px;position:relative;overflow:hidden}
 .intro::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(15,118,110,.08),transparent 70%);pointer-events:none}
 .intro-wrap{max-width:760px;margin:0 auto;padding:0 24px;text-align:center;position:relative;z-index:1}
@@ -184,14 +184,12 @@ a{text-decoration:none;color:inherit}
 .save-flag{font-size:12px;color:var(--ok);font-weight:600;margin-top:10px;opacity:0;transition:opacity .3s;min-height:18px}
 .save-flag.on{opacity:1}
 
-/* Layout shell — single column but differently structured panels */
 .shell{max-width:880px;margin:0 auto;padding:0 24px}
 .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;margin-bottom:20px;position:relative}
 .panel-tag{position:absolute;top:-10px;left:24px;background:var(--ink);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
 .panel h2{font-size:17px;font-weight:700;margin-bottom:18px;margin-top:6px;display:flex;align-items:center;gap:8px}
 .step-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;background:var(--soft);color:var(--primary);font-size:13px;font-weight:800}
 
-/* Form fields */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
 .field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:5px}
@@ -201,7 +199,6 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 textarea{resize:vertical;min-height:70px;font-family:'Outfit'}
 select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394A3B8' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px}
 
-/* Logo + style row */
 .brand-row{display:flex;align-items:center;gap:18px;margin-bottom:20px;flex-wrap:wrap}
 .drop{width:110px;height:110px;border:2px dashed var(--line);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;overflow:hidden;position:relative;flex-shrink:0;background:var(--soft)}
 .drop:hover{border-color:var(--primary);background:rgba(15,118,110,.04)}
@@ -213,14 +210,12 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .brand-meta p{font-size:12px;color:var(--mute);line-height:1.5}
 .btn-remove{background:none;border:none;color:var(--alert);font-size:12px;font-weight:600;cursor:pointer;margin-top:6px;padding:0;text-decoration:underline}
 
-/* Theme picker — different shape than factuur */
 .theme-label{font-size:12.5px;font-weight:600;margin-bottom:8px;display:block}
 .theme-row{display:flex;gap:8px;flex-wrap:wrap}
 .theme-pick{width:34px;height:34px;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:all .2s;position:relative}
 .theme-pick.on{border-color:var(--ink);transform:scale(1.08)}
 .theme-pick.on::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:14px;font-weight:800;text-shadow:0 1px 2px rgba(0,0,0,.3)}
 
-/* Pakket items — UNIQUE to offerte */
 .bundles-head{display:grid;grid-template-columns:1fr 90px 110px 110px 36px;gap:8px;padding:0 4px;margin-bottom:6px;font-size:11px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
 .bundle{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;position:relative;transition:border-color .2s}
 .bundle:hover{border-color:var(--primary)}
@@ -244,14 +239,12 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .add-bundle{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border:none;border-radius:10px;padding:12px;width:100%;color:#fff;font-weight:700;font-size:14px;cursor:pointer;font-family:'Outfit';transition:transform .2s;letter-spacing:.01em;margin-top:6px}
 .add-bundle:hover{transform:translateY(-1px)}
 
-/* Klant-keuze toggle — UNIQUE feature */
 .choice-mode{display:flex;gap:8px;background:var(--soft);padding:4px;border-radius:10px;margin-bottom:16px}
 .choice-mode label{flex:1;text-align:center;padding:8px 12px;border-radius:7px;font-size:12.5px;font-weight:600;cursor:pointer;color:var(--slate);transition:all .2s}
 .choice-mode input{display:none}
 .choice-mode input:checked + span{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
 .choice-mode span{display:block;padding:8px 12px;border-radius:7px;transition:all .2s}
 
-/* Totals */
 .totals{background:var(--soft);border-radius:12px;padding:18px;margin-top:8px}
 .t-row{display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px}
 .t-row .lbl{color:var(--slate)}
@@ -259,26 +252,22 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .t-row.grand{border-top:2px solid var(--ink);margin-top:8px;padding-top:12px;font-size:18px;font-weight:800}
 .t-row.grand .lbl{color:var(--ink)}
 
-/* Generate button */
 .cta{width:100%;padding:18px;background:linear-gradient(135deg,var(--accent),#D97706);color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:700;font-family:'Outfit';cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:8px;box-shadow:0 4px 14px rgba(245,158,11,.3);letter-spacing:.01em}
 .cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,158,11,.4)}
 .btn-clear{background:none;border:none;color:var(--mute);font-size:11px;cursor:pointer;text-decoration:underline;padding:8px;display:block;margin:8px auto 0;font-family:'Outfit'}
 .btn-clear:hover{color:var(--alert)}
 
-/* PREVIEW — completely different visual structure than factuur */
 .preview-zone{display:none;max-width:880px;margin:32px auto;padding:0 24px}
 .preview-zone.live{display:block}
 
 .doc{background:#fff;border-radius:16px;border:1px solid var(--line);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.05)}
 
-/* Preview header strip — distinguishing visual element */
 .doc-strip{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;color:#fff;font-weight:600}
 .doc-strip-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
 .doc-strip-id{font-size:13px;font-weight:700;letter-spacing:.05em}
 
 .doc-body{padding:40px}
 
-/* Top section: company + meta */
 .doc-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:28px}
 .doc-issuer img{max-height:54px;max-width:180px;object-fit:contain;margin-bottom:12px}
 .doc-issuer-name{font-size:18px;font-weight:800;letter-spacing:-.01em;margin-bottom:8px}
@@ -289,19 +278,16 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .doc-meta-row{display:flex;gap:12px;font-size:11.5px;line-height:1.7;color:var(--slate);justify-content:space-between;min-width:240px}
 .doc-meta-row strong{color:var(--ink);font-weight:700;margin-left:auto}
 
-/* Validity badge — UNIQUE feature */
 .validity-card{display:inline-flex;align-items:center;gap:10px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;padding:8px 14px;margin-top:14px}
 .validity-card .vc-icon{font-size:16px}
 .validity-card .vc-text{font-size:11.5px;color:#92400E;line-height:1.3}
 .validity-card .vc-text strong{display:block;font-size:13px;color:#78350F;font-weight:800}
 
-/* Recipient block */
 .doc-recipient{background:var(--paper);border-radius:10px;padding:18px 20px;margin-bottom:28px}
 .doc-recipient-label{font-size:10.5px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
 .doc-recipient-name{font-size:15px;font-weight:700;margin-bottom:4px}
 .doc-recipient-addr{font-size:12.5px;color:var(--slate);line-height:1.6;white-space:pre-line}
 
-/* Bundles in preview */
 .doc-bundle{border:1px solid var(--line);border-radius:10px;margin-bottom:14px;overflow:hidden}
 .doc-bundle-head{padding:12px 18px;display:flex;justify-content:space-between;align-items:center;color:#fff}
 .doc-bundle-name{font-size:14.5px;font-weight:700}
@@ -318,33 +304,27 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .doc-bundle-foot .bf-lbl{color:var(--slate)}
 .doc-bundle-foot .bf-val{font-weight:700;font-size:13px}
 
-/* Choice mode notice */
 .choice-notice{background:#FEF3C7;border-left:3px solid var(--accent);padding:12px 16px;border-radius:8px;margin-bottom:16px;font-size:12px;color:#78350F;line-height:1.5}
 .choice-notice strong{display:block;margin-bottom:2px;color:#451A03}
 
-/* Totals box in preview */
 .doc-totals{display:flex;justify-content:flex-end;margin-bottom:24px}
 .doc-totals-inner{min-width:280px;background:var(--paper);border-radius:10px;padding:16px 20px}
 .doc-t-row{display:flex;justify-content:space-between;padding:5px 0;font-size:12.5px}
 .doc-t-row .l{color:var(--slate)}
 .doc-t-row.grand{border-top:2px solid var(--ink);margin-top:8px;padding-top:10px;font-size:17px;font-weight:800}
 
-/* Notes / terms */
 .doc-section{margin-bottom:24px}
 .doc-section h4{font-size:11px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
 .doc-section p{font-size:12px;line-height:1.7;color:var(--slate);white-space:pre-line}
 
-/* Signature block — UNIQUE feature */
 .doc-sign{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
 .sign-box{display:flex;flex-direction:column}
 .sign-line{border-bottom:1px solid var(--ink);height:50px;margin-bottom:8px}
 .sign-label{font-size:10.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
 .sign-sublabel{font-size:11px;color:var(--slate);margin-top:3px}
 
-/* Footer of doc */
 .doc-foot{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);font-size:10.5px;color:var(--mute);text-align:center;line-height:1.6;white-space:pre-line}
 
-/* Action buttons */
 .actions{display:flex;gap:10px;margin-top:20px}
 .act-pdf{flex:1;padding:15px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border:none;border-radius:11px;font-size:15px;font-weight:700;font-family:'Outfit';cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 14px rgba(15,118,110,.3)}
 .act-pdf:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,118,110,.4)}
@@ -352,22 +332,6 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .act-edit:hover{border-color:var(--ink)}
 .fineprint{font-size:11.5px;color:var(--mute);text-align:center;line-height:1.6;margin-top:18px}
 
-/* SEO content section */
-.seo-zone{max-width:760px;margin:48px auto 0;padding:0 24px}
-.seo-zone h2{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:16px;margin-top:32px}
-.seo-zone h3{font-size:16px;font-weight:700;margin-bottom:8px;margin-top:18px;color:var(--ink)}
-.seo-zone p{font-size:14px;color:var(--slate);line-height:1.7;margin-bottom:12px}
-.seo-zone ul{padding-left:20px;margin-bottom:14px}
-.seo-zone ul li{font-size:14px;color:var(--slate);line-height:1.7;margin-bottom:4px}
-.faq-item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
-.faq-item summary{font-weight:700;font-size:14.5px;cursor:pointer;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'+';font-size:20px;color:var(--primary);font-weight:400;transition:transform .2s}
-.faq-item[open] summary::after{transform:rotate(45deg)}
-.faq-item[open] summary{margin-bottom:10px}
-.faq-item p{font-size:13.5px;color:var(--slate);line-height:1.7;margin:0}
-
-/* Disclaimers / legal blocks */
 .legal-zone{background:#F1F5F9;border-top:1px solid var(--line);padding:32px 0;margin-top:48px}
 .legal-zone-inner{max-width:880px;margin:0 auto;padding:0 24px;font-size:12px;color:var(--slate);line-height:1.7}
 .legal-zone-inner strong{color:var(--ink);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
@@ -379,7 +343,7 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .foot span{color:var(--mute);font-size:13px}
 .foot a{color:var(--mute)}
 
-/* === QUOTEDOC blog zone — unique namespace, anti-flag === */
+/* QUOTEDOC blog zone */
 .quotedoc-zone{background:#fff;padding:64px 24px 40px;border-top:1px solid var(--line);margin-top:40px}
 .quotedoc-inner{max-width:740px;margin:0 auto}
 .quotedoc-tag{display:inline-block;font-size:11px;font-weight:700;color:#115E59;text-transform:uppercase;letter-spacing:.1em;padding:6px 14px;background:rgba(15,118,110,.08);border:1px solid rgba(15,118,110,.15);border-radius:6px;margin-bottom:18px}
@@ -398,7 +362,6 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .quotedoc-warnbox{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-left:4px solid var(--accent);border-radius:10px;padding:20px 24px;margin:24px 0;font-size:14.5px;line-height:1.7;color:#78350F}
 .quotedoc-warnbox strong{color:#78350F;display:block;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
 
-/* Timeline component — UNIQUE to offerte (vakantiegeld used percentage cards) */
 .quotedoc-timeline{margin:24px 0 32px;position:relative;padding-left:32px}
 .quotedoc-timeline::before{content:'';position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--primary) 0%,var(--primary) 50%,var(--accent) 100%)}
 .quotedoc-step{position:relative;padding:0 0 22px 0}
@@ -409,26 +372,23 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .quotedoc-step:nth-child(4)::before{border-color:#3B82F6}
 .quotedoc-step:nth-child(5)::before{border-color:var(--accent)}
 .quotedoc-step:nth-child(6)::before{border-color:#DC2626}
-.quotedoc-step .step-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}
+.quotedoc-step .step-label{font-size:11px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}
 .quotedoc-step .step-title{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px}
 .quotedoc-step .step-desc{font-size:14px;color:#475569;line-height:1.6;margin:0}
 
-/* Scenario cards */
 .quotedoc-scenarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:22px 0 28px}
 .quotedoc-scenario{background:#fff;border:2px solid var(--line);border-radius:14px;padding:18px;transition:all .2s}
 .quotedoc-scenario:hover{border-color:var(--primary);transform:translateY(-2px)}
 .quotedoc-scenario .sc-icon{font-size:22px;margin-bottom:8px;display:block}
 .quotedoc-scenario .sc-title{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3}
-.quotedoc-scenario .sc-text{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
+.quotedoc-scenario .sc-text{font-size:13px;color:var(--mute);line-height:1.55;margin:0}
 
-/* Comparison-table for legal points */
 .quotedoc-table{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:14px;background:#F8FAFC;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
 .quotedoc-table th{padding:12px 16px;background:var(--primary);color:#fff;font-weight:700;font-size:13px;text-align:left}
 .quotedoc-table td{padding:11px 16px;border-bottom:1px solid var(--line);color:#334155;vertical-align:top}
 .quotedoc-table tr:last-child td{border-bottom:none}
 .quotedoc-table td:first-child{font-weight:700;background:#fff;width:35%;color:var(--ink)}
 
-/* FAQ — 6th unique variant: side-bar accent + chevron */
 .quotedoc-faq-list{margin:14px 0}
 .quotedoc-faq-card{background:#fff;border:1px solid var(--line);border-radius:0;border-left:3px solid var(--line);margin-bottom:8px;overflow:hidden;transition:all .2s}
 .quotedoc-faq-card:hover{border-left-color:var(--primary)}
@@ -440,7 +400,6 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .quotedoc-faq-card[open] .quotedoc-faq-summary .chevron{transform:rotate(90deg)}
 .quotedoc-faq-answer{padding:0 20px 18px 20px;color:#475569;font-size:14.5px;line-height:1.75}
 
-/* Other tools block */
 .quotedoc-toolblock{background:linear-gradient(135deg,#F0F9FF,#DBEAFE);border-radius:14px;padding:24px;margin:32px 0 0;border:1px solid #93C5FD}
 .quotedoc-toolblock h3{margin-top:0;color:#1E3A8A;font-size:18px}
 .quotedoc-toolblock p{font-size:14px;color:#1E3A8A;margin-bottom:14px}
@@ -887,7 +846,7 @@ Verwijzen naar je voorwaarden is niet genoeg. Voor toepasselijkheid moet je ze o
 <p>Wil je de hele administratiecyclus afdekken? Deze gratis tools sluiten naadloos aan op je offerteproces:</p>
 <div class="quotedoc-tools-grid">
 <a href="/factuur.html" class="quotedoc-tool-item"><strong>🧾 Factuur Generator</strong><span>Na akkoord direct factureren</span></a>
-<a href="/btw.html" class="quotedoc-tool-item"><strong>💶 BTW Calculator</strong><span>Snel BTW berekenen (21%, 9%, 0%)</span></a>
+<a href="/btw-calculator.html" class="quotedoc-tool-item"><strong>💶 BTW Calculator</strong><span>Snel BTW berekenen (21%, 9%, 0%)</span></a>
 <a href="/nettoloon.html" class="quotedoc-tool-item"><strong>💰 Nettoloon Calculator</strong><span>Voor uurtarief-berekeningen</span></a>
 <a href="/vakantiegeld.html" class="quotedoc-tool-item"><strong>☀️ Vakantiegeld</strong><span>Plan je vakantieperiode</span></a>
 </div>
@@ -1185,18 +1144,14 @@ function updateTotals(){
   const bundles=getBundleData();
   const cmode=(document.querySelector('input[name="cmode"]:checked')||{value:'all'}).value;
 
-  // Update per-bundle subtotals
   document.querySelectorAll('.bundle').forEach(function(bEl,idx){
     const sub=bundles[idx]?bundles[idx].subtotal:0;
     const subEl=bEl.querySelector('.b-sub');
     if(subEl)subEl.textContent=fmtMoney(sub);
   });
 
-  // Calculate top totals
   let countedBundles;
   if(cmode==='choice'){
-    // In choice mode: show summary as sum of NON-optional bundles (committed) — for indication
-    // The optional bundles in choice mode are alternatives the client picks from
     countedBundles=bundles.filter(function(b){return !b.optional});
   }else{
     countedBundles=bundles.filter(function(b){return !b.optional});
@@ -1248,12 +1203,10 @@ function generatePreview(){
   const bundles=getBundleData();
   const cmode=(document.querySelector('input[name="cmode"]:checked')||{value:'all'}).value;
 
-  // Strip color
   document.getElementById('docStrip').style.background='linear-gradient(135deg,'+themeColor+','+darken(themeColor,15)+')';
   document.getElementById('docTitle').style.color=themeColor;
   document.getElementById('docStripId').textContent=(gv('quoteNum')||'OFFERTE')+(gv('projectName')?' · '+gv('projectName'):'');
 
-  // Issuer
   const issuerLogoEl=document.getElementById('docIssuerLogo');
   issuerLogoEl.innerHTML=logoData?'<img src="'+logoData+'" alt="Logo">':'';
   document.getElementById('docIssuerName').textContent=gv('senderCompany')||'Bedrijfsnaam';
@@ -1263,7 +1216,6 @@ function generatePreview(){
   if(gv('senderVat'))issuerInfo+='BTW: '+gv('senderVat');
   document.getElementById('docIssuerInfo').textContent=issuerInfo.trim();
 
-  // Meta
   let metaHtml='';
   metaHtml+='<div class="doc-meta-row"><span>Offertenummer</span><strong>'+escapeHtml(gv('quoteNum')||'—')+'</strong></div>';
   metaHtml+='<div class="doc-meta-row"><span>Datum</span><strong>'+fmtDate(gv('quoteDate'))+'</strong></div>';
@@ -1272,7 +1224,6 @@ function generatePreview(){
   document.getElementById('docMetaGrid').innerHTML=metaHtml;
   document.getElementById('validityDate').textContent=fmtDate(gv('validUntil'));
 
-  // Recipient
   document.getElementById('docRecipientName').textContent=gv('clientCompany')||'Klantnaam';
   let raddr='';
   if(gv('clientContact'))raddr+='T.a.v. '+gv('clientContact')+'\n';
@@ -1281,11 +1232,9 @@ function generatePreview(){
   if(gv('clientEmail'))raddr+=gv('clientEmail');
   document.getElementById('docRecipientAddr').textContent=raddr.trim();
 
-  // Intro
   const introText=gv('introText');
   document.getElementById('docIntro').innerHTML=introText?'<h4>Toelichting</h4><p>'+escapeHtml(introText)+'</p>':'';
 
-  // Choice notice
   const noticeEl=document.getElementById('docChoiceNotice');
   if(cmode==='choice'){
     noticeEl.style.display='block';
@@ -1294,7 +1243,6 @@ function generatePreview(){
     noticeEl.style.display='none';
   }
 
-  // Bundles
   let bundlesHtml='';
   bundles.forEach(function(b){
     const headColor=b.optional?'#475569':themeColor;
@@ -1314,7 +1262,6 @@ function generatePreview(){
   });
   document.getElementById('docBundles').innerHTML=bundlesHtml;
 
-  // Totals
   const countedBundles=bundles.filter(function(b){return !b.optional});
   let subtotal=0;
   const vatGroups={};
@@ -1341,18 +1288,15 @@ function generatePreview(){
   totalsHtml+='<div class="doc-t-row grand"><span class="l">Totaal'+(cmode==='choice'?' (excl. opties)':'')+'</span><span style="color:'+themeColor+'">'+fmtMoney(afterDisc+totalVat)+'</span></div>';
   document.getElementById('docTotals').innerHTML=totalsHtml;
 
-  // Terms
   const termsText=gv('termsText');
   let termsHtml='';
   if(termsText)termsHtml+='<h4>Voorwaarden</h4><p>'+escapeHtml(termsText)+'</p>';
   termsHtml+='<p style="margin-top:12px;font-size:11px;color:var(--mute)">Betalingstermijn: '+gv('payTerm')+' dagen na factuurdatum.</p>';
   document.getElementById('docTerms').innerHTML=termsHtml;
 
-  // Signature labels
   document.getElementById('signClientName').textContent=gv('clientCompany')||'';
   document.getElementById('signSenderName').textContent=gv('senderCompany')||'';
 
-  // Foot
   let foot=(gv('senderCompany')||'');
   if(gv('senderKvk'))foot+=' · KvK: '+gv('senderKvk');
   if(gv('senderVat'))foot+=' · BTW: '+gv('senderVat');
@@ -1370,7 +1314,6 @@ function backToEdit(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// Helper: darken hex color
 function darken(hex,amount){
   hex=hex.replace('#','');
   let r=parseInt(hex.substr(0,2),16);
@@ -1382,7 +1325,6 @@ function darken(hex,amount){
   return '#'+[r,g,b].map(function(x){return x.toString(16).padStart(2,'0')}).join('');
 }
 
-// =========== PDF DOWNLOAD ===========
 function downloadPDF(){
   const doc=document.getElementById('docCanvas');
   if(!doc){alert('Vul eerst de offerte in.');return}
@@ -1436,7 +1378,6 @@ function downloadPDF(){
   });
 }
 
-// =========== INIT ===========
 window.addEventListener('load',function(){
   const restored=restore();
   if(!restored){
