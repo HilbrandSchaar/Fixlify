@@ -267,6 +267,18 @@ footer a{color:var(--light-gray)}
   .factblog-faq-a{padding:0 14px 0 54px}
   .factblog-faq-item.on .factblog-faq-a{padding:0 14px 14px 54px}
 }
+
+/* ============= AFFILIATE TIP BOX ============= */
+.fix-tipbox{max-width:900px;margin:24px auto 0;padding:0 24px}
+.fix-tipbox-inner{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:14px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;position:relative}
+.fix-tipbox-icon{flex-shrink:0;width:40px;height:40px;background:linear-gradient(135deg,#F59E0B,#D97706);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;box-shadow:0 4px 10px rgba(245,158,11,.25)}
+.fix-tipbox-content{flex:1;min-width:0}
+.fix-tipbox-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#92400E;margin-bottom:4px}
+.fix-tipbox-content h4{font-size:15.5px;font-weight:700;color:#451A03;margin:0 0 6px;line-height:1.35}
+.fix-tipbox-content p{font-size:14px;color:#78350F;line-height:1.6;margin:0 0 12px}
+.fix-tipbox-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:#1E40AF;color:#fff;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s}
+.fix-tipbox-cta:hover{background:#1E3A8A;transform:translateY(-1px);box-shadow:0 4px 12px rgba(30,64,175,.3);text-decoration:none;color:#fff}
+@media(max-width:560px){.fix-tipbox-inner{flex-direction:column;gap:12px}.fix-tipbox-icon{width:36px;height:36px;font-size:17px}}
 </style>
 </head>
 <body>
@@ -356,6 +368,20 @@ footer a{color:var(--light-gray)}
 </div>
 </div>
 <div class="br"><button class="db" onclick="dP()">&#128196; Download als PDF</button><button class="eb" onclick="bE()">&#9998; Bewerken</button></div>
+
+<!-- AFFILIATE TIP — direct na factuur preview voor max zichtbaarheid -->
+<div class="fix-tipbox">
+<div class="fix-tipbox-inner">
+<div class="fix-tipbox-icon">💡</div>
+<div class="fix-tipbox-content">
+<div class="fix-tipbox-label">Tip voor ZZP'ers</div>
+<h4>Geen zin om elke maand handmatig te boekhouden?</h4>
+<p>e-Boekhouden koppelt automatisch je bankrekening, regelt je BTW-aangifte en bewaart al je facturen — vanaf €8,95/mnd. Veelgebruikt onder ZZP'ers en eenmanszaken.</p>
+<a href="https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=9028&utm_source=www.fixlify.nl&utm_medium=affiliate&utm_campaign=clicks.nu-9028" class="fix-tipbox-cta" target="_blank" rel="sponsored noopener">Bekijk e-Boekhouden →</a>
+</div>
+</div>
+</div>
+
 <div class="disc">Gegenereerd via fixlify.nl · KvK 77981197 · BTW NL003270597B29</div>
 </div>
 
@@ -368,7 +394,7 @@ footer a{color:var(--light-gray)}
 <h2>Factuur maken als ZZP'er in 2026: wat moet erop?</h2>
 <p>Een correcte factuur is niet alleen een professionele indruk naar je klant — het is ook een wettelijke verplichting. Voor de Belastingdienst moet je factuur volledig zijn, anders loop je het risico dat je BTW niet kunt aftrekken of dat je klant de BTW niet als voorbelasting kan claimen. Goed nieuws: de regels zijn duidelijk, en als je ze één keer goed instelt in een factuur-template, hoef je er nooit meer over na te denken.</p>
 
-<p>De factuurgenerator hierboven heeft alle verplichte velden al ingebouwd, dus je hoeft niets uit te zoeken. Toch is het goed om te weten <em>waarom</em> elk veld er staat — vooral als je net begint als ZZP'er, of als je tegen een belastingcontrole oploopt. In deze gids: alle factuurvereisten voor 2026, de drie BTW-tarieven, hoe je nummeringssysteem werkt, en de meest gemaakte fouten op ZZP-facturen.</p>
+<p>De factuurgenerator hierboven heeft alle verplichte velden al ingebouwd, dus je hoeft niets uit te zoeken. Toch is het goed om te weten <em>waarom</em> elk veld er staat — vooral als je net begint als ZZP'er, of als je tegen een belastingcontrole oploopt. In deze gids: alle factuurvereisten voor 2026, de drie BTW-tarieven, hoe je nummeringssysteem werkt, en de meest gemaakte fouten op ZZP-facturen. Wil je het hele proces automatiseren — facturen, BTW-aangifte en bankkoppeling in één pakket — dan is <a href="https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=9028&utm_source=www.fixlify.nl&utm_medium=affiliate&utm_campaign=clicks.nu-9028" target="_blank" rel="sponsored noopener">e-Boekhouden</a> een veelgebruikte oplossing onder Nederlandse ZZP'ers.</p>
 
 <div class="factblog-keybox">
 <strong>📌 Kernpunt</strong>
@@ -490,7 +516,7 @@ Het BTW-tarief op <strong>logies</strong> (hotels, vakantiewoningen, B&B, AirBnB
 <p>Tussen ondernemers is de wettelijke maximale termijn <strong>30 dagen</strong>. Voor consumenten is 30 dagen ook standaard. Vermeld altijd een termijn — anders weet je klant niet wanneer hij moet betalen, en jij hebt geen grond voor aanmaning.</p>
 
 <h3>Fout 5: Factuur als afbeelding (JPG)</h3>
-<p>Een PDF is professioneel; een JPG is dat niet. Boekhoudpakketten kunnen JPG-facturen niet lezen voor automatische BTW-import. PDF werkt voor 99% van alle systemen.</p>
+<p>Een PDF is professioneel; een JPG is dat niet. Boekhoudpakketten zoals <a href="https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=9028&utm_source=www.fixlify.nl&utm_medium=affiliate&utm_campaign=clicks.nu-9028" target="_blank" rel="sponsored noopener">e-Boekhouden</a> herkennen PDF-facturen automatisch en boeken de BTW direct in de juiste kolom — bij JPG werkt dat niet. PDF werkt voor 99% van alle systemen.</p>
 
 <h3>Fout 6: Geen IBAN op de factuur</h3>
 <p>Klinkt logisch, maar wordt veel vergeten. Zonder IBAN moet je klant je gaan opzoeken voor betaalgegevens — geeft vertraging. Zet IBAN altijd duidelijk bij betaalgegevens.</p>
@@ -569,6 +595,8 @@ Het BTW-tarief op <strong>logies</strong> (hotels, vakantiewoningen, B&B, AirBnB
 <div class="legal-footer-inner">
 <strong>Belangrijke disclaimer</strong>
 Deze factuurgenerator is een hulpmiddel voor het opmaken van facturen. Of een gegenereerde factuur voldoet aan alle factuurvereisten voor jouw specifieke situatie hangt af van jouw onderneming en de geldende regels. <strong style="display:inline">Dit is geen fiscaal of juridisch advies.</strong> Aan de output van deze tool kunnen geen rechten worden ontleend. Voor specifieke ZZP- of factuurvragen raden we aan een boekhouder, belastingadviseur of de Belastingdienst te raadplegen. Fixlify is niet aansprakelijk voor enige schade die voortvloeit uit het gebruik van deze tool. Je gegevens worden lokaal in je browser opgeslagen — Fixlify slaat geen factuurdata op externe servers op.
+<br><br>
+<strong style="display:inline;font-size:12px">Affiliate-links:</strong> deze pagina kan affiliate-links bevatten. Als je via zo'n link iets afsluit, ontvangt Fixlify mogelijk een commissie — voor jou zonder extra kosten. Daarmee blijven de tools op deze site gratis.
 </div>
 </section>
 
