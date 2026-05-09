@@ -122,11 +122,9 @@ nav{background:rgba(255,255,255,0.92);border-bottom:1px solid var(--line);paddin
 .hero p{font-size:17px;color:var(--ink-soft);max-width:540px;margin:0 auto;line-height:1.55}
 .hero-fineprint{font-size:11.5px;color:var(--mute);margin-top:14px;font-style:italic;max-width:540px;margin:14px auto 0}
 
-/* APP CONTAINER */
 .app{max-width:1100px;margin:24px auto;background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-md)}
 @media(max-width:560px){.app{margin:20px 12px;border-radius:16px}}
 
-/* ============= UNIQUE: HORIZONTAL BALANCE BAR ============= */
 .balance-bar{background:linear-gradient(135deg,#FFFBEB 0%,#FEF3C7 100%);padding:24px 28px;border-bottom:1px solid var(--amber-mid)}
 .bb-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px}
 .bb-title{font-size:13px;font-weight:700;color:var(--amber-deep);text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:8px}
@@ -161,7 +159,6 @@ nav{background:rgba(255,255,255,0.92);border-bottom:1px solid var(--line);paddin
 .flow-saldo .val{font-family:'JetBrains Mono',monospace;font-size:clamp(20px,4vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1}
 .flow-saldo .sub{font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;font-weight:500}
 
-/* TOOLBAR */
 .toolbar{background:var(--white);padding:18px 24px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
 .toolbar-left{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .btn{padding:9px 14px;border-radius:9px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
@@ -175,7 +172,6 @@ nav{background:rgba(255,255,255,0.92);border-bottom:1px solid var(--line);paddin
 
 .business-tag{font-size:11px;color:var(--slate);background:var(--amber-soft);padding:5px 11px;border-radius:6px;font-weight:600}
 
-/* TRANSACTION FORM */
 .tx-form{background:linear-gradient(180deg,var(--cream),#fff);padding:20px 24px;border-bottom:1px solid var(--line)}
 .tx-form-grid{display:grid;grid-template-columns:120px 1.5fr 1fr 110px 100px 110px 110px 40px;gap:8px;align-items:end}
 @media(max-width:1080px){.tx-form-grid{grid-template-columns:1fr 1fr 1fr 1fr;row-gap:10px}}
@@ -196,7 +192,6 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .tx-add-btn{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--amber),var(--cinnamon));color:#fff;border:none;cursor:pointer;font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .tx-add-btn:hover{transform:scale(1.05);box-shadow:0 4px 8px rgba(217,119,6,.3)}
 
-/* TRANSACTION LIST */
 .tx-list-wrap{background:#fff;max-height:480px;overflow-y:auto}
 .tx-list-empty{padding:48px 24px;text-align:center;color:var(--slate)}
 .tx-list-empty .ic{font-size:48px;margin-bottom:10px;opacity:.4}
@@ -225,7 +220,6 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
   .tx-table th:nth-child(5),.tx-table td:nth-child(5){display:none}
 }
 
-/* SUMMARY FOOTER */
 .tx-summary{background:linear-gradient(180deg,#fff,var(--cream));padding:16px 24px;border-top:2px solid var(--amber-mid);display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media(max-width:640px){.tx-summary{grid-template-columns:1fr 1fr}}
 .summary-item{text-align:center}
@@ -235,26 +229,34 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .summary-item .val.red{color:var(--red)}
 .summary-item .val.amber{color:var(--amber-deep)}
 
-/* BUSINESS TYPE SELECTOR */
 .biz-bar{padding:14px 24px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .biz-label{font-size:12px;font-weight:600;color:var(--slate)}
 .biz-tabs{display:flex;background:var(--amber-soft);padding:3px;border-radius:8px;border:1px solid var(--amber-mid);gap:2px}
 .biz-tabs button{padding:7px 12px;background:transparent;border:none;font-family:inherit;font-size:12px;font-weight:600;color:var(--ink-soft);cursor:pointer;border-radius:5px;transition:all .2s}
 .biz-tabs button.on{background:#fff;color:var(--amber-deep);box-shadow:0 1px 3px rgba(0,0,0,.06)}
 
-/* FACTS */
 .facts{max-width:1100px;margin:32px auto 16px;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 .fact{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px;text-align:center;position:relative;overflow:hidden}
 .fact::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber),var(--cinnamon))}
 .fact .num{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:800;color:var(--amber-deep);letter-spacing:-.02em;line-height:1}
 .fact .lbl{font-size:11.5px;color:var(--slate);margin-top:7px;line-height:1.45}
 
-/* SAVE INDICATOR */
 .save-flag{position:fixed;bottom:20px;right:20px;background:#fff;border:1.5px solid var(--green);color:var(--green);padding:8px 14px;border-radius:100px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px;box-shadow:0 4px 12px rgba(0,0,0,.08);z-index:100;opacity:0;transform:translateY(10px);transition:all .3s}
 .save-flag.show{opacity:1;transform:translateY(0)}
 .save-flag::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green)}
 
-/* ============== CASHBOOK BLOG ZONE ============== */
+/* ============= AFFILIATE TIP BOX ============= */
+.kb-tipbox{max-width:1100px;margin:24px auto 0;padding:0 16px}
+.kb-tipbox-inner{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid var(--amber-mid);border-radius:14px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;position:relative}
+.kb-tipbox-icon{flex-shrink:0;width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--amber));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;box-shadow:0 4px 10px rgba(217,119,6,.25)}
+.kb-tipbox-content{flex:1;min-width:0}
+.kb-tipbox-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--amber-deep);margin-bottom:4px}
+.kb-tipbox-content h4{font-size:15.5px;font-weight:700;color:#451A03;margin:0 0 6px;line-height:1.35}
+.kb-tipbox-content p{font-size:14px;color:#78350F;line-height:1.6;margin:0 0 12px}
+.kb-tipbox-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:linear-gradient(135deg,var(--amber),var(--cinnamon));color:#fff;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s}
+.kb-tipbox-cta:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(217,119,6,.3);text-decoration:none;color:#fff}
+@media(max-width:560px){.kb-tipbox-inner{flex-direction:column;gap:12px}.kb-tipbox-icon{width:36px;height:36px;font-size:17px}}
+
 .cashbook-zone{background:#fff;padding:56px 20px 36px;border-top:1px solid var(--line);margin-top:24px}
 .cashbook-wrap{max-width:720px;margin:0 auto}
 .cashbook-pill{display:inline-block;font-size:11px;font-weight:700;color:var(--amber-deep);text-transform:uppercase;letter-spacing:.1em;padding:6px 14px;background:var(--amber-soft);border:1px solid var(--amber-mid);border-radius:6px;margin-bottom:18px}
@@ -281,7 +283,6 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .cashbook-table td:first-child{font-weight:700;color:var(--ink)}
 .cashbook-table td.num{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--amber-deep);text-align:right}
 
-/* ============= NUMBERED CARD FAQ — UNIQUE ============= */
 .cashbook-faq{margin:18px 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:600px){.cashbook-faq{grid-template-columns:1fr}}
 .cashbook-faq-card{background:#fff;border:1.5px solid var(--line);border-radius:13px;overflow:hidden;transition:all .2s;display:flex;flex-direction:column}
@@ -296,7 +297,6 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .cashbook-faq-a p{font-size:13.5px;color:var(--ink-soft);line-height:1.65;margin:0}
 .cashbook-faq-a strong{color:var(--amber-deep)}
 
-/* RELATED */
 .cashbook-related{background:linear-gradient(135deg,var(--amber-soft),var(--cream));border-radius:14px;padding:22px;margin:32px 0 0;border:1px solid var(--amber-mid)}
 .cashbook-related h3{margin-top:0;color:#451A03;font-size:17px}
 .cashbook-related p{font-size:14px;color:#78350F;margin-bottom:14px}
@@ -310,6 +310,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .legal-zone{background:#F1F5F9;border-top:1px solid var(--line);padding:28px 0;margin-top:28px}
 .legal-zone-inner{max-width:760px;margin:0 auto;padding:0 24px;font-size:12px;color:#475569;line-height:1.75}
 .legal-zone-inner strong{color:var(--ink);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
+.legal-zone-inner strong.inline{display:inline;font-size:12px;margin-bottom:0}
 .cookie-strip{background:var(--bg);border-top:1px solid var(--line);padding:14px 24px;text-align:center;font-size:12px;color:#475569;line-height:1.5}
 .cookie-strip a{color:var(--amber-deep)}
 .update-stamp{text-align:center;font-size:11px;color:var(--mute);padding:18px 24px 0;font-style:italic}
@@ -352,7 +353,6 @@ footer a{color:var(--mute)}
 
 <div class="app">
 
-  <!-- Business type selector -->
   <div class="biz-bar">
     <span class="biz-label">Type:</span>
     <div class="biz-tabs">
@@ -363,7 +363,6 @@ footer a{color:var(--mute)}
     <span class="business-tag" id="bizDescription">Met BTW (21%, 9%, 0%)</span>
   </div>
 
-  <!-- Balance bar -->
   <div class="balance-bar">
     <div class="bb-head">
       <div class="bb-title">Live overzicht</div>
@@ -390,7 +389,6 @@ footer a{color:var(--mute)}
     </div>
   </div>
 
-  <!-- Toolbar -->
   <div class="toolbar">
     <div class="toolbar-left">
       <button class="btn btn-primary" id="btnExportXlsx" type="button">📊 Exporteer Excel</button>
@@ -400,7 +398,6 @@ footer a{color:var(--mute)}
     <button class="btn btn-danger" id="btnClear" type="button">🗑 Alles wissen</button>
   </div>
 
-  <!-- Add transaction form -->
   <div class="tx-form">
     <form id="txForm">
       <div class="tx-form-grid">
@@ -450,7 +447,6 @@ footer a{color:var(--mute)}
     </form>
   </div>
 
-  <!-- Transaction list -->
   <div class="tx-list-wrap" id="txListWrap">
     <div class="tx-list-empty" id="txEmpty">
       <div class="ic">📒</div>
@@ -459,7 +455,6 @@ footer a{color:var(--mute)}
     </div>
   </div>
 
-  <!-- Summary footer -->
   <div class="tx-summary">
     <div class="summary-item">
       <div class="lbl">Totaal in</div>
@@ -479,6 +474,19 @@ footer a{color:var(--mute)}
     </div>
   </div>
 
+</div>
+
+<!-- ============= AFFILIATE TIP — direct na kasboek voor max zichtbaarheid ============= -->
+<div class="kb-tipbox">
+<div class="kb-tipbox-inner">
+<div class="kb-tipbox-icon">💡</div>
+<div class="kb-tipbox-content">
+<div class="kb-tipbox-label">Tip voor groeiende ZZP'ers</div>
+<h4>Kasboek wordt te groot? Tijd voor een echt boekhoudpakket.</h4>
+<p>Kasboek werkt prima voor de basis, maar bij meer dan 20-30 transacties per maand wordt het lastig. e-Boekhouden importeert automatisch je banktransacties, doet de BTW-aangifte en koppelt facturen — vanaf €8,95/mnd.</p>
+<a href="https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=9028&utm_source=www.fixlify.nl&utm_medium=affiliate&utm_campaign=clicks.nu-9028" class="kb-tipbox-cta" target="_blank" rel="sponsored noopener">Bekijk e-Boekhouden →</a>
+</div>
+</div>
 </div>
 
 <div class="facts">
@@ -594,7 +602,7 @@ Het BTW-tarief op <strong>logies</strong> (hotels, vakantiewoningen, B&B, AirBnB
 <p>De klassieke methode. Werkt goed voor wie al ervaring heeft met Excel en formules. Nadelen: je moet zelf de formules onderhouden, en bij fouten of versies-mengen ben je je administratie zo kwijt. Veel templates online zijn verouderd (oude BTW-tarieven, geen 2026-cijfers).</p>
 
 <h3>Boekhoudsoftware (e-Boekhouden, Moneybird, etc.)</h3>
-<p>Voor wie groeit en meer dan alleen een kasboek nodig heeft. Inclusief BTW-aangifte, facturen, bankkoppeling. Kost €10-30 per maand. Overkill voor kleine ZZP'ers en verenigingen die alleen kasstromen willen bijhouden.</p>
+<p>Voor wie groeit en meer dan alleen een kasboek nodig heeft. Pakketten zoals <a href="https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=9028&utm_source=www.fixlify.nl&utm_medium=affiliate&utm_campaign=clicks.nu-9028" target="_blank" rel="sponsored noopener">e-Boekhouden</a> regelen automatisch de BTW-aangifte, koppelen je bankrekening en bewaren al je facturen. Kosten doorgaans €8-25 per maand. Overkill voor kleine ZZP'ers en verenigingen die alleen kasstromen willen bijhouden — maar veel makkelijker zodra je echt groeit.</p>
 
 <h3>Online kasboek-tool (zoals deze)</h3>
 <p>Geschikt voor wie tussen Excel en software in zit: meer dan een lege Excel, minder dan een volledig boekhoudpakket. Voordelen: actuele cijfers automatisch, geen abonnementskosten, alle data lokaal in je browser, export naar Excel/PDF. Geschikt voor de meeste ZZP'ers en alle verenigingen.</p>
@@ -677,7 +685,9 @@ Het BTW-tarief op <strong>logies</strong> (hotels, vakantiewoningen, B&B, AirBnB
 <section class="legal-zone">
   <div class="legal-zone-inner">
     <strong>Aandachtspunten bij dit kasboek</strong>
-    Het Online Kasboek van FixlifyNL is een administratiehulpmiddel om je inkomsten, uitgaven en BTW overzichtelijk vast te leggen volgens de regels van de Belastingdienst voor 2026. <strong style="display:inline">Dit is geen fiscaal of boekhoudkundig advies en geen vervanging voor een professionele boekhouder of erkend boekhoudpakket.</strong> De BTW-tarieven en categorieën zijn gebaseerd op publiekelijk beschikbare informatie en kunnen gedurende het jaar wijzigen. Bewaar altijd je onderliggende bonnetjes en facturen — een kasboek alleen is niet voldoende voor een Belastingdienst-controle. De gegevens in deze tool worden uitsluitend lokaal in jouw browser opgeslagen (localStorage) en zijn niet toegankelijk voor Fixlify of derden. Bij het wissen van je browsergegevens of overstappen naar een andere computer/browser ben je je gegevens kwijt — exporteer regelmatig naar Excel of PDF voor backup. Voor BTW-aangifte en officiële regels: raadpleeg <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst.nl</a> en <a href="https://ondernemersplein.kvk.nl" target="_blank" rel="noopener">Ondernemersplein</a>. Voor verenigingen en stichtingen kun je terecht bij <a href="https://www.kvk.nl" target="_blank" rel="noopener">KvK</a>. Aan deze tool kunnen geen rechten worden ontleend; gebruik op eigen verantwoordelijkheid.
+    Het Online Kasboek van FixlifyNL is een administratiehulpmiddel om je inkomsten, uitgaven en BTW overzichtelijk vast te leggen volgens de regels van de Belastingdienst voor 2026. <strong class="inline">Dit is geen fiscaal of boekhoudkundig advies en geen vervanging voor een professionele boekhouder of erkend boekhoudpakket.</strong> De BTW-tarieven en categorieën zijn gebaseerd op publiekelijk beschikbare informatie en kunnen gedurende het jaar wijzigen. Bewaar altijd je onderliggende bonnetjes en facturen — een kasboek alleen is niet voldoende voor een Belastingdienst-controle. De gegevens in deze tool worden uitsluitend lokaal in jouw browser opgeslagen (localStorage) en zijn niet toegankelijk voor Fixlify of derden. Bij het wissen van je browsergegevens of overstappen naar een andere computer/browser ben je je gegevens kwijt — exporteer regelmatig naar Excel of PDF voor backup. Voor BTW-aangifte en officiële regels: raadpleeg <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst.nl</a> en <a href="https://ondernemersplein.kvk.nl" target="_blank" rel="noopener">Ondernemersplein</a>. Voor verenigingen en stichtingen kun je terecht bij <a href="https://www.kvk.nl" target="_blank" rel="noopener">KvK</a>. Aan deze tool kunnen geen rechten worden ontleend; gebruik op eigen verantwoordelijkheid.
+    <br><br>
+    <strong class="inline">Affiliate-links:</strong> deze pagina kan affiliate-links bevatten. Als je via zo'n link iets afsluit, ontvangt Fixlify mogelijk een commissie — voor jou zonder extra kosten. Daarmee blijven de tools op deze site gratis.
   </div>
 </section>
 
@@ -694,178 +704,40 @@ Het BTW-tarief op <strong>logies</strong> (hotels, vakantiewoningen, B&B, AirBnB
   const STORAGE_KEY='fixlify_kasboek_data';
   const $=id=>document.getElementById(id);
 
-  // Categories per business type
   const CATEGORIES={
-    zzp:[
-      'Omzet — verkoop',
-      'Omzet — uurloon/dienst',
-      'Omzet — overig',
-      'Inkoop materiaal',
-      'Inkoop diensten',
-      'Reiskosten',
-      'Kantoorkosten',
-      'Marketing/promotie',
-      'Software/abonnementen',
-      'Telefoon/internet',
-      'Verzekeringen',
-      'Belastingen',
-      'Privéopname',
-      'Privéstorting',
-      'Bankstorting',
-      'Overig'
-    ],
-    vereniging:[
-      'Contributie',
-      'Donatie',
-      'Sponsoring',
-      'Subsidie',
-      'Kantine/horeca-omzet',
-      'Evenement-inkomsten',
-      'Verkoop materialen',
-      'Zaalhuur',
-      'Sportmateriaal',
-      'Reiskostenvergoeding',
-      'Drukwerk/promotie',
-      'Verzekeringen',
-      'KvK/notaris',
-      'Bankstorting',
-      'Overig'
-    ],
-    prive:[
-      'Salaris',
-      'Vakantiegeld/13e mnd',
-      'Toeslagen',
-      'Verhuur/extra',
-      'Vaste lasten',
-      'Boodschappen',
-      'Vervoer',
-      'Persoonlijke verzorging',
-      'Kleding',
-      'Hobby/ontspanning',
-      'Verzekeringen',
-      'Cadeaus',
-      'Overig'
-    ]
+    zzp:['Omzet — verkoop','Omzet — uurloon/dienst','Omzet — overig','Inkoop materiaal','Inkoop diensten','Reiskosten','Kantoorkosten','Marketing/promotie','Software/abonnementen','Telefoon/internet','Verzekeringen','Belastingen','Privéopname','Privéstorting','Bankstorting','Overig'],
+    vereniging:['Contributie','Donatie','Sponsoring','Subsidie','Kantine/horeca-omzet','Evenement-inkomsten','Verkoop materialen','Zaalhuur','Sportmateriaal','Reiskostenvergoeding','Drukwerk/promotie','Verzekeringen','KvK/notaris','Bankstorting','Overig'],
+    prive:['Salaris','Vakantiegeld/13e mnd','Toeslagen','Verhuur/extra','Vaste lasten','Boodschappen','Vervoer','Persoonlijke verzorging','Kleding','Hobby/ontspanning','Verzekeringen','Cadeaus','Overig']
   };
 
-  let state={
-    biz:'zzp',
-    type:'in',
-    transactions:[]
-  };
+  let state={biz:'zzp',type:'in',transactions:[]};
 
-  // Load from localStorage
-  function load(){
-    try{
-      const raw=localStorage.getItem(STORAGE_KEY);
-      if(raw){
-        const parsed=JSON.parse(raw);
-        state.biz=parsed.biz||'zzp';
-        state.transactions=parsed.transactions||[];
-      }
-    }catch(e){console.warn('Load error',e)}
-  }
-
-  function save(){
-    try{
-      localStorage.setItem(STORAGE_KEY,JSON.stringify({biz:state.biz,transactions:state.transactions}));
-      flashSave();
-    }catch(e){console.warn('Save error',e)}
-  }
-
+  function load(){try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){const p=JSON.parse(raw);state.biz=p.biz||'zzp';state.transactions=p.transactions||[]}}catch(e){console.warn('Load error',e)}}
+  function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify({biz:state.biz,transactions:state.transactions}));flashSave()}catch(e){console.warn('Save error',e)}}
   let saveTimeout;
-  function flashSave(){
-    const flag=$('saveFlag');
-    flag.classList.add('show');
-    clearTimeout(saveTimeout);
-    saveTimeout=setTimeout(()=>flag.classList.remove('show'),1800);
-  }
-
-  function fmt(n){
-    if(!isFinite(n))n=0;
-    return '€ '+n.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2});
-  }
-
-  function fmtDate(iso){
-    if(!iso)return '';
-    const [y,m,d]=iso.split('-');
-    return `${d}-${m}-${y.slice(2)}`;
-  }
-
-  function calcVat(amount,vatRate,type){
-    // amount is incl BTW
-    if(vatRate<0)return{net:amount,vat:0};
-    const net=amount/(1+vatRate/100);
-    const vat=amount-net;
-    return{net,vat};
-  }
-
-  function populateCategories(){
-    const sel=$('txCat');
-    sel.innerHTML='<option value="">Selecteer...</option>';
-    CATEGORIES[state.biz].forEach(c=>{
-      const opt=document.createElement('option');
-      opt.value=c;
-      opt.textContent=c;
-      sel.appendChild(opt);
-    });
-  }
-
-  function updateBizTag(){
-    const tags={
-      zzp:'Met BTW (21%, 9%, 0%) — voor ondernemers',
-      vereniging:'BTW optioneel — voor verenigingen en stichtingen',
-      prive:'Zonder BTW — privé-administratie'
-    };
-    $('bizDescription').textContent=tags[state.biz];
-  }
+  function flashSave(){const f=$('saveFlag');f.classList.add('show');clearTimeout(saveTimeout);saveTimeout=setTimeout(()=>f.classList.remove('show'),1800)}
+  function fmt(n){if(!isFinite(n))n=0;return '€ '+n.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2})}
+  function fmtDate(iso){if(!iso)return '';const [y,m,d]=iso.split('-');return `${d}-${m}-${y.slice(2)}`}
+  function calcVat(amount,vatRate,type){if(vatRate<0)return{net:amount,vat:0};const net=amount/(1+vatRate/100);return{net,vat:amount-net}}
+  function populateCategories(){const sel=$('txCat');sel.innerHTML='<option value="">Selecteer...</option>';CATEGORIES[state.biz].forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o)})}
+  function updateBizTag(){const t={zzp:'Met BTW (21%, 9%, 0%) — voor ondernemers',vereniging:'BTW optioneel — voor verenigingen en stichtingen',prive:'Zonder BTW — privé-administratie'};$('bizDescription').textContent=t[state.biz]}
+  function escapeHtml(s){if(!s)return '';return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
   function renderList(){
     const wrap=$('txListWrap');
-    if(state.transactions.length===0){
-      wrap.innerHTML=`
-        <div class="tx-list-empty">
-          <div class="ic">📒</div>
-          <h3>Nog geen transacties</h3>
-          <p>Voeg je eerste inkomst of uitgave toe via het formulier hierboven, of klik op "Voorbeeld laden" voor een snelle start.</p>
-        </div>`;
-      return;
-    }
-    // Sort by date
+    if(state.transactions.length===0){wrap.innerHTML='<div class="tx-list-empty"><div class="ic">📒</div><h3>Nog geen transacties</h3><p>Voeg je eerste inkomst of uitgave toe via het formulier hierboven, of klik op "Voorbeeld laden" voor een snelle start.</p></div>';return}
     const sorted=[...state.transactions].sort((a,b)=>a.date.localeCompare(b.date));
     let saldo=0;
     const rows=sorted.map(t=>{
       const amt=parseFloat(t.amount)||0;
       saldo+=t.type==='in'?amt:-amt;
-      const {vat}=calcVat(amt,parseFloat(t.vat),t.type);
-      const vatLabel=t.vat==='-1'?'—':`${t.vat}%`;
-      const vatAmount=t.vat==='-1'?'—':fmt(vat);
-      return `<tr data-id="${t.id}">
-        <td class="tx-date">${fmtDate(t.date)}</td>
-        <td class="tx-desc">${escapeHtml(t.desc)}</td>
-        <td>${t.cat?'<span class="tx-cat">'+escapeHtml(t.cat)+'</span>':''}</td>
-        <td class="tx-vat">${vatLabel}<br><small>${vatAmount}</small></td>
-        <td class="tx-vat">${escapeHtml(t.ref||'—')}</td>
-        <td class="tx-amount ${t.type}">${t.type==='in'?'+ ':'- '}${fmt(amt)}</td>
-        <td class="tx-saldo">${fmt(saldo)}</td>
-        <td><button class="tx-del" data-del="${t.id}" title="Verwijderen">✕</button></td>
-      </tr>`;
+      const{vat}=calcVat(amt,parseFloat(t.vat),t.type);
+      const vL=t.vat==='-1'?'—':`${t.vat}%`;
+      const vA=t.vat==='-1'?'—':fmt(vat);
+      return `<tr data-id="${t.id}"><td class="tx-date">${fmtDate(t.date)}</td><td class="tx-desc">${escapeHtml(t.desc)}</td><td>${t.cat?'<span class="tx-cat">'+escapeHtml(t.cat)+'</span>':''}</td><td class="tx-vat">${vL}<br><small>${vA}</small></td><td class="tx-vat">${escapeHtml(t.ref||'—')}</td><td class="tx-amount ${t.type}">${t.type==='in'?'+ ':'- '}${fmt(amt)}</td><td class="tx-saldo">${fmt(saldo)}</td><td><button class="tx-del" data-del="${t.id}" title="Verwijderen">✕</button></td></tr>`;
     }).join('');
-    wrap.innerHTML=`<table class="tx-table">
-      <thead><tr>
-        <th>Datum</th><th>Omschrijving</th><th>Categorie</th><th class="right">BTW</th><th>Bon</th><th class="right">Bedrag</th><th class="right">Saldo</th><th></th>
-      </tr></thead>
-      <tbody>${rows}</tbody>
-    </table>`;
-    // Wire delete buttons
-    wrap.querySelectorAll('[data-del]').forEach(btn=>{
-      btn.addEventListener('click',()=>deleteTx(btn.dataset.del));
-    });
-  }
-
-  function escapeHtml(s){
-    if(!s)return '';
-    return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    wrap.innerHTML=`<table class="tx-table"><thead><tr><th>Datum</th><th>Omschrijving</th><th>Categorie</th><th class="right">BTW</th><th>Bon</th><th class="right">Bedrag</th><th class="right">Saldo</th><th></th></tr></thead><tbody>${rows}</tbody></table>`;
+    wrap.querySelectorAll('[data-del]').forEach(btn=>btn.addEventListener('click',()=>deleteTx(btn.dataset.del)));
   }
 
   function calcTotals(){
@@ -873,62 +745,31 @@ Het BTW-tarief op <strong>logies</strong> (hotels, vakantiewoningen, B&B, AirBnB
     state.transactions.forEach(t=>{
       const amt=parseFloat(t.amount)||0;
       const{vat}=calcVat(amt,parseFloat(t.vat),t.type);
-      if(t.type==='in'){
-        totalIn+=amt;
-        countIn++;
-        if(t.vat!=='-1')vatPay+=vat;
-      }else{
-        totalOut+=amt;
-        countOut++;
-        if(t.vat!=='-1')vatPaid+=vat;
-      }
+      if(t.type==='in'){totalIn+=amt;countIn++;if(t.vat!=='-1')vatPay+=vat}
+      else{totalOut+=amt;countOut++;if(t.vat!=='-1')vatPaid+=vat}
     });
     return{totalIn,totalOut,countIn,countOut,saldo:totalIn-totalOut,vatNet:vatPay-vatPaid};
   }
 
   function updateSummary(){
     const t=calcTotals();
-    $('totalIn').textContent=fmt(t.totalIn);
-    $('totalOut').textContent=fmt(t.totalOut);
-    $('saldo').textContent=fmt(t.saldo);
+    $('totalIn').textContent=fmt(t.totalIn);$('totalOut').textContent=fmt(t.totalOut);$('saldo').textContent=fmt(t.saldo);
     $('countIn').textContent=t.countIn+' transactie'+(t.countIn===1?'':'s');
     $('countOut').textContent=t.countOut+' transactie'+(t.countOut===1?'':'s');
     $('bbMeta').textContent=`${state.transactions.length} transactie${state.transactions.length===1?'':'s'} · saldo ${fmt(t.saldo)}`;
-    $('summIn').textContent=fmt(t.totalIn);
-    $('summOut').textContent=fmt(t.totalOut);
-    $('summVatPay').textContent=fmt(t.vatNet);
-    $('summSaldo').textContent=fmt(t.saldo);
+    $('summIn').textContent=fmt(t.totalIn);$('summOut').textContent=fmt(t.totalOut);
+    $('summVatPay').textContent=fmt(t.vatNet);$('summSaldo').textContent=fmt(t.saldo);
   }
 
-  function addTx(tx){
-    state.transactions.push(tx);
-    save();
-    renderList();
-    updateSummary();
-  }
-
-  function deleteTx(id){
-    if(!confirm('Deze transactie verwijderen?'))return;
-    state.transactions=state.transactions.filter(t=>t.id!==id);
-    save();
-    renderList();
-    updateSummary();
-  }
-
-  function clearAll(){
-    if(!confirm('Alle transacties verwijderen? Dit kan niet ongedaan worden gemaakt.\n\nTip: exporteer eerst naar Excel als je een backup wilt.'))return;
-    state.transactions=[];
-    save();
-    renderList();
-    updateSummary();
-  }
+  function addTx(tx){state.transactions.push(tx);save();renderList();updateSummary()}
+  function deleteTx(id){if(!confirm('Deze transactie verwijderen?'))return;state.transactions=state.transactions.filter(t=>t.id!==id);save();renderList();updateSummary()}
+  function clearAll(){if(!confirm('Alle transacties verwijderen? Dit kan niet ongedaan worden gemaakt.\n\nTip: exporteer eerst naar Excel als je een backup wilt.'))return;state.transactions=[];save();renderList();updateSummary()}
+  function genId(){return 'tx_'+Math.random().toString(36).slice(2,11)}
+  function addDays(d,days){const r=new Date(d);r.setDate(r.getDate()+days);return r}
 
   function loadExample(){
-    if(state.transactions.length>0){
-      if(!confirm('Bestaande transacties worden overschreven. Doorgaan?'))return;
-    }
-    const today=new Date();
-    const iso=d=>d.toISOString().slice(0,10);
+    if(state.transactions.length>0&&!confirm('Bestaande transacties worden overschreven. Doorgaan?'))return;
+    const today=new Date();const iso=d=>d.toISOString().slice(0,10);
     const exam={
       zzp:[
         {date:iso(addDays(today,-25)),desc:'Klant ABC — factuur 2026-001',cat:'Omzet — uurloon/dienst',vat:'21',type:'in',amount:1815,ref:'F2026-001'},
@@ -956,199 +797,95 @@ Het BTW-tarief op <strong>logies</strong> (hotels, vakantiewoningen, B&B, AirBnB
       ]
     };
     state.transactions=exam[state.biz].map(t=>({...t,id:genId()}));
-    save();
-    renderList();
-    updateSummary();
-  }
-
-  function addDays(d,days){
-    const r=new Date(d);
-    r.setDate(r.getDate()+days);
-    return r;
-  }
-
-  function genId(){
-    return 'tx_'+Math.random().toString(36).slice(2,11);
+    save();renderList();updateSummary();
   }
 
   function exportXlsx(){
-    if(state.transactions.length===0){
-      alert('Voeg eerst transacties toe voordat je exporteert.');
-      return;
-    }
+    if(state.transactions.length===0){alert('Voeg eerst transacties toe voordat je exporteert.');return}
     const sorted=[...state.transactions].sort((a,b)=>a.date.localeCompare(b.date));
     let saldo=0;
-    const data=[
-      ['Datum','Omschrijving','Categorie','Bonnummer','Type','BTW%','Bedrag (incl)','BTW bedrag','Bedrag (excl)','Saldo']
-    ];
+    const data=[['Datum','Omschrijving','Categorie','Bonnummer','Type','BTW%','Bedrag (incl)','BTW bedrag','Bedrag (excl)','Saldo']];
     sorted.forEach(t=>{
       const amt=parseFloat(t.amount)||0;
       saldo+=t.type==='in'?amt:-amt;
       const{net,vat}=calcVat(amt,parseFloat(t.vat),t.type);
-      data.push([
-        t.date,
-        t.desc,
-        t.cat||'',
-        t.ref||'',
-        t.type==='in'?'Inkomst':'Uitgave',
-        t.vat==='-1'?'—':parseFloat(t.vat)+'%',
-        t.type==='in'?amt:-amt,
-        t.vat==='-1'?'':vat,
-        t.vat==='-1'?'':net,
-        saldo
-      ]);
+      data.push([t.date,t.desc,t.cat||'',t.ref||'',t.type==='in'?'Inkomst':'Uitgave',t.vat==='-1'?'—':parseFloat(t.vat)+'%',t.type==='in'?amt:-amt,t.vat==='-1'?'':vat,t.vat==='-1'?'':net,saldo]);
     });
-    // Totals row
     const totals=calcTotals();
-    data.push([]);
-    data.push(['','TOTAAL','','','','','','','','']);
+    data.push([]);data.push(['','TOTAAL','','','','','','','','']);
     data.push(['','Inkomsten totaal','','','','',totals.totalIn,'','','']);
     data.push(['','Uitgaven totaal','','','','',-totals.totalOut,'','','']);
     data.push(['','Saldo','','','','',totals.saldo,'','','']);
     data.push(['','BTW saldo','','','','',totals.vatNet,'','','']);
-
     const ws=XLSX.utils.aoa_to_sheet(data);
     ws['!cols']=[{wch:11},{wch:38},{wch:22},{wch:14},{wch:9},{wch:8},{wch:13},{wch:12},{wch:13},{wch:13}];
     const wb=XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb,ws,'Kasboek');
-    const today=new Date().toISOString().slice(0,10);
-    XLSX.writeFile(wb,`Fixlify_Kasboek_${today}.xlsx`);
+    XLSX.writeFile(wb,`Fixlify_Kasboek_${new Date().toISOString().slice(0,10)}.xlsx`);
   }
 
   function exportPdf(){
-    if(state.transactions.length===0){
-      alert('Voeg eerst transacties toe voordat je exporteert.');
-      return;
-    }
+    if(state.transactions.length===0){alert('Voeg eerst transacties toe voordat je exporteert.');return}
     const{jsPDF}=window.jspdf;
     const doc=new jsPDF({orientation:'landscape',unit:'mm',format:'a4'});
-    doc.setFontSize(16);
-    doc.setFont('helvetica','bold');
+    doc.setFontSize(16);doc.setFont('helvetica','bold');
     doc.text('Kasboek — '+(state.biz==='zzp'?'ZZP/Eenmanszaak':state.biz==='vereniging'?'Vereniging/Stichting':'Privé'),14,16);
-    doc.setFontSize(10);
-    doc.setFont('helvetica','normal');
-    doc.setTextColor(120);
+    doc.setFontSize(10);doc.setFont('helvetica','normal');doc.setTextColor(120);
     doc.text('Gegenereerd via Fixlify.nl op '+new Date().toLocaleDateString('nl-NL'),14,22);
-
     const sorted=[...state.transactions].sort((a,b)=>a.date.localeCompare(b.date));
     let saldo=0;
     const rows=sorted.map(t=>{
       const amt=parseFloat(t.amount)||0;
       saldo+=t.type==='in'?amt:-amt;
-      return[
-        fmtDate(t.date),
-        t.desc,
-        t.cat||'',
-        t.ref||'',
-        t.type==='in'?'In':'Uit',
-        t.vat==='-1'?'—':t.vat+'%',
-        (t.type==='in'?'+':'-')+fmt(amt),
-        fmt(saldo)
-      ];
+      return[fmtDate(t.date),t.desc,t.cat||'',t.ref||'',t.type==='in'?'In':'Uit',t.vat==='-1'?'—':t.vat+'%',(t.type==='in'?'+':'-')+fmt(amt),fmt(saldo)];
     });
-
-    doc.autoTable({
-      startY:28,
-      head:[['Datum','Omschrijving','Categorie','Bon','Type','BTW','Bedrag','Saldo']],
-      body:rows,
-      styles:{fontSize:9,cellPadding:2.5},
-      headStyles:{fillColor:[217,119,6],textColor:255,fontStyle:'bold'},
-      alternateRowStyles:{fillColor:[255,251,235]},
-      columnStyles:{
-        6:{halign:'right'},
-        7:{halign:'right'}
-      }
-    });
-
+    doc.autoTable({startY:28,head:[['Datum','Omschrijving','Categorie','Bon','Type','BTW','Bedrag','Saldo']],body:rows,styles:{fontSize:9,cellPadding:2.5},headStyles:{fillColor:[217,119,6],textColor:255,fontStyle:'bold'},alternateRowStyles:{fillColor:[255,251,235]},columnStyles:{6:{halign:'right'},7:{halign:'right'}}});
     const totals=calcTotals();
     const finalY=doc.lastAutoTable.finalY+10;
-    doc.setFontSize(11);
-    doc.setFont('helvetica','bold');
-    doc.setTextColor(30);
+    doc.setFontSize(11);doc.setFont('helvetica','bold');doc.setTextColor(30);
     doc.text('Samenvatting:',14,finalY);
-    doc.setFontSize(10);
-    doc.setFont('helvetica','normal');
+    doc.setFontSize(10);doc.setFont('helvetica','normal');
     doc.text(`Inkomsten:  ${fmt(totals.totalIn)}`,14,finalY+6);
     doc.text(`Uitgaven:   ${fmt(totals.totalOut)}`,14,finalY+11);
     doc.setFont('helvetica','bold');
     doc.text(`Saldo:      ${fmt(totals.saldo)}`,14,finalY+16);
     doc.setFont('helvetica','normal');
     doc.text(`BTW saldo:  ${fmt(totals.vatNet)}`,14,finalY+21);
-
-    doc.setFontSize(8);
-    doc.setTextColor(150);
-    const pageH=doc.internal.pageSize.getHeight();
-    doc.text('Indicatieve administratie — geen fiscaal advies. Bewaar onderliggende bonnetjes minimaal 7 jaar. Fixlify.nl · KvK 77981197',14,pageH-8);
-
-    const today=new Date().toISOString().slice(0,10);
-    doc.save(`Fixlify_Kasboek_${today}.pdf`);
+    doc.setFontSize(8);doc.setTextColor(150);
+    doc.text('Indicatieve administratie — geen fiscaal advies. Bewaar onderliggende bonnetjes minimaal 7 jaar. Fixlify.nl · KvK 77981197',14,doc.internal.pageSize.getHeight()-8);
+    doc.save(`Fixlify_Kasboek_${new Date().toISOString().slice(0,10)}.pdf`);
   }
 
-  // Wire form
   function wireForm(){
-    // Default date: today
     $('txDate').valueAsDate=new Date();
-
-    // Type toggle
     document.querySelectorAll('.tx-type-toggle button').forEach(b=>{
       b.addEventListener('click',()=>{
-        document.querySelectorAll('.tx-type-toggle button').forEach(x=>{
-          x.classList.remove('on','in','out');
-        });
+        document.querySelectorAll('.tx-type-toggle button').forEach(x=>x.classList.remove('on','in','out'));
         b.classList.add('on',b.dataset.type);
         state.type=b.dataset.type;
       });
     });
-
-    // Form submit
     $('txForm').addEventListener('submit',e=>{
       e.preventDefault();
-      const tx={
-        id:genId(),
-        date:$('txDate').value,
-        desc:$('txDesc').value.trim(),
-        cat:$('txCat').value,
-        type:state.type,
-        vat:$('txVat').value,
-        amount:parseFloat($('txAmount').value)||0,
-        ref:$('txRef').value.trim()
-      };
-      if(!tx.date||!tx.desc||tx.amount<=0){
-        alert('Vul minimaal datum, omschrijving en bedrag in.');
-        return;
-      }
+      const tx={id:genId(),date:$('txDate').value,desc:$('txDesc').value.trim(),cat:$('txCat').value,type:state.type,vat:$('txVat').value,amount:parseFloat($('txAmount').value)||0,ref:$('txRef').value.trim()};
+      if(!tx.date||!tx.desc||tx.amount<=0){alert('Vul minimaal datum, omschrijving en bedrag in.');return}
       addTx(tx);
-      // Reset form
-      $('txDesc').value='';
-      $('txAmount').value='';
-      $('txRef').value='';
-      $('txDesc').focus();
+      $('txDesc').value='';$('txAmount').value='';$('txRef').value='';$('txDesc').focus();
     });
   }
 
-  // Wire business type
   function wireBiz(){
     document.querySelectorAll('.biz-tabs button').forEach(b=>{
       b.addEventListener('click',()=>{
         document.querySelectorAll('.biz-tabs button').forEach(x=>x.classList.remove('on'));
-        b.classList.add('on');
-        state.biz=b.dataset.biz;
-        populateCategories();
-        updateBizTag();
-        save();
+        b.classList.add('on');state.biz=b.dataset.biz;
+        populateCategories();updateBizTag();save();
       });
     });
   }
 
-  // Wire FAQ
-  function wireFAQ(){
-    document.querySelectorAll('.cashbook-faq-card').forEach(card=>{
-      const q=card.querySelector('.cashbook-faq-q');
-      q.addEventListener('click',()=>card.classList.toggle('on'));
-    });
-  }
+  function wireFAQ(){document.querySelectorAll('.cashbook-faq-card').forEach(c=>c.querySelector('.cashbook-faq-q').addEventListener('click',()=>c.classList.toggle('on')))}
 
-  // Wire toolbar
   function wireToolbar(){
     $('btnExportXlsx').addEventListener('click',exportXlsx);
     $('btnExportPdf').addEventListener('click',exportPdf);
@@ -1156,20 +893,9 @@ Het BTW-tarief op <strong>logies</strong> (hotels, vakantiewoningen, B&B, AirBnB
     $('btnClear').addEventListener('click',clearAll);
   }
 
-  // Init
   load();
-  // Set biz tab
-  document.querySelectorAll('.biz-tabs button').forEach(b=>{
-    b.classList.toggle('on',b.dataset.biz===state.biz);
-  });
-  populateCategories();
-  updateBizTag();
-  wireForm();
-  wireBiz();
-  wireFAQ();
-  wireToolbar();
-  renderList();
-  updateSummary();
+  document.querySelectorAll('.biz-tabs button').forEach(b=>b.classList.toggle('on',b.dataset.biz===state.biz));
+  populateCategories();updateBizTag();wireForm();wireBiz();wireFAQ();wireToolbar();renderList();updateSummary();
 })();
 </script>
 </body>
