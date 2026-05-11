@@ -1,0 +1,1340 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Lease Calculator 2026 — Bereken maandbedrag voor jouw auto | Fixlify</title>
+<meta name="description" content="Bereken in 1 minuut je private lease maandbedrag. Voor benzine, diesel, hybride en elektrisch. Inclusief vergelijking met auto kopen. Gratis, geen account.">
+<meta name="keywords" content="private lease calculator 2026, private lease berekenen, lease auto maandbedrag, private lease vs kopen, elektrische auto lease, lease zonder bkr, goedkope private lease">
+<meta name="author" content="FixlifyNL">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.fixlify.nl/private-lease.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.fixlify.nl/private-lease.html">
+<meta property="og:title" content="Private Lease Calculator 2026 | Fixlify">
+<meta property="og:description" content="Bereken je private lease maandbedrag in 1 minuut. Inclusief lease vs kopen vergelijking. Gratis.">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="Fixlify">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Private Lease Calculator 2026 | Fixlify">
+<meta name="twitter:description" content="Bereken je private lease maandbedrag. Gratis, geen account.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Private Lease Calculator",
+      "url": "https://www.fixlify.nl/private-lease.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+      "description": "Bereken je private lease maandbedrag voor 2026. Voor benzine, diesel, hybride en elektrische auto's. Inclusief lease vs kopen vergelijking.",
+      "publisher": {"@type": "Organization", "name": "FixlifyNL", "url": "https://www.fixlify.nl"}
+    },
+    {
+      "@type": "Article",
+      "headline": "Private Lease in Nederland 2026: hoe werkt het en wanneer is het slim?",
+      "datePublished": "2026-05-11",
+      "dateModified": "2026-05-11",
+      "author": {"@type": "Organization", "name": "FixlifyNL"},
+      "publisher": {"@type": "Organization", "name": "FixlifyNL"},
+      "description": "Alles over private lease: maandbedrag, looptijd, kilometerstaffels en wanneer leasen voordeliger is dan kopen."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Wordt private lease geregistreerd bij het BKR?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Sinds 2017 valt private lease onder de Wet financieel toezicht en wordt elke overeenkomst geregistreerd bij het BKR."}},
+        {"@type": "Question", "name": "Wat zit er allemaal in het maandbedrag?", "acceptedAnswer": {"@type": "Answer", "text": "Doorgaans afschrijving, onderhoud, reparatie, banden, motorrijtuigenbelasting, verzekering en pechhulp. Brandstof betaal je zelf."}},
+        {"@type": "Question", "name": "Is private lease voordeliger dan een auto kopen?", "acceptedAnswer": {"@type": "Answer", "text": "Dat hangt af van je situatie. Bij hoge kilometrages en behoefte aan zekere maandlasten kan lease aantrekkelijk zijn."}}
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pl-bg: #f7f8f7;
+  --pl-surface: #ffffff;
+  --pl-ink: #0a1a1a;
+  --pl-ink-mid: #4a5a5a;
+  --pl-ink-soft: #7a8888;
+  --pl-line: #e1e6e5;
+  --pl-line-soft: #eef1f0;
+  --pl-petrol: #0D4F4E;
+  --pl-petrol-dark: #0a3938;
+  --pl-petrol-soft: #e0eded;
+  --pl-accent: #FF6B35;
+  --pl-accent-dark: #e55426;
+  --pl-accent-soft: #fff0e8;
+  --pl-logo-from: #2563EB;
+  --pl-logo-to: #7C3AED;
+  --pl-success: #2d8a5d;
+  --pl-radius-sm: 8px;
+  --pl-radius: 14px;
+  --pl-radius-lg: 22px;
+  --pl-shadow-sm: 0 1px 3px rgba(13, 79, 78, 0.06);
+  --pl-shadow: 0 4px 18px rgba(13, 79, 78, 0.08);
+  --pl-shadow-lg: 0 12px 40px rgba(13, 79, 78, 0.12);
+}
+
+body {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  background: var(--pl-bg);
+  color: var(--pl-ink);
+  line-height: 1.55;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--pl-petrol); text-decoration: none; transition: color .2s; }
+a:hover { color: var(--pl-accent); }
+
+.pl-discbar {
+  background: var(--pl-petrol);
+  color: #fff;
+  padding: 10px 16px;
+  font-size: 13px;
+  text-align: center;
+  font-weight: 500;
+}
+.pl-discbar strong { font-weight: 700; color: #ffd9c4; }
+
+.pl-nav {
+  background: #fff;
+  border-bottom: 1px solid var(--pl-line);
+  padding: 14px 0;
+}
+.pl-nav-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pl-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--pl-ink);
+}
+.pl-logo-mark {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--pl-logo-from), var(--pl-logo-to));
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 17px;
+}
+.pl-nav-links {
+  display: flex;
+  gap: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--pl-ink-mid);
+}
+
+.pl-hero {
+  padding: 56px 24px 36px;
+  text-align: center;
+  background: radial-gradient(ellipse at top, var(--pl-petrol-soft) 0%, transparent 60%), var(--pl-bg);
+}
+.pl-hero-inner { max-width: 820px; margin: 0 auto; }
+.pl-hero-tag {
+  display: inline-block;
+  background: var(--pl-petrol);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.pl-hero h1 {
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 18px;
+}
+.pl-hero h1 em {
+  font-style: normal;
+  color: var(--pl-accent);
+  position: relative;
+}
+.pl-hero h1 em::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 4px;
+  height: 6px;
+  background: var(--pl-accent);
+  opacity: 0.15;
+  z-index: -1;
+}
+.pl-hero p.lead {
+  font-size: 18px;
+  color: var(--pl-ink-mid);
+  max-width: 620px;
+  margin: 0 auto 22px;
+  line-height: 1.55;
+}
+.pl-hero-fine {
+  font-size: 13px;
+  color: var(--pl-ink-soft);
+  max-width: 600px;
+  margin: 0 auto;
+  border-top: 1px solid var(--pl-line);
+  padding-top: 18px;
+}
+
+.pl-builder {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+}
+@media (max-width: 980px) {
+  .pl-builder { grid-template-columns: 1fr; }
+}
+
+.pl-config { display: flex; flex-direction: column; gap: 28px; }
+
+.pl-block {
+  background: #fff;
+  border: 1px solid var(--pl-line);
+  border-radius: var(--pl-radius-lg);
+  padding: 26px;
+  box-shadow: var(--pl-shadow-sm);
+}
+.pl-block-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.pl-block-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--pl-petrol);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.pl-block-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+.pl-block-hint {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--pl-ink-soft);
+  font-weight: 500;
+}
+
+.pl-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+.pl-card {
+  border: 2px solid var(--pl-line);
+  border-radius: var(--pl-radius);
+  padding: 16px 14px;
+  background: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: all .15s ease;
+  position: relative;
+}
+.pl-card:hover {
+  border-color: var(--pl-petrol);
+  transform: translateY(-1px);
+}
+.pl-card.active {
+  border-color: var(--pl-petrol);
+  background: var(--pl-petrol-soft);
+}
+.pl-card.active::after {
+  content: '✓';
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  background: var(--pl-petrol);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.pl-card-emoji {
+  font-size: 24px;
+  margin-bottom: 6px;
+  display: block;
+}
+.pl-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--pl-ink);
+  margin-bottom: 2px;
+}
+.pl-card-sub {
+  font-size: 11px;
+  color: var(--pl-ink-soft);
+  font-weight: 500;
+}
+
+.pl-field { margin-bottom: 8px; }
+.pl-field-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--pl-ink-mid);
+  margin-bottom: 10px;
+}
+.pl-field-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--pl-petrol);
+  font-variant-numeric: tabular-nums;
+}
+.pl-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--pl-line);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+.pl-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  background: var(--pl-petrol);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(13, 79, 78, 0.3);
+}
+.pl-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  background: var(--pl-petrol);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(13, 79, 78, 0.3);
+}
+
+.pl-result {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+  background: var(--pl-petrol);
+  color: #fff;
+  border-radius: var(--pl-radius-lg);
+  padding: 28px;
+  box-shadow: var(--pl-shadow-lg);
+  overflow: hidden;
+}
+.pl-result::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--pl-accent) 0%, transparent 70%);
+  opacity: 0.18;
+  border-radius: 50%;
+}
+.pl-result-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffd9c4;
+  margin-bottom: 8px;
+  position: relative;
+}
+.pl-result-amount {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+}
+.pl-result-suffix {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 22px;
+  position: relative;
+}
+.pl-result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  position: relative;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.pl-result-cell-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+  font-weight: 500;
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.pl-result-cell-value {
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.pl-result-cta {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  background: var(--pl-accent);
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: var(--pl-radius);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  transition: background .15s;
+}
+.pl-result-cta:hover { background: var(--pl-accent-dark); }
+.pl-result-aff {
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 14px;
+  text-align: center;
+  line-height: 1.5;
+  position: relative;
+}
+
+.pl-save-indicator {
+  font-size: 12px;
+  color: var(--pl-success);
+  font-weight: 500;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.pl-save-indicator.show { opacity: 1; }
+.pl-save-indicator::before { content: '✓'; font-size: 13px; }
+
+.pl-clear-btn {
+  background: none;
+  border: 1.5px solid var(--pl-line);
+  padding: 10px 16px;
+  border-radius: var(--pl-radius);
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--pl-ink-mid);
+  cursor: pointer;
+  margin-top: 12px;
+  font-weight: 500;
+  transition: all .15s;
+}
+.pl-clear-btn:hover {
+  border-color: var(--pl-accent);
+  color: var(--pl-accent);
+}
+
+.pl-race-section {
+  background: #fff;
+  margin: 0 0 60px;
+  padding: 50px 24px;
+  border-top: 1px solid var(--pl-line);
+  border-bottom: 1px solid var(--pl-line);
+}
+.pl-race-inner { max-width: 1180px; margin: 0 auto; }
+.pl-race-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.pl-race-sub {
+  text-align: center;
+  color: var(--pl-ink-mid);
+  margin-bottom: 36px;
+  font-size: 15px;
+}
+.pl-race {
+  background: var(--pl-bg);
+  border-radius: var(--pl-radius-lg);
+  padding: 30px;
+  border: 1px solid var(--pl-line);
+}
+.pl-race-track {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pl-race-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+.pl-race-label {
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pl-race-label .pl-race-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.pl-race-label.lease .pl-race-dot { background: var(--pl-accent); }
+.pl-race-label.kopen .pl-race-dot { background: var(--pl-petrol); }
+.pl-race-bar-wrap {
+  position: relative;
+  background: var(--pl-line-soft);
+  height: 36px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.pl-race-bar {
+  position: absolute;
+  top: 0; left: 0;
+  bottom: 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  transition: width .6s ease;
+  min-width: 80px;
+  font-variant-numeric: tabular-nums;
+}
+.pl-race-bar.lease { background: var(--pl-accent); }
+.pl-race-bar.kopen { background: var(--pl-petrol); }
+.pl-race-verdict {
+  margin-top: 30px;
+  padding: 22px;
+  background: var(--pl-accent-soft);
+  border-radius: var(--pl-radius);
+  border-left: 4px solid var(--pl-accent);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.pl-race-verdict strong { color: var(--pl-accent-dark); }
+
+@media (max-width: 600px) {
+  .pl-race-row { grid-template-columns: 1fr; gap: 6px; }
+}
+
+.pl-blog {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+.pl-blog-cat {
+  display: inline-block;
+  background: var(--pl-petrol-soft);
+  color: var(--pl-petrol);
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.pl-blog h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  margin: 38px 0 16px;
+  line-height: 1.2;
+}
+.pl-blog h3 {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 24px 0 10px;
+  letter-spacing: -0.3px;
+}
+.pl-blog p {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: var(--pl-ink);
+  line-height: 1.7;
+}
+.pl-blog strong { font-weight: 700; }
+.pl-blog-callout {
+  background: var(--pl-petrol-soft);
+  border-radius: var(--pl-radius);
+  padding: 20px 22px;
+  margin: 22px 0;
+  border-left: 4px solid var(--pl-petrol);
+}
+.pl-blog-callout-head {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--pl-petrol);
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.pl-blog-callout.warn {
+  background: var(--pl-accent-soft);
+  border-left-color: var(--pl-accent);
+}
+.pl-blog-callout.warn .pl-blog-callout-head { color: var(--pl-accent-dark); }
+
+table.pl-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-size: 14px;
+}
+table.pl-table th, table.pl-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--pl-line);
+}
+table.pl-table th {
+  background: var(--pl-petrol-soft);
+  font-weight: 700;
+  color: var(--pl-petrol);
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+table.pl-table tr:hover { background: var(--pl-bg); }
+
+.pl-faq-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 30px 24px 60px;
+}
+.pl-faq-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.pl-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.pl-chat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pl-chat-q {
+  align-self: flex-start;
+  max-width: 80%;
+  background: #fff;
+  border: 1.5px solid var(--pl-petrol);
+  border-radius: 18px 18px 18px 4px;
+  padding: 14px 44px 14px 18px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--pl-petrol);
+  cursor: pointer;
+  position: relative;
+  transition: background .15s;
+}
+.pl-chat-q:hover { background: var(--pl-petrol-soft); }
+.pl-chat-q::after {
+  content: '+';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: var(--pl-petrol);
+  font-weight: 400;
+  line-height: 1;
+}
+.pl-chat-item.open .pl-chat-q::after { content: '−'; }
+.pl-chat-a {
+  align-self: flex-end;
+  max-width: 80%;
+  background: var(--pl-petrol);
+  color: #fff;
+  border-radius: 18px 18px 4px 18px;
+  padding: 14px 18px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  display: none;
+}
+.pl-chat-item.open .pl-chat-a { display: block; }
+.pl-chat-a strong { font-weight: 700; color: #ffd9c4; }
+
+.pl-others {
+  background: var(--pl-bg);
+  padding: 50px 24px;
+  border-top: 1px solid var(--pl-line);
+}
+.pl-others-inner { max-width: 1180px; margin: 0 auto; }
+.pl-others-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: -0.3px;
+}
+.pl-others-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.pl-other {
+  background: #fff;
+  border: 1px solid var(--pl-line);
+  border-radius: var(--pl-radius);
+  padding: 18px 20px;
+  transition: all .15s;
+}
+.pl-other:hover {
+  border-color: var(--pl-petrol);
+  transform: translateY(-2px);
+  box-shadow: var(--pl-shadow);
+}
+.pl-other-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--pl-ink);
+  margin-bottom: 4px;
+}
+.pl-other-sub {
+  font-size: 13px;
+  color: var(--pl-ink-soft);
+}
+
+.pl-legal {
+  background: #fff;
+  padding: 40px 24px;
+  border-top: 1px solid var(--pl-line);
+}
+.pl-legal-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  font-size: 13px;
+  color: var(--pl-ink-mid);
+  line-height: 1.7;
+}
+.pl-legal h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pl-ink);
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.pl-legal p { margin-bottom: 10px; font-size: 13px; }
+.pl-legal-stamp {
+  font-size: 12px;
+  color: var(--pl-ink-soft);
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--pl-line);
+}
+
+.pl-cookies {
+  text-align: center;
+  font-size: 12px;
+  color: var(--pl-ink-soft);
+  padding: 16px;
+  background: var(--pl-petrol-soft);
+}
+
+.pl-footer {
+  background: var(--pl-petrol-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 26px 24px;
+  text-align: center;
+  font-size: 13px;
+}
+.pl-footer a { color: rgba(255,255,255,0.9); margin: 0 8px; }
+.pl-footer a:hover { color: var(--pl-accent); }
+</style>
+</head>
+<body>
+
+<div class="pl-discbar">
+  ℹ️ Indicatieve berekening — <strong>geen financieel advies</strong>. Private lease wordt geregistreerd bij het BKR.
+</div>
+
+<nav class="pl-nav">
+  <div class="pl-nav-inner">
+    <a href="https://www.fixlify.nl/" class="pl-logo">
+      <span class="pl-logo-mark">F</span>
+      fixlify
+    </a>
+    <div class="pl-nav-links">
+      <a href="https://www.fixlify.nl/">← Alle tools</a>
+    </div>
+  </div>
+</nav>
+
+<section class="pl-hero">
+  <div class="pl-hero-inner">
+    <span class="pl-hero-tag">🚗 Auto &amp; Mobiliteit</span>
+    <h1>Wat kost <em>private lease</em> écht per maand?</h1>
+    <p class="lead">Bouw je leasescenario op met catalogusprijs, looptijd en kilometers. Krijg direct een indicatie van je maandbedrag en vergelijk met auto kopen.</p>
+    <p class="pl-hero-fine">Deze tool geeft een richtwaarde op basis van marktconforme leasecomponenten. Werkelijke offertes verschillen per aanbieder en zijn afhankelijk van een verplichte krediettoets bij het BKR. Geen financieel advies.</p>
+  </div>
+</section>
+
+<section class="pl-builder">
+
+  <div class="pl-config">
+
+    <div class="pl-block">
+      <div class="pl-block-head">
+        <div class="pl-block-num">1</div>
+        <div class="pl-block-title">Kies brandstoftype</div>
+      </div>
+      <div class="pl-cards" id="pl-fuel">
+        <div class="pl-card active" data-fuel="benzine" data-factor="1.0">
+          <span class="pl-card-emoji">⛽</span>
+          <div class="pl-card-title">Benzine</div>
+          <div class="pl-card-sub">Standaard</div>
+        </div>
+        <div class="pl-card" data-fuel="diesel" data-factor="1.05">
+          <span class="pl-card-emoji">🛢️</span>
+          <div class="pl-card-title">Diesel</div>
+          <div class="pl-card-sub">+ MRB hoger</div>
+        </div>
+        <div class="pl-card" data-fuel="hybride" data-factor="1.08">
+          <span class="pl-card-emoji">🔋</span>
+          <div class="pl-card-title">Hybride</div>
+          <div class="pl-card-sub">Mix elektr.+benz.</div>
+        </div>
+        <div class="pl-card" data-fuel="elektrisch" data-factor="1.0">
+          <span class="pl-card-emoji">⚡</span>
+          <div class="pl-card-title">Elektrisch</div>
+          <div class="pl-card-sub">Lage MRB</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pl-block">
+      <div class="pl-block-head">
+        <div class="pl-block-num">2</div>
+        <div class="pl-block-title">Catalogusprijs auto</div>
+        <div class="pl-block-hint">Nieuwprijs van de auto</div>
+      </div>
+      <div class="pl-field">
+        <div class="pl-field-label">
+          <span>Prijs nieuw</span>
+          <span class="pl-field-value" id="pl-price-display">€ 25.000</span>
+        </div>
+        <input type="range" class="pl-slider" id="pl-price" min="15000" max="80000" step="500" value="25000">
+        <div style="display:flex; justify-content: space-between; font-size:11px; color:var(--pl-ink-soft); margin-top:6px;">
+          <span>€15.000</span><span>€80.000</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pl-block">
+      <div class="pl-block-head">
+        <div class="pl-block-num">3</div>
+        <div class="pl-block-title">Looptijd contract</div>
+      </div>
+      <div class="pl-cards" id="pl-term">
+        <div class="pl-card" data-term="24" data-factor="1.18">
+          <span class="pl-card-emoji">📅</span>
+          <div class="pl-card-title">24 mnd</div>
+          <div class="pl-card-sub">Korter, duurder</div>
+        </div>
+        <div class="pl-card" data-term="36" data-factor="1.05">
+          <span class="pl-card-emoji">📅</span>
+          <div class="pl-card-title">36 mnd</div>
+          <div class="pl-card-sub">Populair</div>
+        </div>
+        <div class="pl-card active" data-term="48" data-factor="1.0">
+          <span class="pl-card-emoji">📅</span>
+          <div class="pl-card-title">48 mnd</div>
+          <div class="pl-card-sub">Standaard</div>
+        </div>
+        <div class="pl-card" data-term="60" data-factor="0.94">
+          <span class="pl-card-emoji">📅</span>
+          <div class="pl-card-title">60 mnd</div>
+          <div class="pl-card-sub">Goedkoopst/mnd</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pl-block">
+      <div class="pl-block-head">
+        <div class="pl-block-num">4</div>
+        <div class="pl-block-title">Kilometers per jaar</div>
+      </div>
+      <div class="pl-cards" id="pl-km">
+        <div class="pl-card" data-km="10000" data-factor="0.88">
+          <div class="pl-card-title">10.000 km</div>
+          <div class="pl-card-sub">Weinig rijden</div>
+        </div>
+        <div class="pl-card active" data-km="15000" data-factor="1.0">
+          <div class="pl-card-title">15.000 km</div>
+          <div class="pl-card-sub">Gemiddeld</div>
+        </div>
+        <div class="pl-card" data-km="20000" data-factor="1.12">
+          <div class="pl-card-title">20.000 km</div>
+          <div class="pl-card-sub">Veel rijden</div>
+        </div>
+        <div class="pl-card" data-km="25000" data-factor="1.24">
+          <div class="pl-card-title">25.000 km</div>
+          <div class="pl-card-sub">Forens / werk</div>
+        </div>
+        <div class="pl-card" data-km="30000" data-factor="1.38">
+          <div class="pl-card-title">30.000 km</div>
+          <div class="pl-card-sub">Veelrijder</div>
+        </div>
+        <div class="pl-card" data-km="40000" data-factor="1.58">
+          <div class="pl-card-title">40.000+ km</div>
+          <div class="pl-card-sub">Extreem</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="pl-clear-btn" id="pl-clear">↻ Alle gegevens wissen</button>
+    <div class="pl-save-indicator" id="pl-saved">Automatisch opgeslagen</div>
+
+  </div>
+
+  <aside class="pl-result">
+    <div class="pl-result-label">Indicatief maandbedrag</div>
+    <div class="pl-result-amount" id="pl-monthly">€ 0</div>
+    <div class="pl-result-suffix" id="pl-monthly-sub">per maand, all-in</div>
+
+    <div class="pl-result-grid">
+      <div>
+        <div class="pl-result-cell-label">Totale kosten</div>
+        <div class="pl-result-cell-value" id="pl-total">€ 0</div>
+      </div>
+      <div>
+        <div class="pl-result-cell-label">Eind looptijd</div>
+        <div class="pl-result-cell-value" id="pl-end-year">2030</div>
+      </div>
+      <div>
+        <div class="pl-result-cell-label">Per kilometer</div>
+        <div class="pl-result-cell-value" id="pl-per-km">€ 0</div>
+      </div>
+      <div>
+        <div class="pl-result-cell-label">BKR registratie</div>
+        <div class="pl-result-cell-value" style="font-size:14px">Verplicht</div>
+      </div>
+    </div>
+
+    <a href="#vergelijken" class="pl-result-cta">Vergelijk met auto kopen ↓</a>
+    <p class="pl-result-aff">Indicatie op basis van marktconforme leasecomponenten. Werkelijke offertes verschillen per aanbieder.</p>
+  </aside>
+
+</section>
+
+<section class="pl-race-section" id="vergelijken">
+  <div class="pl-race-inner">
+    <h2 class="pl-race-title">Lease vs Kopen — wie wint na <span id="pl-race-years">4</span> jaar?</h2>
+    <p class="pl-race-sub">Cumulatieve kosten over de hele looptijd, jaar voor jaar.</p>
+
+    <div class="pl-race">
+      <div class="pl-race-track" id="pl-race-track"></div>
+      <div class="pl-race-verdict" id="pl-race-verdict">
+        <strong>Indicatieve uitkomst:</strong> de winnaar verschilt per situatie en hangt af van rijgedrag, onderhoudskosten en restwaarde.
+      </div>
+    </div>
+  </div>
+</section>
+
+<article class="pl-blog">
+  <span class="pl-blog-cat">📖 Private Lease Gids 2026</span>
+  <h2>Wat is private lease eigenlijk?</h2>
+  <p>Private lease is een vorm van auto-huur waarbij je voor een vaste maandprijs een nieuwe auto rijdt zonder eigenaar te worden. Het maandbedrag is "all-in": daarin zitten doorgaans afschrijving, onderhoud, verzekering, motorrijtuigenbelasting (MRB), banden en pechhulp. Brandstof of stroom betaal je zelf. Na afloop van het contract lever je de auto in en kun je een nieuwe lease starten of overstappen op kopen.</p>
+  <p>De populariteit van private lease is de afgelopen jaren explosief gestegen. Volgens cijfers van branchevereniging <strong>VNA</strong> reden in 2024 ongeveer <strong>200.000 Nederlanders</strong> in een private leaseauto — een verdubbeling sinds 2020. Vooral jongeren tussen 25-40 kiezen voor lease vanwege de zekerheid van vaste maandlasten en de afwezigheid van onverwachte reparatiekosten.</p>
+
+  <div class="pl-blog-callout">
+    <div class="pl-blog-callout-head">📊 Cijfers private lease in NL 2025</div>
+    <p style="margin:0">Gemiddelde leaseprijs: €495/mnd voor een middenklasse benzineauto (15.000 km/jaar contract, 48 maanden). Voor elektrisch: gemiddeld €565/mnd door hogere catalogusprijs maar lagere MRB. Bron: VNA Leasebarometer Q1 2025.</p>
+  </div>
+
+  <h2>Wat zit er in het maandbedrag?</h2>
+  <p>Een typisch private lease bedrag is opgebouwd uit zeven componenten. Het inzicht hierin helpt je begrijpen waar je écht voor betaalt — en waarom de prijs zo wisselt tussen aanbieders.</p>
+
+  <table class="pl-table">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>% van maandbedrag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Afschrijving auto (catalogus minus restwaarde)</td><td>45-55%</td></tr>
+      <tr><td>Rente / financieringskosten</td><td>10-15%</td></tr>
+      <tr><td>Onderhoud, reparatie, banden</td><td>12-18%</td></tr>
+      <tr><td>Motorrijtuigenbelasting (MRB)</td><td>5-10%</td></tr>
+      <tr><td>WA + casco verzekering</td><td>8-12%</td></tr>
+      <tr><td>Pechhulp en service</td><td>2-3%</td></tr>
+      <tr><td>Marge leasemaatschappij</td><td>5-8%</td></tr>
+    </tbody>
+  </table>
+
+  <p>De grootste post is dus <strong>afschrijving</strong>: het verschil tussen wat de auto nieuw kost en wat hij op het einde van het contract nog waard is. Auto's met hoge restwaarde (Toyota, Volkswagen, Volvo) zijn daarom relatief goedkoper te leasen dan merken met sterke afschrijving (sommige Franse en Amerikaanse merken).</p>
+
+  <h2>Wanneer is private lease slim — en wanneer niet?</h2>
+  <p>Private lease is geen wondermiddel. Het past goed bij sommige profielen en absoluut niet bij andere. Hier de eerlijke afweging op basis van marktdata.</p>
+
+  <h3>Private lease past bij jou als…</h3>
+  <p>Je rijdt tussen de 10.000 en 25.000 kilometer per jaar, hecht waarde aan zekere maandlasten zonder verrassingen, wilt elke 3-4 jaar in een nieuwe auto rijden, hebt geen spaargeld liggen om een auto cash te kopen, en plant niet binnen de looptijd grote levensveranderingen (verhuizing, gezinsuitbreiding) die je rij-behoefte structureel veranderen.</p>
+
+  <h3>Private lease past níet bij jou als…</h3>
+  <p>Je rijdt minder dan 8.000 kilometer per jaar (kopen of korte huur wordt dan goedkoper), je wilt over 1-2 jaar een hypotheek afsluiten (BKR-registratie kan dat bemoeilijken), je hebt al een afgeschreven werkende auto van 10+ jaar, je hebt voldoende spaargeld om een occasion van €15.000-€25.000 cash te kopen, of je weet niet zeker of je over 4 jaar nog steeds een auto nodig hebt.</p>
+
+  <div class="pl-blog-callout warn">
+    <div class="pl-blog-callout-head">⚠️ Let op bij BKR-registratie</div>
+    <p style="margin:0">Sinds 2017 wordt elke private leaseovereenkomst geregistreerd bij het BKR. Bij een hypotheekaanvraag telt deze als een schuld die je leencapaciteit verlaagt met doorgaans <strong>30-40 keer het maandbedrag</strong>. Een lease van €450/mnd kan je hypotheek dus met ~€15.000 verlagen. Plan zorgvuldig.</p>
+  </div>
+
+  <h2>Hoe verschilt de leasemarkt voor elektrisch en hybride?</h2>
+  <p>De elektrische lease-markt heeft zich in 2024-2026 verdubbeld. Drie ontwikkelingen veranderden de markt:</p>
+  <p>Eerst: de catalogusprijzen van Chinese EV-merken (BYD, Xpeng, Zeekr) zijn 25-40% lager dan vergelijkbare Europese modellen, wat lease-aanbiedingen onder de €400/mnd mogelijk maakt. Ten tweede: de MRB-vrijstelling voor EV's geldt nog tot 2030, wat structureel scheelt in maandlasten. Ten derde: snelladers en thuislaad-abonnementen worden steeds vaker meegenomen in lease-packages — kijk goed wat er wel en niet inzit.</p>
+  <p>De keerzijde: restwaardes van EV's zijn nog onzeker. Snelle technologische ontwikkeling betekent dat een 4 jaar oude EV een groter relatief waardeverlies kan hebben dan een benzineauto. Leasemaatschappijen verwerken dit risico in de prijs.</p>
+
+  <h2>De krediettoets: wat wordt er getoetst?</h2>
+  <p>Sinds private lease onder de Wet financieel toezicht (Wft) valt, is een krediettoets verplicht voor elke aanvraag. De leasemaatschappij toetst doorgaans drie zaken:</p>
+  <p>Een check bij het <strong>BKR</strong> (Bureau Krediet Registratie) op bestaande schulden en betalingsachterstanden. Een <strong>inkomensnorm</strong>: doorgaans moet het maandbedrag onder 15-20% van je netto-inkomen blijven. En een check op <strong>woonsituatie en vaste lasten</strong> (huur of hypotheek), waarbij overgebleven besteedbaar inkomen bepalend is.</p>
+  <p>Bij een negatieve BKR-codering (A, A2 of hoger) is een private lease in beginsel niet mogelijk via reguliere aanbieders. Wees voorzichtig met partijen die "lease zonder BKR-toets" beloven — dat is bij Wft-vergunninghouders niet legaal.</p>
+
+  <h2>Wat als je tussentijds wilt stoppen?</h2>
+  <p>Een private lease afsluiten is een verplichting voor de hele looptijd. Tussentijds opzeggen kan in beginsel alleen tegen betaling van een <strong>afkoopsom</strong>, die kan oplopen tot 50-60% van de resterende termijnen. Bij een 4-jarig contract van €450/mnd dat je na 2 jaar wilt beëindigen, kan dat €5.400 tot €6.500 kosten.</p>
+  <p>Sinds 2024 bieden enkele aanbieders een <strong>tussentijds-opzeggen-na-jaar-1</strong> optie tegen een opslag van €25-€50 per maand. Voor wie onzekerheid heeft over de toekomst kan dit aantrekkelijk zijn, maar het verhoogt de totale kosten met €1.200-€2.400 over de looptijd. Lees altijd de voorwaarden vooraf en vraag specifiek naar de exit-clausule.</p>
+
+  <h2>Welke aanbieders zijn er in Nederland?</h2>
+  <p>De NL private lease-markt heeft ongeveer 25 aanbieders, waarvan de top 5 het grootste marktaandeel hebben:</p>
+  <p><strong>Justlease, ANWB Private Lease, Athlon Private Lease, Athlon Drive en LeasePlan</strong> zijn de bekendste namen. Daarnaast hebben dealers van merken als Volkswagen, BMW, Toyota en Volvo vaak eigen lease-takken met scherpe aanbiedingen voor specifieke modellen. Vergelijkingssites als Independer en Pricewise tonen aanbiedingen naast elkaar.</p>
+  <p>Belangrijk: vergelijk niet alleen op maandbedrag. Let op kilometerstaffel, brandstoflocaties (laadabonnement bij EV), schade-eigen-risico, vervangend vervoer en exit-voorwaarden. Een €20/mnd verschil is veel als de duurste optie een veel beter pakket bevat.</p>
+
+</article>
+
+<section class="pl-faq-wrap">
+  <h2 class="pl-faq-title">Veelgestelde vragen — Private Lease</h2>
+  <div class="pl-chat" id="pl-faq">
+
+    <div class="pl-chat-item">
+      <div class="pl-chat-q">Wordt private lease geregistreerd bij het BKR?</div>
+      <div class="pl-chat-a">Ja. Sinds 2017 valt private lease onder de Wet financieel toezicht en wordt elke overeenkomst geregistreerd bij het BKR. De <strong>theoretische schuld</strong> die wordt geregistreerd is doorgaans 65% van de totale leaseverplichting. Dit kan effect hebben op een toekomstige hypotheekaanvraag — banken rekenen je leencapaciteit dan iets lager.</div>
+    </div>
+
+    <div class="pl-chat-item">
+      <div class="pl-chat-q">Wat zit er allemaal in het maandbedrag?</div>
+      <div class="pl-chat-a">Een standaard private lease all-in bevat: <strong>afschrijving, onderhoud, reparatie, banden (zomer + winter waar relevant), motorrijtuigenbelasting (MRB), WA+cascoverzekering en pechhulp</strong>. Brandstof of stroom betaal je zelf. Schade-eigen-risico ligt meestal tussen €150 en €500 per gebeurtenis.</div>
+    </div>
+
+    <div class="pl-chat-item">
+      <div class="pl-chat-q">Is private lease voordeliger dan een auto kopen?</div>
+      <div class="pl-chat-a">Dat hangt sterk af van je situatie. <strong>Bij hoge kilometrages (20.000+) en behoefte aan zekere maandlasten</strong> kan lease aantrekkelijk zijn. Bij lage kilometrages (onder 10.000) en lange bezitsduur (10+ jaar) is een occasion kopen vrijwel altijd goedkoper. Reken altijd met totale kosten over 4-5 jaar, niet alleen het maandbedrag.</div>
+    </div>
+
+    <div class="pl-chat-item">
+      <div class="pl-chat-q">Kan ik mijn lease-contract tussentijds opzeggen?</div>
+      <div class="pl-chat-a">Doorgaans alleen tegen betaling van een <strong>afkoopsom</strong> van 40-60% van de resterende termijnen. Sinds 2024 bieden sommige aanbieders een 'flexibele lease' met optie tot tussentijds opzeggen na jaar 1 — vaak tegen €25-€50/mnd opslag. Check altijd de exit-clausule vóór ondertekening.</div>
+    </div>
+
+    <div class="pl-chat-item">
+      <div class="pl-chat-q">Wat gebeurt er bij teveel of te weinig kilometers?</div>
+      <div class="pl-chat-a">Bij <strong>overschrijding</strong> van het afgesproken kilometerstaffel betaal je een meerprijs per kilometer, doorgaans €0,03-€0,15. Bij <strong>onderschrijding</strong> krijg je in beginsel niets terug. Sommige aanbieders hanteren een terugbetalingsregeling van €0,02-€0,05 per niet-gereden kilometer — vraag hier expliciet naar.</div>
+    </div>
+
+    <div class="pl-chat-item">
+      <div class="pl-chat-q">Welk inkomen heb ik nodig voor private lease?</div>
+      <div class="pl-chat-a">Leasemaatschappijen rekenen doorgaans dat het maandbedrag <strong>maximaal 15-20% van je netto-inkomen</strong> mag bedragen. Bij €2.500 netto/mnd is een lease van €400-€500/mnd dus haalbaar. ZZP'ers moeten vaak 1-3 jaar jaarcijfers laten zien. Tweeverdieners worden meestal samen beoordeeld.</div>
+    </div>
+
+    <div class="pl-chat-item">
+      <div class="pl-chat-q">Wat is het verschil met operational lease en financial lease?</div>
+      <div class="pl-chat-a"><strong>Private lease</strong> is voor particulieren — geen BTW-aftrek mogelijk. <strong>Operational lease</strong> is zakelijk en behoort tot bedrijfsmiddelen-administratie. <strong>Financial lease</strong> is feitelijk een lening op een auto die je wel eigenaar wordt — komt op je balans, BTW wel aftrekbaar voor ondernemers. Voor ZZP'ers met BTW-aftrek is operational of financial lease meestal voordeliger.</div>
+    </div>
+
+    <div class="pl-chat-item">
+      <div class="pl-chat-q">Mag ik mijn lease-auto in het buitenland gebruiken?</div>
+      <div class="pl-chat-a">Binnen de EU en EER mag je doorgaans onbeperkt rijden. Voor langere periodes (3+ maanden) of buiten de EU is meestal expliciete toestemming nodig en gelden soms extra kosten voor verzekering. Check altijd de polisvoorwaarden vóór een grote roadtrip — uitsluitingen variëren per aanbieder.</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="pl-others">
+  <div class="pl-others-inner">
+    <h3 class="pl-others-title">🔗 Andere tools die hier passen</h3>
+    <div class="pl-others-grid">
+      <a href="https://www.fixlify.nl/nettoloon.html" class="pl-other">
+        <div class="pl-other-title">💰 Nettoloon</div>
+        <div class="pl-other-sub">Wat houd je over na belasting?</div>
+      </a>
+      <a href="https://www.fixlify.nl/reiskostenvergoeding.html" class="pl-other">
+        <div class="pl-other-title">🚗 Reiskostenvergoeding</div>
+        <div class="pl-other-sub">€0,23 of €0,25 per km onbelast</div>
+      </a>
+      <a href="https://www.fixlify.nl/hypotheek-vs-huur.html" class="pl-other">
+        <div class="pl-other-title">🏠 Kopen vs Huren</div>
+        <div class="pl-other-sub">Vergelijk op lange termijn</div>
+      </a>
+      <a href="https://www.fixlify.nl/compound-interest.html" class="pl-other">
+        <div class="pl-other-title">📈 Rente op Rente</div>
+        <div class="pl-other-sub">Wat als je dit geld zou beleggen?</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="pl-legal">
+  <div class="pl-legal-inner">
+    <h4>Belangrijk om te weten</h4>
+    <p>De Private Lease Calculator van FixlifyNL is een indicatieve rekentool om een richtwaarde te krijgen voor het maandbedrag van een private leasecontract. <strong>Deze tool is geen financieel of leaseadvies.</strong> Werkelijke maandbedragen verschillen per aanbieder, automodel, contractvorm en zijn afhankelijk van een verplichte krediettoets door de leasemaatschappij.</p>
+    <p>Private lease valt sinds 2017 onder de <strong>Wet financieel toezicht (Wft)</strong> en wordt geregistreerd bij het <strong>BKR</strong>. Deze registratie kan invloed hebben op je leencapaciteit bij latere kredietaanvragen, waaronder hypotheken. Aan de uitkomsten van deze rekentool kunnen <strong>geen rechten worden ontleend</strong>; gebruik is op eigen verantwoordelijkheid.</p>
+    <p>Voor een persoonlijk advies en bindende offerte raden we je aan rechtstreeks contact op te nemen met door de <a href="https://www.afm.nl" target="_blank" rel="noopener">AFM</a> erkende leasemaatschappijen. Voor algemene informatie over krediet en BKR kun je terecht bij het <a href="https://www.bkr.nl" target="_blank" rel="noopener">BKR</a> of de <a href="https://www.consumentenbond.nl" target="_blank" rel="noopener">Consumentenbond</a>. Bij financiële klachten kun je contact opnemen met het <a href="https://www.kifid.nl" target="_blank" rel="noopener">Kifid</a>.</p>
+    <p>Fixlify is niet aansprakelijk voor directe of indirecte schade voortvloeiend uit het gebruik van deze tool of beslissingen genomen op basis van de uitkomsten. De gebruiker draagt volledige verantwoordelijkheid voor de uiteindelijke keuze van een leasecontract.</p>
+    <p class="pl-legal-stamp">Laatst bijgewerkt: mei 2026 · Bronnen: AFM, BKR, VNA Leasebarometer 2025, Wet financieel toezicht (Wft)</p>
+  </div>
+</section>
+
+<div class="pl-cookies">
+  🔒 Deze site gebruikt alleen functionele opslag — geen tracking, geen analytics. <a href="https://www.fixlify.nl/privacy.html">Privacyverklaring</a>.
+</div>
+
+<footer class="pl-footer">
+  © 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 ·
+  <a href="https://www.fixlify.nl/privacy.html">Privacy</a> ·
+  <a href="https://www.fixlify.nl/voorwaarden.html">Voorwaarden</a>
+</footer>
+
+<script>
+(function(){
+  const STORAGE_KEY = 'fixlify_private_lease_data';
+
+  const state = {
+    fuel: 'benzine', fuelFactor: 1.0,
+    price: 25000,
+    term: 48, termFactor: 1.0,
+    km: 15000, kmFactor: 1.0
+  };
+
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const data = JSON.parse(saved);
+      if (data.timestamp && (Date.now() - data.timestamp) < 30 * 24 * 60 * 60 * 1000) {
+        Object.assign(state, data.state);
+      }
+    }
+  } catch(e) {}
+
+  function calcMonthly() {
+    const baseRate = 0.018;
+    let monthly = state.price * baseRate;
+    monthly *= state.fuelFactor;
+    monthly *= state.termFactor;
+    monthly *= state.kmFactor;
+    return Math.round(monthly);
+  }
+
+  function fmt(n) {
+    return '€ ' + Math.round(n).toLocaleString('nl-NL');
+  }
+
+  function update() {
+    const monthly = calcMonthly();
+    const total = monthly * state.term;
+    const totalKm = (state.km * state.term) / 12;
+    const perKm = totalKm > 0 ? (total / totalKm).toFixed(2) : 0;
+    const endYear = new Date().getFullYear() + Math.ceil(state.term / 12);
+
+    document.getElementById('pl-price-display').textContent = fmt(state.price);
+    document.getElementById('pl-monthly').textContent = fmt(monthly);
+    document.getElementById('pl-total').textContent = fmt(total);
+    document.getElementById('pl-per-km').textContent = '€ ' + perKm.replace('.', ',');
+    document.getElementById('pl-end-year').textContent = endYear;
+    document.getElementById('pl-race-years').textContent = Math.round(state.term / 12);
+
+    updateRace(monthly);
+    saveState();
+  }
+
+  function updateRace(monthly) {
+    const years = Math.round(state.term / 12);
+    const track = document.getElementById('pl-race-track');
+    track.innerHTML = '';
+
+    const leaseTotal = monthly * state.term;
+    const restWaardePct = [1, 0.60, 0.50, 0.42, 0.36, 0.31];
+    const onderhoud = state.price * 0.02 * years;
+    const verzekering = 100 * 12 * years;
+    const mrb = (state.fuel === 'elektrisch' ? 30 : state.fuel === 'diesel' ? 95 : 65) * 12 * years;
+
+    let cumLease = 0;
+    let cumKopen = 0;
+    let maxTotal = 0;
+
+    const rows = [];
+    for (let y = 1; y <= years; y++) {
+      cumLease += monthly * 12;
+      const restIdx = Math.min(y, 5);
+      cumKopen = state.price * (1 - restWaardePct[restIdx]) + (onderhoud / years * y) + (verzekering / years * y) + (mrb / years * y);
+      maxTotal = Math.max(maxTotal, cumLease, cumKopen);
+      rows.push({ y, cumLease, cumKopen });
+    }
+
+    rows.forEach(r => {
+      const leaseW = (r.cumLease / maxTotal) * 100;
+      const kopenW = (r.cumKopen / maxTotal) * 100;
+      track.innerHTML += `
+        <div class="pl-race-row">
+          <div class="pl-race-label lease"><span class="pl-race-dot"></span>Jaar ${r.y} · lease</div>
+          <div class="pl-race-bar-wrap"><div class="pl-race-bar lease" style="width: ${leaseW}%">${fmt(r.cumLease)}</div></div>
+        </div>
+        <div class="pl-race-row">
+          <div class="pl-race-label kopen"><span class="pl-race-dot"></span>Jaar ${r.y} · kopen</div>
+          <div class="pl-race-bar-wrap"><div class="pl-race-bar kopen" style="width: ${kopenW}%">${fmt(r.cumKopen)}</div></div>
+        </div>
+      `;
+    });
+
+    const verdict = document.getElementById('pl-race-verdict');
+    const finalLease = rows[rows.length-1].cumLease;
+    const finalKopen = rows[rows.length-1].cumKopen;
+    const diff = finalLease - finalKopen;
+
+    if (Math.abs(diff) < 1000) {
+      verdict.innerHTML = `<strong>Indicatief gelijkspel:</strong> over ${years} jaar liggen de totale kosten dicht bij elkaar (~${fmt(Math.abs(diff))} verschil). De keuze hangt dan af van niet-financiële factoren: zekerheid in maandlasten, gemak en flexibiliteit.`;
+    } else if (diff > 0) {
+      verdict.innerHTML = `<strong>Kopen lijkt voordeliger:</strong> indicatief ben je over ${years} jaar circa <strong>${fmt(diff)}</strong> goedkoper uit met kopen. Houd rekening met onverwachte reparatiekosten en restwaarde-risico — die zijn lastig vooraf in te schatten.`;
+    } else {
+      verdict.innerHTML = `<strong>Lease lijkt voordeliger:</strong> indicatief ben je over ${years} jaar circa <strong>${fmt(-diff)}</strong> goedkoper uit met lease. Vergeet niet dat je bij lease geen auto bezit aan het einde — bij kopen heb je nog een (lagere) restwaarde.`;
+    }
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        timestamp: Date.now(),
+        state: state
+      }));
+      const ind = document.getElementById('pl-saved');
+      ind.classList.add('show');
+      clearTimeout(saveState._t);
+      saveState._t = setTimeout(() => ind.classList.remove('show'), 1800);
+    } catch(e) {}
+  }
+
+  function bindCards(containerId, key, factorKey) {
+    const container = document.getElementById(containerId);
+    container.addEventListener('click', e => {
+      const card = e.target.closest('.pl-card');
+      if (!card) return;
+      container.querySelectorAll('.pl-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      const val = card.dataset[key];
+      state[key] = isNaN(parseInt(val)) ? val : parseInt(val);
+      if (factorKey && card.dataset.factor) {
+        state[factorKey] = parseFloat(card.dataset.factor);
+      }
+      update();
+    });
+  }
+
+  bindCards('pl-fuel', 'fuel', 'fuelFactor');
+  bindCards('pl-term', 'term', 'termFactor');
+  bindCards('pl-km', 'km', 'kmFactor');
+
+  const priceSlider = document.getElementById('pl-price');
+  priceSlider.addEventListener('input', e => {
+    state.price = parseInt(e.target.value);
+    update();
+  });
+
+  function restoreCards() {
+    priceSlider.value = state.price;
+    ['pl-fuel:fuel', 'pl-term:term', 'pl-km:km'].forEach(pair => {
+      const [id, key] = pair.split(':');
+      const container = document.getElementById(id);
+      container.querySelectorAll('.pl-card').forEach(c => {
+        c.classList.toggle('active', String(c.dataset[key]) === String(state[key]));
+      });
+    });
+  }
+
+  document.getElementById('pl-faq').addEventListener('click', e => {
+    const q = e.target.closest('.pl-chat-q');
+    if (!q) return;
+    q.parentElement.classList.toggle('open');
+  });
+
+  document.getElementById('pl-clear').addEventListener('click', () => {
+    if (!confirm('Alle gegevens wissen? Deze actie kan niet ongedaan worden gemaakt.')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    Object.assign(state, {
+      fuel: 'benzine', fuelFactor: 1.0,
+      price: 25000,
+      term: 48, termFactor: 1.0,
+      km: 15000, kmFactor: 1.0
+    });
+    restoreCards();
+    update();
+  });
+
+  restoreCards();
+  update();
+
+})();
+</script>
+
+</body>
+</html>
