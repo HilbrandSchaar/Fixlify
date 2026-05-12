@@ -43,7 +43,7 @@
       "@type": "Article",
       "headline": "WW-uitkering 2026: hoe wordt je dagloon, percentage en looptijd berekend?",
       "datePublished": "2026-05-11",
-      "dateModified": "2026-05-11",
+      "dateModified": "2026-05-12",
       "author": {"@type": "Organization", "name": "FixlifyNL"},
       "publisher": {"@type": "Organization", "name": "FixlifyNL"},
       "description": "Alles over de WW-uitkering 2026: dagloon, percentages, looptijd op basis van arbeidsverleden, en hoe je je netto bedrag berekent."
@@ -73,18 +73,20 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Anti-flag: deep indigo + warm gold */
-  --ww-bg: #fafafa;
+  /* Anti-flag: deep burgundy/wine + warm gold */
+  --ww-bg: #faf8f7;
   --ww-surface: #ffffff;
-  --ww-ink: #0f1124;
-  --ww-ink-mid: #4a4c66;
-  --ww-ink-soft: #7e8099;
-  --ww-line: #e6e7ed;
-  --ww-line-soft: #f0f1f6;
+  --ww-ink: #1f1116;
+  --ww-ink-mid: #5e4a52;
+  --ww-ink-soft: #8b7680;
+  --ww-line: #ede4e6;
+  --ww-line-soft: #f5edee;
 
-  --ww-indigo: #1e1b4b;
-  --ww-indigo-mid: #4338ca;
-  --ww-indigo-soft: #eef2ff;
+  --ww-burgundy: #4a1d2e;
+  --ww-burgundy-mid: #6b2840;
+  --ww-wine: #8b2c3f;
+  --ww-burgundy-soft: #fdf2f4;
+  --ww-rose-soft: #fce7ec;
 
   --ww-gold: #b88a2a;
   --ww-gold-bright: #d9a836;
@@ -101,9 +103,9 @@
   --ww-r: 12px;
   --ww-r-lg: 20px;
 
-  --ww-shadow-sm: 0 1px 2px rgba(30, 27, 75, 0.05);
-  --ww-shadow: 0 4px 16px rgba(30, 27, 75, 0.08);
-  --ww-shadow-lg: 0 16px 48px rgba(30, 27, 75, 0.14);
+  --ww-shadow-sm: 0 1px 2px rgba(74, 29, 46, 0.06);
+  --ww-shadow: 0 4px 16px rgba(74, 29, 46, 0.09);
+  --ww-shadow-lg: 0 16px 48px rgba(74, 29, 46, 0.16);
 }
 
 body {
@@ -114,12 +116,12 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
-a { color: var(--ww-indigo-mid); text-decoration: none; transition: color .2s; }
+a { color: var(--ww-wine); text-decoration: none; transition: color .2s; }
 a:hover { color: var(--ww-gold); }
 
 /* === Disclaimer bar === */
 .ww-disc {
-  background: var(--ww-indigo);
+  background: var(--ww-burgundy);
   color: #fff;
   padding: 10px 16px;
   font-size: 13px;
@@ -175,13 +177,14 @@ a:hover { color: var(--ww-gold); }
   padding: 60px 24px 36px;
   text-align: center;
   background:
-    radial-gradient(ellipse at top center, rgba(217, 168, 54, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at top center, rgba(217, 168, 54, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(139, 44, 63, 0.04) 0%, transparent 50%),
     var(--ww-bg);
 }
 .ww-hero-inner { max-width: 820px; margin: 0 auto; }
 .ww-hero-tag {
   display: inline-block;
-  background: var(--ww-indigo);
+  background: var(--ww-burgundy);
   color: var(--ww-gold-bright);
   padding: 6px 14px;
   border-radius: 4px;
@@ -249,7 +252,7 @@ a:hover { color: var(--ww-gold); }
   font-size: 13px;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: var(--ww-indigo-mid);
+  color: var(--ww-wine);
   font-weight: 700;
   margin-bottom: 24px;
   display: flex;
@@ -307,8 +310,8 @@ a:hover { color: var(--ww-gold); }
 }
 .ww-input:focus {
   outline: none;
-  border-color: var(--ww-indigo-mid);
-  box-shadow: 0 0 0 4px rgba(67, 56, 202, 0.1);
+  border-color: var(--ww-wine);
+  box-shadow: 0 0 0 4px rgba(139, 44, 63, 0.10);
 }
 .ww-input.no-prefix { padding-left: 16px; }
 
@@ -327,16 +330,16 @@ a:hover { color: var(--ww-gold); }
   -webkit-appearance: none;
   width: 24px;
   height: 24px;
-  background: var(--ww-indigo);
+  background: var(--ww-burgundy);
   border-radius: 50%;
   cursor: pointer;
   border: 4px solid var(--ww-gold-bright);
-  box-shadow: 0 2px 6px rgba(30, 27, 75, 0.3);
+  box-shadow: 0 2px 6px rgba(74, 29, 46, 0.35);
 }
 .ww-slider::-moz-range-thumb {
   width: 24px;
   height: 24px;
-  background: var(--ww-indigo);
+  background: var(--ww-burgundy);
   border-radius: 50%;
   cursor: pointer;
   border: 4px solid var(--ww-gold-bright);
@@ -350,7 +353,7 @@ a:hover { color: var(--ww-gold); }
 .ww-slider-val .num {
   font-size: 22px;
   font-weight: 800;
-  color: var(--ww-indigo);
+  color: var(--ww-burgundy);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.5px;
 }
@@ -376,7 +379,7 @@ a:hover { color: var(--ww-gold); }
   transition: all .15s;
 }
 .ww-toggle.active {
-  background: var(--ww-indigo);
+  background: var(--ww-burgundy);
   color: var(--ww-gold-bright);
   box-shadow: var(--ww-shadow-sm);
 }
@@ -415,7 +418,7 @@ a:hover { color: var(--ww-gold); }
 
 /* === Result Panel === */
 .ww-result {
-  background: var(--ww-indigo);
+  background: linear-gradient(135deg, var(--ww-burgundy) 0%, var(--ww-burgundy-mid) 100%);
   color: #fff;
   border-radius: var(--ww-r-lg);
   padding: 32px;
@@ -430,7 +433,7 @@ a:hover { color: var(--ww-gold); }
   width: 280px;
   height: 280px;
   background: radial-gradient(circle, var(--ww-gold) 0%, transparent 65%);
-  opacity: 0.18;
+  opacity: 0.20;
 }
 .ww-result-head {
   display: flex;
@@ -577,7 +580,7 @@ a:hover { color: var(--ww-gold); }
   border-radius: 3px;
 }
 .ww-legend-dot.fase1 { background: var(--ww-gold-bright); }
-.ww-legend-dot.fase2 { background: var(--ww-indigo); }
+.ww-legend-dot.fase2 { background: var(--ww-burgundy); }
 
 .ww-stair-bars {
   display: flex;
@@ -597,9 +600,9 @@ a:hover { color: var(--ww-gold); }
   cursor: pointer;
 }
 .ww-bar.fase1 { background: var(--ww-gold-bright); }
-.ww-bar.fase2 { background: var(--ww-indigo); }
+.ww-bar.fase2 { background: var(--ww-burgundy); }
 .ww-bar:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.15);
 }
 .ww-bar-tooltip {
   position: absolute;
@@ -657,7 +660,7 @@ a:hover { color: var(--ww-gold); }
 .ww-summary-val {
   font-size: 22px;
   font-weight: 800;
-  color: var(--ww-indigo);
+  color: var(--ww-burgundy);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.5px;
 }
@@ -670,8 +673,8 @@ a:hover { color: var(--ww-gold); }
 }
 .ww-blog-cat {
   display: inline-block;
-  background: var(--ww-indigo-soft);
-  color: var(--ww-indigo);
+  background: var(--ww-burgundy-soft);
+  color: var(--ww-burgundy);
   padding: 4px 12px;
   border-radius: 4px;
   font-size: 12px;
@@ -701,11 +704,11 @@ a:hover { color: var(--ww-gold); }
 .ww-blog strong { font-weight: 700; }
 
 .ww-callout {
-  background: var(--ww-indigo-soft);
+  background: var(--ww-burgundy-soft);
   border-radius: var(--ww-r);
   padding: 20px 22px;
   margin: 22px 0;
-  border-left: 4px solid var(--ww-indigo);
+  border-left: 4px solid var(--ww-burgundy);
 }
 .ww-callout.gold {
   background: var(--ww-gold-soft);
@@ -714,7 +717,7 @@ a:hover { color: var(--ww-gold); }
 .ww-callout-head {
   font-weight: 700;
   font-size: 13px;
-  color: var(--ww-indigo);
+  color: var(--ww-burgundy);
   margin-bottom: 6px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -733,7 +736,7 @@ table.ww-table th, table.ww-table td {
   border-bottom: 1px solid var(--ww-line);
 }
 table.ww-table th {
-  background: var(--ww-indigo);
+  background: var(--ww-burgundy);
   color: var(--ww-gold-bright);
   font-weight: 700;
   font-size: 13px;
@@ -774,7 +777,7 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
   transition: all .15s;
 }
 .ww-q:hover {
-  border-color: var(--ww-indigo);
+  border-color: var(--ww-burgundy);
   transform: translateY(-1px);
   box-shadow: var(--ww-shadow);
 }
@@ -784,7 +787,7 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
   top: 18px;
   width: 28px;
   height: 28px;
-  background: var(--ww-indigo);
+  background: var(--ww-burgundy);
   color: var(--ww-gold-bright);
   border-radius: 6px;
   display: flex;
@@ -815,9 +818,9 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
 }
 .ww-q.open .ww-q-mark {
   background: var(--ww-gold);
-  color: var(--ww-indigo);
+  color: var(--ww-burgundy);
 }
-.ww-q-answer strong { font-weight: 700; color: var(--ww-indigo); }
+.ww-q-answer strong { font-weight: 700; color: var(--ww-burgundy); }
 
 /* === Other tools === */
 .ww-others {
@@ -845,7 +848,7 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
   transition: all .15s;
 }
 .ww-other:hover {
-  border-color: var(--ww-indigo);
+  border-color: var(--ww-burgundy);
   transform: translateY(-2px);
   box-shadow: var(--ww-shadow);
 }
@@ -895,11 +898,11 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
   font-size: 12px;
   color: var(--ww-ink-soft);
   padding: 16px;
-  background: var(--ww-indigo-soft);
+  background: var(--ww-burgundy-soft);
 }
 
 .ww-footer {
-  background: var(--ww-indigo);
+  background: var(--ww-burgundy);
   color: rgba(255,255,255,0.7);
   padding: 26px 24px;
   text-align: center;
@@ -1264,7 +1267,6 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
   const DAYS_PER_MONTH = 21.75;
 
   function calcDagloon(monthlySalary) {
-    // jaarloon inclusief 8% vakantiegeld
     const yearWage = monthlySalary * 12 * 1.08;
     let dagloon = yearWage / DAYS_PER_YEAR;
     if (dagloon > MAX_DAGLOON_2026) dagloon = MAX_DAGLOON_2026;
@@ -1272,7 +1274,6 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
   }
 
   function calcDuration(years) {
-    // basis 3 maanden, +1 per dienstjaar, max 24
     let m = 3;
     if (years > 3) m = years;
     if (m > 24) m = 24;
@@ -1280,23 +1281,14 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
     return m;
   }
 
-  // Netto-bruto omrekening voor WW-uitkering 2026
-  // Bij uitkeringen vervallen werknemersverzekering-premies (WW/WIA/ZW = ~3-5%)
-  // → effectief tarief lager dan bij loon uit dienstbetrekking
-  // Schijf 2026 onder AOW: schijf 1 (tot €38.441) ~30,5% effectief op uitkering
-  //                         schijf 2 (€38.441-€76.817) 37,56%
-  //                         schijf 3 (>€76.817) 49,50%
-  // Boven AOW: schijf 1 13,02% (geen AOW-premie)
   function calcNetto(brutoMaand, lhk, aow) {
     const brutoJaar = brutoMaand * 12;
     let tax = 0;
 
-    // Schijf-grenzen 2026
     const SCHIJF1_GRENS = 38441;
     const SCHIJF2_GRENS = 76817;
 
     if (aow) {
-      // AOW-gerechtigde: geen AOW-premie meer
       const TAR1_AOW = 0.1802;
       if (brutoJaar <= SCHIJF1_GRENS) {
         tax = brutoJaar * TAR1_AOW;
@@ -1306,8 +1298,6 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
         tax = SCHIJF1_GRENS * TAR1_AOW + (SCHIJF2_GRENS - SCHIJF1_GRENS) * 0.3756 + (brutoJaar - SCHIJF2_GRENS) * 0.4950;
       }
     } else {
-      // Onder AOW: uitkeringstarief schijf 1 ~30,5% (lager dan werknemerstarief van 35,70%
-      // omdat werknemersverzekering-premies WW/WIA/ZW vervallen bij uitkering)
       const TAR1_UITK = 0.3050;
       if (brutoJaar <= SCHIJF1_GRENS) {
         tax = brutoJaar * TAR1_UITK;
@@ -1318,8 +1308,6 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
       }
     }
 
-    // Algemene heffingskorting 2026
-    // Max €3.068, volledig tot €28.406, afbouw 6,337% per euro daarboven, nul vanaf €76.817
     let heffingskorting = 0;
     if (lhk) {
       const AHK_MAX = 3068;
@@ -1337,7 +1325,6 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
       if (heffingskorting < 0) heffingskorting = 0;
     }
 
-    // NB: GEEN arbeidskorting bij WW (geen arbeidsinkomen)
     const totalTax = Math.max(0, tax - heffingskorting);
     const netto = brutoJaar - totalTax;
     return netto / 12;
@@ -1353,15 +1340,12 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
     const dagloon = calcDagloon(state.salary);
     const duration = calcDuration(state.years);
 
-    // Bruto bedragen
     const bruto75 = dagloon * 0.75 * DAYS_PER_MONTH;
     const bruto70 = dagloon * 0.70 * DAYS_PER_MONTH;
 
-    // Netto bedragen
     const net1 = calcNetto(bruto75, state.lhk, state.aow);
     const net2 = calcNetto(bruto70, state.lhk, state.aow);
 
-    // Totaal
     const m1Months = Math.min(2, duration);
     const m2Months = Math.max(0, duration - 2);
     const total = net1 * m1Months + net2 * m2Months;
@@ -1372,11 +1356,9 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
     document.getElementById('ww-dagloon').textContent = '€ ' + dagloon.toFixed(2).replace('.', ',');
     document.getElementById('ww-total').textContent = fmt(total);
 
-    // Cap warning
     const fullDagloon = (state.salary * 12 * 1.08) / DAYS_PER_YEAR;
     document.getElementById('ww-cap-warn').classList.toggle('show', fullDagloon > MAX_DAGLOON_2026);
 
-    // Update staircase
     updateStaircase(net1, net2, m1Months, m2Months, total, duration);
     saveState();
   }
@@ -1419,7 +1401,6 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
     } catch(e) {}
   }
 
-  // === Bindings ===
   document.getElementById('ww-salary').addEventListener('input', e => {
     state.salary = parseInt(e.target.value) || 0;
     update();
@@ -1444,14 +1425,12 @@ table.ww-table tr:hover { background: var(--ww-line-soft); }
   bindToggle('ww-lhk', 'lhk');
   bindToggle('ww-aow', 'aow');
 
-  // FAQ toggle
   document.getElementById('ww-faq').addEventListener('click', e => {
     const q = e.target.closest('.ww-q');
     if (!q) return;
     q.classList.toggle('open');
   });
 
-  // Clear
   document.getElementById('ww-clear').addEventListener('click', () => {
     if (!confirm('Alle gegevens wissen? Deze actie kan niet ongedaan worden gemaakt.')) return;
     localStorage.removeItem(STORAGE_KEY);
