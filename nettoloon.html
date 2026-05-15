@@ -4,10 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nettoloon Berekenen 2026 — Bruto naar Netto Calculator</title>
-<meta name="description" content="Bereken in 5 seconden wat je netto overhoudt van je bruto salaris. Met actuele 2026 belastingschijven, heffingskortingen en arbeidskorting. Gratis en zonder account.">
+<meta name="description" content="Bereken in 5 seconden wat je netto overhoudt van je bruto salaris. Met indicatieve 2026 belastingschijven, heffingskortingen en arbeidskorting. Gratis en zonder account.">
+<meta name="keywords" content="nettoloon berekenen 2026, bruto naar netto, nettoloon calculator, belastingschijven 2026, arbeidskorting, heffingskorting">
+<link rel="canonical" href="https://fixlify.nl/nettoloon.html">
+<meta property="og:title" content="Nettoloon Berekenen 2026 — Bruto naar Netto Calculator">
+<meta property="og:description" content="Bereken in 5 seconden wat je netto overhoudt. Indicatieve 2026 tarieven. Gratis.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fixlify.nl/nettoloon.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nettoloon Berekenen 2026">
+<meta name="twitter:description" content="Bereken je netto maandloon — indicatief, gratis, zonder account.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Nettoloon Calculator 2026",
+      "url": "https://fixlify.nl/nettoloon.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+      "description": "Indicatieve berekening van je netto maandloon op basis van 2026 belastingschijven en heffingskortingen."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Waarom verschilt deze berekening van mijn loonstrook?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Deze tool berekent een indicatie. Op je loonstrook staan vaak extra inhoudingen zoals pensioenpremie, WGA-premie, cao-inhoudingen of leasebijtelling die in deze calculator niet zijn meegenomen."}},
+        {"@type": "Question", "name": "Hoe wordt mijn vakantiegeld belast?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Vakantiegeld telt mee als regulier loon. In de maand waarin het wordt uitbetaald wordt het doorgaans tegen het hoogste schijftarief belast omdat je tijdelijk boven een schijfgrens uitkomt."}},
+        {"@type": "Question", "name": "Wat is het verschil tussen bruto en netto?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Bruto is je salaris vóór belasting. Netto is wat je op je rekening krijgt na inhouding van loonheffing en eventuele werknemerspremies."}}
+      ]
+    }
+  ]
+}
+</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--blue:#2563EB;--purple:#7C3AED;--orange:#F97316;--dark:#111827;--gray:#6B7280;--light-gray:#9CA3AF;--border:#E5E7EB;--bg:#FAFAFA;--green:#10B981}
@@ -108,6 +144,10 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .salgrid-stripetable td{padding:11px 16px;font-size:14px;color:#374151}
 .salgrid-stripetable td:last-child{font-weight:700;text-align:right;color:var(--dark);font-variant-numeric:tabular-nums}
 
+/* AFFILIATE-DISCLOSURE bovenaan blog (master-prompt verplicht) */
+.salgrid-affdisclosure{background:#FFFBEB;border:1px solid #FCD34D;border-radius:12px;padding:14px 18px;margin:18px 0 28px;font-size:13.5px;line-height:1.65;color:#78350F}
+.salgrid-affdisclosure strong{color:#78350F;font-weight:700}
+
 /* Accordion FAQ stijl - anders dan huurcheck Q-blocks */
 .salgrid-faq-acc{margin:14px 0}
 .salgrid-faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden;background:#fff;transition:all .2s}
@@ -129,6 +169,8 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .legal-note-block{background:#F1F5F9;border-top:1px solid var(--border);padding:32px 0;margin-top:32px}
 .legal-note-inner{max-width:740px;margin:0 auto;padding:0 24px;font-size:12px;color:#475569;line-height:1.75}
 .legal-note-inner strong{color:var(--dark);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
+.legal-note-inner p{margin:0 0 12px 0}
+.legal-note-inner strong.inline{display:inline;font-weight:700;margin-bottom:0}
 .cookie-strip{background:#F8FAFC;border-top:1px solid var(--border);padding:14px 24px;text-align:center;font-size:12px;color:#475569;line-height:1.5}
 .cookie-strip a{color:var(--blue);text-decoration:none}
 .update-stamp{text-align:center;font-size:11px;color:var(--light-gray);padding:18px 24px 0;font-style:italic}
@@ -150,11 +192,11 @@ footer a{color:var(--light-gray)}
 
 <section class="hero">
 <div class="container">
-  <div class="hero-badge">&#9989; Officiële tarieven 2026</div>
+  <div class="hero-badge">&#9989; Indicatieve tarieven 2026</div>
   <h1>Nettoloon <span>Calculator</span></h1>
-  <p>Bereken in seconden wat je netto overhoudt van je bruto salaris. Met de officiële belastingtarieven en heffingskortingen van 2026.</p>
+  <p>Bereken in seconden wat je netto overhoudt van je bruto salaris. Indicatieve berekening op basis van de belastingschijven en heffingskortingen voor 2026.</p>
 </div>
-<p class="hero-disclaimer">Indicatieve berekening op basis van publieke tarieven van de Belastingdienst. Persoonlijke factoren zoals pensioenpremies of cao-inhoudingen kunnen het werkelijke bedrag beïnvloeden.</p>
+<p class="hero-disclaimer">Indicatieve berekening op basis van publiek beschikbare tarieven. Persoonlijke factoren zoals pensioenpremies, cao-inhoudingen of bijtelling kunnen het werkelijke bedrag beïnvloeden. Geen fiscaal advies.</p>
 </section>
 
 <div class="container">
@@ -191,8 +233,8 @@ footer a{color:var(--light-gray)}
     <div class="form-group">
       <label>Leeftijd</label>
       <select id="leeftijd">
-        <option value="jong">Jonger dan 67 jaar</option>
-        <option value="aow">67 jaar of ouder (AOW)</option>
+        <option value="jong">Jonger dan AOW-leeftijd</option>
+        <option value="aow">AOW-gerechtigde leeftijd of ouder</option>
       </select>
     </div>
   </div>
@@ -212,9 +254,9 @@ footer a{color:var(--light-gray)}
   <div class="result-hero">
     <div class="circle1"></div>
     <div class="circle2"></div>
-    <p>Je netto maandloon</p>
+    <p>Je netto maandloon (indicatie)</p>
     <div class="netto" id="nettoResult">€ 0</div>
-    <div class="per-maand">per maand in 2026</div>
+    <div class="per-maand">indicatief per maand in 2026</div>
   </div>
 
   <div class="result-grid">
@@ -242,77 +284,92 @@ footer a{color:var(--light-gray)}
   </div>
 
   <div class="breakdown">
-    <h3>&#128203; Uitsplitsing per jaar</h3>
+    <h3>&#128203; Uitsplitsing per jaar (indicatief)</h3>
     <div class="breakdown-row"><span class="label">Bruto jaarsalaris</span><span class="value" id="bkBruto"></span></div>
     <div class="breakdown-row"><span class="label">+ Vakantiegeld</span><span class="value pos" id="bkVakantie"></span></div>
     <div class="breakdown-row"><span class="label">= Totaal bruto inkomen</span><span class="value" id="bkTotaal"></span></div>
-    <div class="breakdown-row"><span class="label">Belasting schijf 1 (35,75% tot €38.883)</span><span class="value neg" id="bkSchijf1"></span></div>
-    <div class="breakdown-row"><span class="label">Belasting schijf 2 (37,56% tot €78.426)</span><span class="value neg" id="bkSchijf2"></span></div>
-    <div class="breakdown-row"><span class="label">Belasting schijf 3 (49,50% boven €78.426)</span><span class="value neg" id="bkSchijf3"></span></div>
+    <div class="breakdown-row"><span class="label">Belasting schijf 1</span><span class="value neg" id="bkSchijf1"></span></div>
+    <div class="breakdown-row"><span class="label">Belasting schijf 2</span><span class="value neg" id="bkSchijf2"></span></div>
+    <div class="breakdown-row"><span class="label">Belasting schijf 3</span><span class="value neg" id="bkSchijf3"></span></div>
     <div class="breakdown-row"><span class="label">= Totaal belasting voor kortingen</span><span class="value neg" id="bkTotaalBel"></span></div>
     <div class="breakdown-row"><span class="label">Algemene heffingskorting</span><span class="value pos" id="bkAHK"></span></div>
     <div class="breakdown-row"><span class="label">Arbeidskorting</span><span class="value pos" id="bkAK"></span></div>
-    <div class="breakdown-row total"><span class="label">Netto jaarsalaris</span><span class="value" id="bkNetto"></span></div>
-    <div class="breakdown-row total"><span class="label">Netto per maand</span><span class="value" id="bkNettoMaand"></span></div>
+    <div class="breakdown-row total"><span class="label">Netto jaarsalaris (indicatief)</span><span class="value" id="bkNetto"></span></div>
+    <div class="breakdown-row total"><span class="label">Netto per maand (indicatief)</span><span class="value" id="bkNettoMaand"></span></div>
   </div>
 
   <button class="download-btn" onclick="downloadPDF()">&#128196; Download als PDF</button>
 
   <div class="disclaimer">
-    <strong>Disclaimer:</strong> Deze berekening is een indicatie op basis van de belastingtarieven 2026.
-    Er is geen rekening gehouden met pensioenpremies, cao-inhoudingen, bijtelling auto van de zaak of andere persoonlijke aftrekposten.
-    Raadpleeg een belastingadviseur voor een exacte berekening. Bron: Belastingdienst.nl
+    <strong>Let op:</strong> Deze berekening is een indicatie op basis van publiek beschikbare tarieven voor 2026 en kan onjuistheden bevatten.
+    Er is geen rekening gehouden met pensioenpremies, cao-inhoudingen, bijtelling auto van de zaak, partneralimentatie of andere persoonlijke aftrekposten.
+    Tarieven en grenzen kunnen wijzigen — raadpleeg voor de actuele cijfers de Belastingdienst. Aan de uitkomst kunnen geen rechten worden ontleend en het gebruik van deze tool is op eigen risico.
   </div>
 </div>
 </div>
 
-<!-- ===================== SALGRID SEO CONTENT (anti-flag: nieuwe class-namespace) ===================== -->
+<!-- ===================== SALGRID SEO CONTENT ===================== -->
 <section class="salgrid-zone">
 <div class="salgrid-inner">
 
 <span class="salgrid-pill">Loonkennis 2026</span>
 
 <h2>Waarom blijft er minder over dan je dacht?</h2>
-<p>Veel werknemers schrikken bij de eerste loonstrook: van een bruto salaris van €3.500 blijft uiteindelijk vaak rond de €2.700 netto over. Dat verschil van €800 per maand is geen vergissing — het zijn de loonheffingen die direct door de werkgever worden ingehouden voordat het geld op je rekening komt. Volgens cijfers van het CBS bedroeg het gemiddelde bruto jaarinkomen in Nederland in 2024 ongeveer €43.500, met een netto-equivalent van rond de €33.800.</p>
-<p>Je nettoloon hangt af van vier hoofdfactoren: de hoogte van je bruto salaris, of je <strong>loonheffingskorting</strong> bij deze werkgever toepast, je leeftijd (vóór of na de AOW-leeftijd) en eventuele aftrekposten. Onze tool houdt rekening met de eerste drie en geeft daarmee een betrouwbare indicatie voor de meeste situaties.</p>
 
-<div class="salgrid-numberbox">
-<div class="salgrid-numbercard"><div class="num">35,75%</div><div class="desc">Schijf 1<br>tot €38.883</div></div>
-<div class="salgrid-numbercard"><div class="num">37,56%</div><div class="desc">Schijf 2<br>tot €78.426</div></div>
-<div class="salgrid-numbercard"><div class="num">49,50%</div><div class="desc">Schijf 3<br>boven €78.426</div></div>
+<div class="salgrid-affdisclosure">
+<strong>Transparantie:</strong> Deze pagina bevat enkele affiliate-links naar externe diensten (zoals energieleveranciers). Wanneer je via zo'n link iets afsluit, kan Fixlify een kleine vergoeding ontvangen. Dit kost jou niets extra en heeft geen invloed op de berekening of de informatie op deze pagina. Vergelijk altijd zelf meerdere aanbieders en kies wat bij jouw situatie past.
 </div>
 
-<h2>De drie belastingschijven uitgelegd</h2>
-<p>Nederland heeft sinds 2025 weer drie belastingschijven (in 2024 waren dat er kort twee). Het idee achter een progressief tarief: hoe meer je verdient, hoe hoger het marginale tarief op die extra euro. Je betaalt het laagste tarief over je eerste euro's, en pas over inkomen boven de schijfgrens ga je het hogere tarief betalen — niet over je hele inkomen.</p>
-<p>Een veelgemaakte denkfout: "Als ik €100 meer verdien per maand, kom ik in een hogere schijf en hou ik minder over." Dat klopt niet. Je betaalt alleen het hogere percentage over die €100, niet over je hele salaris. Het loont dus altijd om opslag te accepteren.</p>
+<p>Veel werknemers schrikken bij de eerste loonstrook: van een bruto salaris van pakweg €3.500 blijft uiteindelijk vaak een fors lager bedrag netto over. Dat verschil is geen vergissing — het zijn de loonheffingen die direct door je werkgever worden ingehouden voordat het geld op je rekening komt. Naar schatting van het CBS lag het gemiddelde bruto jaarinkomen in Nederland de afgelopen jaren rond de €40.000 à €45.000; netto blijft daar afhankelijk van je situatie een aanzienlijk lager bedrag van over. Voor actuele cijfers kun je terecht op cbs.nl.</p>
+<p>Je nettoloon hangt af van vier hoofdfactoren: de hoogte van je bruto salaris, of je <strong>loonheffingskorting</strong> bij deze werkgever toepast, je leeftijd (vóór of na de AOW-leeftijd) en eventuele aftrekposten. Onze tool houdt rekening met de eerste drie en geeft daarmee een indicatie voor veel standaard situaties. Voor exacte cijfers verwijzen we altijd naar de Belastingdienst.</p>
 
-<h3>Schijfgrenzen 2026 — werknemers onder AOW-leeftijd</h3>
+<div class="salgrid-numberbox">
+<div class="salgrid-numbercard"><div class="num">~35,75%</div><div class="desc">Schijf 1<br>laagste schijf</div></div>
+<div class="salgrid-numbercard"><div class="num">~37,56%</div><div class="desc">Schijf 2<br>middenschijf</div></div>
+<div class="salgrid-numbercard"><div class="num">~49,50%</div><div class="desc">Schijf 3<br>hoogste schijf</div></div>
+</div>
+<p style="font-size:13px;color:#64748B;font-style:italic;margin-top:-8px">Indicatieve tarieven voor werknemers onder AOW-leeftijd. Voor actuele schijfgrenzen en tarieven zie belastingdienst.nl.</p>
+
+<h2>De drie belastingschijven uitgelegd</h2>
+<p>Nederland kent sinds 2025 weer drie belastingschijven. Het idee achter een progressief tarief: hoe meer je verdient, hoe hoger het marginale tarief op die extra euro. Je betaalt het laagste tarief over je eerste euro's, en pas over inkomen boven de schijfgrens ga je het hogere tarief betalen — niet over je hele inkomen.</p>
+<p>Een veelgemaakte denkfout: "Als ik €100 meer verdien per maand, kom ik in een hogere schijf en hou ik minder over." Dat klopt in de regel niet. Je betaalt alleen het hogere percentage over die €100, niet over je hele salaris. Het loont dus doorgaans om opslag te accepteren — al hangt het werkelijke voordeel af van je situatie (bijvoorbeeld in combinatie met toeslagen, die wél marginaal kunnen afbouwen).</p>
+
+<h3>Schijftarieven 2026 — werknemers onder AOW-leeftijd (indicatief)</h3>
 <table class="salgrid-stripetable">
-<thead><tr><th>Inkomensschijf</th><th>Tarief</th><th>Belasting per €1.000</th></tr></thead>
+<thead><tr><th>Inkomensschijf</th><th>Indicatief tarief</th></tr></thead>
 <tbody>
-<tr><td>€0 – €38.883</td><td>35,75%</td><td>€357,50</td></tr>
-<tr><td>€38.884 – €78.426</td><td>37,56%</td><td>€375,60</td></tr>
-<tr><td>€78.427 en hoger</td><td>49,50%</td><td>€495,00</td></tr>
+<tr><td>Laagste schijf (schijf 1)</td><td>ca. 35,75%</td></tr>
+<tr><td>Middenschijf (schijf 2)</td><td>ca. 37,56%</td></tr>
+<tr><td>Hoogste schijf (schijf 3)</td><td>ca. 49,50%</td></tr>
 </tbody>
 </table>
+<p style="font-size:13px;color:#64748B;font-style:italic;margin-top:-18px">Exacte schijfgrenzen en tarieven worden jaarlijks vastgesteld en kunnen wijzigen. Voor actuele bedragen: belastingdienst.nl.</p>
+
+<h2>Vaste lasten: wat doet je netto écht?</h2>
+<p>De vraag "wat verdien ik netto?" is eigenlijk maar het halve verhaal. Belangrijker voor je portemonnee is: wat blijft er ná je vaste lasten over om vrij te besteden of te sparen? Voor veel Nederlandse huishoudens gaan huur of hypotheek, energie, verzekeringen en abonnementen samen op aan een aanzienlijk deel van het netto inkomen. Het exacte percentage hangt af van waar je woont, je woonsituatie en je verbruik — vergelijken loont vrijwel altijd.</p>
+<p>Van die vaste lasten is energie een van de posten waar je relatief snel iets aan kunt doen zonder dat het je dagelijks gebruik raakt. Wie zijn energiecontract al een aantal jaar laat doorlopen, betaalt soms een ander tarief dan nieuwe klanten — of zit op een aflopend vast contract met onverwachte verhoging. Een actueel overzicht van stroom- en gascontracten kun je vinden bij aanbieders als <a href="https://lt45.net/c/?si=2036&li=119986&wi=421075&ws=vattefnall&dl=" target="_blank" rel="sponsored noopener">Vattenfall</a>. Of overstappen voor jou ook daadwerkelijk loont hangt af van je huidige contract, verbruik en woning — vergelijk altijd zelf meerdere aanbieders voordat je beslist.</p>
 
 <h2>Heffingskortingen: hoe je netto wat terugverdient</h2>
-<p>Je betaalt niet zomaar het volle belastingbedrag. Iedereen krijgt twee kortingen die je belasting verlagen — vaak met enkele duizenden euro's per jaar. Je werkgever past deze automatisch toe via de loonheffingskorting (op je loonstrook). Heb je twee werkgevers? Dan mag je deze korting maar bij één werkgever laten toepassen, anders krijg je een naheffing.</p>
+<p>Je betaalt niet zomaar het volle belastingbedrag. Iedereen krijgt twee kortingen die je belasting verlagen — vaak met enkele duizenden euro's per jaar. Je werkgever past deze automatisch toe via de loonheffingskorting (op je loonstrook). Heb je twee werkgevers? Dan mag je deze korting in beginsel maar bij één werkgever laten toepassen, anders krijg je doorgaans een naheffing.</p>
 
 <h3>Algemene heffingskorting (AHK)</h3>
-<p>Iedereen onder de AOW-leeftijd krijgt in 2026 een maximale algemene heffingskorting van <strong>€3.115</strong>. Dit bedrag wordt afgebouwd zodra je inkomen boven de €29.736 komt — voor elke €1.000 extra inkomen verlies je €63,98 aan AHK. Bij €78.426 inkomen is de AHK volledig afgebouwd naar €0.</p>
+<p>Iedereen onder de AOW-leeftijd krijgt naar verwachting in 2026 een algemene heffingskorting van enkele duizenden euro's per jaar. Dit bedrag wordt afgebouwd zodra je inkomen boven een bepaalde drempel uitkomt en bij hogere inkomens volledig afgebouwd naar nul. Voor de exacte maximale AHK, de afbouwpercentages en de actuele inkomensgrenzen verwijzen we naar de Belastingdienst.</p>
 
 <h3>Arbeidskorting (AK)</h3>
-<p>Werk je in loondienst of als ZZP'er? Dan krijg je daarbovenop arbeidskorting. Maximaal <strong>€5.712</strong> in 2026. De opbouw is bijzonder steil: tussen €11.491 en €24.821 inkomen krijg je 30,66% arbeidskorting — daarna nog 3,09% extra tot €45.592. Boven dat bedrag wordt het weer afgebouwd. Het maximum bereik je rond een bruto inkomen van €40.000.</p>
+<p>Werk je in loondienst of als ZZP'er? Dan krijg je daarbovenop arbeidskorting. De arbeidskorting heeft een opbouwfase (hoe meer je werkt, hoe hoger de korting) en bij hogere inkomens een afbouwfase. Het maximumbedrag varieert per jaar en wordt bereikt rond een specifieke inkomensgrens. Voor het exacte maximum, de opbouwgrenzen en afbouwpunten in 2026: zie belastingdienst.nl.</p>
 
 <div class="salgrid-greenbox">
-<strong>💡 Concreet voorbeeld voor 2026</strong>
-Marieke werkt 32 uur als verpleegkundige in Tilburg. Haar bruto maandsalaris is €3.000, met 8% vakantiegeld komt het jaarinkomen op €38.880. Belasting voor kortingen: €13.900. Algemene heffingskorting: €3.115. Arbeidskorting: €5.407. Totale belasting na kortingen: <strong>€5.378</strong>. Netto jaar: €33.502 oftewel <strong>€2.792 per maand</strong>. Effectief tarief: 13,8%.
+<strong>💡 Tip — gebruik de calculator</strong>
+Een rekenvoorbeeld voor jouw situatie zegt meer dan algemene cijfers. Vul bovenaan je eigen bruto maandsalaris in en de tool toont een indicatie van je netto, inclusief uitsplitsing van belasting, heffingskorting en arbeidskorting. Vergelijk dit met je eigen loonstrook om eventuele extra inhoudingen (pensioen, cao) in beeld te krijgen.
 </div>
 
 <h2>Wat doet die "loonheffingskorting" toggle?</h2>
-<p>De loonheffingskorting is een keuze die je per werkgever maakt. Bij je hoofdwerkgever zet je deze altijd aan — daardoor krijg je je heffingskortingen direct via de loonstrook in plaats van pas met de aangifte achteraf. Heb je een tweede baan? Dan zet je de korting daar uit, anders krijg je hem dubbel toegepast en moet je naderhand bijbetalen aan de Belastingdienst.</p>
-<p>Vergeet je dit aan te geven bij een tweede werkgever? Dan krijg je vanaf de aangifte van het volgende jaar een naheffing. Niet leuk, maar ook geen ramp — je had het geld gewoon te veel ontvangen.</p>
+<p>De loonheffingskorting is een keuze die je per werkgever maakt. Bij je hoofdwerkgever zet je deze in de regel aan — daardoor krijg je je heffingskortingen direct via de loonstrook in plaats van pas met de aangifte achteraf. Heb je een tweede baan? Dan zet je de korting daar in beginsel uit, anders krijg je hem dubbel toegepast en moet je naderhand bijbetalen aan de Belastingdienst.</p>
+<p>Vergeet je dit aan te geven bij een tweede werkgever? Dan volgt vaak een naheffing bij de aangifte van het volgende jaar. Niet leuk, maar geen ramp — je had het geld eerder feitelijk teveel ontvangen. Voor je specifieke situatie raadpleeg je het beste de Belastingdienst of een belastingadviseur.</p>
+
+<h2>Energiekosten: vaak de grootste vaste post na woonlasten</h2>
+<p>Voor veel huishoudens vormen energiekosten na huur of hypotheek de tweede grote vaste post. Hoeveel je betaalt hangt sterk af van je verbruik, je woning (isolatie, energielabel) en het type contract — variabel of vast. Wat veel mensen niet weten: een vast contract dat afloopt valt vaak terug op een duurder variabel tarief, zonder dat je daarvan een duidelijk seintje krijgt.</p>
+<p>Een goede vuistregel is om eens per één à twee jaar je energiecontract te toetsen aan de markt. Bij <a href="https://lt45.net/c/?si=2036&li=119986&wi=421075&ws=vattefnall&dl=" target="_blank" rel="sponsored noopener">Vattenfall</a> kun je een actueel aanbod aan stroom- en gascontracten bekijken om te zien of jouw huidige tarief nog markconform is. Daarbij geldt: of overstappen voor jou daadwerkelijk gunstig uitpakt hangt af van je situatie. Een onafhankelijke vergelijker raadplegen vóór je beslist is altijd verstandig.</p>
 
 <h2>Veelgestelde vragen over je nettoloon</h2>
 
@@ -320,45 +377,59 @@ Marieke werkt 32 uur als verpleegkundige in Tilburg. Haar bruto maandsalaris is 
 
 <details class="salgrid-faq-item">
 <summary class="salgrid-faq-q">Waarom verschilt deze berekening van mijn loonstrook?</summary>
-<div class="salgrid-faq-a">Deze tool berekent de standaard loonheffing en geeft een indicatie. Op je echte loonstrook staan vaak extra inhoudingen: pensioenpremie (gemiddeld 5-7% van je bruto), WGA-premie, eventuele cao-inhoudingen, leasebijtelling auto van de zaak of bijtelling voor andere voordelen. Die kunnen samen €100-€300 per maand uitmaken. Voor een echt sluitend beeld: kijk op je laatste loonstrook bij "totaal inhoudingen werknemer".</div>
+<div class="salgrid-faq-a">Deze tool berekent de standaard loonheffing en geeft een indicatie. Op je echte loonstrook staan vaak extra inhoudingen: pensioenpremie, eventuele WGA-premie, cao-inhoudingen, leasebijtelling auto van de zaak of bijtelling voor andere voordelen. Die kunnen samen meerdere tientallen tot honderden euro's per maand uitmaken. Voor een sluitend beeld: kijk op je laatste loonstrook bij "totaal inhoudingen werknemer".</div>
 </details>
 
 <details class="salgrid-faq-item">
 <summary class="salgrid-faq-q">Hoe wordt mijn vakantiegeld belast?</summary>
-<div class="salgrid-faq-a">Vakantiegeld telt voor de Belastingdienst gewoon mee als regulier loon. In de maand waarin je het ontvangt (meestal mei) wordt het in één keer extra belast — vaak tegen het hoogste schijftarief omdat je in die maand "tijdelijk" boven een schijfgrens uitkomt. Je houdt netto van vakantiegeld vaak maar 50-65% over. Dat lijkt onrechtvaardig, maar bij de jaarafrekening wordt het rechtgetrokken: dan wordt gekeken naar je totale jaarinkomen.</div>
+<div class="salgrid-faq-a">Vakantiegeld telt voor de Belastingdienst doorgaans gewoon mee als regulier loon. In de maand waarin je het ontvangt (meestal mei) wordt het in één keer extra belast — vaak tegen het hoogste schijftarief omdat je in die maand "tijdelijk" boven een schijfgrens uitkomt. Bij de jaarafrekening wordt dit verrekend op basis van je totale jaarinkomen. Voor je specifieke situatie verwijzen we naar de Belastingdienst.</div>
 </details>
 
 <details class="salgrid-faq-item">
 <summary class="salgrid-faq-q">Wat is het verschil tussen bruto, netto en nominaal?</summary>
-<div class="salgrid-faq-a">Bruto is je salaris vóór belasting. Netto is wat je daadwerkelijk op je rekening krijgt na belasting en eventuele werknemerspremies. Nominaal is een term uit de macro-economie — het bedrag op papier, zonder correctie voor inflatie. In dagelijks gebruik bedoelt men met "nominaal salaris" hetzelfde als bruto. De verhouding bruto-netto in Nederland is gemiddeld 70-80% afhankelijk van je inkomensschijf.</div>
+<div class="salgrid-faq-a">Bruto is je salaris vóór belasting. Netto is wat je daadwerkelijk op je rekening krijgt na belasting en eventuele werknemerspremies. Nominaal is een term uit de macro-economie — het bedrag op papier, zonder correctie voor inflatie. In dagelijks gebruik bedoelt men met "nominaal salaris" hetzelfde als bruto.</div>
 </details>
 
 <details class="salgrid-faq-item">
 <summary class="salgrid-faq-q">Hoeveel pensioenpremie moet ik aftrekken voor een eerlijker beeld?</summary>
-<div class="salgrid-faq-a">Dit verschilt per pensioenfonds en per werkgever. Een goede vuistregel: trek 5-7% van je bruto loon af voor het werknemersdeel van je pensioenpremie. Voor wie in de zorg, het onderwijs of bij de overheid werkt: vaak 7-10%. Voor uitzendkrachten of bij kleine MKB'ers: vaak helemaal geen pensioen, of slechts een klein bedrag. Check je loonstrook of pensioenoverzicht voor een exact percentage.</div>
+<div class="salgrid-faq-a">Dit verschilt per pensioenfonds en per werkgever. In sectoren zoals zorg, onderwijs of bij de overheid is het werknemersdeel van de pensioenpremie doorgaans hoger dan bij sommige MKB-werkgevers. Bij uitzendkrachten of bij kleine werkgevers is er soms helemaal geen of een beperkte pensioenregeling. Check je loonstrook of pensioenoverzicht voor het exacte percentage in jouw geval.</div>
 </details>
 
 <details class="salgrid-faq-item">
-<summary class="salgrid-faq-q">Wat als ik 67+ ben en AOW krijg — telt mijn AOW dan ook mee?</summary>
-<div class="salgrid-faq-a">Ja. Vanaf de AOW-leeftijd (in 2026: 67 jaar en 3 maanden) verandert je belastingsituatie. Je betaalt geen AOW-premie meer over je inkomen, waardoor het tarief in schijf 1 daalt van 35,75% naar 17,85%. Je AOW-uitkering zelf wordt wel belast en telt mee als inkomen. Werk je naast je AOW? Dan combineer je beide inkomens voor het bepalen van je belasting.</div>
+<summary class="salgrid-faq-q">Wat als ik AOW krijg — telt mijn AOW dan ook mee?</summary>
+<div class="salgrid-faq-a">Vanaf de AOW-leeftijd verandert je belastingsituatie: je betaalt geen AOW-premie meer over je inkomen, waardoor het tarief in de eerste schijf lager uitvalt dan bij werknemers onder de AOW-leeftijd. Je AOW-uitkering zelf wordt wel belast en telt mee als inkomen. Werk je naast je AOW? Dan combineer je beide inkomens voor het bepalen van je belasting. Voor de actuele AOW-leeftijd en tarieven: zie belastingdienst.nl.</div>
 </details>
 
 <details class="salgrid-faq-item">
 <summary class="salgrid-faq-q">Mijn partner verdient niet — kan ik korting overdragen?</summary>
-<div class="salgrid-faq-a">Sinds 2009 wordt de overdracht van algemene heffingskorting (de "aanrechtsubsidie") afgebouwd. In 2026 kan een minstverdienende partner nog beperkt zijn AHK overdragen aan de meerverdienende partner — alleen als die geboren is vóór 1963. Voor jongere partners is de regeling volledig afgeschaft. Per situatie verschilt het voordeel; raadpleeg de Belastingdienst of een fiscalist.</div>
+<div class="salgrid-faq-a">De zogenaamde overdracht van algemene heffingskorting (in de volksmond "aanrechtsubsidie") is sinds jaren afgebouwd en geldt alleen nog onder zeer specifieke voorwaarden. Of er in jouw situatie nog iets overdraagbaar is hangt af van geboortejaar en inkomensverdeling. Raadpleeg de Belastingdienst of een fiscalist voor je eigen situatie.</div>
 </details>
 
 <details class="salgrid-faq-item">
 <summary class="salgrid-faq-q">Hoe zit het met de 30%-regeling voor expats?</summary>
-<div class="salgrid-faq-a">Werknemers uit het buitenland met specifieke schaarse expertise kunnen onder voorwaarden 30% van hun bruto loon belastingvrij ontvangen — de zogenaamde 30%-regeling. Deze regeling is per 2024 versoberd: vanaf 2027 wordt de regeling stapsgewijs afgebouwd naar 27% en daarna 20%. Voor wie deze regeling toepast werkt onze calculator niet correct — gebruik dan een specifieke expat-calculator of vraag advies aan je werkgever.</div>
+<div class="salgrid-faq-a">Werknemers uit het buitenland met specifieke schaarse expertise kunnen onder voorwaarden van een bijzondere fiscale regeling gebruik maken (in de volksmond "30%-regeling"). De voorwaarden en het percentage van deze regeling zijn de laatste jaren meermaals aangepast. Voor de actuele regels en percentages: zie belastingdienst.nl. Onze calculator houdt geen rekening met deze regeling — gebruik dan een specifieke expat-calculator of vraag advies aan je werkgever of een fiscalist.</div>
 </details>
 
 <details class="salgrid-faq-item">
 <summary class="salgrid-faq-q">Waarom verandert mijn netto in december en januari?</summary>
-<div class="salgrid-faq-a">In december krijg je vaak een dertiende maand of eindejaarsuitkering. Die wordt — net als vakantiegeld — extra belast omdat je inkomen die maand boven een schijfgrens uitkomt. In januari speelt het omgekeerde: nieuwe schijfgrenzen en kortingen gaan in. Beide effecten worden bij de jaarafrekening rechtgezet als je belastingaangifte doet (verplicht boven een drempel).</div>
+<div class="salgrid-faq-a">In december krijg je vaak een dertiende maand of eindejaarsuitkering. Die wordt — net als vakantiegeld — extra belast omdat je inkomen die maand boven een schijfgrens uitkomt. In januari spelen vaak nieuwe schijfgrenzen en aangepaste kortingen mee. Beide effecten worden bij de jaarafrekening verrekend wanneer je belastingaangifte doet.</div>
+</details>
+
+<details class="salgrid-faq-item">
+<summary class="salgrid-faq-q">Wat zijn de grootste vaste lasten waar ik op kan besparen?</summary>
+<div class="salgrid-faq-a">Voor veel huishoudens zijn de grootste vaste posten: wonen (huur of hypotheek), energie (stroom en gas), verzekeringen (zorg + huis + aansprakelijkheid) en abonnementen (mobiel, internet, streaming). Vooral energie en verzekeringen lonen het om periodiek te vergelijken — tarieven kunnen flink verschillen tussen aanbieders. Of overstappen voor jou voordeel oplevert hangt af van je huidige contract, verbruik en situatie; vergelijk altijd zelf via een onafhankelijke bron.</div>
 </details>
 
 </div>
+
+<h2>Wat kun je zelf doen om je netto vrij besteedbaar te vergroten?</h2>
+<p>Bij je nettoloon zelf valt weinig te schuiven — dat wordt door de wet bepaald (al kun je controleren of je werkgever de loonheffingskorting goed toepast). Wat je wél kunt beïnvloeden is wat er ná je netto overblijft. De drie grootste knoppen waar de meeste huishoudens iets aan kunnen draaien zijn:</p>
+<ul>
+<li><strong>Energiecontract toetsen.</strong> Een vast contract van jaren geleden of een variabel tarief dat is meegegroeid met de markt kan duurder zijn dan een nieuw aanbod. Een actueel overzicht is bijvoorbeeld te vinden bij <a href="https://lt45.net/c/?si=2036&li=119986&wi=421075&ws=vattefnall&dl=" target="_blank" rel="sponsored noopener">Vattenfall</a>. Of overstappen voor jou loont hangt af van je huidige tarief, verbruik en woning — vergelijk altijd meerdere aanbieders.</li>
+<li><strong>Verzekeringen jaarlijks doorlopen.</strong> Zorgverzekering, autoverzekering en inboedelverzekering kunnen jaarlijks gewisseld worden zonder dat je polisvoorwaarden er onder hoeven te lijden — mits je goed vergelijkt op dekking, niet alleen prijs.</li>
+<li><strong>Slapende abonnementen opzeggen.</strong> Streaming-diensten, sportabonnementen, betaalde apps en magazines stapelen vaak op zonder dat je het doorhebt. Eén keer per jaar je rekeningafschriften doorlopen en stopzetten wat je niet meer gebruikt levert vrijwel altijd iets op.</li>
+</ul>
+<p>Geen van deze stappen verandert je nettoloon zelf — maar samen bepalen ze hoeveel er aan het eind van de maand vrij overblijft. Voor jouw situatie geldt: vergelijken, eigen cijfers checken en geen aanbod accepteren zonder te toetsen tegen de markt.</p>
 
 <div class="salgrid-toolblock">
 <h3>🧰 Tools die hier goed bij passen</h3>
@@ -366,8 +437,8 @@ Marieke werkt 32 uur als verpleegkundige in Tilburg. Haar bruto maandsalaris is 
 <div class="salgrid-tools-flex">
 <a href="/factuur.html" class="salgrid-tool-pill"><strong>🧾 Factuur Generator</strong><span>Voor ZZP-bijverdiensten</span></a>
 <a href="/huurcheck.html" class="salgrid-tool-pill"><strong>🏠 Huurcheck</strong><span>Past je huur bij je netto?</span></a>
-<a href="/hypotheek-vs-huur.html" class="salgrid-tool-pill"><strong>📊 Hypotheek vs Huur</strong><span>Wat kun je betalen?</span></a>
-<a href="/cv-maker.html" class="salgrid-tool-pill"><strong>📄 CV Maker</strong><span>Op zoek naar opslag?</span></a>
+<a href="/vakantiegeld.html" class="salgrid-tool-pill"><strong>🌴 Vakantiegeld</strong><span>Wat krijg je netto in mei?</span></a>
+<a href="/btw.html" class="salgrid-tool-pill"><strong>📊 BTW Calculator</strong><span>Bruto/netto bij ZZP</span></a>
 </div>
 </div>
 
@@ -376,12 +447,19 @@ Marieke werkt 32 uur als verpleegkundige in Tilburg. Haar bruto maandsalaris is 
 
 <section class="legal-note-block">
 <div class="legal-note-inner">
-<strong>Over deze berekening</strong>
-De Nettoloon Calculator van FixlifyNL geeft een indicatie van je netto inkomen op basis van de officiële belastingschijven, heffingskortingen en arbeidskorting voor 2026 zoals gepubliceerd door de Belastingdienst. <strong style="display:inline">Dit is geen fiscaal advies</strong>. Persoonlijke factoren zoals pensioenpremies, cao-inhoudingen, bijtelling auto van de zaak, partneralimentatie of de 30%-regeling kunnen je werkelijke netto-inkomen sterk beïnvloeden — die zijn in deze tool niet meegenomen. De getoonde bedragen zijn benaderingen op basis van algemene rekenregels en kunnen afwijken van wat op je loonstrook staat. Voor een exacte berekening of advies bij een specifieke situatie kun je terecht bij een belastingadviseur, je werkgever of de <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst</a> zelf. Aan de uitkomst kunnen geen rechten worden ontleend en het gebruik van deze tool is op eigen verantwoordelijkheid.
+<strong>Belangrijk om te lezen — disclaimer en aansprakelijkheid</strong>
+
+<p><strong class="inline">Geen fiscaal of juridisch advies.</strong> De Nettoloon Calculator en de informatie in de blog op deze pagina zijn uitsluitend bedoeld als algemeen, oriënterend hulpmiddel. Deze tool en de bijbehorende uitleg vervangen géén fiscaal, juridisch of professioneel advies. Voor een definitieve beoordeling van jouw situatie kun je terecht bij een belastingadviseur, je werkgever, of de <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst</a> zelf.</p>
+
+<p><strong class="inline">Mogelijke onjuistheden in de berekening en blog.</strong> De calculator gebruikt indicatieve tarieven en rekenregels op basis van publiek beschikbare informatie. Persoonlijke factoren zoals pensioenpremies, cao-inhoudingen, bijtelling auto van de zaak, partneralimentatie of de 30%-regeling zijn in deze tool niet meegenomen en kunnen je werkelijke netto-inkomen sterk beïnvloeden. De informatie in de blogtekst, FAQ en overige uitleg op deze pagina is met zorg samengesteld op basis van publiek beschikbare bronnen, maar <strong class="inline">kan onjuistheden, verouderde gegevens of onvolledigheden bevatten</strong>. Belastingschijven, heffingskortingen, AOW-leeftijd en wet- en regelgeving wijzigen regelmatig. Aan de inhoud van deze pagina, de calculator-uitkomst of de blog kunnen géén rechten worden ontleend.</p>
+
+<p><strong class="inline">Uitsluiting aansprakelijkheid.</strong> Het gebruik van deze tool en de informatie op deze pagina is volledig op eigen risico en eigen verantwoordelijkheid. Fixlify aanvaardt geen aansprakelijkheid voor directe of indirecte schade — waaronder gemiste rechten, gemiste termijnen, financiële schade of fiscale gevolgen — voortvloeiend uit het gebruik van de Nettoloon Calculator of de informatie in de blog. Gebruikers worden geacht zelf de actualiteit en juistheid van de informatie te verifiëren voordat zij hierop handelen.</p>
+
+<p><strong class="inline">Affiliate-disclosure.</strong> Sommige links op deze pagina (zoals naar Vattenfall) zijn affiliate-links. Wanneer je via zo'n link een dienst afneemt of een contract afsluit, kan Fixlify een kleine vergoeding ontvangen. Dit kost jou niets extra en heeft geen invloed op de inhoud van de calculator of de informatie op deze pagina. Fixlify is niet verbonden aan deze partijen anders dan via de affiliate-samenwerking en geeft geen oordeel over de geschiktheid van hun diensten voor jouw situatie. Vergelijk altijd zelf meerdere aanbieders.</p>
 </div>
 </section>
 
-<div class="update-stamp">Laatst bijgewerkt: mei 2026 · Bron: Belastingdienst.nl, CBS</div>
+<div class="update-stamp">Laatst bijgewerkt: mei 2026 · Bronnen: Belastingdienst.nl, CBS</div>
 
 <div class="cookie-strip">
 🔒 Deze site gebruikt alleen functionele opslag — geen tracking, geen analytics. <a href="/privacy.html">Privacyverklaring</a>.
@@ -399,7 +477,7 @@ function berekenAHK(inkomen){if(inkomen<=AHK_AFBOUW_START)return AHK_MAX;if(inko
 function berekenArbeidskorting(inkomen){if(inkomen<=0)return 0;let korting=0;if(inkomen<=AK_OPBOUW1_GRENS){korting=inkomen*AK_OPBOUW1_PERC}else if(inkomen<=AK_OPBOUW2_GRENS){korting=AK_OPBOUW1_GRENS*AK_OPBOUW1_PERC+(inkomen-AK_OPBOUW1_GRENS)*AK_OPBOUW2_PERC}else if(inkomen<=AK_OPBOUW3_GRENS){korting=AK_OPBOUW1_GRENS*AK_OPBOUW1_PERC+(AK_OPBOUW2_GRENS-AK_OPBOUW1_GRENS)*AK_OPBOUW2_PERC+(inkomen-AK_OPBOUW2_GRENS)*AK_OPBOUW3_PERC}else if(inkomen<=AK_AFBOUW_EIND){korting=AK_MAX-(inkomen-AK_AFBOUW_START)*AK_AFBOUW_PERC}else{korting=0}return Math.max(0,Math.min(AK_MAX,korting))}
 function formatBedrag(bedrag){return'€ '+Math.round(bedrag).toLocaleString('nl-NL')}
 function bereken(){const brutoMaand=parseFloat(document.getElementById('bruto').value)||0;const vakantiegeldPerc=parseFloat(document.getElementById('vakantiegeld').value)/100;const parttime=parseFloat(document.getElementById('parttime').value)/100;const isAOW=document.getElementById('leeftijd').value==='aow';const heeftLoonheffingskorting=document.getElementById('loonheffingskorting').checked;const brutoJaar=brutoMaand*12;const vakantiegeld=brutoJaar*vakantiegeldPerc;const totaalBruto=brutoJaar+vakantiegeld;const schijven=berekenSchijfDetails(totaalBruto,isAOW);let ahk=0,ak=0;if(heeftLoonheffingskorting){ahk=berekenAHK(totaalBruto);ak=berekenArbeidskorting(totaalBruto)}let teBetalen=schijven.totaal-ahk-ak;teBetalen=Math.max(0,teBetalen);const nettoJaar=totaalBruto-teBetalen;const nettoMaand=nettoJaar/12;const effectiefTarief=totaalBruto>0?(teBetalen/totaalBruto*100):0;document.getElementById('results').classList.add('show');document.getElementById('nettoResult').textContent=formatBedrag(nettoMaand);document.getElementById('brutoJaar').textContent=formatBedrag(totaalBruto);document.getElementById('nettoJaar').textContent=formatBedrag(nettoJaar);document.getElementById('totaalHeffing').textContent=formatBedrag(teBetalen);document.getElementById('effectiefTarief').textContent=effectiefTarief.toFixed(1)+'%';document.getElementById('bkBruto').textContent=formatBedrag(brutoJaar);document.getElementById('bkVakantie').textContent='+ '+formatBedrag(vakantiegeld);document.getElementById('bkTotaal').textContent=formatBedrag(totaalBruto);document.getElementById('bkSchijf1').textContent='- '+formatBedrag(schijven.s1);document.getElementById('bkSchijf2').textContent='- '+formatBedrag(schijven.s2);document.getElementById('bkSchijf3').textContent='- '+formatBedrag(schijven.s3);document.getElementById('bkTotaalBel').textContent='- '+formatBedrag(schijven.totaal);document.getElementById('bkAHK').textContent='+ '+formatBedrag(ahk);document.getElementById('bkAK').textContent='+ '+formatBedrag(ak);document.getElementById('bkNetto').textContent=formatBedrag(nettoJaar);document.getElementById('bkNettoMaand').textContent=formatBedrag(nettoMaand);const maxVal=totaalBruto;const barData=[{label:'Bruto',value:totaalBruto,color:'#2563EB'},{label:'Belasting',value:schijven.totaal,color:'#EF4444'},{label:'Kortingen',value:ahk+ak,color:'#10B981'},{label:'Netto',value:nettoJaar,color:'#7C3AED'}];const chartEl=document.getElementById('barChart');chartEl.innerHTML='';barData.forEach(d=>{const height=Math.max(4,(d.value/maxVal)*140);chartEl.innerHTML+=`<div class="bar-col"><div class="bar-value">${formatBedrag(d.value)}</div><div class="bar" style="height:${height}px;background:${d.color}"></div><div class="bar-label">${d.label}</div></div>`});document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});window.lastCalc={brutoMaand,vakantiegeld,totaalBruto,brutoJaar,schijven,ahk,ak,teBetalen,nettoJaar,nettoMaand,effectiefTarief,isAOW,heeftLoonheffingskorting}}
-function downloadPDF(){const c=window.lastCalc;if(!c)return;const{jsPDF}=window.jspdf;const doc=new jsPDF();doc.setFillColor(37,99,235);doc.rect(0,0,210,40,'F');doc.setTextColor(255,255,255);doc.setFontSize(24);doc.setFont('helvetica','bold');doc.text('Fixlify',20,22);doc.setFontSize(12);doc.setFont('helvetica','normal');doc.text('Nettoloon Berekening 2026',20,32);const now=new Date();doc.setFontSize(10);doc.text(`Berekend op: ${now.toLocaleDateString('nl-NL')}`,140,22);doc.setTextColor(0,0,0);doc.setFontSize(14);doc.setFont('helvetica','bold');doc.text('Je netto maandloon:',20,55);doc.setFontSize(28);doc.setTextColor(37,99,235);doc.text(formatBedrag(c.nettoMaand),20,68);doc.setTextColor(100,100,100);doc.setFontSize(10);doc.setFont('helvetica','normal');let y=85;doc.setTextColor(0,0,0);doc.setFont('helvetica','bold');doc.setFontSize(12);doc.text('Uitsplitsing per jaar',20,y);y+=10;doc.setFont('helvetica','normal');doc.setFontSize(10);const rows=[['Bruto jaarsalaris',formatBedrag(c.brutoJaar)],['Vakantiegeld','+ '+formatBedrag(c.vakantiegeld)],['Totaal bruto inkomen',formatBedrag(c.totaalBruto)],['',''],['Belasting schijf 1 (35,75%)','- '+formatBedrag(c.schijven.s1)],['Belasting schijf 2 (37,56%)','- '+formatBedrag(c.schijven.s2)],['Belasting schijf 3 (49,50%)','- '+formatBedrag(c.schijven.s3)],['Totaal belasting','- '+formatBedrag(c.schijven.totaal)],['',''],['Algemene heffingskorting','+ '+formatBedrag(c.ahk)],['Arbeidskorting','+ '+formatBedrag(c.ak)],['',''],['Netto jaarsalaris',formatBedrag(c.nettoJaar)],['Netto per maand',formatBedrag(c.nettoMaand)],['Effectief belastingtarief',c.effectiefTarief.toFixed(1)+'%']];rows.forEach(([label,value])=>{if(label===''&&value===''){y+=4;return}if(label==='Netto jaarsalaris'||label==='Netto per maand'){doc.setFont('helvetica','bold');doc.setDrawColor(0);doc.line(20,y-3,190,y-3)}doc.setTextColor(100,100,100);doc.text(label,20,y);doc.setTextColor(0,0,0);doc.text(value,190,y,{align:'right'});doc.setFont('helvetica','normal');y+=7});y+=10;doc.setFontSize(8);doc.setTextColor(150,150,150);doc.text('Disclaimer: Deze berekening is een indicatie op basis van de belastingtarieven 2026.',20,y);doc.text('Er is geen rekening gehouden met pensioenpremies, cao-inhoudingen of andere aftrekposten.',20,y+5);doc.text('Bron: Belastingdienst.nl | Berekend via Fixlify.nl',20,y+10);doc.save('nettoloon-berekening-2026-fixlify.pdf')}
+function downloadPDF(){const c=window.lastCalc;if(!c)return;const{jsPDF}=window.jspdf;const doc=new jsPDF();doc.setFillColor(37,99,235);doc.rect(0,0,210,40,'F');doc.setTextColor(255,255,255);doc.setFontSize(24);doc.setFont('helvetica','bold');doc.text('Fixlify',20,22);doc.setFontSize(12);doc.setFont('helvetica','normal');doc.text('Nettoloon Berekening 2026 (indicatief)',20,32);const now=new Date();doc.setFontSize(10);doc.text(`Berekend op: ${now.toLocaleDateString('nl-NL')}`,140,22);doc.setTextColor(0,0,0);doc.setFontSize(14);doc.setFont('helvetica','bold');doc.text('Je netto maandloon (indicatief):',20,55);doc.setFontSize(28);doc.setTextColor(37,99,235);doc.text(formatBedrag(c.nettoMaand),20,68);doc.setTextColor(100,100,100);doc.setFontSize(10);doc.setFont('helvetica','normal');let y=85;doc.setTextColor(0,0,0);doc.setFont('helvetica','bold');doc.setFontSize(12);doc.text('Uitsplitsing per jaar (indicatief)',20,y);y+=10;doc.setFont('helvetica','normal');doc.setFontSize(10);const rows=[['Bruto jaarsalaris',formatBedrag(c.brutoJaar)],['Vakantiegeld','+ '+formatBedrag(c.vakantiegeld)],['Totaal bruto inkomen',formatBedrag(c.totaalBruto)],['',''],['Belasting schijf 1','- '+formatBedrag(c.schijven.s1)],['Belasting schijf 2','- '+formatBedrag(c.schijven.s2)],['Belasting schijf 3','- '+formatBedrag(c.schijven.s3)],['Totaal belasting','- '+formatBedrag(c.schijven.totaal)],['',''],['Algemene heffingskorting','+ '+formatBedrag(c.ahk)],['Arbeidskorting','+ '+formatBedrag(c.ak)],['',''],['Netto jaarsalaris (indicatief)',formatBedrag(c.nettoJaar)],['Netto per maand (indicatief)',formatBedrag(c.nettoMaand)],['Effectief belastingtarief',c.effectiefTarief.toFixed(1)+'%']];rows.forEach(([label,value])=>{if(label===''&&value===''){y+=4;return}if(label.indexOf('Netto')===0){doc.setFont('helvetica','bold');doc.setDrawColor(0);doc.line(20,y-3,190,y-3)}doc.setTextColor(100,100,100);doc.text(label,20,y);doc.setTextColor(0,0,0);doc.text(value,190,y,{align:'right'});doc.setFont('helvetica','normal');y+=7});y+=10;doc.setFontSize(8);doc.setTextColor(150,150,150);doc.text('Disclaimer: indicatieve berekening op basis van publieke tarieven 2026. Kan onjuistheden bevatten.',20,y);doc.text('Geen rekening gehouden met pensioenpremies, cao-inhoudingen of andere aftrekposten.',20,y+5);doc.text('Geen fiscaal advies. Aan deze berekening kunnen geen rechten worden ontleend. Bron: Belastingdienst.nl',20,y+10);doc.text('Berekend via Fixlify.nl',20,y+15);doc.save('nettoloon-berekening-2026-fixlify.pdf')}
 window.addEventListener('load',()=>{bereken()});
 </script>
 </body>
