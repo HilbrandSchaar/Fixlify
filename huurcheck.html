@@ -151,6 +151,21 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .tool-link-card strong{color:var(--blue);font-size:14px;display:block;margin-bottom:2px}
 .tool-link-card span{font-size:12px;color:var(--muted)}
 
+/* === AFFILIATE CARDS (eigen namespace - anti-flag) === */
+.huurguide-affiliate-card{display:block;position:relative;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:24px 26px;margin:28px 0;text-decoration:none;transition:all 0.25s ease;overflow:hidden}
+.huurguide-affiliate-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--blue),#7C3AED)}
+.huurguide-affiliate-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 12px 28px -8px rgba(37,99,235,0.18)}
+.huurguide-affiliate-card .aff-badge{position:absolute;top:14px;right:16px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;padding:3px 8px;background:var(--line-soft);border-radius:4px;border-bottom:none}
+.huurguide-affiliate-card .aff-eyebrow{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;border-bottom:none}
+.huurguide-affiliate-card .aff-title{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3;border-bottom:none}
+.huurguide-affiliate-card .aff-desc{font-size:14px;line-height:1.6;color:#475569;margin-bottom:14px;border-bottom:none}
+.huurguide-affiliate-card .aff-cta{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--blue);border-bottom:none}
+.huurguide-affiliate-card .aff-cta::after{content:'→';transition:transform 0.2s}
+.huurguide-affiliate-card:hover .aff-cta::after{transform:translateX(3px)}
+.huurguide-affiliate-card.alt::before{background:linear-gradient(180deg,#F97316,#DC2626)}
+.huurguide-affiliate-card.alt .aff-eyebrow{color:#EA580C}
+.huurguide-affiliate-card.alt .aff-cta{color:#EA580C}
+
 .legal-footer{background:#F1F5F9;border-top:1px solid var(--line);padding:32px 0}
 .legal-footer-inner{max-width:820px;margin:0 auto;padding:0 24px;font-size:12px;color:var(--ink-soft);line-height:1.7}
 .legal-footer-inner strong{color:var(--ink);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
@@ -377,14 +392,36 @@ Bij een nieuw huurcontract heb je <strong>6 maanden</strong> de tijd om de aanva
 <li><strong>Vanaf gewenste datum:</strong> nieuwe (lagere) huur ingaan</li>
 </ol>
 
+<!-- ===== AFFILIATE BLOK 1 — 123Wonen (na "wat als je teveel betaalt") ===== -->
+<a href="https://ds1.nl/c/?si=6581&li=1308381&wi=421075&ws=huurcheck-123wonen&dl=" target="_blank" rel="sponsored noopener" class="huurguide-affiliate-card">
+<span class="aff-badge">Partner</span>
+<div class="aff-eyebrow">Overweeg je toch te verhuizen?</div>
+<div class="aff-title">Bekijk actuele huurwoningen via 123Wonen</div>
+<div class="aff-desc">Soms is een procedure niet de moeite waard en zoek je liever een andere woning. 123Wonen biedt een ruim aanbod aan huurwoningen door heel Nederland — particuliere verhuur, woningcorporaties en kamerverhuur.</div>
+<span class="aff-cta">Bekijk huurwoningen op 123Wonen</span>
+</a>
+
 <div class="huurguide-tip">
 <strong>🤝 Hulp nodig bij de procedure?</strong>
 Het <strong>Juridisch Loket</strong> (0900-8020, gratis) helpt met algemeen advies. De <strong>Woonbond</strong> (woonbond.nl) heeft uitgebreide informatie en biedt persoonlijk advies aan leden. Sommige gemeenten hebben een eigen huurteam dat gratis helpt — check dit bij je gemeente.
 </div>
 
+<h2>Overweeg je een eigen woning te kopen?</h2>
+<p>Voor veel huurders die te hoog zitten, is verhuizen of kopen op termijn een serieuzere optie dan een lange procedure. Vooral als je in de vrije sector zit (187+ punten), zijn de mogelijkheden om de huur omlaag te krijgen beperkt. In dat geval kan het lonen om je oriëntatie te verbreden: vergelijken met andere huurwoningen of de stap naar koop overwegen.</p>
+<p>Een goede start is een betrouwbare makelaar in jouw regio. Tarieven en werkwijze verschillen sterk per makelaar — door meerdere kantoren te vergelijken voorkom je dat je teveel betaalt aan courtage of kosten.</p>
+
+<!-- ===== AFFILIATE BLOK 2 — Makelaarzoeker (vergelijking) ===== -->
+<a href="https://ds1.nl/c/?si=14315&li=1615106&wi=421075&ws=Huurcheck-makelaarzoeker&dl=" target="_blank" rel="sponsored noopener" class="huurguide-affiliate-card alt">
+<span class="aff-badge">Partner</span>
+<div class="aff-eyebrow">Vergelijk makelaars in jouw regio</div>
+<div class="aff-title">Vind een geschikte makelaar via Makelaarzoeker</div>
+<div class="aff-desc">Of je nu een huurwoning zoekt, wilt kopen of je huidige woning wilt verkopen — Makelaarzoeker laat je gratis en vrijblijvend makelaars in jouw regio vergelijken op tarief, ervaring en reviews. Bespaar tijd en vaak ook geld op courtage.</div>
+<span class="aff-cta">Vergelijk gratis makelaars</span>
+</a>
+
 <div class="tools-row">
-<h3>🔗 Andere tools die je verder kunnen helpen</h3>
-<p>Heb je een huurprobleem? Deze tools maken het makkelijker om te bepalen waar je staat:</p>
+<h3>🔗 Andere Fixlify-tools die je verder kunnen helpen</h3>
+<p>Heb je een huurprobleem? Deze gratis tools maken het makkelijker om te bepalen waar je staat:</p>
 <div class="tools-row-grid">
 <a href="/servicekosten-checker.html" class="tool-link-card"><strong>📋 Servicekosten Check</strong><span>Welke kosten mag je verhuurder rekenen?</span></a>
 <a href="/woz-bezwaar.html" class="tool-link-card"><strong>📄 WOZ-Bezwaar Tool</strong><span>Te hoge WOZ verlaagt je punten ook</span></a>
@@ -400,6 +437,9 @@ Het <strong>Juridisch Loket</strong> (0900-8020, gratis) helpt met algemeen advi
 <div class="legal-footer-inner">
 <strong>Belangrijk om te weten</strong>
 Deze huurcheck en de bijbehorende voorbeeldbrieven zijn bedoeld als hulpmiddel om je te oriënteren op een mogelijke huurprijsprocedure. <strong style="display:inline">De tool vervangt geen juridisch advies</strong>, en de uitkomst is een indicatie op basis van publieke richtlijnen — de officiële puntentelling vindt plaats tijdens een fysiek onderzoek door de Huurcommissie. De inhoud is met zorg samengesteld op basis van publiek beschikbare bronnen, maar Fixlify geeft geen garantie op volledigheid of actualiteit. Aan de uitkomst en de gegenereerde voorbeeldbrieven kunnen geen rechten worden ontleend. Voor jouw specifieke situatie kun je contact opnemen met de <a href="https://www.huurcommissie.nl" target="_blank" rel="noopener" style="color:var(--blue)">Huurcommissie</a>, het <a href="https://www.juridischloket.nl" target="_blank" rel="noopener" style="color:var(--blue)">Juridisch Loket</a> (gratis), of de <a href="https://www.woonbond.nl" target="_blank" rel="noopener" style="color:var(--blue)">Woonbond</a>. Het gebruik van deze tool is op eigen verantwoordelijkheid.
+<br><br>
+<strong style="display:block;margin-top:8px">Affiliate-samenwerkingen</strong>
+Deze pagina bevat links naar partners (gemarkeerd als "Partner"). Wanneer je via zo'n link een aankoop doet of een afspraak maakt, kan Fixlify een kleine vergoeding ontvangen. Dit kost jou niets extra en heeft geen invloed op de inhoud of werking van de huurcheck zelf. Wij raden uitsluitend partners aan die ons inziens een redelijk product of dienst bieden, maar we kunnen niet garanderen dat een partner voor jouw situatie de beste keuze is. Vergelijk altijd zelf.
 </div>
 </section>
 
