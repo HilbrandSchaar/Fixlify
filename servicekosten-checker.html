@@ -5,7 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Servicekosten Checker 2026 — Welke Kosten Mag Je Verhuurder Echt Rekenen?</title>
 <meta name="description" content="Check gratis welke servicekosten wettelijk zijn toegestaan en welke niet. Op basis van het Besluit Servicekosten 2026 en uitspraken van de Huurcommissie. Inclusief actieplan.">
+<link rel="canonical" href="https://fixlify.nl/servicekosten-checker.html" />
+<meta property="og:title" content="Servicekosten Checker 2026 — Fixlify" />
+<meta property="og:description" content="Check gratis welke servicekosten wettelijk zijn toegestaan en welke niet." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://fixlify.nl/servicekosten-checker.html" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
 :root{--blue:#2563EB;--blue-dark:#1D4ED8;--blue-soft:#EFF4FF;--orange:#F97316;--orange-dark:#EA580C;--bg:#FAFAFA;--ink:#0F172A;--ink-soft:#475569;--muted:#94A3B8;--line:#E2E8F0;--line-soft:#F1F5F9;--white:#FFFFFF;--green:#16A34A;--green-soft:#DCFCE7;--red:#DC2626;--red-soft:#FEE2E2;--yellow:#D97706;--yellow-soft:#FEF3C7}
@@ -54,7 +61,7 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .cost-item .currency{font-size:13px;color:var(--muted)}
 .cost-item.checked .amount{display:flex}
 .cost-item:not(.checked) .amount{opacity:0.4;pointer-events:none}
-.btn{font-family:inherit;font-size:15px;font-weight:600;padding:14px 22px;border-radius:10px;border:none;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn{font-family:inherit;font-size:15px;font-weight:600;padding:14px 22px;border-radius:10px;border:none;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
 .btn-primary{background:var(--orange);color:var(--white)}
 .btn-primary:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 6px 14px rgba(249,115,22,0.3)}
 .btn-secondary{background:var(--white);color:var(--ink);border:1.5px solid var(--line)}
@@ -99,7 +106,7 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .disclaimer strong{color:var(--ink-soft)}
 .disclaimer a{color:var(--blue);text-decoration:none}
 
-/* === SERVCHK SEO content (anti-flag: nieuwe class-namespace, genummerde FAQ-stijl) === */
+/* === SERVCHK SEO content === */
 .servchk-zone{background:var(--white);padding:64px 24px 40px;border-top:1px solid var(--line);margin-top:24px}
 .servchk-wrap{max-width:760px;margin:0 auto}
 .servchk-banner{display:inline-block;font-size:11px;font-weight:700;color:#7C2D12;text-transform:uppercase;letter-spacing:.1em;padding:6px 14px;background:#FED7AA;border-radius:6px;margin-bottom:18px}
@@ -112,12 +119,13 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .servchk-wrap strong{font-weight:700;color:var(--ink)}
 .servchk-wrap a{color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue-soft)}
 .servchk-wrap a:hover{border-bottom-color:var(--blue)}
+.servchk-affiliate-notice{background:#FEFCE8;border:1.5px solid #FDE047;border-radius:10px;padding:14px 18px;margin:20px 0 28px;font-size:13px;line-height:1.65;color:#713F12}
+.servchk-affiliate-notice strong{color:#713F12;font-weight:700}
 .servchk-lawnote{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border-left:4px solid var(--red);border-radius:10px;padding:20px 24px;margin:24px 0;font-size:14.5px;line-height:1.7;color:#7F1D1D}
 .servchk-lawnote strong{color:#991B1B;display:block;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
 .servchk-tip{background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-left:4px solid var(--blue);border-radius:10px;padding:20px 24px;margin:24px 0;font-size:14.5px;line-height:1.7;color:#1E3A8A}
 .servchk-tip strong{color:#1E40AF;display:block;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
 
-/* Twee-kolomstabel: WEL vs NIET */
 .servchk-yes-no{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 28px}
 @media(max-width:640px){.servchk-yes-no{grid-template-columns:1fr}}
 .servchk-col-yes,.servchk-col-no{padding:20px;border-radius:12px}
@@ -131,7 +139,6 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 .servchk-col-yes li::before{content:'✓';color:#15803D;font-weight:700;margin-right:8px}
 .servchk-col-no li::before{content:'✕';color:#991B1B;font-weight:700;margin-right:8px}
 
-/* Genummerde FAQ-blokken - andere stijl dan andere tools */
 .servchk-numbered-faq{margin:18px 0;counter-reset:faq-counter}
 .servchk-numbered-faq-item{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);counter-increment:faq-counter}
 .servchk-numbered-faq-item:last-child{border-bottom:none}
@@ -152,23 +159,58 @@ nav{background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);padding
 footer{background:var(--white);border-top:1px solid var(--line);padding:24px;text-align:center;font-size:13px;color:var(--muted)}
 footer a{color:var(--muted)}
 .hidden{display:none}
-.legal-zone{background:#F1F5F9;border-top:1px solid var(--line);padding:32px 0;margin-top:32px}
-.legal-zone-inner{max-width:760px;margin:0 auto;padding:0 24px;font-size:12px;color:#475569;line-height:1.75}
-.legal-zone-inner strong{color:var(--ink);font-weight:700;display:block;margin-bottom:6px;font-size:13px}
+
+/* 4-blok legal footer */
+.servchk-legal-zone{background:#F1F5F9;border-top:1px solid var(--line);padding:40px 0;margin-top:32px}
+.servchk-legal-inner{max-width:760px;margin:0 auto;padding:0 24px}
+.servchk-legal-inner h3{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:18px;letter-spacing:-.01em}
+.servchk-legal-block{margin-bottom:18px;font-size:12.5px;color:#475569;line-height:1.75}
+.servchk-legal-block:last-child{margin-bottom:0}
+.servchk-legal-block strong{color:var(--ink);font-weight:700;display:block;margin-bottom:5px;font-size:13px}
+.servchk-legal-block a{color:var(--blue);text-decoration:none}
+.servchk-legal-block a:hover{text-decoration:underline}
+
 .cookie-strip{background:#F8FAFC;border-top:1px solid var(--line);padding:14px 24px;text-align:center;font-size:12px;color:#475569;line-height:1.5}
 .cookie-strip a{color:var(--blue);text-decoration:none}
 .update-stamp{text-align:center;font-size:11px;color:var(--muted);padding:18px 24px 0;font-style:italic}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Servicekosten Checker",
+  "description": "Check welke servicekosten wettelijk zijn toegestaan en welke niet. Op basis van het Besluit Servicekosten en uitspraken van de Huurcommissie.",
+  "url": "https://fixlify.nl/servicekosten-checker.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+  "publisher": {"@type": "Organization", "name": "Fixlify", "url": "https://fixlify.nl"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Mag een verhuurder de servicekosten zomaar verhogen?", "acceptedAnswer": {"@type": "Answer", "text": "Servicekosten mogen alleen worden verhoogd als de werkelijke kosten gestegen zijn, onderbouwd met facturen. Verhogingen meer dan 10% per post moeten extra worden onderbouwd."}},
+    {"@type": "Question", "name": "Mag mijn verhuurder weigeren mij de facturen te laten zien?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Je hebt wettelijk recht op inzage in de onderliggende facturen van de servicekosten."}},
+    {"@type": "Question", "name": "Kan ik onterechte servicekosten met terugwerkende kracht terugvragen?", "acceptedAnswer": {"@type": "Answer", "text": "In beginsel kun je tot 2,5 jaar terug procederen bij de Huurcommissie over teveel betaalde servicekosten."}},
+    {"@type": "Question", "name": "Mijn huur is all-in. Mag dat?", "acceptedAnswer": {"@type": "Answer", "text": "Sinds 2024 is all-in huur niet meer toegestaan voor nieuwe contracten. Voor lopende contracten moet de verhuurder huur en servicekosten apart specificeren."}}
+  ]
+}
+</script>
 </head>
 <body>
 <div class="disclaimer-bar">ℹ️ Indicatieve check op basis van publieke regels — <strong>geen juridisch advies</strong>.</div>
 <nav><div class="nav-inner"><a href="/" class="logo"><span class="logo-dot"></span>fixlify</a><a href="/" class="back-link">← Alle tools</a></div></nav>
 
 <section class="hero">
-<span class="hero-eyebrow">100% gratis · Officiële Huurcommissie regels</span>
+<span class="hero-eyebrow">100% gratis · Op basis van Huurcommissie-regels</span>
 <h1>Mag dit eigenlijk wel <em>op je servicekosten</em>?</h1>
-<p>Check in 2 minuten of je verhuurder wettelijk toegestane servicekosten rekent. Op basis van het officiële Besluit Servicekosten 2026.</p>
-<p class="hero-disclaimer">Indicatieve check op basis van publieke regels van de Huurcommissie. Voor jouw specifieke situatie kun je een procedure starten of advies vragen aan het Juridisch Loket.</p>
+<p>Check in 2 minuten of je verhuurder doorgaans toegestane servicekosten rekent. Op basis van het Besluit Servicekosten.</p>
+<p class="hero-disclaimer">Indicatieve check op basis van publieke regels. Voor jouw specifieke situatie kun je een procedure starten bij de Huurcommissie of advies vragen aan het Juridisch Loket.</p>
 </section>
 
 <div class="card">
@@ -185,8 +227,8 @@ footer a{color:var(--muted)}
 </select>
 </div>
 
-<div class="section-title">Wettelijk TOEGESTANE servicekosten</div>
-<p style="font-size:12px;color:var(--muted);margin-bottom:14px">Deze kosten mag een verhuurder doorberekenen, mits onderbouwd met facturen.</p>
+<div class="section-title">Doorgaans TOEGESTANE servicekosten</div>
+<p style="font-size:12px;color:var(--muted);margin-bottom:14px">Deze kosten mag een verhuurder in beginsel doorberekenen, mits onderbouwd met facturen.</p>
 
 <div class="cost-item" data-type="allowed" data-cost="schoonmaak">
 <input type="checkbox" id="cost-schoonmaak" onchange="toggleCost(this)">
@@ -237,7 +279,7 @@ footer a{color:var(--muted)}
 <input type="checkbox" id="cost-meubels" onchange="toggleCost(this)">
 <div class="info">
 <div class="info-name">Meubilair (gemeubileerde verhuur)</div>
-<div class="info-desc">Max 20% van inkoopwaarde per jaar, 5 jaar lang</div>
+<div class="info-desc">Doorgaans max 20% van inkoopwaarde per jaar, 5 jaar lang</div>
 </div>
 <div class="amount"><span class="prefix">€</span><input type="number" id="amt-meubels" placeholder="0" min="0" step="1"><span class="currency">/mnd</span></div>
 </div>
@@ -255,13 +297,13 @@ footer a{color:var(--muted)}
 <input type="checkbox" id="cost-admin" onchange="toggleCost(this)">
 <div class="info">
 <div class="info-name">Administratiekosten servicekosten</div>
-<div class="info-desc">Max 5% van totale servicekosten</div>
+<div class="info-desc">In beginsel max 5% van totale servicekosten</div>
 </div>
 <div class="amount"><span class="prefix">€</span><input type="number" id="amt-admin" placeholder="0" min="0" step="1"><span class="currency">/mnd</span></div>
 </div>
 
-<div class="section-title" style="color:var(--red)">⚠️ Wettelijk NIET toegestane kosten</div>
-<p style="font-size:12px;color:var(--muted);margin-bottom:14px">Deze kosten mag een verhuurder NIET doorberekenen als servicekosten. Vink aan als je dit op je rekening ziet staan.</p>
+<div class="section-title" style="color:var(--red)">⚠️ Doorgaans NIET toegestane kosten</div>
+<p style="font-size:12px;color:var(--muted);margin-bottom:14px">Deze kosten mag een verhuurder doorgaans NIET doorberekenen als servicekosten. Vink aan als je dit op je rekening ziet staan.</p>
 
 <div class="cost-item" data-type="notallowed" data-cost="ozb">
 <input type="checkbox" id="cost-ozb" onchange="toggleCost(this)">
@@ -294,7 +336,7 @@ footer a{color:var(--muted)}
 <input type="checkbox" id="cost-vve" onchange="toggleCost(this)">
 <div class="info">
 <div class="info-name">VvE-bijdrage (volledig)</div>
-<div class="info-desc">Alleen het servicegerichte deel mag, reserveringen niet</div>
+<div class="info-desc">Doorgaans alleen het servicegerichte deel mag, reserveringen niet</div>
 </div>
 <div class="amount"><span class="prefix">€</span><input type="number" id="amt-vve" placeholder="0" min="0" step="1"><span class="currency">/mnd</span></div>
 </div>
@@ -331,12 +373,12 @@ footer a{color:var(--muted)}
 <strong>📋 Op basis van:</strong>
 <ul>
 <li>Besluit Servicekosten (Burgerlijk Wetboek artikel 7:237)</li>
-<li>Beleidsboek Servicekosten Huurcommissie 2026</li>
-<li>Wet Goed Verhuurderschap (1 juli 2023)</li>
-<li>Verhuurder mag GEEN winst maken op servicekosten</li>
-<li>Alle kosten moeten onderbouwd zijn met facturen</li>
+<li>Beleidsboek Servicekosten Huurcommissie</li>
+<li>Wet Goed Verhuurderschap (sinds 1 juli 2023)</li>
+<li>Verhuurder mag in beginsel geen winst maken op servicekosten</li>
+<li>Kosten dienen onderbouwd te zijn met facturen</li>
 <li>Jaarlijkse afrekening is wettelijk verplicht</li>
-<li>All-in huur is sinds 2024 verboden</li>
+<li>All-in huur is sinds 2024 doorgaans niet meer toegestaan</li>
 </ul>
 </div>
 
@@ -347,29 +389,34 @@ footer a{color:var(--muted)}
 </div>
 
 <div class="disclaimer">
-<strong>Let op:</strong> deze tool geeft een indicatie. Voor een definitief oordeel kun je een procedure starten bij de <a href="https://www.huurcommissie.nl" target="_blank" rel="noopener">Huurcommissie</a> (tot 2,5 jaar na afloop van het betreffende jaar). Bij twijfel raadpleeg het <a href="https://www.juridischloket.nl" target="_blank" rel="noopener">Juridisch Loket</a> (gratis) of de <a href="https://www.woonbond.nl" target="_blank" rel="noopener">Woonbond</a>.
+<strong>Let op:</strong> deze tool geeft een indicatie. Voor een definitief oordeel kun je een procedure starten bij de <a href="https://www.huurcommissie.nl" target="_blank" rel="noopener">Huurcommissie</a>. Bij twijfel raadpleeg het <a href="https://www.juridischloket.nl" target="_blank" rel="noopener">Juridisch Loket</a> (gratis) of de <a href="https://www.woonbond.nl" target="_blank" rel="noopener">Woonbond</a>.
 </div>
 
-<!-- ===================== SERVCHK SEO CONTENT ===================== -->
 <section class="servchk-zone">
 <div class="servchk-wrap">
 
 <span class="servchk-banner">Gids: servicekosten in NL</span>
 
 <h2>Waarom betalen huurders teveel servicekosten?</h2>
-<p>Volgens een onderzoek van de Woonbond uit 2023 betaalde gemiddeld <strong>één op de vier huurders</strong> in de gereguleerde sector teveel servicekosten — zonder het te weten. Het gaat dan om bedragen tussen €15 en €120 per maand die feitelijk voor rekening van de verhuurder horen te komen, maar door slordigheid of bewust verkeerd op de afrekening belanden.</p>
-<p>Servicekosten zijn alle bedragen die je naast de kale huur betaalt voor diensten en gemeenschappelijke voorzieningen: schoonmaak van het trappenhuis, een huismeester, tuinonderhoud, of stroom voor de hal. Het idee is helder: jij betaalt mee aan diensten waar je gebruik van maakt. Wat <strong>niet</strong> mag: de verhuurder zijn eigen kosten doorrekenen, zoals OZB, opstalverzekering of groot onderhoud aan het pand.</p>
+
+<div class="servchk-affiliate-notice">
+<strong>💡 Transparantie over deze pagina</strong>
+Deze pagina bevat affiliate-links naar onder andere <a href="https://www.vattenfall.nl" target="_blank" rel="sponsored noopener">Vattenfall</a>, <a href="https://www.123wonen.nl" target="_blank" rel="sponsored noopener">123Wonen</a> en <a href="https://www.makelaarzoeker.nl" target="_blank" rel="sponsored noopener">Makelaarzoeker</a>. Als je via zo'n link iets afsluit of aanvraagt, kan Fixlify een kleine vergoeding ontvangen — dit kost jou niets extra en heeft geen invloed op de uitkomst van de check of de inhoud op deze pagina. Vergelijk altijd zelf meerdere aanbieders voordat je een keuze maakt.
+</div>
+
+<p>Volgens publicaties van de Woonbond betaalt een aanzienlijk deel van de huurders in de gereguleerde sector teveel servicekosten — vaak zonder het te weten. Het gaat dan om bedragen die feitelijk voor rekening van de verhuurder horen te komen, maar door slordigheid of onbekendheid met de regels op de afrekening belanden. Hoe groot het probleem precies is, hangt af van verhuurder en regio.</p>
+<p>Servicekosten zijn de bedragen die je naast de kale huur betaalt voor diensten en gemeenschappelijke voorzieningen: schoonmaak van het trappenhuis, een huismeester, tuinonderhoud, of stroom voor de hal. Het idee is helder: jij betaalt mee aan diensten waar je gebruik van maakt. Wat doorgaans <strong>niet</strong> mag: de verhuurder zijn eigen kosten doorrekenen, zoals OZB, opstalverzekering of groot onderhoud aan het pand.</p>
 
 <div class="servchk-lawnote">
 <strong>⚖️ Wet Goed Verhuurderschap (sinds 1 juli 2023)</strong>
-Verhuurders zijn sinds 2023 wettelijk verplicht om jaarlijks vóór 1 juli een gedetailleerde afrekening te sturen van álle servicekosten van het voorgaande jaar. Doet je verhuurder dit niet? Dan mag jij de servicekosten <strong>opschorten</strong> tot de afrekening er is. Bovendien kan een verhuurder beboet worden door de gemeente. Sinds 2024 is "all-in huur" (één bedrag voor alles) bovendien volledig verboden.
+Verhuurders zijn sinds 2023 doorgaans verplicht om jaarlijks vóór een bepaalde datum een gedetailleerde afrekening te sturen van álle servicekosten van het voorgaande jaar. Doet je verhuurder dit niet? Dan mag je in beginsel de servicekosten <strong>opschorten</strong> tot de afrekening er is. Bovendien kan een verhuurder in voorkomende gevallen worden beboet door de gemeente. Sinds 2024 is "all-in huur" voor nieuwe contracten doorgaans niet meer toegestaan.
 </div>
 
 <h2>Het verschil: wel toegestaan vs. niet toegestaan</h2>
 
 <div class="servchk-yes-no">
 <div class="servchk-col-yes">
-<h4>✓ Mag wel</h4>
+<h4>✓ Mag doorgaans wel</h4>
 <ul>
 <li>Schoonmaak gemeenschappelijke ruimtes</li>
 <li>Huismeester (alleen huurder-uren)</li>
@@ -383,7 +430,7 @@ Verhuurders zijn sinds 2023 wettelijk verplicht om jaarlijks vóór 1 juli een g
 </ul>
 </div>
 <div class="servchk-col-no">
-<h4>✕ Mag niet</h4>
+<h4>✕ Mag doorgaans niet</h4>
 <ul>
 <li>OZB-eigenarendeel</li>
 <li>Opstalverzekering (van pand)</li>
@@ -399,45 +446,52 @@ Verhuurders zijn sinds 2023 wettelijk verplicht om jaarlijks vóór 1 juli een g
 </div>
 
 <h2>Hoe de jaarafrekening eruit moet zien</h2>
-<p>Een correcte jaarafrekening servicekosten bevat verplicht de volgende onderdelen:</p>
+<p>Een correcte jaarafrekening servicekosten bevat in beginsel de volgende onderdelen:</p>
 <ol>
 <li><strong>Specificatie per kostenpost</strong> — niet "schoonmaak €50/maand" maar "schoonmaak: facturen schoonmaakbedrijf X t.h.v. €1.247 per jaar"</li>
 <li><strong>Verdeelsleutel</strong> — hoe is jouw aandeel berekend? Naar oppervlakte, aantal personen of gelijke verdeling?</li>
-<li><strong>Onderliggende facturen</strong> — op verzoek moet de verhuurder die laten zien (let op: geen kopie, alleen inzage)</li>
-<li><strong>Vergelijking voorgaand jaar</strong> — verhoging meer dan 10% per post moet onderbouwd zijn</li>
+<li><strong>Onderliggende facturen</strong> — op verzoek moet de verhuurder doorgaans inzage geven (let op: geen kopie, alleen inzage)</li>
+<li><strong>Vergelijking voorgaand jaar</strong> — substantiële verhogingen per post moeten onderbouwd zijn</li>
 <li><strong>Saldo</strong> — wat heb je vooruitbetaald, wat zijn de werkelijke kosten, wat krijg je terug of moet je bijbetalen</li>
 </ol>
 
 <div class="servchk-tip">
 <strong>💡 Praktische tip</strong>
-Vraag elk jaar in juli per email aan je verhuurder de "specificatie servicekosten met onderliggende facturen". Bewaar deze vraag — het bewijs dat je het hebt opgevraagd is later nuttig. Je verhuurder is verplicht binnen 4 weken te reageren.
+Vraag jaarlijks per email aan je verhuurder de "specificatie servicekosten met onderliggende facturen". Bewaar deze vraag — het bewijs dat je het hebt opgevraagd is later nuttig bij een eventuele procedure. Volgens gangbare regelgeving moet je verhuurder binnen een redelijke termijn reageren.
 </div>
 
+<h2>Energie en servicekosten: blokverwarming versus eigen contract</h2>
+<p>In appartementencomplexen met blokverwarming worden gas, water en licht doorgaans via de servicekosten verdeeld op basis van werkelijk verbruik. Heb je een eigen meter en eigen energiecontract? Dan staat dit los van de servicekosten en bepaal je zelf bij welke leverancier je afneemt. Vergelijken loont — bij <a href="https://www.vattenfall.nl" target="_blank" rel="sponsored noopener">Vattenfall</a> en andere leveranciers kun je doorgaans een offerte aanvragen op basis van het werkelijke verbruik van je woning. Check altijd meerdere aanbieders.</p>
+<p>Belangrijk: als je verhuurder bij blokverwarming substantieel hogere bedragen rekent dan een normaal energiecontract, vraag dan om de onderliggende factuur van de energieleverancier. Volgens de regels mag de verhuurder geen winst maken op het doorberekenen van energie.</p>
+
 <h2>Veelgemaakte fouten op afrekeningen — wat te zoeken</h2>
-<p>Op basis van uitspraken van de Huurcommissie zijn dit de fouten die het vaakst voorkomen op servicekostenrekeningen — let hier extra op:</p>
+<p>Op basis van uitspraken van de Huurcommissie zijn dit de fouten die regelmatig voorkomen op servicekostenrekeningen — let hier extra op:</p>
 
 <h3>1. Boekhouder of administratie van de verhuurder</h3>
-<p>Sommige verhuurders rekenen "administratiekosten verhuurmanagement" door. Dat is niet hetzelfde als de toegestane administratiekosten servicekosten (max 5%). Eigen administratie van een verhuurder valt onder zijn bedrijfskosten en mag NIET worden doorberekend.</p>
+<p>Sommige verhuurders rekenen "administratiekosten verhuurmanagement" door. Dat is niet hetzelfde als de toegestane administratiekosten servicekosten (in beginsel max 5%). Eigen administratie van een verhuurder valt onder zijn bedrijfskosten en mag doorgaans NIET worden doorberekend.</p>
 
 <h3>2. "Reserveringen voor groot onderhoud"</h3>
-<p>Bij appartementen rekenen verhuurders soms VvE-bijdragen door, inclusief reserveringen voor toekomstig groot onderhoud (€20-€80/mnd). Alleen het deel voor lopend onderhoud en gemeenschappelijke diensten mag — niet de reserveringen voor de toekomst.</p>
+<p>Bij appartementen rekenen verhuurders soms VvE-bijdragen door, inclusief reserveringen voor toekomstig groot onderhoud. In beginsel mag alleen het deel voor lopend onderhoud en gemeenschappelijke diensten — niet de reserveringen voor de toekomst.</p>
 
 <h3>3. Verkeerde verdeelsleutel</h3>
-<p>In een appartementencomplex met 20 woningen, betaalt elke huurder 1/20 van de servicekosten? Niet noodzakelijk — bij grote verschillen in oppervlakte mag het naar m² verdeeld worden. Heeft jouw woning bovengemiddeld geprofiteerd van schoonmaak omdat 'ie groter is? Dan klopt jouw aandeel mogelijk wél. Maar de verdeelsleutel moet wel transparant zijn.</p>
+<p>In een appartementencomplex met meerdere woningen mag de verdeling op verschillende manieren: gelijk verdeeld, naar oppervlakte of naar aantal bewoners. Welke verdeelsleutel toegepast wordt, moet transparant zijn in de afrekening. Vraag bij twijfel om uitleg.</p>
 
 <h3>4. Voorschotten die structureel veel hoger zijn dan werkelijke kosten</h3>
-<p>Als je elk jaar honderden euro's terugkrijgt bij de afrekening, betekent dat: je voorschot is te hoog. Verhuurder is wettelijk verplicht het voorschot aan te passen aan de werkelijke kosten. Vraag hier expliciet om verlaging.</p>
+<p>Als je elk jaar honderden euro's terugkrijgt bij de afrekening, betekent dat: je voorschot is te hoog. Verhuurder is in beginsel verplicht het voorschot aan te passen aan de werkelijke kosten. Vraag hier expliciet om verlaging.</p>
 
 <h2>Wat als je teveel betaalt? Het stappenplan</h2>
-<p>Heb je via de check vastgesteld dat er onterecht doorberekende kosten zijn? Het volgende stappenplan helpt je terug te krijgen wat van jou is — vaak tot 2,5 jaar terug:</p>
+<p>Heb je via de check vastgesteld dat er mogelijk onterecht doorberekende kosten zijn? Het volgende stappenplan helpt je terug te krijgen wat van jou is — doorgaans tot een aantal jaren terug, afhankelijk van de situatie:</p>
 <ol>
-<li><strong>Vraag specificatie en facturen op</strong> per email aan je verhuurder. Geef hem 4 weken.</li>
-<li><strong>Krijg je geen reactie?</strong> Stuur een herinnering met aangetekende post. Verwijs naar Wet Goed Verhuurderschap.</li>
-<li><strong>Onderbouw je bezwaar</strong> in een bezwaarbrief met specifieke posten. "OZB €15/mnd: dit is wettelijk niet toegestaan, zie BW 7:237."</li>
-<li><strong>Bij geen oplossing:</strong> dien een procedure in bij de Huurcommissie via huurcommissie.nl. Kosten: €25 (vaak terug bij gelijk).</li>
-<li><strong>Wacht uitspraak af</strong> — gemiddeld 4-6 maanden voor servicekostenzaken.</li>
-<li><strong>Verhuurder moet binnen 4 weken</strong> teveel betaalde bedragen terugstorten na uitspraak.</li>
+<li><strong>Vraag specificatie en facturen op</strong> per email aan je verhuurder. Geef hem een redelijke termijn.</li>
+<li><strong>Krijg je geen reactie?</strong> Stuur een herinnering met aangetekende post. Verwijs naar de Wet Goed Verhuurderschap.</li>
+<li><strong>Onderbouw je bezwaar</strong> in een bezwaarbrief met specifieke posten en verwijzing naar de regelgeving.</li>
+<li><strong>Bij geen oplossing:</strong> dien een procedure in bij de Huurcommissie via huurcommissie.nl.</li>
+<li><strong>Wacht uitspraak af</strong> — verwerking neemt doorgaans enkele maanden.</li>
+<li><strong>Verhuurder moet na uitspraak</strong> doorgaans teveel betaalde bedragen terugstorten.</li>
 </ol>
+
+<h3>Overweeg je te verhuizen?</h3>
+<p>Als de servicekosten-problemen aanhouden en je verhuurder niet meewerkt, is verhuizen soms de pragmatische optie. Voor wie een nieuwe huurwoning zoekt, hebben platforms als <a href="https://www.123wonen.nl" target="_blank" rel="sponsored noopener">123Wonen</a> aanbod in meerdere steden. Voor wie liever stopt met huren en de stap naar kopen overweegt: via <a href="https://www.makelaarzoeker.nl" target="_blank" rel="sponsored noopener">Makelaarzoeker</a> kun je makelaars in jouw regio vergelijken. Vergelijk altijd zelf meerdere aanbieders en check of de makelaar NVM-, VBO- of VastgoedPRO-aangesloten is.</p>
 
 <h2>Veelgestelde vragen — servicekosten</h2>
 
@@ -446,28 +500,28 @@ Vraag elk jaar in juli per email aan je verhuurder de "specificatie servicekoste
 <div class="servchk-numbered-faq-item">
 <div class="qa-content">
 <h4>Mag een verhuurder de servicekosten zomaar verhogen?</h4>
-<p>Servicekosten mogen alleen worden verhoogd als de werkelijke kosten gestegen zijn (en dat onderbouwd is met facturen). Een verhuurder mag dus niet zomaar met inflatie meegaan zonder te bewijzen dat zijn kosten ook echt gestegen zijn. Bij twijfel: vraag specificatie. Verhogingen meer dan 10% per post moeten extra onderbouwd worden.</p>
+<p>Servicekosten mogen in beginsel alleen worden verhoogd als de werkelijke kosten gestegen zijn (en dat onderbouwd is met facturen). Een verhuurder mag dus niet zomaar met inflatie meegaan zonder te bewijzen dat zijn kosten ook echt gestegen zijn. Bij twijfel: vraag specificatie. Substantiële verhogingen per post moeten extra onderbouwd worden.</p>
 </div>
 </div>
 
 <div class="servchk-numbered-faq-item">
 <div class="qa-content">
 <h4>Wat is het verschil tussen servicekosten en huurkosten?</h4>
-<p>De kale huur is de prijs voor het gebruik van de woning zelf. Servicekosten zijn vergoedingen voor diensten en gemeenschappelijke voorzieningen daarbovenop. Bij toetsing van de huurprijs (puntensysteem) telt alleen de kale huur. Servicekosten worden apart beoordeeld door de Huurcommissie.</p>
+<p>De kale huur is de prijs voor het gebruik van de woning zelf. Servicekosten zijn vergoedingen voor diensten en gemeenschappelijke voorzieningen daarbovenop. Bij toetsing van de huurprijs (puntensysteem) telt in beginsel alleen de kale huur. Servicekosten worden apart beoordeeld door de Huurcommissie.</p>
 </div>
 </div>
 
 <div class="servchk-numbered-faq-item">
 <div class="qa-content">
 <h4>Mag mijn verhuurder weigeren mij de facturen te laten zien?</h4>
-<p>Nee. Je hebt wettelijk recht op inzage in de onderliggende facturen van de servicekosten — niet op kopieën, maar op inzage. Een verhuurder die dit weigert overtreedt de wet. Vraag het schriftelijk per email of brief aan, dan heb je bewijs als je later naar de Huurcommissie gaat.</p>
+<p>Doorgaans niet. Je hebt wettelijk recht op inzage in de onderliggende facturen van de servicekosten — niet op kopieën, maar op inzage. Vraag het schriftelijk per email of brief aan, dan heb je bewijs als je later naar de Huurcommissie gaat.</p>
 </div>
 </div>
 
 <div class="servchk-numbered-faq-item">
 <div class="qa-content">
 <h4>Kan ik onterechte servicekosten met terugwerkende kracht terugvragen?</h4>
-<p>Ja, tot 2,5 jaar terug. Sinds de afrekening over een jaar moet binnen 6 maanden plaatsvinden, en je hebt 2 jaar om bezwaar te maken bij de Huurcommissie. Voor 2024 betekent dit: tot eind 2026 kun je nog procederen over teveel betaalde servicekosten.</p>
+<p>In beginsel kun je tot enkele jaren terug procederen. Sinds de afrekening over een jaar binnen een bepaalde termijn moet plaatsvinden, heb je daarna nog tijd om bezwaar te maken bij de Huurcommissie. Voor actuele termijnen: zie huurcommissie.nl.</p>
 </div>
 </div>
 
@@ -481,21 +535,21 @@ Vraag elk jaar in juli per email aan je verhuurder de "specificatie servicekoste
 <div class="servchk-numbered-faq-item">
 <div class="qa-content">
 <h4>Geldt deze check ook voor de vrije sector?</h4>
-<p>Ja, gedeeltelijk. Ook in de vrije sector gelden regels voor wat wel en niet als servicekosten mag worden gerekend. De Huurcommissie kan in de vrije sector geen uitspraak doen over de huurprijs zelf, maar wél over servicekosten. Voor het overige geldt: de regels uit het Besluit Servicekosten gelden voor alle huurwoningen in Nederland.</p>
+<p>Ja, gedeeltelijk. Ook in de vrije sector gelden regels voor wat wel en niet als servicekosten mag worden gerekend. De Huurcommissie kan in de vrije sector geen uitspraak doen over de kale huurprijs zelf, maar wél over servicekosten. De regels uit het Besluit Servicekosten gelden in beginsel voor alle huurwoningen in Nederland.</p>
 </div>
 </div>
 
 <div class="servchk-numbered-faq-item">
 <div class="qa-content">
 <h4>Mijn huur is "all-in" — alles in één bedrag. Mag dat?</h4>
-<p>Sinds 2024 is een all-in huurprijs niet meer toegestaan voor nieuwe contracten. Voor lopende contracten moet de verhuurder op verzoek de huur en servicekosten apart specificeren. Doet hij dat niet? Dan kan de Huurcommissie de huur opsplitsen — meestal in jouw voordeel, omdat de bewijslast bij de verhuurder ligt.</p>
+<p>Sinds 2024 is een all-in huurprijs voor nieuwe contracten doorgaans niet meer toegestaan. Voor lopende contracten moet de verhuurder op verzoek de huur en servicekosten apart specificeren. Doet hij dat niet? Dan kan de Huurcommissie de huur opsplitsen — in de praktijk meestal in het voordeel van de huurder, omdat de bewijslast bij de verhuurder ligt.</p>
 </div>
 </div>
 
 <div class="servchk-numbered-faq-item">
 <div class="qa-content">
 <h4>Mag een verhuurder een "verhuurmakelaar" of "beheerder" doorbelasten?</h4>
-<p>Nee. De kosten van een verhuurmakelaar of vastgoedbeheerder zijn voor rekening van de verhuurder zelf — dit zijn zijn bedrijfskosten. Het is een veelgemaakte fout om deze door te berekenen. Soms gebeurt dit verkapt onder "administratiekosten" — let hier dus extra op.</p>
+<p>Doorgaans niet. De kosten van een verhuurmakelaar of vastgoedbeheerder zijn voor rekening van de verhuurder zelf — dit zijn zijn bedrijfskosten. Het is een veelgemaakte fout om deze door te berekenen. Soms gebeurt dit verkapt onder "administratiekosten" — let hier dus extra op.</p>
 </div>
 </div>
 
@@ -503,22 +557,41 @@ Vraag elk jaar in juli per email aan je verhuurder de "specificatie servicekoste
 
 <div class="servchk-related-block">
 <h3>🔗 Andere tools die je verder kunnen helpen</h3>
-<p>Heb je een huurprobleem? Deze tools helpen je orientatie:</p>
+<p>Heb je een huurprobleem? Deze tools helpen je oriënteren:</p>
 <div class="servchk-related-grid">
 <a href="/huurcheck.html" class="servchk-related-link"><strong>🏠 Huurcheck</strong><span>Betaal je teveel kale huur?</span></a>
-<a href="/woz-bezwaar.html" class="servchk-related-link"><strong>📄 WOZ-Bezwaar</strong><span>WOZ verlaagt ook je punten</span></a>
-<a href="/hypotheek-vs-huur.html" class="servchk-related-link"><strong>📊 Kopen vs Huren</strong><span>Loont kopen op lange termijn?</span></a>
+<a href="/kopen-of-huren.html" class="servchk-related-link"><strong>📊 Kopen vs Huren</strong><span>Loont kopen op lange termijn?</span></a>
 <a href="/nettoloon.html" class="servchk-related-link"><strong>💰 Nettoloon</strong><span>Wat blijft er over per maand?</span></a>
+<a href="/btw.html" class="servchk-related-link"><strong>📋 BTW Calculator</strong><span>BTW snel uitrekenen</span></a>
 </div>
 </div>
 
 </div>
 </section>
 
-<section class="legal-zone">
-<div class="legal-zone-inner">
-<strong>Disclaimer en bronnen</strong>
-De Servicekosten Checker van FixlifyNL is een hulpmiddel waarmee je een eerste indicatie krijgt van welke servicekosten wettelijk wel of niet zijn toegestaan. <strong style="display:inline">Deze tool vervangt geen juridisch advies en is geen formele juridische uitspraak</strong>. De inhoud is gebaseerd op het Besluit Servicekosten (BW 7:237), het Beleidsboek Servicekosten van de Huurcommissie 2026 en de Wet Goed Verhuurderschap (1 juli 2023). De regels rond servicekosten kennen veel uitzonderingen en context-afhankelijke interpretaties — voor jouw specifieke situatie is een individuele beoordeling nodig. Voor een definitief oordeel kun je een procedure starten bij de <a href="https://www.huurcommissie.nl" target="_blank" rel="noopener">Huurcommissie</a>. Bij twijfel raden we aan contact op te nemen met het <a href="https://www.juridischloket.nl" target="_blank" rel="noopener">Juridisch Loket</a> (gratis), de <a href="https://www.woonbond.nl" target="_blank" rel="noopener">Woonbond</a> of een huurteam van je gemeente. Aan de uitkomsten van deze tool kunnen geen rechten worden ontleend en gebruik is op eigen verantwoordelijkheid.
+<section class="servchk-legal-zone">
+<div class="servchk-legal-inner">
+<h3>Belangrijk om te lezen — disclaimer en aansprakelijkheid</h3>
+
+<div class="servchk-legal-block">
+<strong>Geen juridisch advies.</strong>
+De Servicekosten Checker, de uitkomsten en alle informatie in de blog op deze pagina zijn uitsluitend bedoeld als algemeen, oriënterend hulpmiddel. Deze tool en de bijbehorende uitleg vervangen géén juridisch of professioneel advies. Voor een definitieve beoordeling van jouw situatie raden we aan contact op te nemen met de <a href="https://www.huurcommissie.nl" target="_blank" rel="noopener">Huurcommissie</a>, het <a href="https://www.juridischloket.nl" target="_blank" rel="noopener">Juridisch Loket</a> (gratis), de <a href="https://www.woonbond.nl" target="_blank" rel="noopener">Woonbond</a> of een gespecialiseerde huurrechtadvocaat. Een huurteam van je gemeente kan ook gratis ondersteuning bieden.
+</div>
+
+<div class="servchk-legal-block">
+<strong>Mogelijke onjuistheden in de check en blog.</strong>
+De Servicekosten Checker is een indicatieve beoordeling op basis van publieke richtlijnen, het Besluit Servicekosten (BW 7:237), het Beleidsboek Servicekosten van de Huurcommissie en de door jou aangevinkte posten. Het officiële oordeel vindt plaats tijdens een procedure bij de Huurcommissie en kan afwijken van onze uitkomst. De informatie in de blogtekst, FAQ en overige uitleg op deze pagina is met zorg samengesteld op basis van publiek beschikbare bronnen, maar kan onjuistheden, verouderde gegevens of onvolledigheden bevatten. Wet- en regelgeving rondom huur, servicekosten, Wet Goed Verhuurderschap en de Wet betaalbare huur wijzigen regelmatig. Aan de inhoud van deze pagina, de check-uitkomst of de blog kunnen géén rechten worden ontleend.
+</div>
+
+<div class="servchk-legal-block">
+<strong>Uitsluiting aansprakelijkheid.</strong>
+Het gebruik van deze tool en de informatie op deze pagina is volledig op eigen risico en eigen verantwoordelijkheid. Fixlify aanvaardt geen aansprakelijkheid voor directe of indirecte schade — waaronder gemiste rechten, gemiste termijnen, financiële schade of juridische gevolgen — voortvloeiend uit het gebruik van de Servicekosten Checker of de informatie in de blog. Gebruikers worden geacht zelf de actualiteit en juistheid van de informatie te verifiëren bij officiële bronnen voordat zij hierop handelen, en bij belangrijke beslissingen altijd een onafhankelijk adviseur te raadplegen.
+</div>
+
+<div class="servchk-legal-block">
+<strong>Affiliate-disclosure.</strong>
+Sommige links op deze pagina (zoals naar <a href="https://www.vattenfall.nl" target="_blank" rel="sponsored noopener">Vattenfall</a>, <a href="https://www.123wonen.nl" target="_blank" rel="sponsored noopener">123Wonen</a> en <a href="https://www.makelaarzoeker.nl" target="_blank" rel="sponsored noopener">Makelaarzoeker</a>) zijn affiliate-links. Wanneer je via zo'n link een aankoop doet, een dienst afneemt of een contract afsluit, kan Fixlify een kleine vergoeding ontvangen. Dit kost jou niets extra en heeft geen invloed op de inhoud van de Servicekosten Checker of de informatie op deze pagina. Fixlify is niet verbonden aan deze partijen anders dan via de affiliate-samenwerking en geeft geen oordeel over de geschiktheid van hun diensten voor jouw situatie. Vergelijk altijd zelf meerdere aanbieders.
+</div>
 </div>
 </section>
 
@@ -528,14 +601,14 @@ De Servicekosten Checker van FixlifyNL is een hulpmiddel waarmee je een eerste i
 🔒 Deze site gebruikt alleen functionele opslag — geen tracking, geen analytics. <a href="/privacy.html">Privacyverklaring</a>.
 </div>
 
-<footer>© 2026 FixlifyNL · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></footer>
+<footer>© 2026 Fixlify · Leeuwarden · KvK 77981197 · BTW NL003270597B29 · <a href="/privacy.html">Privacy</a> · <a href="/voorwaarden.html">Voorwaarden</a></footer>
 
 <script>
 function toggleCost(el){const item=el.closest('.cost-item');if(el.checked){item.classList.add('checked')}else{item.classList.remove('checked');const amountInput=item.querySelector('input[type="number"]');if(amountInput)amountInput.value=''}}
 function val(id){return parseFloat(document.getElementById(id).value)||0}
 function isChecked(id){return document.getElementById(id).checked}
 function fmt(n){return'€'+Math.round(n).toLocaleString('nl-NL')}
-function bereken(){const allowedCosts=[{id:'schoonmaak',name:'Schoonmaak gemeenschappelijke ruimtes',note:'Toegestaan, mits onderbouwd met facturen'},{id:'huismeester',name:'Huismeester',note:'Toegestaan, alleen voor huurder-gerelateerde uren'},{id:'elek',name:'Elektra gemeenschappelijke ruimtes',note:'Toegestaan, op basis van werkelijk verbruik'},{id:'tuin',name:'Tuinonderhoud gemeenschappelijke tuin',note:'Toegestaan voor gemeenschappelijke tuinen'},{id:'lift',name:'Liftonderhoud',note:'Onderhoud toegestaan, vervanging niet'},{id:'meubels',name:'Meubilair',note:'Max 20% inkoopwaarde/jaar, max 5 jaar'},{id:'gas',name:'Gas/water/licht (blokverwarming)',note:'Toegestaan op basis van werkelijk verbruik'},{id:'admin',name:'Administratiekosten',note:'Max 5% van totale servicekosten'}];const notAllowedCosts=[{id:'ozb',name:'OZB (Onroerend Zaak Belasting)',note:'Eigenarendeel mag NIET doorberekend worden'},{id:'opstal',name:'Opstalverzekering',note:'Verzekering van het pand is eigenaarslast'},{id:'grootonderhoud',name:'Groot onderhoud / vervanging',note:'Dak, gevel, CV-ketel = eigenaarslast'},{id:'vve',name:'VvE-bijdrage (volledig)',note:'Reserveringen voor groot onderhoud niet toegestaan'},{id:'rente',name:'Rente / financieringskosten',note:'Hypotheekkosten zijn voor verhuurder'},{id:'winst',name:'Beheerkosten / winstopslag',note:'Verhuurder mag GEEN winst maken'}];let toegestaanTotaal=0;let onterechtTotaal=0;let toegestaanItems=[];let onterechtItems=[];let warnings=[];allowedCosts.forEach(c=>{if(isChecked('cost-'+c.id)){const amt=val('amt-'+c.id);toegestaanTotaal+=amt;toegestaanItems.push({...c,amount:amt})}});notAllowedCosts.forEach(c=>{if(isChecked('cost-'+c.id)){const amt=val('amt-'+c.id);onterechtTotaal+=amt;onterechtItems.push({...c,amount:amt})}});if(isChecked('cost-admin')){const adminAmt=val('amt-admin');const totalServicekosten=toegestaanTotaal+onterechtTotaal;if(adminAmt>totalServicekosten*0.05){const allowedAdmin=totalServicekosten*0.05;const overAdmin=adminAmt-allowedAdmin;warnings.push({name:'Administratiekosten te hoog',note:`Max 5% van totaal = ${fmt(allowedAdmin)}/mnd. Je betaalt ${fmt(overAdmin)}/mnd teveel.`})}}if(toegestaanItems.length===0&&onterechtItems.length===0){alert('Vink eerst minimaal 1 servicekostenpost aan.');return}const card=document.getElementById('resultCard');card.classList.remove('hidden');let heroHTML='';if(onterechtTotaal>0){heroHTML=`<div class="result-hero problem"><div class="result-icon">⚠️</div><div class="result-headline">Onterechte servicekosten gevonden</div><div class="result-big">${fmt(onterechtTotaal)}/maand</div><p class="result-sub">Je betaalt mogelijk <strong>${fmt(onterechtTotaal*12)}</strong> per jaar voor kosten die je verhuurder niet mag doorberekenen. Je kunt dit tot 2,5 jaar terug terugvorderen.</p></div>`}else if(warnings.length>0){heroHTML=`<div class="result-hero warning"><div class="result-icon">⚠</div><div class="result-headline">Twijfelpunten gevonden</div><div class="result-big">Check je afrekening</div><p class="result-sub">Geen direct onterechte kosten, maar er zijn punten die extra aandacht verdienen. Vraag inzage in de facturen bij je verhuurder.</p></div>`}else{heroHTML=`<div class="result-hero ok"><div class="result-icon">✓</div><div class="result-headline">Servicekosten lijken in orde</div><div class="result-big">${fmt(toegestaanTotaal)}/maand</div><p class="result-sub">Alle aangevinkte kosten vallen binnen de wettelijke regels. Wel goed om jaarlijks de afrekening met facturen op te vragen ter controle.</p></div>`}document.getElementById('resultHero').innerHTML=heroHTML;let findingsHTML='';if(onterechtItems.length>0){findingsHTML+=`<div class="findings"><h3>❌ Niet toegestaan (${fmt(onterechtTotaal)}/mnd totaal)</h3>`;onterechtItems.forEach(item=>{findingsHTML+=`<div class="finding-item notallowed"><div class="desc"><strong>${item.name}</strong> — ${fmt(item.amount)}/mnd<br><span style="font-size:11px">${item.note}</span></div><div class="status">Onterecht</div></div>`});findingsHTML+=`</div>`}if(warnings.length>0){findingsHTML+=`<div class="findings"><h3>⚠️ Twijfelpunten</h3>`;warnings.forEach(item=>{findingsHTML+=`<div class="finding-item warning"><div class="desc"><strong>${item.name}</strong><br><span style="font-size:11px">${item.note}</span></div><div class="status">Check</div></div>`});findingsHTML+=`</div>`}if(toegestaanItems.length>0){findingsHTML+=`<div class="findings"><h3>✓ Wettelijk toegestaan (${fmt(toegestaanTotaal)}/mnd totaal)</h3>`;toegestaanItems.forEach(item=>{findingsHTML+=`<div class="finding-item allowed"><div class="desc"><strong>${item.name}</strong> — ${fmt(item.amount)}/mnd<br><span style="font-size:11px">${item.note}</span></div><div class="status">OK</div></div>`});findingsHTML+=`</div>`}document.getElementById('findingsContainer').innerHTML=findingsHTML;let actionHTML='';if(onterechtTotaal>0){actionHTML=`<strong>💡 Wat kun je doen?</strong><ol style="margin-top:10px;padding-left:20px;line-height:1.8"><li><strong>Vraag inzage in facturen</strong> — wettelijk recht, verhuurder moet dit geven</li><li><strong>Schrijf een brief naar je verhuurder</strong> — eis terugbetaling van onterechte kosten</li><li><strong>Procedure bij Huurcommissie</strong> — kost €25, vaak gratis bij gelijk</li><li><strong>Tot 2,5 jaar terug</strong> kun je geld terugvorderen</li><li><strong>Bij twijfel:</strong> bel het <strong>Juridisch Loket (0900-8020, gratis)</strong></li></ol>`}else if(warnings.length>0){actionHTML=`<strong>💡 Aanbeveling:</strong> Vraag de jaarafrekening met facturen op bij je verhuurder. Dit is je wettelijk recht. Twijfel je over een specifieke post? Bel het Juridisch Loket (0900-8020, gratis).`}else{actionHTML=`<strong>✓ Tip:</strong> Vraag jaarlijks de afrekening met onderliggende facturen op. Dit is wettelijk verplicht voor verhuurders. Mocht er ineens iets veranderen, dan weet je waar je staat.`}const actionBox=document.getElementById('actionBox');actionBox.innerHTML=actionHTML;if(onterechtTotaal>0){actionBox.className='info-box danger'}else if(warnings.length>0){actionBox.className='info-box warn'}else{actionBox.className='info-box'}setTimeout(()=>{document.getElementById('resultCard').scrollIntoView({behavior:'smooth',block:'start'})},100)}
+function bereken(){const allowedCosts=[{id:'schoonmaak',name:'Schoonmaak gemeenschappelijke ruimtes',note:'Doorgaans toegestaan, mits onderbouwd met facturen'},{id:'huismeester',name:'Huismeester',note:'Doorgaans toegestaan, alleen voor huurder-gerelateerde uren'},{id:'elek',name:'Elektra gemeenschappelijke ruimtes',note:'Doorgaans toegestaan, op basis van werkelijk verbruik'},{id:'tuin',name:'Tuinonderhoud gemeenschappelijke tuin',note:'Doorgaans toegestaan voor gemeenschappelijke tuinen'},{id:'lift',name:'Liftonderhoud',note:'Onderhoud doorgaans toegestaan, vervanging niet'},{id:'meubels',name:'Meubilair',note:'In beginsel max 20% inkoopwaarde/jaar, max 5 jaar'},{id:'gas',name:'Gas/water/licht (blokverwarming)',note:'Doorgaans toegestaan op basis van werkelijk verbruik'},{id:'admin',name:'Administratiekosten',note:'In beginsel max 5% van totale servicekosten'}];const notAllowedCosts=[{id:'ozb',name:'OZB (Onroerend Zaak Belasting)',note:'Eigenarendeel mag doorgaans NIET doorberekend worden'},{id:'opstal',name:'Opstalverzekering',note:'Verzekering van het pand is eigenaarslast'},{id:'grootonderhoud',name:'Groot onderhoud / vervanging',note:'Dak, gevel, CV-ketel = doorgaans eigenaarslast'},{id:'vve',name:'VvE-bijdrage (volledig)',note:'Reserveringen voor groot onderhoud doorgaans niet toegestaan'},{id:'rente',name:'Rente / financieringskosten',note:'Hypotheekkosten zijn voor verhuurder'},{id:'winst',name:'Beheerkosten / winstopslag',note:'Verhuurder mag in beginsel geen winst maken'}];let toegestaanTotaal=0;let onterechtTotaal=0;let toegestaanItems=[];let onterechtItems=[];let warnings=[];allowedCosts.forEach(c=>{if(isChecked('cost-'+c.id)){const amt=val('amt-'+c.id);toegestaanTotaal+=amt;toegestaanItems.push({...c,amount:amt})}});notAllowedCosts.forEach(c=>{if(isChecked('cost-'+c.id)){const amt=val('amt-'+c.id);onterechtTotaal+=amt;onterechtItems.push({...c,amount:amt})}});if(isChecked('cost-admin')){const adminAmt=val('amt-admin');const totalServicekosten=toegestaanTotaal+onterechtTotaal;if(adminAmt>totalServicekosten*0.05){const allowedAdmin=totalServicekosten*0.05;const overAdmin=adminAmt-allowedAdmin;warnings.push({name:'Administratiekosten te hoog',note:`In beginsel max 5% van totaal = ${fmt(allowedAdmin)}/mnd. Je betaalt mogelijk ${fmt(overAdmin)}/mnd teveel.`})}}if(toegestaanItems.length===0&&onterechtItems.length===0){alert('Vink eerst minimaal 1 servicekostenpost aan.');return}const card=document.getElementById('resultCard');card.classList.remove('hidden');let heroHTML='';if(onterechtTotaal>0){heroHTML=`<div class="result-hero problem"><div class="result-icon">⚠️</div><div class="result-headline">Mogelijk onterechte servicekosten</div><div class="result-big">${fmt(onterechtTotaal)}/maand</div><p class="result-sub">Je betaalt naar schatting <strong>${fmt(onterechtTotaal*12)}</strong> per jaar voor kosten die je verhuurder doorgaans niet mag doorberekenen. Dit kun je in beginsel tot enkele jaren terug terugvorderen — laat dit toetsen door de Huurcommissie of Juridisch Loket.</p></div>`}else if(warnings.length>0){heroHTML=`<div class="result-hero warning"><div class="result-icon">⚠</div><div class="result-headline">Twijfelpunten gevonden</div><div class="result-big">Check je afrekening</div><p class="result-sub">Geen direct onterechte kosten gesignaleerd, maar er zijn punten die extra aandacht verdienen. Vraag inzage in de facturen bij je verhuurder.</p></div>`}else{heroHTML=`<div class="result-hero ok"><div class="result-icon">✓</div><div class="result-headline">Servicekosten lijken in orde</div><div class="result-big">${fmt(toegestaanTotaal)}/maand</div><p class="result-sub">Alle aangevinkte kosten vallen in beginsel binnen de wettelijke regels. Wel raadzaam om jaarlijks de afrekening met facturen op te vragen ter controle.</p></div>`}document.getElementById('resultHero').innerHTML=heroHTML;let findingsHTML='';if(onterechtItems.length>0){findingsHTML+=`<div class="findings"><h3>❌ Doorgaans niet toegestaan (${fmt(onterechtTotaal)}/mnd totaal)</h3>`;onterechtItems.forEach(item=>{findingsHTML+=`<div class="finding-item notallowed"><div class="desc"><strong>${item.name}</strong> — ${fmt(item.amount)}/mnd<br><span style="font-size:11px">${item.note}</span></div><div class="status">Check</div></div>`});findingsHTML+=`</div>`}if(warnings.length>0){findingsHTML+=`<div class="findings"><h3>⚠️ Twijfelpunten</h3>`;warnings.forEach(item=>{findingsHTML+=`<div class="finding-item warning"><div class="desc"><strong>${item.name}</strong><br><span style="font-size:11px">${item.note}</span></div><div class="status">Check</div></div>`});findingsHTML+=`</div>`}if(toegestaanItems.length>0){findingsHTML+=`<div class="findings"><h3>✓ Doorgaans toegestaan (${fmt(toegestaanTotaal)}/mnd totaal)</h3>`;toegestaanItems.forEach(item=>{findingsHTML+=`<div class="finding-item allowed"><div class="desc"><strong>${item.name}</strong> — ${fmt(item.amount)}/mnd<br><span style="font-size:11px">${item.note}</span></div><div class="status">OK</div></div>`});findingsHTML+=`</div>`}document.getElementById('findingsContainer').innerHTML=findingsHTML;let actionHTML='';if(onterechtTotaal>0){actionHTML=`<strong>💡 Wat kun je doen?</strong><ol style="margin-top:10px;padding-left:20px;line-height:1.8"><li><strong>Vraag inzage in facturen</strong> — wettelijk recht, verhuurder moet dit doorgaans geven</li><li><strong>Schrijf een brief naar je verhuurder</strong> — vraag om terugbetaling van mogelijk onterechte kosten</li><li><strong>Procedure bij Huurcommissie</strong> — voor een formele uitspraak</li><li><strong>Tot enkele jaren terug</strong> kun je in beginsel geld terugvorderen</li><li><strong>Bij twijfel:</strong> bel het <strong>Juridisch Loket (0900-8020, gratis)</strong></li></ol>`}else if(warnings.length>0){actionHTML=`<strong>💡 Aanbeveling:</strong> Vraag de jaarafrekening met facturen op bij je verhuurder. Dit is je wettelijk recht. Twijfel je over een specifieke post? Bel het Juridisch Loket (0900-8020, gratis).`}else{actionHTML=`<strong>✓ Tip:</strong> Vraag jaarlijks de afrekening met onderliggende facturen op. Dit is wettelijk verplicht voor verhuurders. Mocht er iets veranderen, dan weet je waar je staat.`}const actionBox=document.getElementById('actionBox');actionBox.innerHTML=actionHTML;if(onterechtTotaal>0){actionBox.className='info-box danger'}else if(warnings.length>0){actionBox.className='info-box warn'}else{actionBox.className='info-box'}setTimeout(()=>{document.getElementById('resultCard').scrollIntoView({behavior:'smooth',block:'start'})},100)}
 function resetForm(){document.querySelectorAll('input[type="checkbox"]').forEach(c=>{c.checked=false;c.closest('.cost-item').classList.remove('checked')});document.querySelectorAll('input[type="number"]').forEach(i=>i.value='');document.getElementById('resultCard').classList.add('hidden');window.scrollTo({top:0,behavior:'smooth'})}
 </script>
 </body>
